@@ -8,7 +8,7 @@
 import Foundation
 
 public class Word : Hashable, Equatable {
-    let word : String
+    public var word : String
     //let def : String
     let wordType : WordType
     
@@ -43,6 +43,10 @@ public class Word : Hashable, Equatable {
     
     public static func ==(lhs: Word, rhs: Word)->Bool{
         return lhs.spanish == rhs.spanish && lhs.french == rhs.french && lhs.english == rhs.english && lhs.wordType == rhs.wordType
+    }
+    
+    public func getWordString()->String{
+        return word
     }
     
     public func getWordType()->WordType{
