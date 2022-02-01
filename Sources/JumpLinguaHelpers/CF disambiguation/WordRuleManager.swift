@@ -9,27 +9,27 @@ import Foundation
 
 //this is a list of ContextFreeSymbolStructs
 
-struct WordRuleManager {
+public struct WordRuleManager {
     var phraseType : ContextFreeSymbol
     var phraseHead : ContextFreeSymbolStruct
     var ruleList = Array<ContextFreeRule>()
     
-    init(phraseType: ContextFreeSymbol, cfss: ContextFreeSymbolStruct){
+    public init(phraseType: ContextFreeSymbol, cfss: ContextFreeSymbolStruct){
         self.phraseType = phraseType
         phraseHead = cfss
     }
     
-    mutating func initial(cfss: ContextFreeSymbolStruct){
+    public mutating func initial(cfss: ContextFreeSymbolStruct){
         ruleList.removeAll()
         phraseHead = cfss
         //phraseList.append(ContextFreeSymbol.arrow)
     }
     
-    mutating func appendRule(cfr: ContextFreeRule){
+    public mutating func appendRule(cfr: ContextFreeRule){
         ruleList.append(cfr)
     }
     
-    mutating func getRuleCount()->Int{
+    public mutating func getRuleCount()->Int{
         ruleList.count
     }
     
@@ -87,7 +87,7 @@ struct WordRuleManager {
     */
 
        
-    func getRuleString()->String{
+    public func getRuleString()->String{
         var ruleString = ""
         ruleString = phraseHead.getSymbolString()
         ruleString += " -> "

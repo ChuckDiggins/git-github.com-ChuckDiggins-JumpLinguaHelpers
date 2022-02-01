@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GrammarType{
+public enum GrammarType{
     case adjective
     case noun
     case verb
@@ -17,14 +17,14 @@ enum GrammarType{
 }
 
 
-struct ContextFreeGrammarManager{
+public struct ContextFreeGrammarManager{
     var cfGrammarList = Array<ContextFreeGrammar>()
     
-    mutating func addGrammar(cfg: ContextFreeGrammar){
+    public mutating func addGrammar(cfg: ContextFreeGrammar){
         cfGrammarList.append(cfg)
     }
     
-    func getGrammar(type: GrammarType)->ContextFreeGrammar{
+    public func getGrammar(type: GrammarType)->ContextFreeGrammar{
         for grammar in cfGrammarList {
             if grammar.grammarType == type {
                 return grammar
@@ -33,30 +33,30 @@ struct ContextFreeGrammarManager{
         return ContextFreeGrammar(name: "", description: "", grammarType: .unknown)
     }
     
-    func getGrammarList()->Array<ContextFreeGrammar>{
+    public func getGrammarList()->Array<ContextFreeGrammar>{
         return cfGrammarList
     }
 }
 
-struct ContextFreeGrammar {
+public struct ContextFreeGrammar {
     var name: String
     var description : String
     var grammarType : GrammarType
     var cfRuleList = Array<ContextFreeRule>()
     
-    init (name: String, description: String, grammarType: GrammarType){
+    public init (name: String, description: String, grammarType: GrammarType){
         self.name = name
         self.description  = description
         self.grammarType = grammarType
     }
     
-    init (){
+    public init (){
         self.name = ""
         self.description  = ""
         self.grammarType = .unknown
     }
     
-    func getName()->String{
+    public func getName()->String{
         return name
     }
     
@@ -64,15 +64,15 @@ struct ContextFreeGrammar {
         return description
     }
     
-    mutating func addRule(cfr: ContextFreeRule){
+    public mutating func addRule(cfr: ContextFreeRule){
         cfRuleList.append(cfr)
     }
     
-    func getRuleCount()->Int{
+    public func getRuleCount()->Int{
         return cfRuleList.count
     }
     
-    func printRules(){
+    public func printRules(){
         for rule in cfRuleList {
             print ("Rule: \(rule.getSymbolString())")
         }

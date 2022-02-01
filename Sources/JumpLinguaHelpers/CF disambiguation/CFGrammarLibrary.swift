@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CFGrammarLibrary {
+public struct CFGrammarLibrary {
     var nounPhraseGrammar = ContextFreeGrammar()
     var verbPhraseGrammar = ContextFreeGrammar()
     var prepositionalPhraseGrammar = ContextFreeGrammar()
     var adjectivePhraseGrammar = ContextFreeGrammar()
 }
 
-struct GnosticGrammarLibrary {
+public struct GnosticGrammarLibrary {
     let language : LanguageType
     init(language: LanguageType )
     {

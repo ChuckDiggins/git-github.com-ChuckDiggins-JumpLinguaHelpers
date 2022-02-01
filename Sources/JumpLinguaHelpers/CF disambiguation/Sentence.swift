@@ -35,7 +35,7 @@ public class dSentence : dClause {
 
 // struct "Sentence" has the logic for parsing sentences on the fly
 
-struct Sentence  {
+public struct Sentence  {
     var grammarLibrary = CFGrammarLibrary()
     var originalSentenceString : String
     var dataList : Array<SentenceData>
@@ -46,28 +46,28 @@ struct Sentence  {
     //var wordObjectList = Array<Word>()
     //var sentenceWordData = Array<SentenceWordData>()  //current information about each word
 
-    init(sentenceString: String, data: Array<SentenceData>){
+    public init(sentenceString: String, data: Array<SentenceData>){
         self.originalSentenceString = sentenceString
         self.dataList = data
     }
     
-    mutating func setGrammarLibrary(cfLib : CFGrammarLibrary){
+    public mutating func setGrammarLibrary(cfLib : CFGrammarLibrary){
         grammarLibrary = cfLib
     }
 
-    mutating func getCurrentRuleManager()->WordRuleManager{
+    public mutating func getCurrentRuleManager()->WordRuleManager{
         return clauseList[currentWordRuleIndex]
     }
     
-    mutating func setCurrentWordRuleManager(mgr : WordRuleManager){
+    public mutating func setCurrentWordRuleManager(mgr : WordRuleManager){
         clauseList[currentWordRuleIndex] = mgr
     }
     
-    mutating func appendWord(data: SentenceData){
+    public mutating func appendWord(data: SentenceData){
         dataList.append(data)
     }
     
-    func getWordList()-> (Array<Word>){
+    public func getWordList()-> (Array<Word>){
         var wordList = Array<Word>()
         
         for data in dataList {
@@ -76,15 +76,15 @@ struct Sentence  {
         return wordList
     }
     
-    mutating func getCurrentCFRuleListCount()->Int{
+    public mutating func getCurrentCFRuleListCount()->Int{
         return getCurrentRuleManager().ruleList.count
     }
     
-    mutating func getCurrentCFRuleList()->Array<ContextFreeRule>{
+    public mutating func getCurrentCFRuleList()->Array<ContextFreeRule>{
         return getCurrentRuleManager().ruleList
     }
     
-    mutating func analyze(){
+    public mutating func analyze(){
         if clauseList.isEmpty{
             print("sentence clauseList is empty")
         }
@@ -117,7 +117,7 @@ struct Sentence  {
         }
     }
     
-    mutating func findNextLocationOfSymbolInClusterList(sym : ContextFreeSymbol, startIndex : Int)->Int{
+    public mutating func findNextLocationOfSymbolInClusterList(sym : ContextFreeSymbol, startIndex : Int)->Int{
         let clusterList = sentence.getClusterList()
         for i in startIndex ..< sentence.getClusterCount() {
             let clusterSym = clusterList[i].getClusterType()
@@ -128,7 +128,7 @@ struct Sentence  {
         return -1
     }
     
-    mutating func sentenceHasOptionalMultipleRule(cfRule : ContextFreeRule, startIndex : Int)->Int{
+    public mutating func sentenceHasOptionalMultipleRule(cfRule : ContextFreeRule, startIndex : Int)->Int{
         let cfSymbolStructCount = cfRule.getSymbolStructCount()
         var minMatchCount = 0
         var matchCount = 0
@@ -218,7 +218,7 @@ struct Sentence  {
     }
         
 
-    mutating func printClusters(){
+    public mutating func printClusters(){
         print("Sentence - analyze - Cluster count = \(sentence.getClusterCount())")
         for  cluster in sentence.getClusterList() {
             if cluster.getClusterType().isSingle()
@@ -236,7 +236,7 @@ struct Sentence  {
         print(" ")
     }
     
-    mutating func checkForNounPhrases(){
+    public mutating func checkForNounPhrases(){
         let grammar = grammarLibrary.nounPhraseGrammar
         var startIndex = 0
         
@@ -250,7 +250,7 @@ struct Sentence  {
         print("Sentence.Analyze: after noun phrase rule count = \(sentence.getClusterCount())")
     }
     
-    mutating func checkForVerbPhrases(){
+    public mutating func checkForVerbPhrases(){
         let grammar = grammarLibrary.verbPhraseGrammar
         var startIndex = 0
 
@@ -264,7 +264,7 @@ struct Sentence  {
         print("Sentence.Analyze: after verb phrase rule count = \(sentence.getClusterCount())")
     }
 
-    mutating func checkForPrepositionPhrases(){
+    public mutating func checkForPrepositionPhrases(){
         let grammar = grammarLibrary.prepositionalPhraseGrammar
         var startIndex = 0
 
@@ -279,7 +279,7 @@ struct Sentence  {
     }
 
     
-        mutating func createClustersFromWordList(){
+    public mutating func createClustersFromWordList(){
         if ( clauseList.isEmpty ){
             let cfHead = ContextFreeSymbolStruct(cfs : .S, word: Word() )
             let sentenceClause = WordRuleManager(phraseType: .S,
@@ -330,7 +330,7 @@ struct Sentence  {
         }//sentence
         
    
-    mutating func getReconstructedSentenceString()->String {
+    public mutating func getReconstructedSentenceString()->String {
         var ss = ""
         var str = ""
         //print ("getReconstructedSentenceString - dataList count = \(dataList.count)")

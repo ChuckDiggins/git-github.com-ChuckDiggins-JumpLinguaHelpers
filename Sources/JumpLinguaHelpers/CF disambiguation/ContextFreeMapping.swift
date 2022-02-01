@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Mapping {
+public enum Mapping {
     case OneToOne
     case ManyToOne
     case OneToMany
@@ -17,12 +17,12 @@ enum Mapping {
     case Subjunctive
 }
 
-struct MappingPair {
+public struct MappingPair {
     let cfs1 : ContextFreeSymbol
     let cfs2 : ContextFreeSymbol
 }
 
-struct ContextFreeMapping {
+public struct ContextFreeMapping {
     //let cfs = ContextFreeSymbol.AMB
   
     func getMapping(languageFrom: LanguageType, languageTo: LanguageType, phraseType: ContextFreeSymbol)->Mapping{
@@ -33,7 +33,7 @@ struct ContextFreeMapping {
     //composite phrases such as NP and PP will have their own mapping
     //does not address adjective phrases or adverbial phrases, etc.
     
-    func fromRomanceVPToEnglishVP(fromVP: dVerbPhrase)->dVerbPhrase{
+    public func fromRomanceVPToEnglishVP(fromVP: dVerbPhrase)->dVerbPhrase{
         let toVP = dVerbPhrase()
         
         for index  in 0 ..< fromVP.getClusterList().count {
@@ -53,7 +53,7 @@ struct ContextFreeMapping {
         return toVP
     }
     
-    func fromRomancePPToEnglishPP(fromPP: dPrepositionPhrase)->dPrepositionPhrase{
+    public func fromRomancePPToEnglishPP(fromPP: dPrepositionPhrase)->dPrepositionPhrase{
         let toPP = dPrepositionPhrase()
         
         for index  in 0 ..< fromPP.getClusterList().count {
@@ -73,7 +73,7 @@ struct ContextFreeMapping {
         return toPP
     }
     
-    func fromRomanceNPToEnglishNP(fromNP: dNounPhrase)->dNounPhrase{
+    public func fromRomanceNPToEnglishNP(fromNP: dNounPhrase)->dNounPhrase{
         let toNP = dNounPhrase()
         
         var npCount = 0
@@ -188,11 +188,11 @@ struct ContextFreeMapping {
         return toNP
     }
     
-    func createMappingSubjectToSubjectPronoun(){
+    public func createMappingSubjectToSubjectPronoun(){
         
     }
     
-    func createMappingRomanceToEnglishNP1()->[MappingPair]{
+    public func createMappingRomanceToEnglishNP1()->[MappingPair]{
         var pairList = [MappingPair]()
         pairList.append( MappingPair(cfs1: .Art, cfs2:.Art) )
         pairList.append( MappingPair(cfs1: .N, cfs2:.Adj) )
@@ -200,7 +200,7 @@ struct ContextFreeMapping {
         return pairList
     }
     
-    func createMappingSpanishQuestion()->[MappingPair]{
+    public func createMappingSpanishQuestion()->[MappingPair]{
         var pairList = [MappingPair]()
         pairList.append( MappingPair(cfs1: .Art, cfs2:.Art) )
         pairList.append( MappingPair(cfs1: .NP, cfs2:.Adj) )

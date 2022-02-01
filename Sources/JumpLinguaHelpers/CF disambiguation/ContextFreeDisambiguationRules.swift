@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct ContextFreeDisambiguateA{
+public struct ContextFreeDisambiguateA{
     let sentence : String
     let words = Array<Word>()
     
-    init(sentence: String){
+    public init(sentence: String){
         self.sentence = sentence
     }
     
-    func parseSentence (){
+    public func parseSentence (){
         let util = Utilities()
         let words = util.getListOfWords(characterArray: sentence)
         

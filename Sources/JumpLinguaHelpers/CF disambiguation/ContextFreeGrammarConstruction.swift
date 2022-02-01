@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ContextFreeGrammarConstruction{
-    mutating func createSomeNounPhraseGrammar()->ContextFreeGrammar{
+public struct ContextFreeGrammarConstruction{
+    public mutating func createSomeNounPhraseGrammar()->ContextFreeGrammar{
         var grammar = ContextFreeGrammar(name: "Noun Phrases", description: "Handles all the phrases starting with NP", grammarType : .noun)
         
         var cfr : ContextFreeRule
@@ -39,7 +39,7 @@ struct ContextFreeGrammarConstruction{
         return grammar
     }
     
-    mutating func createSomePrepositionalPhraseGrammar()->ContextFreeGrammar{
+    public mutating func createSomePrepositionalPhraseGrammar()->ContextFreeGrammar{
         
         var grammar = ContextFreeGrammar(name: "Prepositional Phrases", description: "Handles all the phrases starting with PP", grammarType : .preposition)
         var cfr : ContextFreeRule
@@ -54,7 +54,7 @@ struct ContextFreeGrammarConstruction{
         
     }
     
-    mutating func createSomeVerbPhraseGrammar()->ContextFreeGrammar{
+    public mutating func createSomeVerbPhraseGrammar()->ContextFreeGrammar{
         
         var cfr : ContextFreeRule
         
@@ -90,7 +90,7 @@ struct ContextFreeGrammarConstruction{
     }
     
     
-    mutating func createSomeAdjectivePhraseGrammar()->ContextFreeGrammar{
+    public mutating func createSomeAdjectivePhraseGrammar()->ContextFreeGrammar{
         
         var grammar = ContextFreeGrammar(name: "Adjective Phrases", description: "Handles all the phrases starting with AP", grammarType : .noun)
         var cfr = ContextFreeRule(start: ContextFreeSymbolStruct(cfs: .AP, word: Word()))

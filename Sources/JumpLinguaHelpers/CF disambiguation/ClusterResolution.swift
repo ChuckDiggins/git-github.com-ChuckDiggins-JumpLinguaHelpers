@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct ClusterResolution {
+public struct ClusterResolution {
     let m_language : LanguageType
     let m_wsp : WordStringParser
     
-    func resolveObjectAndReflexivePronouns (sentenceData: Array<SentenceData>)->Array<SentenceData>{
+    public func resolveObjectAndReflexivePronouns (sentenceData: Array<SentenceData>)->Array<SentenceData>{
         let sentenceCopy = sentenceData
         
         //look for consecutive object pronouns "los hombres se nos dieron el libro" -
@@ -133,7 +133,7 @@ struct ClusterResolution {
     }
     */
     
-    func resolveAmbiguousSingles(sentenceData: Array<SentenceData>)->Array<SentenceData>{
+    public func resolveAmbiguousSingles(sentenceData: Array<SentenceData>)->Array<SentenceData>{
         var sentenceCopy = sentenceData
         var prevWordType = ContextFreeSymbol.UNK
         
@@ -161,7 +161,7 @@ struct ClusterResolution {
         return sentenceCopy
     }
     
-    func convertAmbiguousToNewType(sd: SentenceData, newType: WordType)->SentenceData{
+    public func convertAmbiguousToNewType(sd: SentenceData, newType: WordType)->SentenceData{
         var wd = sd
         var pronounResult : (PronounType, Gender, Person)
         switch m_language{

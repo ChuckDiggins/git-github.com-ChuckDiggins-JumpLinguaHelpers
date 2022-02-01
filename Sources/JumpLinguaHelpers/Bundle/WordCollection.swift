@@ -27,6 +27,10 @@ public struct dWordCollection : Equatable {
         self.wordList = wordList
     }
     
+    public func getCollectionName()->String{
+        return collectionName
+    }
+    
     public mutating func appendWord(word: Word){
         wordList.append(word)
     }

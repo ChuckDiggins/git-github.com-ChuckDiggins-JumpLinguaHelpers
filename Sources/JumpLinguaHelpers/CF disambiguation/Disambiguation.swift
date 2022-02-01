@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ContractionType{
+public enum ContractionType{
     case conmigo
     case del
     case al
@@ -18,15 +18,15 @@ enum ContractionType{
 //mutating func parseWordListIntoWordObjects(wordList: Array<String>)->Array<Word>{
 //    return getWordObjects(language: .Spanish, wordList: wordList)
 //}
-struct Disambiguation {
+public struct Disambiguation {
     
     var m_wsp : WordStringParser!
     
-    mutating func setWordStringParser(wsp: WordStringParser){
+    public mutating func setWordStringParser(wsp: WordStringParser){
         m_wsp = wsp
     }
     
-    mutating func findContraction(language: LanguageType, singleList : Array<dSingle>, contractionType: ContractionType)->Array<dSingle>{
+    public mutating func findContraction(language: LanguageType, singleList : Array<dSingle>, contractionType: ContractionType)->Array<dSingle>{
         var newSingleList = singleList
         switch contractionType {
         case .conmigo:
@@ -44,7 +44,7 @@ struct Disambiguation {
         
     }
 
-    mutating func findLeContraction(singleList : Array<dSingle>)->Array<dSingle>{
+    public mutating func findLeContraction(singleList : Array<dSingle>)->Array<dSingle>{
         //var newSingleList = singleList
         //no contraction will start with the last single
         for i in 0 ..< singleList.count-1 {
@@ -69,7 +69,7 @@ struct Disambiguation {
         return  singleList
     }
     
-    mutating func prescreen(sdList : Array<SentenceData>)->Array<SentenceData>{
+    public mutating func prescreen(sdList : Array<SentenceData>)->Array<SentenceData>{
         var sentenceDataList = sdList
         
         sentenceDataList = lookForProgressivePlusAttachedPronouns(sdList: sdList)
@@ -78,7 +78,7 @@ struct Disambiguation {
         return sentenceDataList
     }
     
-    mutating func lookForCompoundVerbs(sdList : Array<SentenceData>)->Array<SentenceData>{
+    public mutating func lookForCompoundVerbs(sdList : Array<SentenceData>)->Array<SentenceData>{
         var sentenceDataList = sdList
         var compoundVerbFound = true
         //var tense = Tense.present
@@ -132,7 +132,7 @@ struct Disambiguation {
         return sentenceDataList
     }
     
-    mutating func lookForProgressivePlusAttachedPronouns(sdList : Array<SentenceData>)->Array<SentenceData>{
+    public mutating func lookForProgressivePlusAttachedPronouns(sdList : Array<SentenceData>)->Array<SentenceData>{
         var sentenceDataList = sdList
         //handle object pronouns of various sorts, detaching them from other words
         //such as vendiéndomelos = viendo + me + los
