@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Rebeloper{
-    public func work(){
+    public static func work(){
         print("Rebeloper ")
     }
 }
