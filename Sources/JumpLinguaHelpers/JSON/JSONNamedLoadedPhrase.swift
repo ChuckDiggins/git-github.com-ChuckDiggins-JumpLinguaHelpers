@@ -7,7 +7,7 @@
 
 import Foundation
 
-import UIKit
+//import UIKit
 
 public struct JSONNamedLoadedPhrase: Codable {
     var language: String //agnostic means any language, otherwise it is language-specific

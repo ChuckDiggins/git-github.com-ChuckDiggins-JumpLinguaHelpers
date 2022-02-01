@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class dClause : dCluster, ObservableObject {
+//public class dClause : dCluster, ObservableObject {
+public class dClause : dCluster {
     @Published private(set) var clause = dClause.self
     
     

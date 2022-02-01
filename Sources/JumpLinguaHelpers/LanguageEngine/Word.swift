@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 public class Word : Hashable, Equatable {
     let word : String

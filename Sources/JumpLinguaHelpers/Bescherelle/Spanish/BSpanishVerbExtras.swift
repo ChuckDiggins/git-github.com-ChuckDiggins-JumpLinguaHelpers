@@ -11,19 +11,12 @@ import Foundation
 
 struct BSpanishVerbExtras {
     
-    func restoreMorphStructs(verb: BSpanishVerb)
+    public func restoreMorphStructs(verb: BSpanishVerb)
     {
-        for person in Person.allCases {
-            restoreMorphStructs(verb: verb, person: person)
-        }
-    }
-    
-    func restoreMorphStructs(verb: BSpanishVerb, person : Person)
-    {
-        verb.m_morphStruct[person.rawValue].clear()
-        verb.m_morphStruct[person.rawValue].copyContents(input: verb.m_initialMorphObject[person.rawValue])
+        verb.morphStructManager.restoreToInitialState()
     }
 
+    
     
     func readModelParseStuff(verb: BSpanishVerb){
         

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 public class dCluster : Hashable {
     var m_clusterWord : Word
