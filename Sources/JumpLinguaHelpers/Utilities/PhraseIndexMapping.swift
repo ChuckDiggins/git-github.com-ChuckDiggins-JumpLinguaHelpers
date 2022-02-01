@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct PhraseIndexMapping {
+public struct PhraseIndexMapping {
     var cfs : ContextFreeSymbol
     var agnosticIndex : Int
     var spanishIndex : Int
     var frenchIndex : Int
     var englishIndex : Int
     
-    mutating func setMapIndex(language: LanguageType, index: Int){
+    public mutating func setMapIndex(language: LanguageType, index: Int){
         switch language {
         case .Spanish: spanishIndex = index
         case .French: frenchIndex = index
@@ -24,7 +24,7 @@ struct PhraseIndexMapping {
         }
     }
     
-    func getMapIndex(language: LanguageType)->Int{
+    public func getMapIndex(language: LanguageType)->Int{
         switch language {
         case .Spanish: return spanishIndex
         case .French: return frenchIndex
@@ -34,11 +34,11 @@ struct PhraseIndexMapping {
         }
     }
     
-    func getAgnosticIndex()->Int{
+    public func getAgnosticIndex()->Int{
         return agnosticIndex
     }
     
-    mutating func setAgnosticIndex(index: Int){
+    public mutating func setAgnosticIndex(index: Int){
         agnosticIndex = index
     }
 }

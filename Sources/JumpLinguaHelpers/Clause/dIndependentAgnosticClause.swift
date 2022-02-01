@@ -7,7 +7,7 @@
 
 import Foundation
 
-class dIndependentAgnosticClause : dClause{
+public class dIndependentAgnosticClause : dClause{
     var grammarLibrary = CFGrammarLibrary()
     var frenchGrammarLibrary = CFGrammarLibrary()
     var originalSentenceString = String()
@@ -22,7 +22,7 @@ class dIndependentAgnosticClause : dClause{
     
     var workingSingleList = [dSingle]()
     
-    override init(){
+    public override init(){
         super.init()
 //        print("\nNew dIndependentAgnosticClause")
     }
@@ -31,11 +31,11 @@ class dIndependentAgnosticClause : dClause{
 //        sentence.appendCluster(cluster: cluster)
 //    }
     
-    func initializeMorphStructs(){
+    public func initializeMorphStructs(){
         m_cfMorphStruct.clear()
     }
     
-    func copy(inClause :dIndependentAgnosticClause){
+    public func copy(inClause :dIndependentAgnosticClause){
         clearClusterList()
         for cluster in inClause.getClusterList() {
             appendCluster(cluster: cluster)
@@ -43,7 +43,7 @@ class dIndependentAgnosticClause : dClause{
         setHeadNounAndHeadVerb()
     }
     
-    func convertRomancePhraseOrderToEnglishPhraseOrder(){
+    public func convertRomancePhraseOrderToEnglishPhraseOrder(){
         let cfMap = ContextFreeMapping()
         //let newSentence = dSentence()
         let newCluster = dCluster()
@@ -67,7 +67,7 @@ class dIndependentAgnosticClause : dClause{
         setClusterList(clusterList: newCluster.getClusterList())
     }
     
-    func getCompositeSentenceString(language: LanguageType, targetFunction: ContextFreeFunction)
+    public func getCompositeSentenceString(language: LanguageType, targetFunction: ContextFreeFunction)
                      ->(targetSingleList: [dSingle], gender: Gender, number: Number, person: Person, targetString: String) {
         //var workingSingleList = [dSingle]()
         //var singleListBefore = Array<dSingle>()  //pre target
@@ -128,7 +128,7 @@ class dIndependentAgnosticClause : dClause{
         return (targetSingleList, gender, number, person, targetString)
     }
     
-    func processInfo(){
+    public func processInfo(){
         print("dIndependentAgnosticClause: cluster count = \(getClusterList().count)")
         for cluster in getClusterList(){
             switch cluster.getClusterType() {
@@ -152,7 +152,7 @@ class dIndependentAgnosticClause : dClause{
         }
     }
     
-    func setTenseAndPersonAndCreateNewSentenceString(language: LanguageType, tense: Tense, person: Person)->String{
+    public func setTenseAndPersonAndCreateNewSentenceString(language: LanguageType, tense: Tense, person: Person)->String{
         print("entering setTenseAndPersonAndCreateNewSentenceString: language= \(language.rawValue), tense=\(tense.rawValue), person=\(person.rawValue)")
         if ( headVerb.getClusterType() != .UNK){
             let hvp = headVerb as! dVerbPhrase
@@ -172,13 +172,13 @@ class dIndependentAgnosticClause : dClause{
     
 
     
-    func createNewSentenceString(language: LanguageType)->String{
+    public func createNewSentenceString(language: LanguageType)->String{
         var sentenceString = getReconstructedSentenceString(language: language)
         sentenceString = VerbUtilities().makeSentenceByEliminatingExtraBlanksAndDoingOtherStuff(characterArray: sentenceString)
         return sentenceString
     }
 
-    func getReconstructedSentenceString(language: LanguageType)->String {
+    public func getReconstructedSentenceString(language: LanguageType)->String {
         var ss = ""
         var str = ""
     
@@ -207,7 +207,7 @@ class dIndependentAgnosticClause : dClause{
         return ss
     }
     
-    func setHeadNounAndHeadVerb(){
+    public func setHeadNounAndHeadVerb(){
         for cluster in getClusterList(){
             //for now assume that the first NP is the head noun
             if cluster.getClusterType() == .NP {
@@ -229,18 +229,18 @@ class dIndependentAgnosticClause : dClause{
     
     //this has the head NP inform the head VP about person
     
-    func hasHeadVerb()->Bool{
+    public func hasHeadVerb()->Bool{
         if headVerb.getClusterType() == .V || headVerb.getClusterType() == .VP {return true}
         return false
         
     }
     
-    func hasHeadNoun()->Bool{
+    public func hasHeadNoun()->Bool{
         if headNoun.getClusterType() == .N || headNoun.getClusterType() == .NP {return true}
         return false
     }
     
-    func informHeadVerb(){
+    public func informHeadVerb(){
         if hasHeadVerb() && hasHeadNoun() {
             let hvp = headVerb as! dVerbPhrase
             if  headNoun.getClusterType() == .N || headNoun.getClusterType() == .PersPro {hvp.setPerson(value: headNoun.getPerson())}
@@ -255,7 +255,7 @@ class dIndependentAgnosticClause : dClause{
     }
     
         
-    func getWordString(language: LanguageType, single: dSingle)->String{
+    public func getWordString(language: LanguageType, single: dSingle)->String{
         if single.isPersonalPronounType(){
             let ppSingle = single as! dPersonalPronounSingle
             return ppSingle.getWordStringAtLanguage(language: language)
@@ -263,7 +263,7 @@ class dIndependentAgnosticClause : dClause{
         return single.getProcessWordInWordStateData(language: language) + " "
     }
     
-    func getSingleList()->[dSingle]{
+    public func getSingleList()->[dSingle]{
         var singleList = [dSingle]()
         var clusterIndex = 0
         //let count = sentence.getClusterList().count
@@ -292,7 +292,7 @@ class dIndependentAgnosticClause : dClause{
         return singleList
     }
     
-    func getSingleStringList(language: LanguageType)->[String]{
+    public func getSingleStringList(language: LanguageType)->[String]{
         var singleStringList = [String]()
         for single in getSingleList(){
             singleStringList.append(single.getProcessWordInWordStateData(language: language))
@@ -300,7 +300,7 @@ class dIndependentAgnosticClause : dClause{
         return singleStringList
     }
  
-    func getWordTypeList()->[String]{
+    public func getWordTypeList()->[String]{
         var wordTypeList = [String]()
         for single in getSingleList(){
             wordTypeList.append(single.getWordType().rawValue)
@@ -308,7 +308,7 @@ class dIndependentAgnosticClause : dClause{
         return wordTypeList
     }
  
-    func getParentPhraseTypeList()->[String]{
+    public func getParentPhraseTypeList()->[String]{
         var phraseTypeList = [String]()
         for single in getSingleList(){
             let clusterType = single.getParentClusterType()
@@ -320,15 +320,15 @@ class dIndependentAgnosticClause : dClause{
     
     //working singles - for use in morphing sentences
     
-    func setWorkingSingleList(singleList: [dSingle]){
+    public func setWorkingSingleList(singleList: [dSingle]){
         workingSingleList = singleList
     }
     
-    func getWorkingSingleList()->[dSingle]{
+    public func getWorkingSingleList()->[dSingle]{
         return workingSingleList
     }
     
-    func dumpWorkingSingleList(language: LanguageType, showPronounTypes:Bool){
+    public func dumpWorkingSingleList(language: LanguageType, showPronounTypes:Bool){
         let workingSingleList = getWorkingSingleList()
         print("dumpWorkingSingleList: ")
         for index in 0 ..< workingSingleList.count {
@@ -346,7 +346,7 @@ class dIndependentAgnosticClause : dClause{
     //extracting pronoun phrase data
     
     
-    func dumpNounPhraseData(){
+    public func dumpNounPhraseData(){
         for cluster in getClusterList(){
             switch cluster.getClusterType() {
             case .NP:
@@ -359,7 +359,7 @@ class dIndependentAgnosticClause : dClause{
     
     
     
-    func getPronoun(language: LanguageType, type : PronounType)->Pronoun{
+    public func getPronoun(language: LanguageType, type : PronounType)->Pronoun{
         switch type{
         case .SUBJECT: return getSubjectPronoun(language: language)
         case .DIRECT_OBJECT: return getDirectObjectPronoun(language: language)
@@ -368,7 +368,7 @@ class dIndependentAgnosticClause : dClause{
         }
     }
     
-    func getPronounString(language: LanguageType, type : PronounType)->String{
+    public func getPronounString(language: LanguageType, type : PronounType)->String{
         let pronoun = getPronoun(language: language, type: type)
         switch language {
         case .Spanish:
@@ -385,7 +385,7 @@ class dIndependentAgnosticClause : dClause{
         }
     }
     
-    func getSubjectPronoun(language: LanguageType)->Pronoun
+    public func getSubjectPronoun(language: LanguageType)->Pronoun
     {
         if ( headNoun.getClusterType() == .UNK){
             setHeadNounAndHeadVerb()
@@ -397,7 +397,7 @@ class dIndependentAgnosticClause : dClause{
         return Pronoun()
     }
     
-    func getDirectObjectPronoun(language: LanguageType)->Pronoun{
+    public func getDirectObjectPronoun(language: LanguageType)->Pronoun{
         let hvp = headVerb as! dVerbPhrase
         if hvp.hasClusterFunction(fn: .DirectObject){
             let c = hvp.getClusterAtFunction(fn: .DirectObject)
@@ -407,7 +407,7 @@ class dIndependentAgnosticClause : dClause{
         return Pronoun()
     }
     
-    func getIndirectObjectPronoun(language: LanguageType)->Pronoun{
+    public func getIndirectObjectPronoun(language: LanguageType)->Pronoun{
         let hvp = headVerb as! dVerbPhrase
         if hvp.hasClusterFunction(fn: .DirectObject){
             let c = hvp.getClusterAtFunction(fn: .IndirectObject)
@@ -418,7 +418,7 @@ class dIndependentAgnosticClause : dClause{
     }
     
 
-    func getSubjectPronounStringA(language: LanguageType)->String{
+    public func getSubjectPronounStringA(language: LanguageType)->String{
         let pronoun = getSubjectPronoun(language: language)
         switch language {
         case .Spanish:
@@ -437,7 +437,7 @@ class dIndependentAgnosticClause : dClause{
     }
     
     
-    func getDirectObjectPronounString(language: LanguageType)->String{
+    public func getDirectObjectPronounString(language: LanguageType)->String{
         let hvp = headVerb as! dVerbPhrase
         if hvp.hasClusterFunction(fn: .DirectObject){
             let c = hvp.getClusterAtFunction(fn: .DirectObject)
@@ -447,7 +447,7 @@ class dIndependentAgnosticClause : dClause{
         return ""
     }
     
-    func getIndirectObjectPronounString(language: LanguageType)->String{
+    public func getIndirectObjectPronounString(language: LanguageType)->String{
         let hvp = headVerb as! dVerbPhrase
         if hvp.hasClusterFunction(fn: .IndirectObject){
             let c = hvp.getClusterAtFunction(fn: .IndirectObject)

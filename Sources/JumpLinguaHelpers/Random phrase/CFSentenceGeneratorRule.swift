@@ -11,7 +11,7 @@ import Foundation
 //  in creating sentences of various complexity of random words
 
 
-enum RandomPhraseType{
+public enum RandomPhraseType{
     case twoArticles
     case articleNoun
     case subjectPronounVerb
@@ -28,23 +28,23 @@ enum RandomPhraseType{
     case simpleAdjectiveDemonstrative
 }
 
-struct RandomSentence {
+public struct RandomSentence {
     var m_wsp : WordStringParser!
     var m_randomWord : RandomWordLists!
     var m_rft = RandomPhraseType.simpleNounPhrase
     var m_wordList = [Word]()
     
-    init (wsp : WordStringParser, rft:RandomPhraseType){
+    public init (wsp : WordStringParser, rft:RandomPhraseType){
         self.m_wsp = wsp
         self.m_randomWord = RandomWordLists(wsp: m_wsp)
         self.m_rft = rft
     }
     
-    mutating func setRandomPhraseType(rft: RandomPhraseType){
+    public mutating func setRandomPhraseType(rft: RandomPhraseType){
         m_rft = rft
     }
 
-    mutating func createRandomAgnosticPhrase(phraseType: RandomPhraseType)->dIndependentAgnosticClause {
+    public  mutating func createRandomAgnosticPhrase(phraseType: RandomPhraseType)->dIndependentAgnosticClause {
   
 //        switch phraseType{
 //        case .simpleClause:
@@ -70,7 +70,7 @@ struct RandomSentence {
         return agnosticClause
     }
     
-    mutating func createRandomAgnosticPhrase(clause: dIndependentAgnosticClause, phraseType: RandomPhraseType) {
+    public mutating func createRandomAgnosticPhrase(clause: dIndependentAgnosticClause, phraseType: RandomPhraseType) {
         
         switch phraseType{
         case .simpleClause:
@@ -93,7 +93,7 @@ struct RandomSentence {
     
 //
     
-    mutating func createSimpleAgnosticClause(clause: dIndependentAgnosticClause){
+    public mutating func createSimpleAgnosticClause(clause: dIndependentAgnosticClause){
         var clausePerson = Person.S3
         let NP1 = dNounPhrase()
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Det, isSubject:false))
@@ -139,7 +139,7 @@ struct RandomSentence {
     }
     
     
-    mutating func createSimpleAgnosticEnglishClause(clause: dIndependentAgnosticClause){
+    public mutating func createSimpleAgnosticEnglishClause(clause: dIndependentAgnosticClause){
         let NP1 = dNounPhrase()
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Det, isSubject:false))
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Adj, isSubject:false))
@@ -185,7 +185,7 @@ struct RandomSentence {
 //        return clause
     }
 
-    mutating func createAgnosticSubjectPronounVerbClause(clause: dIndependentAgnosticClause){
+    public mutating func createAgnosticSubjectPronounVerbClause(clause: dIndependentAgnosticClause){
         let NP1 = dNounPhrase()
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .PersPro, isSubject:true))
         let VP = dVerbPhrase()
@@ -203,7 +203,7 @@ struct RandomSentence {
         
     }
     
-    mutating func createSimpleNounPhrase(clause: dIndependentAgnosticClause){
+    public mutating func createSimpleNounPhrase(clause: dIndependentAgnosticClause){
         let NP1 = dNounPhrase()
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Det, isSubject:false))
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .N, isSubject:true))
@@ -215,7 +215,7 @@ struct RandomSentence {
 //        return clause
     }
     
-    mutating func createSimplePrepositionPhrase(clause: dIndependentAgnosticClause){
+    public mutating func createSimplePrepositionPhrase(clause: dIndependentAgnosticClause){
         let NP1 = dNounPhrase()
 
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Art, isSubject:false))
@@ -233,7 +233,7 @@ struct RandomSentence {
 //        return clause
     }
     
-    mutating func createSimpleVerbAdverbPhrase(clause: dIndependentAgnosticClause){
+    public mutating func createSimpleVerbAdverbPhrase(clause: dIndependentAgnosticClause){
         let NP1 = dNounPhrase()
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Det, isSubject:false))
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .N, isSubject:true))
