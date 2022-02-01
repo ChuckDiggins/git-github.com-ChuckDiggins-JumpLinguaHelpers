@@ -8,8 +8,8 @@
 import Foundation
 
 public class dCluster : Hashable {
-    var m_clusterWord : Word
-    var m_clusterType : ContextFreeSymbol
+    public var m_clusterWord : Word
+    public var m_clusterType : ContextFreeSymbol
     var m_parentClusterType = ContextFreeSymbol.UNK
     var m_clusterFunction = ContextFreeFunction.None
     var m_associatedWordList = [Word]()
