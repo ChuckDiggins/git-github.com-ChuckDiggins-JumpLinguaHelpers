@@ -9,27 +9,27 @@ import Foundation
 
 public struct RandomWordLists  {
     var id = UUID()
-    static func == (lhs: RandomWordLists, rhs: RandomWordLists) -> Bool {
+    public static func == (lhs: RandomWordLists, rhs: RandomWordLists) -> Bool {
         return lhs.m_language == rhs.m_language
     }
     
-    var m_wsp : WordStringParser?
-    var m_language = LanguageType.Spanish
-    var m_subjects = Array<Word>()
-    var m_verbs = Array<Word>()
-    var m_nouns = Array<Word>()
-    var m_objects = Array<Word>()
+    public var m_wsp : WordStringParser?
+    public var m_language = LanguageType.Spanish
+    public var m_subjects = Array<Word>()
+    public var m_verbs = Array<Word>()
+    public var m_nouns = Array<Word>()
+    public var m_objects = Array<Word>()
     
-    var m_adverbs = Array<Word>()
-    var m_conjunctions = Array<Word>()
-    var m_determiners = Array<Word>()
-    var m_adjectives = Array<Word>()
-    var m_prepositions = Array<Word>()
-    var m_pronouns = Array<Word>()
+    public var m_adverbs = Array<Word>()
+    public var m_conjunctions = Array<Word>()
+    public var m_determiners = Array<Word>()
+    public var m_adjectives = Array<Word>()
+    public var m_prepositions = Array<Word>()
+    public var m_pronouns = Array<Word>()
     
-    var sentenceData = Array<SentenceData>()
+    public var sentenceData = Array<SentenceData>()
     
-    init(wsp: WordStringParser){
+    public init(wsp: WordStringParser){
         m_wsp = wsp
         m_language = wsp.getLanguage()
         createListOfAgnosticSubjects()

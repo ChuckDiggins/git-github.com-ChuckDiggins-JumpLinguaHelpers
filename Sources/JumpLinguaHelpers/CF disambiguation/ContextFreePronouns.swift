@@ -19,24 +19,24 @@ import Foundation
 //    case prepositionalObject = "Prepositional object phrase"
 //}
 
-struct RandomPersonalPronounPhrase {
+public struct RandomPersonalPronounPhrase {
     
-    var m_wsp : WordStringParser!
+    public var m_wsp : WordStringParser!
     var m_randomWord : RandomWordListsForPersonalPronounGames!
-    var m_rft = RandomPhraseType.simpleNounPhrase
-    var m_wordList = [Word]()
+    public var m_rft = RandomPhraseType.simpleNounPhrase
+    public var m_wordList = [Word]()
     
-    init (wsp : WordStringParser, rft:RandomPhraseType){
+    public init (wsp : WordStringParser, rft:RandomPhraseType){
         self.m_wsp = wsp
         self.m_randomWord = RandomWordListsForPersonalPronounGames(wsp: m_wsp)
         self.m_rft = rft
     }
 
-    mutating func setRandomPhraseType(rft: RandomPhraseType){
+    public mutating func setRandomPhraseType(rft: RandomPhraseType){
         m_rft = rft
     }
     
-    mutating func createRandomAgnosticPronounPhrase(subject: Bool, directObject: Bool, indirectObject: Bool, prepositional: Bool)->dIndependentAgnosticClause {
+    public mutating func createRandomAgnosticPronounPhrase(subject: Bool, directObject: Bool, indirectObject: Bool, prepositional: Bool)->dIndependentAgnosticClause {
         let agnosticClause = dIndependentAgnosticClause()
         
         //if subject pronoun is active, then create a noun phrase to convert into a subject pronoun
@@ -85,7 +85,7 @@ struct RandomPersonalPronounPhrase {
         return agnosticClause
     }
     
-    mutating func createArticleNoun(functionType: ContextFreeFunction)->dPhrase{
+    public mutating func createArticleNoun(functionType: ContextFreeFunction)->dPhrase{
         let NP1 = dNounPhrase()
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Det, functionType: functionType))
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .N, functionType: functionType))
@@ -93,7 +93,7 @@ struct RandomPersonalPronounPhrase {
         return NP1
     }
     
-    mutating func createSimpleNounPhrase(functionType: ContextFreeFunction)->dPhrase{
+    public mutating func createSimpleNounPhrase(functionType: ContextFreeFunction)->dPhrase{
         let NP1 = dNounPhrase()
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .Det, functionType: functionType))
         NP1.appendCluster(cluster: m_randomWord.getAgnosticRandomWordAsSingle(wordType: .N, functionType: functionType))
@@ -102,14 +102,14 @@ struct RandomPersonalPronounPhrase {
         return NP1
     }
     
-    mutating func createVerbOnly()->dPhrase{
+    public mutating func createVerbOnly()->dPhrase{
         let verbPhrase = dVerbPhrase()
         let vs = m_randomWord.getAgnosticRandomWordAsSingle(wordType: .V, functionType: .HeadVerb)
         verbPhrase.appendCluster(cluster: vs)
         return verbPhrase
     }
     
-    mutating func createSimpleIndirectObjectPhrase()->dPhrase{
+    public mutating func createSimpleIndirectObjectPhrase()->dPhrase{
         let NP1 = dNounPhrase()
         let NP2 = dNounPhrase()
         

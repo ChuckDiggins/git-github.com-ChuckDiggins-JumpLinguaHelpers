@@ -8,7 +8,7 @@
 import Foundation
 
 public struct dWordCollectionManager{
-    private var collectionList = Array<dWordCollection>()
+    public var collectionList = Array<dWordCollection>()
     
     public mutating func append(collection: dWordCollection){
         if !doesExist(collection: collection) {

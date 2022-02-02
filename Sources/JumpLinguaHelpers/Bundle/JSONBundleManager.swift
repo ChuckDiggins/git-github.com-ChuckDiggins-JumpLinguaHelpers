@@ -9,9 +9,9 @@ import Foundation
 
 //manages JSONBundles for the project
 
-public class JSONBundleManager: Codable {
-     
-    var myBundleList = [JSONBundle]()
+public struct JSONBundleManager: Codable {
+    public init(){}
+    public var myBundleList = [JSONBundle]()
     
     public func printWords(){
         print(myBundleList)
@@ -21,7 +21,7 @@ public class JSONBundleManager: Codable {
         print(jb)
     }
     
-    public func encodeBundles(total: Int){
+    public mutating func encodeBundles(total: Int){
         clearWords()
         let storedBundleList = [capituloTres, chuckBundle1]
         
@@ -34,7 +34,7 @@ public class JSONBundleManager: Codable {
         encodeBundles()
     }
     
-    public func encodeBundles(){
+    public mutating func encodeBundles(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedPreps = try? encoder.encode(myBundleList){
@@ -43,7 +43,7 @@ public class JSONBundleManager: Codable {
         print("Bundles encoded successfully")
     }
 
-    public func getBundles()->[JSONBundle]{
+    public mutating func getBundles()->[JSONBundle]{
         guard let data = try? Data(contentsOf: getURL()) else {
             fatalError("Could not convert data")
         }
@@ -65,7 +65,7 @@ public class JSONBundleManager: Codable {
 //        }
 //    }
 
-    public func appendBundle(bundle: JSONBundle){
+    public mutating func appendBundle(bundle: JSONBundle){
         var appendThis = true
         for i in 0..<myBundleList.count {
             let b = myBundleList[i]
@@ -79,7 +79,7 @@ public class JSONBundleManager: Codable {
         if ( appendThis ){myBundleList.append(bundle)}
         encodeBundles()
     }
-    public func clearWords(){
+    public mutating func clearWords(){
         myBundleList.removeAll()
     }
     

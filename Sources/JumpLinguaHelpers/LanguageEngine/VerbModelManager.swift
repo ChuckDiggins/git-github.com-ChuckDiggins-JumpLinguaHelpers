@@ -8,9 +8,11 @@
 import Foundation
 
 public struct VerbModelManager{
-    var romanceVerbModel = RomanceVerbModel()
-    var englishVerbModel = EnglishVerbModel()
-    var modelName = ""
+    public var romanceVerbModel = RomanceVerbModel()
+    public var englishVerbModel = EnglishVerbModel()
+    public var modelName = ""
+    
+    publich init(){}
     
     public mutating func analyzeAndCreateBVerb_SPIFE(language: LanguageType, verbPhrase: String)->(isValid: Bool, verb: BVerb){
         var verb = BVerb()

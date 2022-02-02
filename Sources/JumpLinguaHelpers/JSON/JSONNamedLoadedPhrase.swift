@@ -91,6 +91,7 @@ public struct JSONNamedLoadedPhrase: Codable {
 //create json from
 public class JsonPhraseManager {
     var myList = [JSONNamedLoadedPhrase]()
+    public init(){}
     
     public func printPhrases(){
         print(myList)
