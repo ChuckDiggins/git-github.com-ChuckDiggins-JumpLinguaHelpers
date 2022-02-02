@@ -22,7 +22,7 @@ import Foundation
 public struct RandomPersonalPronounPhrase {
     
     public var m_wsp : WordStringParser!
-    var m_randomWord : RandomWordListsForPersonalPronounGames!
+    public var m_randomWord : RandomWordListsForPersonalPronounGames!
     public var m_rft = RandomPhraseType.simpleNounPhrase
     public var m_wordList = [Word]()
     
