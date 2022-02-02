@@ -7,83 +7,10 @@
 
 import Foundation
 
-
-public struct JSONWord : Codable, CustomStringConvertible {
-    var spanish: String
-    var english: String
-    var french: String
-    var wordType: String
-    public init(){
-        spanish = ""
-        english = ""
-        french = ""
-        wordType = "Unknown"
-    }
-    public init(spanish: String, english: String, french: String, wordType: String){
-        self.spanish = spanish
-        self.english = english
-        self.french  = french
-        self.wordType = wordType
-    }
-    
-    public  var description: String {
-        return "\(self.spanish) \(self.english) \(self.french)"
-    }
-    
-    public func getWord()->Word{
-        let word = Word(word: spanish, spanish: spanish, french: french, english: english, wordType: getWordTypeFromString(str: wordType))
-        return word
-    }
-    
-    
-}
-
-public struct JSONCollectionStruct : Codable, CustomStringConvertible {
-    var idNum: Int
-    var collectionName : String
-    var wordList = [JSONWord]()
-    
-    public var description: String {
-        return "\(self.collectionName) : wordCount =\(wordList.count)"
-    }
-    
-    public init(idNum: Int, collectionName: String, wordList : [JSONWord]){
-        self.idNum = idNum
-        self.collectionName = collectionName
-        self.wordList = wordList
-    }
-    
-    public init(idNum: Int, collectionName: String){
-        self.idNum = idNum
-        self.collectionName = collectionName
-    }
-    
-    public mutating func appendJsonWord(jw: JSONWord){
-        wordList.append(jw)
-    }
-    
-    public func printThyself(){
-        print("\(idNum) - \(collectionName)")
-        var i = 0
-        for word in wordList {
-            print("Word \(i)- \(word.spanish), \(word.english), \(word.french)")
-            i += 1
-        }
-    }
-    
-    public func convertToJLingCollection()->dWordCollection{
-        var newWordList = [Word]()
-        for jsonWord in wordList {
-            let wordType = getWordTypeFromString(str: jsonWord.wordType)
-            let word = Word(word: jsonWord.spanish, spanish: jsonWord.spanish, french: jsonWord.french, english: jsonWord.english, wordType: wordType)
-            newWordList.append(word)
-        }
-        return dWordCollection(idNum: idNum, collectionName: collectionName, wordList: newWordList)
-    }
-}
-
-public class JSONWordCollection: Codable {
+public struct JSONWordCollection: Codable {
      
+    public init(){}
+    
     var myWordList = [JSONWord]()
     
     public func printWords(){
@@ -94,7 +21,7 @@ public class JSONWordCollection: Codable {
         print(jv)
     }
     
-    public func encodeInternalWords(total: Int){
+    mutating public func encodeInternalWords(total: Int){
         clearWords()
         let wordList = CarpenterWordList
         
@@ -105,7 +32,7 @@ public class JSONWordCollection: Codable {
         encodeWords()
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedPreps = try? encoder.encode(myWordList){
@@ -113,7 +40,7 @@ public class JSONWordCollection: Codable {
         }
     }
     
-    public func decodeWords(){
+    mutating public func decodeWords(){
         let decoder = JSONDecoder()
         
         if let data = try? Data.init(contentsOf: getURL()){
@@ -123,7 +50,7 @@ public class JSONWordCollection: Codable {
         }
     }
     
-    public func appendWord(jw: JSONWord){
+    mutating public func appendWord(jw: JSONWord){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -137,7 +64,7 @@ public class JSONWordCollection: Codable {
         if ( appendThis ){myWordList.append(jw)}
         encodeWords()
     }
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     
@@ -146,7 +73,7 @@ public class JSONWordCollection: Codable {
         return myWordList[index]
     }
     
-    public func getWordAt(index: Int)->Word{
+    mutating public func getWordAt(index: Int)->Word{
         if index > myWordList.count-1 {
             return Word()
         }

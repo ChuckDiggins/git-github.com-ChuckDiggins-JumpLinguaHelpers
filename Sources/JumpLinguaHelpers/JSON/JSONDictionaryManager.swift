@@ -24,6 +24,7 @@ public struct JSONDictionaryManager {
     public var jsonWordCollection = JSONWordCollection()
     public var jsonWordCollectionManager = JSONCollectionManager()
     
+    public init(){}
     
     public mutating func setWordStringParser(wsp: WordStringParser){
         m_wsp = wsp

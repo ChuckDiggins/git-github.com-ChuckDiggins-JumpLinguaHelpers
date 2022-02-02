@@ -22,6 +22,15 @@ public struct PhraseIndexMapping {
         englishIndex = 0
     }
     
+    public init(cfs: ContextFreeSymbol, agnosticIndex: Int, spanishIndex: Int,  englishIndex: Int, frenchIndex: Int){
+        self.cfs = cfs
+        self.agnosticIndex = agnosticIndex
+        self.spanishIndex = spanishIndex
+        self.frenchIndex = englishIndex
+        self.englishIndex = frenchIndex
+    }
+    
+    
     public mutating func setMapIndex(language: LanguageType, index: Int){
         switch language {
         case .Spanish: spanishIndex = index

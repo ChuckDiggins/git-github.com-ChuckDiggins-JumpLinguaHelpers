@@ -10,12 +10,12 @@ import Foundation
 //import UIKit
 
 public struct JSONNamedLoadedPhrase: Codable {
-    var language: String //agnostic means any language, otherwise it is language-specific
-    var phraseType : String
-    var phraseName: String
-    var wordList =  [JSONWord]()  //for use when this is a single
-    var isSingle = false
-    var clusterList: [Cluster]
+    public var language: String //agnostic means any language, otherwise it is language-specific
+    public var phraseType : String
+    public var phraseName: String
+    public var wordList =  [JSONWord]()  //for use when this is a single
+    public var isSingle = false
+    public var clusterList: [Cluster]
     
     public struct Cluster: Codable {
         var wordType: String  //if not named, then this is a single
