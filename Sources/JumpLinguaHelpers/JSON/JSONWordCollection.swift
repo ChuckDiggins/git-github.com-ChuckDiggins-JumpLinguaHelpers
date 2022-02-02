@@ -13,6 +13,19 @@ public struct JSONWord : Codable, CustomStringConvertible {
     var english: String
     var french: String
     var wordType: String
+    public init(){
+        spanish = ""
+        english = ""
+        french = ""
+        wordType = "Unknown"
+    }
+    public init(spanish: String, english: String, french: String, wordType: String){
+        self.spanish = spanish
+        self.english = english
+        self.french  = french
+        self.wordType = wordType
+    }
+    
     public  var description: String {
         return "\(self.spanish) \(self.english) \(self.french)"
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 
-public class JSONCollectionManager: Codable {
+public struct JSONCollectionManager: Codable {
     public init(){}
     public var myCollectionList = [JSONCollectionStruct]()
     
@@ -20,7 +20,7 @@ public class JSONCollectionManager: Codable {
         print(jv)
     }
     
-    public func convertWordCollectionsToJSONCollectionStructsAndEncode(wordCollectionList : [dWordCollection]){
+    mutating public func convertWordCollectionsToJSONCollectionStructsAndEncode(wordCollectionList : [dWordCollection]){
         myCollectionList.removeAll()
         for collection in wordCollectionList{
             let jwcs = getJsonWordCollectionStructFromWordCollection(wordCollection: collection)
@@ -29,7 +29,7 @@ public class JSONCollectionManager: Codable {
         encodeWords()
     }
     
-    public func encodeWordCollections(total: Int){
+    mutating public func encodeWordCollections(total: Int){
         clearWords()
         let storedCollectionList = [threeSimpleVerbsCollection, carpenterWordCollection]
         
@@ -42,7 +42,7 @@ public class JSONCollectionManager: Codable {
         encodeWords()
     }
     
-    public func encodeWords(){
+    mutating  public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
 //        if let encodedPreps = try? encoder.encode(collectionName){
@@ -53,7 +53,7 @@ public class JSONCollectionManager: Codable {
         }
     }
 
-    public func getWordCollections()->[JSONCollectionStruct]{
+    mutating public func getWordCollections()->[JSONCollectionStruct]{
         guard let data = try? Data(contentsOf: getURL()) else {
             fatalError("Could not convert data")
         }
@@ -75,7 +75,7 @@ public class JSONCollectionManager: Codable {
 //        }
 //    }
 
-    public func appendCollection(collection: JSONCollectionStruct){
+    mutating public func appendCollection(collection: JSONCollectionStruct){
         var appendThis = true
         for i in 0..<myCollectionList.count {
             let c = myCollectionList[i]
@@ -89,7 +89,8 @@ public class JSONCollectionManager: Codable {
         if ( appendThis ){myCollectionList.append(collection)}
         encodeWords()
     }
-    public func clearWords(){
+    
+    mutating public func clearWords(){
         myCollectionList.removeAll()
     }
     

@@ -18,7 +18,7 @@ import Foundation
 
 import UIKit
 
-public class JsonDeterminer: Codable, CustomStringConvertible {
+public struct JsonDeterminer: Codable, CustomStringConvertible {
     var english: String
     var french: String
     var spanish: String
@@ -27,7 +27,7 @@ public class JsonDeterminer: Codable, CustomStringConvertible {
         return "\(self.spanish) \(self.english) \(self.french)"
     }
     
-    init(spanish: String, english: String, french: String, determinerType : String){
+    public init(spanish: String, english: String, french: String, determinerType : String){
         self.spanish = spanish
         self.english = english
         self.french = french
@@ -46,8 +46,9 @@ var myMultiLingualDeterminerList: [JsonDeterminer] = [
 
 
 //create json from
-public class JsonDeterminerManager {
+public struct JsonDeterminerManager {
     var myWordList = [JsonDeterminer]()
+    public init(){}
     
     public func printWords(){
         print(myWordList)
@@ -57,7 +58,7 @@ public class JsonDeterminerManager {
         print(jv)
     }
     
-    public func encodeInternalWords(total: Int){
+    mutating public func encodeInternalWords(total: Int){
         clearWords()
         for v in myMultiLingualDeterminerList{
             myWordList.append(v)
@@ -67,11 +68,11 @@ public class JsonDeterminerManager {
         encodeWords()
     }
     
-    public func getLastWord()->JsonDeterminer{
+    mutating public func getLastWord()->JsonDeterminer{
         return myWordList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedDets = try? encoder.encode(myWordList){
@@ -80,7 +81,7 @@ public class JsonDeterminerManager {
         }
     }
     
-    public func decodeWords(){
+    mutating public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonDeterminer].self, from: data){
@@ -89,7 +90,7 @@ public class JsonDeterminerManager {
         }
     }
     
-    public func appendWord(det: JsonDeterminer){
+    mutating public func appendWord(det: JsonDeterminer){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -104,7 +105,7 @@ public class JsonDeterminerManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     

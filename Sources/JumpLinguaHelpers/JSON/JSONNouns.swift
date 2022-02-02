@@ -8,7 +8,7 @@
 import UIKit
 
 
-public class JsonNoun: Codable, CustomStringConvertible {
+public struct JsonNoun: Codable, CustomStringConvertible {
     var english: String
     var french: String
     var spanish: String
@@ -161,9 +161,9 @@ JsonNoun(spanish: "pimienta", english: "pepper",    french: "poivre", spanishGen
 JsonNoun(spanish: "azúcar", english: "sugar",    french: "sucre", spanishGender : "M", frenchGender : "M", englishPlural: "sugar", nounType : "T", verbLikes: "", adjLikes: ""),
 ]
 //create json from
-public class JsonNounManager {
+public struct JsonNounManager {
     public var myWordList = [JsonNoun]()
-    
+    public init(){}
     public func printNouns(){
         print(myWordList)
     }
@@ -172,7 +172,7 @@ public class JsonNounManager {
         print(jv)
     }
     
-    public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
+    mutating public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
         clearWords()
         var nounList = [JsonNoun]()
         switch collectionType {
@@ -194,7 +194,7 @@ public class JsonNounManager {
         return myWordList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedNouns = try? encoder.encode(myWordList){
@@ -203,7 +203,7 @@ public class JsonNounManager {
         }
     }
     
-    public func decodeWords(){
+    mutating public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonNoun].self, from: data){
@@ -212,7 +212,7 @@ public class JsonNounManager {
         }
     }
     
-    public func appendWord(verb: JsonNoun){
+    mutating public func appendWord(verb: JsonNoun){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -227,7 +227,7 @@ public class JsonNounManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     

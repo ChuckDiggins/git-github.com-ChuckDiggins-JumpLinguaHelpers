@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class JsonVerb: Codable, CustomStringConvertible {
+public struct JsonVerb: Codable, CustomStringConvertible {
     var english: String
     var french: String
     var spanish: String
@@ -190,7 +190,7 @@ var myMultiLingualVerbListSingle: [JsonVerb] = [
 
 
 //create json from
-public class JsonVerbManager {
+public struct JsonVerbManager {
     var myVerbList = [JsonVerb]()
     
     public func printVerbs(){
@@ -209,7 +209,7 @@ public class JsonVerbManager {
 //        encodeVerbs()
 //    }
     
-    public func encodeInternalVerbs(collectionType: JsonCollectionTypes, total: Int){
+    mutating public func encodeInternalVerbs(collectionType: JsonCollectionTypes, total: Int){
         clearWords()
         var wordList = [JsonVerb]()
         switch collectionType {
@@ -225,7 +225,7 @@ public class JsonVerbManager {
         encodeVerbs()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myVerbList.removeAll()
     }
     
@@ -233,7 +233,7 @@ public class JsonVerbManager {
         return myVerbList.last!
     }
     
-    public func encodeVerbs(){
+    mutating public func encodeVerbs(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedVerbs = try? encoder.encode(myVerbList){
@@ -242,7 +242,7 @@ public class JsonVerbManager {
         }
     }
     
-    public func decodeVerbs(){
+    mutating public func decodeVerbs(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedVerbs = try? decoder.decode([JsonVerb].self, from: data){
@@ -250,7 +250,7 @@ public class JsonVerbManager {
             }
         }
     }
-    public func appendVerb(verb: JsonVerb){
+    mutating public func appendVerb(verb: JsonVerb){
         var appendThis = true
         for i in 0..<myVerbList.count {
             let v = myVerbList[i]
@@ -265,7 +265,7 @@ public class JsonVerbManager {
         encodeVerbs()
     }
     
-    public func clearVerbs(){
+    mutating public func clearVerbs(){
         myVerbList.removeAll()
     }
     

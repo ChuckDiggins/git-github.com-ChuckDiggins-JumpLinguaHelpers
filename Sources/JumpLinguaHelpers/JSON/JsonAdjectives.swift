@@ -20,7 +20,7 @@ public class JsonAdjective: Codable, CustomStringConvertible {
         return "\(self.spanish) \(self.english) \(self.french)"
     }
     
-    init(spanish: String, english: String, french: String, adjectiveType : String, nounLikes: String, position: String){
+    public init(spanish: String, english: String, french: String, adjectiveType : String, nounLikes: String, position: String){
         self.spanish = spanish
         self.english = english
         self.french = french
@@ -107,7 +107,9 @@ var myMultiLingualAdjList: [JsonAdjective] = [
 
 
 //create json from
-public class JsonAdjectiveManager {
+public struct JsonAdjectiveManager {
+    
+    public init(){}
     var myWordList = [JsonAdjective]()
     
     public func printWords(){
@@ -118,7 +120,7 @@ public class JsonAdjectiveManager {
         print(jv)
     }
     
-    public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
+    mutating public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
         clearWords()
         var wordList = [JsonAdjective]()
         switch collectionType {
@@ -139,7 +141,7 @@ public class JsonAdjectiveManager {
         return myWordList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedAdjs = try? encoder.encode(myWordList){
@@ -148,7 +150,7 @@ public class JsonAdjectiveManager {
         }
     }
     
-    public func decodeWords(){
+    mutating public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonAdjective].self, from: data){
@@ -157,7 +159,7 @@ public class JsonAdjectiveManager {
         }
     }
     
-    public func appendWord(verb: JsonAdjective){
+    mutating public func appendWord(verb: JsonAdjective){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -172,7 +174,7 @@ public class JsonAdjectiveManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     

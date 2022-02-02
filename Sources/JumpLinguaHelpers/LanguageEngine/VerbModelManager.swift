@@ -12,7 +12,7 @@ public struct VerbModelManager{
     public var englishVerbModel = EnglishVerbModel()
     public var modelName = ""
     
-    publich init(){}
+    public init(){}
     
     public mutating func analyzeAndCreateBVerb_SPIFE(language: LanguageType, verbPhrase: String)->(isValid: Bool, verb: BVerb){
         var verb = BVerb()

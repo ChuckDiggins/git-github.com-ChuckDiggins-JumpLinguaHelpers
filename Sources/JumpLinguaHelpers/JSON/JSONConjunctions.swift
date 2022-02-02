@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class JsonConjunction: Codable, CustomStringConvertible {
+public struct JsonConjunction: Codable, CustomStringConvertible {
     var english: String
     var french: String
     var spanish: String
@@ -16,7 +16,7 @@ public class JsonConjunction: Codable, CustomStringConvertible {
         return "\(self.spanish) \(self.english) \(self.french)"
     }
     
-    init(spanish: String, english: String, french: String, conjunctionType : String){
+    public init(spanish: String, english: String, french: String, conjunctionType : String){
         self.spanish = spanish
         self.english = english
         self.french = french
@@ -40,8 +40,9 @@ var myMultiLingualConjunctionList: [JsonConjunction] = [
     ]
 
 //create json from
-public class JsonConjunctionManager {
+public struct JsonConjunctionManager {
     var myWordList = [JsonConjunction]()
+    public init(){}
     
     public func printWords(){
         print(myWordList)
@@ -51,7 +52,7 @@ public class JsonConjunctionManager {
         print(jv)
     }
     
-    public func encodeInternalWords(total: Int){
+    mutating public func encodeInternalWords(total: Int){
         clearWords()
         for v in myMultiLingualConjunctionList{
             myWordList.append(v)
@@ -65,7 +66,7 @@ public class JsonConjunctionManager {
         return myWordList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedPreps = try? encoder.encode(myWordList){
@@ -74,7 +75,7 @@ public class JsonConjunctionManager {
         }
     }
     
-    public func decodeWords(){
+    mutating public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonConjunction].self, from: data){
@@ -83,7 +84,7 @@ public class JsonConjunctionManager {
         }
     }
     
-    public func appendWord(c: JsonConjunction){
+    mutating public func appendWord(c: JsonConjunction){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -98,7 +99,7 @@ public class JsonConjunctionManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     

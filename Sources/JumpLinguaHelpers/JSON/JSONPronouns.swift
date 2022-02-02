@@ -10,7 +10,7 @@ import Foundation
 //Chuck 11/25
 import UIKit
 
-public class JsonPronoun: Codable, CustomStringConvertible {
+public struct JsonPronoun: Codable, CustomStringConvertible {
     var english: String
     var french: String
     var spanish: String
@@ -37,8 +37,9 @@ var myMultiLingualPronounList: [JsonPronoun] = [
 
 
 //create json from
-public class JsonPronounManager {
+public struct JsonPronounManager {
     var myWordList = [JsonPronoun]()
+    public init(){}
     
     public func printWords(){
         print(myWordList)
@@ -48,7 +49,7 @@ public class JsonPronounManager {
         print(jv)
     }
     
-    public func encodeInternalWords(total: Int){
+    mutating public func encodeInternalWords(total: Int){
         clearWords()
         for v in myMultiLingualPronounList{
             myWordList.append(v)
@@ -62,7 +63,7 @@ public class JsonPronounManager {
         return myWordList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedDets = try? encoder.encode(myWordList){
@@ -71,7 +72,7 @@ public class JsonPronounManager {
         }
     }
     
-    public func decodeWords(){
+    mutating public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonPronoun].self, from: data){
@@ -80,7 +81,7 @@ public class JsonPronounManager {
         }
     }
     
-    public func appendWord(det: JsonPronoun){
+    mutating public func appendWord(det: JsonPronoun){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -95,7 +96,7 @@ public class JsonPronounManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     

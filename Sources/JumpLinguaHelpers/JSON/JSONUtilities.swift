@@ -7,11 +7,11 @@
 
 import Foundation
 
-func getJsonWord(word: Word)->JSONWord{
+public func getJsonWord(word: Word)->JSONWord{
     return JSONWord(spanish: word.spanish, english: word.english, french: word.french, wordType: getStringFromWordType(wordType: word.wordType))
 }
 
-func getJsonWordCollectionStructFromWordCollection(wordCollection: dWordCollection)->JSONCollectionStruct{
+public func getJsonWordCollectionStructFromWordCollection(wordCollection: dWordCollection)->JSONCollectionStruct{
     var jwc = JSONCollectionStruct(idNum: wordCollection.idNum, collectionName: wordCollection.collectionName)
     for word in wordCollection.wordList{
         jwc.appendJsonWord(jw: getJsonWord(word: word))

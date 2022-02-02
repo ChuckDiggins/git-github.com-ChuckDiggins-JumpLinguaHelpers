@@ -9,7 +9,7 @@ import Foundation
 
 import UIKit
 
-public class JsonPreposition: Codable, CustomStringConvertible {
+public struct JsonPreposition: Codable, CustomStringConvertible {
     var english: String
     var french: String
     var spanish: String
@@ -53,7 +53,7 @@ var jsonPrepositionList: [JsonPreposition] = [
 
 
 //create json from
-public class JsonPrepositionManager {
+public struct JsonPrepositionManager {
     var myWordList = [JsonPreposition]()
     
     public func printWords(){
@@ -64,7 +64,7 @@ public class JsonPrepositionManager {
         print(jv)
     }
     
-    public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
+    mutating  public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
         clearWords()
         var wordList = [JsonPreposition]()
         switch collectionType {
@@ -86,7 +86,7 @@ public class JsonPrepositionManager {
         return myWordList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedPreps = try? encoder.encode(myWordList){
@@ -95,7 +95,7 @@ public class JsonPrepositionManager {
         }
     }
     
-    public func decodeWords(){
+    mutating public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonPreposition].self, from: data){
@@ -104,7 +104,7 @@ public class JsonPrepositionManager {
         }
     }
     
-    public func appendWord(prep: JsonPreposition){
+    mutating public func appendWord(prep: JsonPreposition){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -119,7 +119,7 @@ public class JsonPrepositionManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     

@@ -70,11 +70,12 @@ public struct JsonVerbModel: Codable, CustomStringConvertible {
 }
 
 //create json from
-public class JsonVerbModelManager {
+public struct  JsonVerbModelManager {
     var language = LanguageType.Spanish
     var myVerbModelList = [JsonVerbModel]()
+    public init(){}
     
-    public func encodeVerbModel(){
+    mutating public func encodeVerbModel(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedVerbs = try? encoder.encode(myVerbModelList){
@@ -83,11 +84,11 @@ public class JsonVerbModelManager {
         }
     }
     
-    public func setLanguage(language: LanguageType){
+    mutating public func setLanguage(language: LanguageType){
         self.language = language
     }
     
-    public func getVerbModelData(sourcesURL: URL )->JsonVerbModel{
+    mutating public func getVerbModelData(sourcesURL: URL )->JsonVerbModel{
         guard let data = try? Data(contentsOf: sourcesURL) else {
             fatalError("Could not convert data")
         }
@@ -98,12 +99,12 @@ public class JsonVerbModelManager {
         return verbModelData
     }
     
-    public func justAppendVerbModel(verbModel: JsonVerbModel){
+    mutating public func justAppendVerbModel(verbModel: JsonVerbModel){
         myVerbModelList.append(verbModel)
         encodeVerbModel()
     }
 
-    public func appendVerbModel(verbModel: JsonVerbModel){
+    mutating public func appendVerbModel(verbModel: JsonVerbModel){
         var appendThis = true
         
         //first, see if this verbModel exists already in the list
@@ -123,7 +124,7 @@ public class JsonVerbModelManager {
         encodeVerbModel()
     }
     
-    public func clearVerbModels(){
+    mutating public func clearVerbModels(){
         myVerbModelList.removeAll()
         encodeVerbModel()
     }
@@ -133,7 +134,7 @@ public class JsonVerbModelManager {
         return myVerbModelList[index]
     }
     
-    public func getRomanceVerbModelAt(index: Int)->RomanceVerbModel{
+    mutating public func getRomanceVerbModelAt(index: Int)->RomanceVerbModel{
         let jvm = getVerbModelAt(index:index)
         let rvm = jvm.convertToRomanceVerbModel()
         return rvm

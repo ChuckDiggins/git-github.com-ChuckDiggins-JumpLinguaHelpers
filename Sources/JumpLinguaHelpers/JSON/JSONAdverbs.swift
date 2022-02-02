@@ -130,9 +130,9 @@ var myMultiLingualAdverbList: [JsonAdverb] = [
     
     
 //create json from
-public class JsonAdverbManager {
+public struct JsonAdverbManager {
     var myWordList = [JsonAdverb]()
-    
+    public init(){}
     public func printWords(){
         print(myWordList)
     }
@@ -141,7 +141,7 @@ public class JsonAdverbManager {
         print(jv)
     }
     
-    public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
+    mutating public func encodeInternalWords(collectionType: JsonCollectionTypes, total: Int){
         clearWords()
         var wordList = [JsonAdverb]()
         switch collectionType {
@@ -162,7 +162,7 @@ public class JsonAdverbManager {
         return myWordList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedPreps = try? encoder.encode(myWordList){
@@ -171,7 +171,7 @@ public class JsonAdverbManager {
         }
     }
     
-    func decodeWords(){
+    mutating func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonAdverb].self, from: data){
@@ -180,7 +180,7 @@ public class JsonAdverbManager {
         }
     }
     
-    public func appendWord(adv: JsonAdverb){
+    mutating public func appendWord(adv: JsonAdverb){
         var appendThis = true
         for i in 0..<myWordList.count {
             let v = myWordList[i]
@@ -195,7 +195,7 @@ public class JsonAdverbManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myWordList.removeAll()
     }
     

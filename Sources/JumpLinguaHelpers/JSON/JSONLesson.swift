@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class JsonLesson: Codable, CustomStringConvertible {
+public struct JsonLesson: Codable, CustomStringConvertible {
     var language: String //agnostic means any language, otherwise it is language-specific
     var lessonName : String
     public var description: String {
@@ -26,8 +26,9 @@ var myLessonList: [JsonLesson] = [
 ]
 
 //create json from
-public class JsonLessonManager {
+public struct JsonLessonManager {
     var myLessonList = [JsonLesson]()
+    public init(){}
     
     public func printWords(){
         print(myLessonList)
@@ -37,7 +38,7 @@ public class JsonLessonManager {
         print(jv)
     }
     
-    public func encodeInternalWords(total: Int){
+    mutating public func encodeInternalWords(total: Int){
         clearWords()
         for v in myLessonList{
             myLessonList.append(v)
@@ -51,7 +52,7 @@ public class JsonLessonManager {
         return myLessonList.last!
     }
     
-    public func encodeWords(){
+    mutating public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedPreps = try? encoder.encode( myLessonList){
@@ -60,7 +61,7 @@ public class JsonLessonManager {
         }
     }
     
-    public func decodeWords(){
+    mutating  public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonLesson].self, from: data){
@@ -69,7 +70,7 @@ public class JsonLessonManager {
         }
     }
     
-    public func appendLesson(jl: JsonLesson){
+    mutating public func appendLesson(jl: JsonLesson){
         var appendThis = true
         for i in 0..<myLessonList.count {
             let v = myLessonList[i]
@@ -84,7 +85,7 @@ public class JsonLessonManager {
         encodeWords()
     }
     
-    public func clearWords(){
+    mutating public func clearWords(){
         myLessonList.removeAll()
     }
     
