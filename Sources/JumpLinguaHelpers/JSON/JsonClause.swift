@@ -52,7 +52,8 @@ public struct JsonClause:  Codable {
 
 //create json from
 public class JsonClauseManager {
-    var myList = [JsonClause]()
+    public var myList = [JsonClause]()
+    public init(){}
     
     public func printClauses(){
         print(myList)

@@ -13,47 +13,47 @@ public class WordStateData : Hashable, Equatable {
         hasher.combine(title)
     }
     
-    var word = Word()
-    var processedWord = ""  //this will show the current state of this word
-    var processedSpanishWord = "psw"
-    var processedFrenchWord = "pfw"
-    var processedEnglishWord = "pew"
+    public var word = Word()
+    public var processedWord = ""  //this will show the current state of this word
+    public var processedSpanishWord = "psw"
+    public  var processedFrenchWord = "pfw"
+    public var processedEnglishWord = "pew"
     
-    var spanishContraction = "psw"
-    var frenchContraction = "pfw"
-    var englishContraction = "pew"
+    public var spanishContraction = "psw"
+    public var frenchContraction = "pfw"
+    public var englishContraction = "pew"
     
     //states
-    var language = LanguageType.Spanish
-    var tense = Tense.infinitive
-    var person = Person.S1
-    var number = Number.singular
-    var gender = Gender.masculine
+    public var language = LanguageType.Spanish
+    public var tense = Tense.infinitive
+    public var person = Person.S1
+    public var number = Number.singular
+    public var gender = Gender.masculine
     
     //identity
-    var wordType = ContextFreeSymbol.AMB
-    var ambiguousType = AmbiguousType.general
-    var adverbType = AdverbType.manner
-    var articleType = ArticleType.definite
-    var conjunctionType = ConjunctionType.coordinating
-    var determinerType = DeterminerType.definite
-    var adjectiveType = AdjectiveType.any
-    var adjectivePosition = AdjectivePositionType.following
-    var prepositionType = PrepositionType.general
-    var personalPronounType = PronounType.PERSONAL  //ambiguous until set 
-    var pronounType = PronounType.none
-    var punctuationType = PunctuationType.none
+    public var wordType = ContextFreeSymbol.AMB
+    public var ambiguousType = AmbiguousType.general
+    public var adverbType = AdverbType.manner
+    public var articleType = ArticleType.definite
+    public var conjunctionType = ConjunctionType.coordinating
+    public var determinerType = DeterminerType.definite
+    public var adjectiveType = AdjectiveType.any
+    public var adjectivePosition = AdjectivePositionType.following
+    public var prepositionType = PrepositionType.general
+    public var personalPronounType = PronounType.PERSONAL  //ambiguous until set
+    public var pronounType = PronounType.none
+    public var punctuationType = PunctuationType.none
     
-    var nounType = NounType.any
-    var nounSubjectivity = NounSubjectivity.either
+    public var nounType = NounType.any
+    public var nounSubjectivity = NounSubjectivity.either
     
-    var verbModality = VerbModality.notModal
-    var verbPassivity = VerbPassivity.active
-    var verbPronominality = VerbPronomality.notPronominal
-    var verbPreference = VerbPreference.any
-    var verbTransitivity = VerbTransitivity.transitive
-    var verbType = VerbType.normal
-    var bescherelleInfo = ""
+    public var verbModality = VerbModality.notModal
+    public var verbPassivity = VerbPassivity.active
+    public var verbPronominality = VerbPronomality.notPronominal
+    public var verbPreference = VerbPreference.any
+    public var verbTransitivity = VerbTransitivity.transitive
+    public var verbType = VerbType.normal
+    public var bescherelleInfo = ""
     
     public static func == (lhs: WordStateData, rhs: WordStateData) -> Bool {
         return lhs.word.word == rhs.word.word

@@ -9,21 +9,20 @@ import Foundation
 
 
 public struct JSONDictionaryManager {
-
-    var m_wsp : WordStringParser!
+    public var m_wsp : WordStringParser!
     
-    var jsonVerbManager = JsonVerbManager()
-    var jsonNounManager = JsonNounManager()
-    var jsonAdjectiveManager = JsonAdjectiveManager()
-    var jsonAdverbManager = JsonAdverbManager()
-    var jsonConjunctionManager = JsonConjunctionManager()
-    var jsonDeterminerManager = JsonDeterminerManager()
-    var jsonPrepositionManager = JsonPrepositionManager()
-    var jsonPronounManager = JsonPronounManager()
-    let bUseJsonStarterFiles = true
-    var verbModelManager = VerbModelManager()
-    var jsonWordCollection = JSONWordCollection()
-    var jsonWordCollectionManager = JSONCollectionManager()
+    public var jsonVerbManager = JsonVerbManager()
+    public var jsonNounManager = JsonNounManager()
+    public var jsonAdjectiveManager = JsonAdjectiveManager()
+    public var jsonAdverbManager = JsonAdverbManager()
+    public var jsonConjunctionManager = JsonConjunctionManager()
+    public var jsonDeterminerManager = JsonDeterminerManager()
+    public var jsonPrepositionManager = JsonPrepositionManager()
+    public var jsonPronounManager = JsonPronounManager()
+    public let bUseJsonStarterFiles = true
+    public var verbModelManager = VerbModelManager()
+    public var jsonWordCollection = JSONWordCollection()
+    public var jsonWordCollectionManager = JSONCollectionManager()
     
     
     public mutating func setWordStringParser(wsp: WordStringParser){

@@ -8,19 +8,19 @@
 import Foundation
 
 
-class JSONCollectionManager: Codable {
-     
-    var myCollectionList = [JSONCollectionStruct]()
+public class JSONCollectionManager: Codable {
+    public init(){}
+    public var myCollectionList = [JSONCollectionStruct]()
     
-    func printWords(){
+    public func printWords(){
         print(myCollectionList)
     }
     
-    func printOne(jv: JSONCollectionStruct){
+    public func printOne(jv: JSONCollectionStruct){
         print(jv)
     }
     
-    func convertWordCollectionsToJSONCollectionStructsAndEncode(wordCollectionList : [dWordCollection]){
+    public func convertWordCollectionsToJSONCollectionStructsAndEncode(wordCollectionList : [dWordCollection]){
         myCollectionList.removeAll()
         for collection in wordCollectionList{
             let jwcs = getJsonWordCollectionStructFromWordCollection(wordCollection: collection)
@@ -29,7 +29,7 @@ class JSONCollectionManager: Codable {
         encodeWords()
     }
     
-    func encodeWordCollections(total: Int){
+    public func encodeWordCollections(total: Int){
         clearWords()
         let storedCollectionList = [threeSimpleVerbsCollection, carpenterWordCollection]
         
@@ -42,7 +42,7 @@ class JSONCollectionManager: Codable {
         encodeWords()
     }
     
-    func encodeWords(){
+    public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
 //        if let encodedPreps = try? encoder.encode(collectionName){
@@ -53,7 +53,7 @@ class JSONCollectionManager: Codable {
         }
     }
 
-    func getWordCollections()->[JSONCollectionStruct]{
+    public func getWordCollections()->[JSONCollectionStruct]{
         guard let data = try? Data(contentsOf: getURL()) else {
             fatalError("Could not convert data")
         }
@@ -75,7 +75,7 @@ class JSONCollectionManager: Codable {
 //        }
 //    }
 
-    func appendCollection(collection: JSONCollectionStruct){
+    public func appendCollection(collection: JSONCollectionStruct){
         var appendThis = true
         for i in 0..<myCollectionList.count {
             let c = myCollectionList[i]
@@ -89,16 +89,16 @@ class JSONCollectionManager: Codable {
         if ( appendThis ){myCollectionList.append(collection)}
         encodeWords()
     }
-    func clearWords(){
+    public func clearWords(){
         myCollectionList.removeAll()
     }
     
-    func getJSONCollectionAt(index: Int)->JSONCollectionStruct{
+    public func getJSONCollectionAt(index: Int)->JSONCollectionStruct{
         if index > myCollectionList.count-1 { return myCollectionList[0] }
         return myCollectionList[index]
     }
     
-    func getCollectionNameAt(index: Int)->String{
+    public func getCollectionNameAt(index: Int)->String{
         if index > myCollectionList.count-1 {
             return myCollectionList[0].collectionName  //need a default
         }
@@ -108,11 +108,11 @@ class JSONCollectionManager: Codable {
         }
     }
     
-    func getCollectionCount()->Int{
+    public func getCollectionCount()->Int{
         return myCollectionList.count
     }
      
-    func getURL()->URL{
+    public func getURL()->URL{
         let docsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         return docsURL.appendingPathComponent("JSONWordCollectionManager").appendingPathExtension("json")
     }

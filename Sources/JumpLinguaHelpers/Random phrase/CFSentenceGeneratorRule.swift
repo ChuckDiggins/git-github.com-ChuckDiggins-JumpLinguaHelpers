@@ -29,10 +29,10 @@ public enum RandomPhraseType{
 }
 
 public struct RandomSentence {
-    var m_wsp : WordStringParser!
-    var m_randomWord : RandomWordLists!
-    var m_rft = RandomPhraseType.simpleNounPhrase
-    var m_wordList = [Word]()
+    public var m_wsp : WordStringParser!
+    public var m_randomWord : RandomWordLists!
+    public var m_rft = RandomPhraseType.simpleNounPhrase
+    public var m_wordList = [Word]()
     
     public init (wsp : WordStringParser, rft:RandomPhraseType){
         self.m_wsp = wsp

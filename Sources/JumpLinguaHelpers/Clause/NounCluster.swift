@@ -22,12 +22,12 @@ public class dNounSingle : dSingle
         setGender(value: data.gender)
     }
     
-    var      m_isSubject = false
-    var      m_nounType = NounType.any
-    func    setNounType (type : NounType){m_nounType = type}
-    func    getNounType ()->NounType{return m_nounType}
-    func    setIsSubject(flag:Bool){m_isSubject = flag}
-    func   isSubject()->Bool{return m_isSubject}
+    public var      m_isSubject = false
+    public var      m_nounType = NounType.any
+    public func    setNounType (type : NounType){m_nounType = type}
+    public func    getNounType ()->NounType{return m_nounType}
+    public func    setIsSubject(flag:Bool){m_isSubject = flag}
+    public func   isSubject()->Bool{return m_isSubject}
     
     public override func copyGuts(newSingle: dSingle){
         putClusterWord(word: newSingle.getClusterWord())
@@ -80,12 +80,12 @@ public class dNounSingle : dSingle
 } //dNounSingle
 
 public class dNounPhrase : dPhrase {
-    var      m_isSubject = false
-    var      m_nounType  = NounType.any
-    var      m_nounCount = 0   //can we use cluster.number for this?
-    var      m_isPlural  = false
+    public var      m_isSubject = false
+    public var      m_nounType  = NounType.any
+    public var      m_nounCount = 0   //can we use cluster.number for this?
+    public var      m_isPlural  = false
     
-    var type = ContextFreeSymbol.NP
+    public var type = ContextFreeSymbol.NP
     public override init(){
         super.init(word: Word(), clusterType: type, data: WordStateData())
     }
