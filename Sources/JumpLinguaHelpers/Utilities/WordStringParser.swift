@@ -9,15 +9,15 @@ import Foundation
 
 public class WordStringParser {
     
-    private var spanishWords = SpanishWords()
-    private var frenchWords = FrenchWords()
-    private var englishWords = EnglishWords()
-    private var generalWords = GeneralWords()  //general purpose ... will replace spanish, french and english words
-    private var m_language : LanguageType
-    private var spanVerbModel : RomanceVerbModelConjugation
-    private var frenchVerbModel : RomanceVerbModelConjugation
-    private var englishVerbModel : EnglishVerbModelConjugation
-    var wordCollectionManager = dWordCollectionManager()
+    public  var spanishWords = SpanishWords()
+    public  var frenchWords = FrenchWords()
+    public  var englishWords = EnglishWords()
+    public  var generalWords = GeneralWords()  //general purpose ... will replace spanish, french and english words
+    public  var m_language : LanguageType
+    public  var spanVerbModel : RomanceVerbModelConjugation
+    public  var frenchVerbModel : RomanceVerbModelConjugation
+    public  var englishVerbModel : EnglishVerbModelConjugation
+    public var wordCollectionManager = dWordCollectionManager()
     
     public init(){
         m_language = LanguageType.Agnostic
