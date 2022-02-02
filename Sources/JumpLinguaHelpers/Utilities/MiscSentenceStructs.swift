@@ -8,15 +8,23 @@
 import Foundation
 
 public struct VerbSettings{
-    var tense : Tense
-    var person : Person
+    public init(tense: Tense, person: Person){
+        self.tense = tense
+        self.person = person
+    }
+    public var tense : Tense
+    public var person : Person
 }
 
 public struct NounSettings{
-    var number : Number
+    public init(number: Number){
+        self.number = number
+    }
+    public var number : Number
 }
 
 public struct SentenceData {
-    var word = Word()
-    var data = WordStateData()
+    public init(){}
+    public var word = Word()
+    public var data = WordStateData()
 }

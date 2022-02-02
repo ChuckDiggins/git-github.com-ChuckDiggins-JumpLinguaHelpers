@@ -8,15 +8,16 @@
 import Foundation
 
 public struct EnglishWords {
+    public init(){}
     
-    var adjectiveList = Array<Word>()
-    var adverbList = Array<Word>()
-    var articleList = Array<Word>()
-    var conjunctionList = Array<Word>()
-    var determinerList = Array<Word>()
-    var nounList = Array<Word>()
-    var prepositionList = Array<Word>()
-    var pronounList = Array<Word>()
-    var verbList = Array<Word>()
+    public var adjectiveList = Array<Word>()
+    public var adverbList = Array<Word>()
+    public var articleList = Array<Word>()
+    public var conjunctionList = Array<Word>()
+    public var determinerList = Array<Word>()
+    public var nounList = Array<Word>()
+    public var prepositionList = Array<Word>()
+    public  var pronounList = Array<Word>()
+    public var verbList = Array<Word>()
     
 }

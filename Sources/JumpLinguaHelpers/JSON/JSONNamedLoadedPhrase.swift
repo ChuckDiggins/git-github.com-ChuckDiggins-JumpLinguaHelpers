@@ -18,9 +18,18 @@ public struct JSONNamedLoadedPhrase: Codable {
     public var clusterList: [Cluster]
     
     public struct Cluster: Codable {
-        var wordType: String  //if not named, then this is a single
-        var clusterName: String?  //if named, then this is a phrase
-        var isSubject: Bool
+        public var wordType: String  //if not named, then this is a single
+        public var clusterName: String?  //if named, then this is a phrase
+        public var isSubject: Bool
+        public init(wordType: String, clusterName: String, isSubject: Bool ){
+            self.wordType = wordType
+            self.clusterName = clusterName
+            self.isSubject = isSubject
+        }
+        public init(wordType: String, isSubject: Bool ){
+            self.wordType = wordType
+            self.isSubject = isSubject
+        }
     }
     
     public init(language: LanguageType, phraseType: ContextFreeSymbol, phraseName: String, clusterList : [Cluster], wordList : [JSONWord]){

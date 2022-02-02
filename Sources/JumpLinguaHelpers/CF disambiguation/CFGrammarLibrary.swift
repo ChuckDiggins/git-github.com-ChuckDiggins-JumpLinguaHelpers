@@ -9,10 +9,10 @@ import Foundation
 
 public struct CFGrammarLibrary {
     public init(){}
-    var nounPhraseGrammar = ContextFreeGrammar()
-    var verbPhraseGrammar = ContextFreeGrammar()
-    var prepositionalPhraseGrammar = ContextFreeGrammar()
-    var adjectivePhraseGrammar = ContextFreeGrammar()
+    public var nounPhraseGrammar = ContextFreeGrammar()
+    public var verbPhraseGrammar = ContextFreeGrammar()
+    public var prepositionalPhraseGrammar = ContextFreeGrammar()
+    public var adjectivePhraseGrammar = ContextFreeGrammar()
 }
 
 public struct GnosticGrammarLibrary {
@@ -22,9 +22,9 @@ public struct GnosticGrammarLibrary {
         self.language = language
     }
     
-    var nounPhraseGrammar = ContextFreeGrammar()
-    var verbPhraseGrammar = ContextFreeGrammar()
-    var prepositionalPhraseGrammar = ContextFreeGrammar()
-    var adjectivePhraseGrammar = ContextFreeGrammar()
+    public var nounPhraseGrammar = ContextFreeGrammar()
+    public var verbPhraseGrammar = ContextFreeGrammar()
+    public var prepositionalPhraseGrammar = ContextFreeGrammar()
+    public var adjectivePhraseGrammar = ContextFreeGrammar()
 }
 

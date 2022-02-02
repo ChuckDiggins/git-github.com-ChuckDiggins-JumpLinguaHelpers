@@ -8,19 +8,20 @@
 import Foundation
 
 public struct FrenchWords{
-    var adjectiveList = Array<Word>()
-    var demonstrativeAdjectiveList = Array<Word>()
-    var interrogativeAdjectiveList = Array<Word>()
-    var possessiveAdjectiveList = Array<Word>()
-    var adverbList = Array<Word>()
-    var ambiguousList = Array<Word>()
-    var articleList = Array<Word>()
-    var conjunctionList = Array<Word>()
-    var determinerList = Array<Word>()
-    var nounList = Array<Word>()
-    var prepositionList = Array<Word>()
-    var verbList = Array<Word>()
-    var pronounList = Array<Word>()
+    public init(){}
+    public var adjectiveList = Array<Word>()
+    public var demonstrativeAdjectiveList = Array<Word>()
+    public var interrogativeAdjectiveList = Array<Word>()
+    public var possessiveAdjectiveList = Array<Word>()
+    public var adverbList = Array<Word>()
+    public var ambiguousList = Array<Word>()
+    public var articleList = Array<Word>()
+    public var conjunctionList = Array<Word>()
+    public var determinerList = Array<Word>()
+    public var nounList = Array<Word>()
+    public var prepositionList = Array<Word>()
+    public var verbList = Array<Word>()
+    public var pronounList = Array<Word>()
     
     
 }
