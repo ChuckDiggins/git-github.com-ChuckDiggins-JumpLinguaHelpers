@@ -155,7 +155,7 @@ public class Verb : Word {
         }
     }
     
-    func getVerbTypes()->[VerbType]{
+    public func getVerbTypes()->[VerbType]{
         return typeList
     }
     
@@ -218,9 +218,9 @@ public class Verb : Word {
 
 public class RomanceVerb : Verb {
     
-    var verbForm = Array<String>()
-    var pastParticiple = ""
-    var presentParticiple = ""
+    public var verbForm = Array<String>()
+    public var pastParticiple = ""
+    public var presentParticiple = ""
     
     public override init(jsonVerb: JsonVerb, language: LanguageType){
         super.init(jsonVerb: jsonVerb, language: language)
