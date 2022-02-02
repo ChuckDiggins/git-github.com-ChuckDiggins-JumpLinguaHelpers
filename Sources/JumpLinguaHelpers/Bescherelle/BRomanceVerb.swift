@@ -8,34 +8,34 @@
 import Foundation
 
 public class BRomanceVerb: BVerb {
-    var m_verbStem = ""
-    var m_stemChanging = false
-    var m_stemFrom = ""
-    var m_stemTo = ""
+    public var m_verbStem = ""
+    public var m_stemChanging = false
+    public var m_stemFrom = ""
+    public var m_stemTo = ""
     //----------------------------------
-    var bVerbModel = RomanceVerbModel()
-    var m_orthoPresent = false
-    var m_orthoPresentFrom = ""
-    var m_orthoPresentTo = ""
+    public var bVerbModel = RomanceVerbModel()
+    public var m_orthoPresent = false
+    public var m_orthoPresentFrom = ""
+    public var m_orthoPresentTo = ""
     
-    var m_orthoPreterite = false
-    var m_orthoPreteriteFrom = ""
-    var m_orthoPreteriteTo = ""
+    public var m_orthoPreterite = false
+    public var m_orthoPreteriteFrom = ""
+    public var m_orthoPreteriteTo = ""
     
-    var m_baseVerbInfinitive = ""
-    var m_replacementVerbInfinitive = ""   //for replacing infinitive in Future and Conditional tenses
+    public var m_baseVerbInfinitive = ""
+    public var m_replacementVerbInfinitive = ""   //for replacing infinitive in Future and Conditional tenses
                                                 // poder -> podr
     
-    var restrictions = [String]()
+    public var restrictions = [String]()
     
     //var m_morphStruct = [MorphStruct]()
     //var m_initialMorphObject = [MorphStruct]()
 
-    var replaceMultipleList = [ReplaceMultipleForm]()
-    var replaceModelList = [ReplaceModelForm]()
-    var stemSingleList = [StemSingleForm]()
-    var dropLettersList = [DropLettersForm]()
-    var replaceEndingList = [ReplaceEndingForm]()
+    public var replaceMultipleList = [ReplaceMultipleForm]()
+    public var replaceModelList = [ReplaceModelForm]()
+    public var stemSingleList = [StemSingleForm]()
+    public var dropLettersList = [DropLettersForm]()
+    public var replaceEndingList = [ReplaceEndingForm]()
     
     public init(verbPhrase: String, language: LanguageType){
         super.init(verbPhrase: verbPhrase, languageType: language)

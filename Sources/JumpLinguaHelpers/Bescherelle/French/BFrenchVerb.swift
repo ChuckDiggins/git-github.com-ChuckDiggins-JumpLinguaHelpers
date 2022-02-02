@@ -31,25 +31,25 @@ public struct ModelVerbEnding{
 
 public class BFrenchVerb : BRomanceVerb {
     
-    var p3PreteriteWord = ""
+    public var p3PreteriteWord = ""
 
-    var m_useThis = false
+    public var m_useThis = false
     
-    var m_specialModel = SpecialFrenchVerbModel.none
-    var m_isImpersonal1 = false
-    var m_isImpersonal2 = false
+    public var m_specialModel = SpecialFrenchVerbModel.none
+    public var m_isImpersonal1 = false
+    public var m_isImpersonal2 = false
     
-    var m_presentStemChanging = false
-    var m_presentStemFrom = ""
-    var m_presentStemTo = ""
+    public var m_presentStemChanging = false
+    public var m_presentStemFrom = ""
+    public var m_presentStemTo = ""
     
-    var m_presentSubjStemChanging = false
-    var m_presentSubjStemFrom = ""
-    var m_presentSubjStemTo = ""
+    public var m_presentSubjStemChanging = false
+    public var m_presentSubjStemFrom = ""
+    public var m_presentSubjStemTo = ""
     
-    var m_modelVerbEndingList = [ModelVerbEnding]()
+    public var m_modelVerbEndingList = [ModelVerbEnding]()
     
-    var m_verbModelParseList = [ParsedExceptionStruct]()
+    public var m_verbModelParseList = [ParsedExceptionStruct]()
     
     public init(verbPhrase: String){
         super.init(verbPhrase: verbPhrase, language: .French)

@@ -33,14 +33,14 @@ public class dSingle  : dCluster, Identifiable
     }
     
     
-    var m_partOfPronounPhrase = PronounType.none
+    public var m_partOfPronounPhrase = PronounType.none
     
-    var m_cfr = ContextFreeRule(start: ContextFreeSymbolStruct())
+    public var m_cfr = ContextFreeRule(start: ContextFreeSymbolStruct())
     
-    var m_originalString = ""
-    var m_correction = dCorrection(m_inputInfo: WordStateData())
-    var m_inputInfo = WordStateData()
-    var m_outputInfo = WordStateData()
+    public var m_originalString = ""
+    public var m_correction = dCorrection(m_inputInfo: WordStateData())
+    public var m_inputInfo = WordStateData()
+    public var m_outputInfo = WordStateData()
     
     public func copyGuts(newSingle: dSingle){
         putClusterWord(word: newSingle.getClusterWord())

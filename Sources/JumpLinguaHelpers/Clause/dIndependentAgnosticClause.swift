@@ -8,19 +8,19 @@
 import Foundation
 
 public class dIndependentAgnosticClause : dClause{
-    var grammarLibrary = CFGrammarLibrary()
-    var frenchGrammarLibrary = CFGrammarLibrary()
-    var originalSentenceString = String()
-    var processedSentenceString = ""
+    public var grammarLibrary = CFGrammarLibrary()
+    public var frenchGrammarLibrary = CFGrammarLibrary()
+    public var originalSentenceString = String()
+    public var processedSentenceString = ""
     //var dataList = Array<SentenceData>()
     //var clauseList = Array<WordRuleManager>()
-    var currentWordRuleIndex = 0
+    public var currentWordRuleIndex = 0
     //var sentence = dSentence()
-    var headNoun = dCluster(word: Word(), clusterType: .UNK)
-    var headVerb = dCluster(word: Word(), clusterType: .UNK)
-    var m_cfMorphStruct = CFMorphStruct()
+    public var headNoun = dCluster(word: Word(), clusterType: .UNK)
+    public var headVerb = dCluster(word: Word(), clusterType: .UNK)
+    public var m_cfMorphStruct = CFMorphStruct()
     
-    var workingSingleList = [dSingle]()
+    public var workingSingleList = [dSingle]()
     
     public override init(){
         super.init()

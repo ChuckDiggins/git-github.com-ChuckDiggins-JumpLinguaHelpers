@@ -20,11 +20,11 @@ public class dClause : dCluster {
         super.init(word: Word(), clusterType: .UNK)
     }
     
-    var m_headSubjectCluster = dCluster(word: Word(), clusterType: .PersPro)
-    var m_headNounCluster = dCluster(word: Word(), clusterType: .N)
-    var m_headVerbCluster = dCluster(word: Word(), clusterType: .V)
-    var m_cfr = ContextFreeRule(start: ContextFreeSymbolStruct())
-    var m_singleList = Array<dSingle>()
+    public var m_headSubjectCluster = dCluster(word: Word(), clusterType: .PersPro)
+    public var m_headNounCluster = dCluster(word: Word(), clusterType: .N)
+    public var m_headVerbCluster = dCluster(word: Word(), clusterType: .V)
+    public var m_cfr = ContextFreeRule(start: ContextFreeSymbolStruct())
+    public var m_singleList = Array<dSingle>()
 
     public func appendSingle(single: dSingle){
         m_singleList.append(single)

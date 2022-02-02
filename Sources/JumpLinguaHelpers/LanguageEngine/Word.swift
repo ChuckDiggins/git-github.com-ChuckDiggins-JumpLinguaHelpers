@@ -10,11 +10,11 @@ import Foundation
 public class Word : Hashable, Equatable {
     public var word : String
     //let def : String
-    let wordType : WordType
+    public let wordType : WordType
     
-    var english = ""
-    var spanish = ""
-    var french = ""
+    public var english = ""
+    public var spanish = ""
+    public var french = ""
     
     public init(word: String, spanish: String, french: String, english: String, wordType: WordType){
         self.word = word

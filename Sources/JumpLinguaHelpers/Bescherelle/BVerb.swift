@@ -46,22 +46,22 @@ var toWord = ""
 public class BVerb : Word, Identifiable {
     public var id = UUID()
     
-    var m_verbPhrase : String
-    var m_verbWord : String
-    var languageType : LanguageType
-    var m_isPassive = false
+    public var m_verbPhrase : String
+    public var m_verbWord : String
+    public var languageType : LanguageType
+    public var m_isPassive = false
 //    var m_isBackward = false
-    var m_isIrregular = false
-    var m_residualPhrase = ""
-    var m_isReflexive = false           //not used for English
-    var m_verbEnding = VerbEnding.AR    //not used for English
+    public var m_isIrregular = false
+    public var m_residualPhrase = ""
+    public var m_isReflexive = false           //not used for English
+    public var m_verbEnding = VerbEnding.AR    //not used for English
     
-    var m_pastParticiple = ""
-    var m_gerund = ""
+    public var m_pastParticiple = ""
+    public var m_gerund = ""
     private var m_isConjugated = false
-    var morphStructManager : MorphStructManager
+    public var morphStructManager : MorphStructManager
     
-    let verbStuff : (verbWord: String, verbEnding: VerbEnding, residualPhrase: String, isReflexive: Bool)
+    public let verbStuff : (verbWord: String, verbEnding: VerbEnding, residualPhrase: String, isReflexive: Bool)
     
     public  override init(){
         self.morphStructManager = MorphStructManager(verbPhrase: "", tense: .present)

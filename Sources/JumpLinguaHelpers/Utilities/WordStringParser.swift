@@ -46,7 +46,7 @@ public class WordStringParser {
         return spanishWords
     }
     
-    func getFrenchWords()->FrenchWords{
+    public func getFrenchWords()->FrenchWords{
         return frenchWords
     }
     

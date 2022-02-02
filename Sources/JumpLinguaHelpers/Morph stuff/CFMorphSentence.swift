@@ -7,13 +7,16 @@
 
 import Foundation
 
-struct CFMorphSentence {
-    var m_clause : dIndependentAgnosticClause
-    var subjectPronoun = ""
-    var directObjectPronoun = ""
-    var indirectObjectPronoun = ""
+public struct CFMorphSentence {
+    public var m_clause : dIndependentAgnosticClause
+    public var subjectPronoun = ""
+    public var directObjectPronoun = ""
+    public var indirectObjectPronoun = ""
+    public init(){
+        m_clause = dIndependentAgnosticClause()
+    }
     
-    mutating func applyMorphModel(language: LanguageType, inputMorphStruct:CFMorphStruct, cfMorphModel : CFMorphModel )->CFMorphStruct{
+    public mutating func applyMorphModel(language: LanguageType, inputMorphStruct:CFMorphStruct )->CFMorphStruct{
         let workingMorphStruct = inputMorphStruct
         
         //let workingSingleList = m_clause.getWorkingSingleList()
@@ -23,7 +26,7 @@ struct CFMorphSentence {
     
     //WorkInProgress
     
-    mutating func applyMorphModelToSimplePhrases(language: LanguageType, inputMorphStruct:CFMorphStruct, cfMorphModel : CFMorphModel )->CFMorphStruct{
+    public mutating func applyMorphModelToSimplePhrases(language: LanguageType, inputMorphStruct:CFMorphStruct, cfMorphModel : CFMorphModel )->CFMorphStruct{
         let currentLanguage = language
         let workingMorphStruct = inputMorphStruct
         
@@ -68,7 +71,7 @@ struct CFMorphSentence {
     }
     */
     
-    mutating func retrieveAppropriatPronounPhrase(language: LanguageType, inputMorphStruct:CFMorphStruct, cfMorphModel : CFMorphModel )->CFMorphStruct{
+    public mutating func retrieveAppropriatPronounPhrase(language: LanguageType, inputMorphStruct:CFMorphStruct, cfMorphModel : CFMorphModel )->CFMorphStruct{
         let workingMorphStruct = inputMorphStruct
     
         for cfOperation in cfMorphModel.mpsList{
@@ -266,7 +269,7 @@ struct CFMorphSentence {
     }//applyMorphModel
     */
         
-    mutating func getEquivalentPronoun(clause: dIndependentAgnosticClause, type: PronounType, language: LanguageType)->([dSingle], Gender, Number, Person){
+    public mutating func getEquivalentPronoun(clause: dIndependentAgnosticClause, type: PronounType, language: LanguageType)->([dSingle], Gender, Number, Person){
         let result = clause.getCompositeSentenceString(language: language, targetFunction: .Subject)
         let phraseSingleList = result.0
         let gender = result.1
@@ -276,7 +279,7 @@ struct CFMorphSentence {
     }
     
     
-    mutating func getWordString(language: LanguageType, single: dSingle)->String{
+    public mutating func getWordString(language: LanguageType, single: dSingle)->String{
         if single.isPersonalPronounType(){
             let ppSingle = single as! dPersonalPronounSingle
             return ppSingle.getWordStringAtLanguage(language: language)
@@ -284,9 +287,9 @@ struct CFMorphSentence {
         return single.getProcessWordInWordStateData(language: language) + " "
     }
     
-    mutating func grab (language: LanguageType, inputMorphStruct:CFMorphStruct, selectedList:[Bool], phraseSingleList : [dSingle], equivalentPronounSingle : dPersonalPronounSingle, equivalentPronounDescription: String)->CFMorphStruct{
+    public mutating func grab (language: LanguageType, inputMorphStruct:CFMorphStruct, selectedList:[Bool], phraseSingleList : [dSingle], equivalentPronounSingle : dPersonalPronounSingle, equivalentPronounDescription: String)->CFMorphStruct{
         
-        let workingMorphStruct = inputMorphStruct
+        var workingMorphStruct = inputMorphStruct
         var morphStep = CFMorphStep()
         let workingSingleList = m_clause.getWorkingSingleList()
         var doPhrase = ""
@@ -334,12 +337,12 @@ struct CFMorphSentence {
         return workingMorphStruct
     }
     
-    mutating func replace(language: LanguageType, inputMorphStruct:CFMorphStruct, selectedList:[Bool],
+    public mutating func replace(language: LanguageType, inputMorphStruct:CFMorphStruct, selectedList:[Bool],
                           phraseSingleList : [dSingle], equivalentPronounSingle : dPersonalPronounSingle, equivalentPronounDescription: String)->CFMorphStruct{
         
         //Replace the current phrase with the equivalent pronoun
 
-        let workingMorphStruct = inputMorphStruct
+        var workingMorphStruct = inputMorphStruct
         var morphStep = CFMorphStep()
         var workingSingleList = m_clause.getWorkingSingleList()
         print("\nBefore replace")
@@ -395,9 +398,9 @@ struct CFMorphSentence {
         return workingMorphStruct
     }
     
-    mutating func moveSingle (language: LanguageType, inputMorphStruct:CFMorphStruct, removeIndex:Int, moveToIndex:Int, equivalentPronounDescription: String)->CFMorphStruct
+    public mutating func moveSingle (language: LanguageType, inputMorphStruct:CFMorphStruct, removeIndex:Int, moveToIndex:Int, equivalentPronounDescription: String)->CFMorphStruct
     {
-        let workingMorphStruct = inputMorphStruct
+        var workingMorphStruct = inputMorphStruct
         
         var workingSingleList = m_clause.getWorkingSingleList()
         var targetSingle = dSingle()
@@ -449,9 +452,9 @@ struct CFMorphSentence {
 
         return workingMorphStruct
     }
-    mutating func remove (language: LanguageType, inputMorphStruct:CFMorphStruct, removeIndex:Int, equivalentPronounDescription: String)->CFMorphStruct{
+    public mutating func remove (language: LanguageType, inputMorphStruct:CFMorphStruct, removeIndex:Int, equivalentPronounDescription: String)->CFMorphStruct{
         
-        let workingMorphStruct = inputMorphStruct
+        var workingMorphStruct = inputMorphStruct
         var morphStep = CFMorphStep()
         var workingSingleList = m_clause.getWorkingSingleList()
         
@@ -483,7 +486,7 @@ struct CFMorphSentence {
        
         let equivalentPronounString = getWordString(language: language, single: equivalentPronounSingle) + " "
         
-        let workingMorphStruct = inputMorphStruct
+        var workingMorphStruct = inputMorphStruct
         var morphStep = CFMorphStep()
         var workingSingleList = m_clause.getWorkingSingleList()
         

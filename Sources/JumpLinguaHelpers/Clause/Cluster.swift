@@ -10,12 +10,12 @@ import Foundation
 public class dCluster : Hashable {
     public var m_clusterWord : Word
     public var m_clusterType : ContextFreeSymbol
-    var m_parentClusterType = ContextFreeSymbol.UNK
-    var m_clusterFunction = ContextFreeFunction.None
-    var m_associatedWordList = [Word]()
-    var m_sentenceData = WordStateData()
+    public var m_parentClusterType = ContextFreeSymbol.UNK
+    public var m_clusterFunction = ContextFreeFunction.None
+    public var m_associatedWordList = [Word]()
+    public var m_sentenceData = WordStateData()
     
-    var m_clusterList = Array<dCluster>()
+    public var m_clusterList = Array<dCluster>()
     public static func == (lhs : dCluster, rhs : dCluster) ->Bool{
         return lhs.getClusterWord().spanish == rhs.getClusterWord().spanish && lhs.getClusterWord().french == rhs.getClusterWord().french
     }
@@ -24,7 +24,7 @@ public class dCluster : Hashable {
         hasher.combine(self.getClusterWord().spanish)
         hasher.combine(self.getClusterWord().french)
     }
-    var m_clusterName = ""
+    public var m_clusterName = ""
     public func getClusterName()->String{
         return m_clusterName
     }

@@ -9,21 +9,21 @@ import Foundation
 
 public class BEnglishVerb : BVerb {
     
-    var verbModel = EnglishVerbModel()
-    var m_presentS3Form = ""
-    var m_preteriteForm = ""
-    var m_suffix1 = ""
-    var m_suffix2 = ""
-    var m_preteriteStem = ""
-    var m_presentS3Stem = ""
-    var endsInE = false
-    var endsInLL = false
-    var endsInConsonant = true
-    var endsInDKNRT = false
-    var endsInConsonantY = false
-    var endsInN = false
-    var m_baseString = ""
-    var m_separable = Separable.both
+    public var verbModel = EnglishVerbModel()
+    public var m_presentS3Form = ""
+    public var m_preteriteForm = ""
+    public var m_suffix1 = ""
+    public var m_suffix2 = ""
+    public var m_preteriteStem = ""
+    public var m_presentS3Stem = ""
+    public var endsInE = false
+    public var endsInLL = false
+    public var endsInConsonant = true
+    public var endsInDKNRT = false
+    public var endsInConsonantY = false
+    public var endsInN = false
+    public var m_baseString = ""
+    public var m_separable = Separable.both
     
     public init(verbPhrase: String, separable: Separable){
         m_separable = separable

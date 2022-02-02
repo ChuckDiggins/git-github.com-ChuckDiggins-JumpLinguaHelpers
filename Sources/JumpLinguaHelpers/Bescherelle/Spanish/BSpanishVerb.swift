@@ -18,34 +18,34 @@ import Foundation
 
 public class BSpanishVerb : BRomanceVerb {
     
-    var p3PreteriteWord = ""
+    public var p3PreteriteWord = ""
 
     var m_useThis = false
     
-    var m_specialModel = SpecialSpanishVerbModel.none
+    public var m_specialModel = SpecialSpanishVerbModel.none
     
-    var m_pretStem2Changing = false
-    var m_pretStem2From = ""
-    var m_pretStem2To = ""
+    public var m_pretStem2Changing = false
+    public var m_pretStem2From = ""
+    public var m_pretStem2To = ""
     
-    var m_pretStem3Changing = false
+    public var m_pretStem3Changing = false
 
    
     
-     var p3PreteriteVerbWord = String()
+    public var p3PreteriteVerbWord = String()
 
     
-    var m_pretStemChanging = false
-    var m_pretStemFrom = ""
-    var m_pretStemTo = ""
+    public var m_pretStemChanging = false
+    public var m_pretStemFrom = ""
+    public var m_pretStemTo = ""
     
     //
     //*********************************************
     
-    var m_verbModelParseList = [ParsedExceptionStruct]()
-    var m_defaultPresentSubjunctiveParsedExceptionStruct = ParsedExceptionStruct()
-    var m_defaultImperfectSubjunctiveParsedExceptionStruct = ParsedExceptionStruct()
-    var m_defaultParsedExceptionStruct = ParsedExceptionStruct()
+    public var m_verbModelParseList = [ParsedExceptionStruct]()
+    public var m_defaultPresentSubjunctiveParsedExceptionStruct = ParsedExceptionStruct()
+    public var m_defaultImperfectSubjunctiveParsedExceptionStruct = ParsedExceptionStruct()
+    public var m_defaultParsedExceptionStruct = ParsedExceptionStruct()
     
     //var verbModelConjugation = VerbModelConjugation()
 //

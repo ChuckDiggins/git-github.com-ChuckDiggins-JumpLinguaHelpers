@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MorphOperation : String {
+public enum MorphOperation : String {
     case remove
     case insertBefore
     case replace
@@ -19,27 +19,28 @@ enum MorphOperation : String {
     case none
 }
 
-struct MorphOperationStruct{
-    var morphOperation = MorphOperation.grab
-    var from = CFType.none
-    var to = CFType.none
-    var location = CFLocation.none
+public struct MorphOperationStruct{
+    public init(){}
+    public var morphOperation = MorphOperation.grab
+    public var from = CFType.none
+    public var to = CFType.none
+    public var location = CFLocation.none
 }
 
-struct MorphOperationJson : Codable{
-    let morphOperationString : String
-    let cfFromTypeString : String
-    let cfToTypeString : String
-    var locationString : String
+public struct MorphOperationJson : Codable{
+    public let morphOperationString : String
+    public let cfFromTypeString : String
+    public let cfToTypeString : String
+    public var locationString : String
     
-    init(morphOperation: String, cfFromTypeString: String, cfToTypeString: String){
+    public init(morphOperation: String, cfFromTypeString: String, cfToTypeString: String){
         self.morphOperationString = morphOperation
         self.cfFromTypeString = cfFromTypeString
         self.cfToTypeString = cfToTypeString
         self.locationString = ""
     }
     
-    init(morphOperation: String, cfFromTypeString: String, locationString: String){
+    public init(morphOperation: String, cfFromTypeString: String, locationString: String){
         self.morphOperationString = morphOperation
         self.cfFromTypeString = cfFromTypeString
         self.cfToTypeString = ""
@@ -47,7 +48,7 @@ struct MorphOperationJson : Codable{
     }
 }
 
-enum CFType {
+public enum CFType {
     case none
     case literal     //any string, exclamation
     case punctuation
@@ -65,7 +66,7 @@ enum CFType {
     case precedingAdjective  //for use in moving a following romance adjective to preceding english adjective
 }
 
-enum CFLocation {
+public enum CFLocation {
     case none
     case precedingVerb
     case insideVerb     //phrasal verbs in English
@@ -87,17 +88,22 @@ enum CFLocation {
  2.  a double operand might be to convert a direct object to a direct object pronoun
  */
 
-struct CFMorphModel : Identifiable {
-    let id : Int
-    let modelName : String
-    var mpjList = [MorphOperationJson]()  //string version for reading and writing as JSON
-    var mpsList = [MorphOperationStruct]() //enum version
+public struct CFMorphModel : Identifiable {
+    public let id : Int
+    public let modelName : String
+    public var mpjList = [MorphOperationJson]()  //string version for reading and writing as JSON
+    public var mpsList = [MorphOperationStruct]() //enum version
     
-    mutating func appendOperation(mp : MorphOperationJson){
+    public init(id: Int, modelName: String){
+        self.id = id
+        self.modelName = modelName
+    }
+    
+    public mutating func appendOperation(mp : MorphOperationJson){
         mpjList.append(mp)
     }
     
-    mutating func unpackJSONOperationString(operation: String)->MorphOperation{
+    public mutating func unpackJSONOperationString(operation: String)->MorphOperation{
         var morphOperation : MorphOperation
         switch operation {
         case "remove" : morphOperation = .remove
@@ -113,7 +119,7 @@ struct CFMorphModel : Identifiable {
         return morphOperation
     }
     
-    mutating func unpackJSONFromToString(fromToString: String)->CFType{
+    public mutating func unpackJSONFromToString(fromToString: String)->CFType{
         var cfType : CFType
         switch fromToString{
         case "directObjectPhrase" : cfType = .directObjectPhrase
@@ -134,7 +140,7 @@ struct CFMorphModel : Identifiable {
         return cfType
     }
     
-    mutating func unpackJSONLocation(locationString: String)->CFLocation{
+    public mutating func unpackJSONLocation(locationString: String)->CFLocation{
         var cfLocation : CFLocation
         switch locationString{
         case "precedingVerb" : cfLocation = .precedingVerb
@@ -158,7 +164,7 @@ struct CFMorphModel : Identifiable {
     }
     
     //mutating func parseMorphModel(){
-    mutating func unpackJSONOperations(){
+    public mutating func unpackJSONOperations(){
         for mpj in mpjList {
             var mps = MorphOperationStruct()
             mps.morphOperation = unpackJSONOperationString(operation: mpj.morphOperationString)

@@ -8,41 +8,42 @@
 import Foundation
 
 
-struct CFMorphStep {
-    var index : Int = -1
-    var phraseForm : String = ""
-    var comment1 : String = ""
-    var comment2 : String = ""
-    var comment3 : String = ""
-    var comment4 : String = ""
-    var part1 : String = ""
-    var part2 : String = ""
-    var part3: String = ""
+public struct CFMorphStep {
+    public init(){}
+    public var index : Int = -1
+    public var phraseForm : String = ""
+    public var comment1 : String = ""
+    public var comment2 : String = ""
+    public var comment3 : String = ""
+    public var comment4 : String = ""
+    public var part1 : String = ""
+    public var part2 : String = ""
+    public var part3: String = ""
     
-    func getStrings()->(String, String, String){
+    public func getStrings()->(String, String, String){
         return (part1, part2, part3)
     }
     
-    func getComments()->(String, String, String, String){
+    public func getComments()->(String, String, String, String){
         return (comment1, comment2, comment3, comment4)
     }
 }
 
 //all the morphsteps should relate to a single person
-class CFMorphStruct {
-    init(){
+public struct  CFMorphStruct {
+    public init(){
         let ms = CFMorphStep()
         append(morphStep: ms)
     }
-    var currentIndex = 0
-    var morphArray = [CFMorphStep]()
-    func clear(){ morphArray.removeAll() }
-    func count()->Int { return morphArray.count}
-    func append( morphStep : CFMorphStep ){
+    public var currentIndex = 0
+    public var morphArray = [CFMorphStep]()
+    mutating public func clear(){ morphArray.removeAll() }
+    mutating public func count()->Int { return morphArray.count}
+    mutating public func append( morphStep : CFMorphStep ){
         morphArray.append(morphStep)
     }
     
-    func getMorphStep(index : Int)-> CFMorphStep {
+    mutating public func getMorphStep(index : Int)-> CFMorphStep {
             if index == 0 && index < morphArray.count { return morphArray[index]}
             return CFMorphStep()
     }

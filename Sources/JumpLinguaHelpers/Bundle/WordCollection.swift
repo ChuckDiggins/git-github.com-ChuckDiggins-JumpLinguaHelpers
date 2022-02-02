@@ -9,8 +9,9 @@ import Foundation
 
 public struct dWordCollection : Equatable {
     let idNum : Int
-    let collectionName : String
-    var wordList = [Word]()
+    
+    public let collectionName : String
+    public var wordList = [Word]()
     public static func == (lhs: dWordCollection, rhs: dWordCollection) -> Bool {
         return
             lhs.collectionName == rhs.collectionName

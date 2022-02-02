@@ -8,6 +8,8 @@
 import Foundation
 
 public struct dWordCollectionManager{
+    public init(){}
+    
     public var collectionList = Array<dWordCollection>()
     
     public mutating func append(collection: dWordCollection){
