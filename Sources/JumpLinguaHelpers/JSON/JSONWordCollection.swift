@@ -42,6 +42,7 @@ public struct JSONCollectionStruct : Codable, CustomStringConvertible {
     var idNum: Int
     var collectionName : String
     var wordList = [JSONWord]()
+    
     public var description: String {
         return "\(self.collectionName) : wordCount =\(wordList.count)"
     }

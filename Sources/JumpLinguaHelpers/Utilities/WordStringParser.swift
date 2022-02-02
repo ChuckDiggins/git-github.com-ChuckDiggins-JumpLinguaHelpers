@@ -34,15 +34,15 @@ public class WordStringParser {
         //createDictionaries()
     }
     
-    func getLanguage()->LanguageType{
+    public func getLanguage()->LanguageType{
         return m_language
     }
     
-    func getGeneralWords()->GeneralWords{
+    public func getGeneralWords()->GeneralWords{
         return generalWords
     }
     
-    func getSpanishWords()->SpanishWords{
+    public func getSpanishWords()->SpanishWords{
         return spanishWords
     }
     
@@ -50,11 +50,11 @@ public class WordStringParser {
         return frenchWords
     }
     
-    func getEnglishWords()->EnglishWords{
+    public func getEnglishWords()->EnglishWords{
         return englishWords
     }
     
-    func isNewVerb(verb: Verb)->Bool{
+    public func isNewVerb(verb: Verb)->Bool{
         for word in generalWords.verbList {
             if verb.word == word.word {
                 return false
@@ -63,15 +63,15 @@ public class WordStringParser {
         return true
     }
 
-    func getVerbList()->Array<Word>{
+    public func getVerbList()->Array<Word>{
         return generalWords.verbList
     }
     
-    func getVerbCount()->Int{
+    public func getVerbCount()->Int{
         return generalWords.verbList.count
     }
     
-    func getWordCounts(){
+    public func getWordCounts(){
         print("Adjective count = \(getWordCount(wordType: .adjective))")
         print("Adverb count = \(getWordCount(wordType: .adverb))")
         print("Determiner count = \(getWordCount(wordType: .determiner))")
@@ -82,7 +82,7 @@ public class WordStringParser {
         print("Verb count = \(getWordCount(wordType: .verb))")
     }
     
-    func getWordCount(wordType: WordType)->Int{
+    public func getWordCount(wordType: WordType)->Int{
         switch wordType{
         case .adjective: return generalWords.adjectiveList.count
         case .adverb: return generalWords.adverbList.count
@@ -96,7 +96,7 @@ public class WordStringParser {
         }
     }
     
-    func getWordList(wordType: WordType)->Array<Word>{
+    public func getWordList(wordType: WordType)->Array<Word>{
         switch wordType{
         case .adjective: return generalWords.adjectiveList
         case .adverb: return generalWords.adverbList
@@ -110,11 +110,11 @@ public class WordStringParser {
         }
     }
     
-    func getWorkingList()->Array<Word>{
+    public func getWorkingList()->Array<Word>{
         return generalWords.workingList
     }
     
-    func getWorkingListOfType(wordType: WordType)->Array<Word>{
+    public func getWorkingListOfType(wordType: WordType)->Array<Word>{
         var wordTypeWordList = Array<Word>()
         for word in generalWords.workingList{
             if word.wordType == wordType {
@@ -124,7 +124,7 @@ public class WordStringParser {
         return wordTypeWordList
     }
     
-    func findWordInDictionary(word: Word)->Word{
+    public func findWordInDictionary(word: Word)->Word{
         let wordList = getWordList(wordType: word.wordType)
         for w in wordList {
             if w == word {return w}
@@ -133,31 +133,31 @@ public class WordStringParser {
     }
    
 
-    func getNounList()->Array<Word>{
+    public func getNounList()->Array<Word>{
         return generalWords.nounList
     }
     
-    func getNounCount()->Int{
+    public func getNounCount()->Int{
         return generalWords.nounList.count
     }
     
-    func getAdjectiveList()->Array<Word>{
+    public func getAdjectiveList()->Array<Word>{
         return generalWords.adjectiveList
     }
     
-    func getAdjectiveCount()->Int{
+    public func getAdjectiveCount()->Int{
         return generalWords.adjectiveList.count
     }
     
-    func getDeterminerList()->Array<Word>{
+    public func getDeterminerList()->Array<Word>{
         return generalWords.determinerList
     }
     
-    func getDeterminerCount()->Int{
+    public func getDeterminerCount()->Int{
         return generalWords.determinerList.count
     }
     
-    func getPrepositionCount()->Int{
+    public func getPrepositionCount()->Int{
         return generalWords.prepositionList.count
     }
     
@@ -168,7 +168,7 @@ public class WordStringParser {
     }
     */
     
-    func getAgnosticWordFromDictionary(wordType:WordType, index:Int)->Word{
+    public func getAgnosticWordFromDictionary(wordType:WordType, index:Int)->Word{
         switch wordType {
         case .determiner: return generalWords.determinerList[index]
         case .adjective: return generalWords.adjectiveList[index]
@@ -184,7 +184,7 @@ public class WordStringParser {
     }
     
     //create the correct verb on the fly
-    func getVerbFromDictionary(language: LanguageType, index: Int)->Verb{
+    public func getVerbFromDictionary(language: LanguageType, index: Int)->Verb{
         var verb = Verb()
         switch language {
         case .Spanish:
@@ -212,7 +212,7 @@ public class WordStringParser {
     }
     
     //create the correct verb just in time
-    func getNounFromDictionary(language: LanguageType, index: Int)->Noun{
+    public func getNounFromDictionary(language: LanguageType, index: Int)->Noun{
         var noun  = Noun()
         switch language {
         case .Spanish:
@@ -228,7 +228,7 @@ public class WordStringParser {
     }
     
     //create the correct verb just in time
-    func getAdjectiveFromDictionary(language: LanguageType, index: Int)->Adjective{
+    public func getAdjectiveFromDictionary(language: LanguageType, index: Int)->Adjective{
         var adj  = Adjective()
         switch language {
         case .Spanish:
@@ -244,7 +244,7 @@ public class WordStringParser {
     }
     
     //create the correct verb just in time
-    func getPrepositionFromDictionary(language: LanguageType, index: Int)->Preposition{
+    public func getPrepositionFromDictionary(language: LanguageType, index: Int)->Preposition{
         var prep  = Preposition()
         switch language {
         case .Spanish:
@@ -260,7 +260,7 @@ public class WordStringParser {
     }
     
     //create the correct verb just in time
-    func getDeterminerFromDictionary(language: LanguageType, index: Int)->Determiner{
+    public func getDeterminerFromDictionary(language: LanguageType, index: Int)->Determiner{
         var det  = Determiner()
         switch language {
         case .Spanish:
@@ -275,56 +275,56 @@ public class WordStringParser {
         return det
     }
     
-    func addWordToWorkingDictionary(wd: Word){
+    public func addWordToWorkingDictionary(wd: Word){
         generalWords.workingList.append(wd)
     }
     
-    func getCurrentWorkingWords()->Array<Word>{
+    public func getCurrentWorkingWords()->Array<Word>{
         return generalWords.workingList
     }
     
-    func addAdjectiveToDictionary(adj: Adjective){
+    public func addAdjectiveToDictionary(adj: Adjective){
         generalWords.adjectiveList.append(adj)
     }
     
-    func addAdverbToDictionary(wd: Adverb){
+    public func addAdverbToDictionary(wd: Adverb){
         generalWords.adverbList.append(wd)
     }
     
-    func addConjuctionToDictionary(wd: Conjunction){
+    public func addConjuctionToDictionary(wd: Conjunction){
         generalWords.conjunctionList.append(wd)
     }
     
-    func addDeterminerToDictionary(wd: Determiner){
+    public func addDeterminerToDictionary(wd: Determiner){
         generalWords.determinerList.append(wd)
     }
     
-    func addNounToDictionary(noun: Noun){
+    public func addNounToDictionary(noun: Noun){
         generalWords.nounList.append(noun)
     }
     
-    func addPrepositionToDictionary(wd: Preposition){
+    public func addPrepositionToDictionary(wd: Preposition){
         generalWords.prepositionList.append(wd)
     }
     
-    func addPronounToDictionary(wd: Pronoun){
+    public func addPronounToDictionary(wd: Pronoun){
         generalWords.pronounList.append(wd)
     }
     
-    func addVerbToDictionary(verb: Verb){
+    public func addVerbToDictionary(verb: Verb){
         generalWords.verbList.append(verb)
     }
     
     
     
-    func convertWordToSentenceData(word: Word, wordType: ContextFreeSymbol)->SentenceData{
+    public func convertWordToSentenceData(word: Word, wordType: ContextFreeSymbol)->SentenceData{
         var sentenceData = SentenceData()
         sentenceData.word = word
         sentenceData.data.wordType = wordType
         return sentenceData
     }
 
-    func getPrepositions()->Array<Word>{
+    public func getPrepositions()->Array<Word>{
         switch(m_language){
         case .Spanish:
             return spanishWords.prepositionList
@@ -335,7 +335,7 @@ public class WordStringParser {
         }
     }
     
-    func getConjunctions()->Array<Word>{
+    public func getConjunctions()->Array<Word>{
         switch(m_language){
         case .Spanish:
             return spanishWords.conjunctionList
@@ -346,7 +346,7 @@ public class WordStringParser {
         }
     }
     
-    func handleObjectPronouns(wordString: String)->Array<String>{
+    public func handleObjectPronouns(wordString: String)->Array<String>{
         var wordList = Array<String>()
         var wsr = WordStringResolution()
         switch m_language {
@@ -370,7 +370,7 @@ public class WordStringParser {
 
 
 
-    func handleContractions(wordList: [Word])->[Word]{
+    public func handleContractions(wordList: [Word])->[Word]{
 
         var wordListCopy = wordList
         switch m_language {
@@ -401,7 +401,7 @@ public class WordStringParser {
     
     //find one or more instances of the multi-word prepString in the wordList.  Replace them with a single multi-word string
     
-    func handleCompoundExpressionInWordList( wordList: [Word], inputWordList: [String])->(Bool, [Word]){
+    public func handleCompoundExpressionInWordList( wordList: [Word], inputWordList: [String])->(Bool, [Word]){
         var startIndex = 0
         var wordIndex = 1
         var i = 0
@@ -434,7 +434,7 @@ public class WordStringParser {
     }
     
 
-    func handleCompoundExpressionInStringList( wordList: [String], inputWordList: [String])->(Bool, [String]){
+    public func handleCompoundExpressionInStringList( wordList: [String], inputWordList: [String])->(Bool, [String]){
         var startIndex = 0
         var wordIndex = 1
         var i = 0
@@ -467,7 +467,7 @@ public class WordStringParser {
     
     
     
-    func getPunctuation(wordString: String)->SentenceData{
+    public func getPunctuation(wordString: String)->SentenceData{
         var sd = SentenceData()
         let word = Punctuation(word: wordString, def: "", type : .period)
         let punct = word.isPunctuation(word: wordString)
@@ -479,7 +479,7 @@ public class WordStringParser {
         return sd
     }
     
-    func getArticle(wordString: String)->SentenceData{
+    public func getArticle(wordString: String)->SentenceData{
         var sd = SentenceData()
         
         switch m_language {
@@ -521,7 +521,7 @@ public class WordStringParser {
     }
     
     
-    func getAdjective(wordString: String)->SentenceData{
+    public func getAdjective(wordString: String)->SentenceData{
         
         var sd = SentenceData()
         switch m_language {
@@ -567,7 +567,7 @@ public class WordStringParser {
         return sd
     }
     
-    func getNoun(wordString:String)->SentenceData{
+    public func getNoun(wordString:String)->SentenceData{
         
         var sd = SentenceData()
         switch m_language {
@@ -617,7 +617,7 @@ public class WordStringParser {
         return sd
     }
     
-    func getConjunction(wordString:String)->SentenceData{
+    public func getConjunction(wordString:String)->SentenceData{
         
         var sd = SentenceData()
         switch m_language {
@@ -664,7 +664,7 @@ public class WordStringParser {
     }
     
     
-    func getPreposition(wordString:String)->SentenceData{
+    public func getPreposition(wordString:String)->SentenceData{
         
         var sd = SentenceData()
         switch m_language {
@@ -772,7 +772,7 @@ public class WordStringParser {
     }
 */
     
-    func getVerb(wordString: String)->SentenceData{
+    public func getVerb(wordString: String)->SentenceData{
         var sd = SentenceData()
         
         switch m_language {
@@ -844,7 +844,7 @@ public class WordStringParser {
         return sd
     }
     
-    func getObjectPronoun(wordString: String, type: PronounType)->SentenceData{
+    public func getObjectPronoun(wordString: String, type: PronounType)->SentenceData{
         var sd = SentenceData()
         let result : (PronounType, Gender, Person)
         switch m_language {
@@ -868,7 +868,7 @@ public class WordStringParser {
         return sd
     }
     
-    func getPronoun(wordString: String)->SentenceData{
+    public func getPronoun(wordString: String)->SentenceData{
         var sd = SentenceData()
         
         switch m_language {
@@ -1009,7 +1009,7 @@ public class WordStringParser {
         
     }
     
-    func getDeterminer(wordString: String)->SentenceData{
+    public func getDeterminer(wordString: String)->SentenceData{
         var sd = SentenceData()
         switch m_language {
         case .Spanish, .French:
@@ -1047,7 +1047,7 @@ public class WordStringParser {
     
 }
 
-extension StringProtocol {
+public extension StringProtocol {
     func index<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
         range(of: string, options: options)?.lowerBound
     }
