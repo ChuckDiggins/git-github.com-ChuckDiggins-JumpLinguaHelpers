@@ -10,14 +10,14 @@ import Foundation
 
 //all the morphsteps should relate to a single person
 public struct MorphStruct  {
-    var currentIndex = 0
-    var person = Person.S1
-    var morphStepArray = [MorphStep]()
-    var isOrtho = false
-    var isStem = false
-    var isIrreg = false
-    var isValid = false
-    var conjugationComplete = false
+    public var currentIndex = 0
+    public var person = Person.S1
+    public var morphStepArray = [MorphStep]()
+    public var isOrtho = false
+    public var isStem = false
+    public var isIrreg = false
+    public var isValid = false
+    public var conjugationComplete = false
     
     public init (person: Person){
         self.person = person

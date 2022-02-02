@@ -8,9 +8,9 @@
 import Foundation
 
 public struct MorphStructManager {
-   
-    var verbPhrase : String
-    var tense : Tense
+
+    public var verbPhrase : String
+    public var tense : Tense
     
     public init(verbPhrase: String, tense: Tense){
         self.verbPhrase = verbPhrase
@@ -35,8 +35,8 @@ public struct MorphStructManager {
         MorphStruct(person: .P3)
     ]
     
-    var currentMorphStepIndex = [0,0,0,0,0,0]
-    var isCompleted = [false, false, false, false, false, false]
+    public var currentMorphStepIndex = [0,0,0,0,0,0]
+    public var isCompleted = [false, false, false, false, false, false]
     
     public mutating func setInfo(verbPhrase: String, tense: Tense){
         self.verbPhrase = verbPhrase

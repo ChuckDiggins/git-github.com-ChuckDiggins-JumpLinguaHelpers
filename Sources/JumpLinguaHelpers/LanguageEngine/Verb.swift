@@ -11,14 +11,14 @@ import Foundation
 //----------------------------------------------------------------------------------------
 
 public class Verb : Word {
-    var bVerb = BVerb()
-    var typeList = [VerbType]()
-    var transitivity =  VerbTransitivity.transitive
-    var passivity =  VerbPassivity.active
-    var tense = Tense.present
-    var person = Person.S1
-    var tensePersonSet = false
-    var m_isPassive = false
+    public var bVerb = BVerb()
+    public var typeList = [VerbType]()
+    public var transitivity =  VerbTransitivity.transitive
+    public var passivity =  VerbPassivity.active
+    public var tense = Tense.present
+    public var person = Person.S1
+    public var tensePersonSet = false
+    public var m_isPassive = false
     
     public override init(){
         super.init(word: "", wordType : .verb)
