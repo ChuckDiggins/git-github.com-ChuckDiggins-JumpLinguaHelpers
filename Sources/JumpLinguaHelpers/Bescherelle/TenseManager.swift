@@ -8,9 +8,9 @@
 import Foundation
 
 public struct TenseManager {
-    private var activated = [Bool]()
-    private var tenseList = [Tense]()
-    private var activatedIndex = 0
+    public var activated = [Bool]()
+    public var tenseList = [Tense]()
+    public var activatedIndex = 0
     
     //var currentTense = Tense.present
     

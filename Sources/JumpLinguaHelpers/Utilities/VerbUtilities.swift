@@ -24,7 +24,6 @@ import Foundation
 public struct VerbUtilities {
 
     public init(){
-        print("Verb utilities init")
     }
  
     public func doesWordContainLetter(inputString: String, letter: String)->Bool{
