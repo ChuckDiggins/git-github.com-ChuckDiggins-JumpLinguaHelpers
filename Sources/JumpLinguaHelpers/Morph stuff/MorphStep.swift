@@ -19,21 +19,21 @@ public enum MorphFlag {
 }
 
 public struct MorphStep : Equatable {
-    var verbForm : String = ""
-    var comment : String = ""
-    var part1 : String = ""
-    var part2 : String = ""
-    var part3: String = ""
-    var isFinalStep = false
-    var preposition : String = ""
-    var isOrthoPresent = false
-    var isOrthoPreterite = false
-    var isStem = false
-    var isPretStem = false
-    var isPretStem2 = false
-    var isPretStem3 = false
-    var isIrregular = false
-    var isFutureStem = false
+    public var verbForm : String = ""
+    public var comment : String = ""
+    public var part1 : String = ""
+    public var part2 : String = ""
+    public var part3: String = ""
+    public var isFinalStep = false
+    public var preposition : String = ""
+    public var isOrthoPresent = false
+    public var isOrthoPreterite = false
+    public var isStem = false
+    public var isPretStem = false
+    public var isPretStem2 = false
+    public var isPretStem3 = false
+    public var isIrregular = false
+    public var isFutureStem = false
 
     public mutating func setTrue (flag : MorphFlag ){
         switch (flag){
