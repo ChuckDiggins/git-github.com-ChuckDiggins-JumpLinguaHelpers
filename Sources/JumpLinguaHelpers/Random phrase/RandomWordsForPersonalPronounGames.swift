@@ -14,24 +14,23 @@ import Foundation
 //  Created by Charles Diggins on 4/30/21.
 //
 
-import Foundation
 
-struct RandomWordListsForPersonalPronounGames{
-    var m_wsp : WordStringParser?
-    var m_subjects = Array<Word>()
-    var m_verbs = Array<Word>()
-    var m_nouns = Array<Word>()
-    var m_directObjectNouns = Array<Word>()
-    var m_indirectObjectNouns = Array<Word>()
+public struct RandomWordListsForPersonalPronounGames{
+    public var m_wsp : WordStringParser?
+    public var m_subjects = Array<Word>()
+    public var m_verbs = Array<Word>()
+    public var m_nouns = Array<Word>()
+    public var m_directObjectNouns = Array<Word>()
+    public var m_indirectObjectNouns = Array<Word>()
     
-    var m_adverbs = Array<Word>()
-    var m_conjunctions = Array<Word>()
-    var m_determiners = Array<Word>()
-    var m_adjectives = Array<Word>()
-    var m_prepositions = Array<Word>()
-    var m_pronouns = Array<Word>()
+    public var m_adverbs = Array<Word>()
+    public var m_conjunctions = Array<Word>()
+    public var m_determiners = Array<Word>()
+    public var m_adjectives = Array<Word>()
+    public var m_prepositions = Array<Word>()
+    public var m_pronouns = Array<Word>()
     
-    var sentenceData = Array<SentenceData>()
+    public var sentenceData = Array<SentenceData>()
     
     //these should work for all languages
     let bestVerbs = ["dormirse",
@@ -76,14 +75,14 @@ struct RandomWordListsForPersonalPronounGames{
         createListOfPersonalPronouns()
     }
     
-    mutating func createListOfAgnosticAdjectives(){
+    public mutating func createListOfAgnosticAdjectives(){
         m_adjectives.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .adjective) {
             m_adjectives.append( m_wsp!.getAgnosticWordFromDictionary(wordType:.adjective, index: i))
         }
     }
     
-    mutating func createListOfAgnosticAdverbs(){
+    public mutating func createListOfAgnosticAdverbs(){
         m_adverbs.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .adverb) {
             let w = m_wsp!.getAgnosticWordFromDictionary(wordType:.adverb, index: i)
@@ -94,7 +93,7 @@ struct RandomWordListsForPersonalPronounGames{
         }
     }
     
-    mutating func createListOfAgnosticConjunctions(){
+    public mutating func createListOfAgnosticConjunctions(){
         m_conjunctions.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .conjunction) {
             let w = m_wsp!.getAgnosticWordFromDictionary(wordType:.conjunction, index: i)
@@ -106,7 +105,7 @@ struct RandomWordListsForPersonalPronounGames{
     }
     
 
-    mutating func createListOfAgnosticDeterminers(){
+    public mutating func createListOfAgnosticDeterminers(){
         m_determiners.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .determiner) {
             let w = m_wsp!.getAgnosticWordFromDictionary(wordType:.determiner, index: i)
@@ -116,7 +115,7 @@ struct RandomWordListsForPersonalPronounGames{
         }
     }
     
-    mutating func createListOfBestDirectObjects(){
+    public mutating func createListOfBestDirectObjects(){
         m_directObjectNouns.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .noun) {
             //get language-converted noun from dictionary
@@ -132,7 +131,7 @@ struct RandomWordListsForPersonalPronounGames{
     
     //let's use only people at this point
     
-    mutating func createListOfBestIndirectObjects(){
+    public mutating func createListOfBestIndirectObjects(){
         m_indirectObjectNouns.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .noun) {
             //get language-converted noun from dictionary
@@ -144,7 +143,7 @@ struct RandomWordListsForPersonalPronounGames{
         }
     }
     
-    mutating func createListOfBestSubjects(){
+    public mutating func createListOfBestSubjects(){
         m_subjects.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .noun) {
             //get language-converted noun from dictionary
@@ -157,7 +156,7 @@ struct RandomWordListsForPersonalPronounGames{
     }
 
     
-    mutating func createListOfPersonalPronouns(){
+    public mutating func createListOfPersonalPronouns(){
         m_pronouns.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .pronoun) {
             m_pronouns.append(m_wsp!.getAgnosticWordFromDictionary(wordType:.pronoun,  index: i))
@@ -165,7 +164,7 @@ struct RandomWordListsForPersonalPronounGames{
     }
     
     //
-    mutating func createListOfBestVerbs(){
+    public  mutating func createListOfBestVerbs(){
         //only accept a "best verb"
         for i in 0 ..< m_wsp!.getWordCount(wordType: .verb) {
             let w = m_wsp!.getAgnosticWordFromDictionary(wordType:.verb, index: i)
@@ -178,7 +177,7 @@ struct RandomWordListsForPersonalPronounGames{
         }
     }
     
-    mutating func createListOfBestPrepositions(){
+    public mutating func createListOfBestPrepositions(){
         m_prepositions.removeAll()
         for i in 0 ..< m_wsp!.getWordCount(wordType: .preposition) {
             let w = m_wsp!.getAgnosticWordFromDictionary(wordType:.preposition, index: i)
@@ -191,7 +190,7 @@ struct RandomWordListsForPersonalPronounGames{
         }
     }
 
-    func getAgnosticRandomWordAsSingle(wordType : ContextFreeSymbol, functionType: ContextFreeFunction)->dSingle{
+    public func getAgnosticRandomWordAsSingle(wordType : ContextFreeSymbol, functionType: ContextFreeFunction)->dSingle{
         var word = Word()
         var i = 0
         var single = dSingle()
