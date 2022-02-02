@@ -23,6 +23,9 @@ import Foundation
 
 public struct VerbUtilities {
 
+    public init(){
+        //nothing to do but it is public
+    }
  
     public func doesWordContainLetter(inputString: String, letter: String)->Bool{
         if let _: Range<String.Index> = inputString.range(of: letter) {

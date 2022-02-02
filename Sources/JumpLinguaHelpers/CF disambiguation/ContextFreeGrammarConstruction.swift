@@ -8,6 +8,9 @@
 import Foundation
 
 public struct ContextFreeGrammarConstruction{
+    
+    public init(){}
+    
     public mutating func createSomeNounPhraseGrammar()->ContextFreeGrammar{
         var grammar = ContextFreeGrammar(name: "Noun Phrases", description: "Handles all the phrases starting with NP", grammarType : .noun)
         

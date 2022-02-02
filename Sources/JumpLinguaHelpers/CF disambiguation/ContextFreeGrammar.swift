@@ -19,7 +19,7 @@ public enum GrammarType{
 
 public struct ContextFreeGrammarManager{
     var cfGrammarList = Array<ContextFreeGrammar>()
-    
+    public init(){}
     public mutating func addGrammar(cfg: ContextFreeGrammar){
         cfGrammarList.append(cfg)
     }

@@ -29,7 +29,7 @@ public class dCluster : Hashable {
         return m_clusterName
     }
 
-    
+
     public func getClusterCount()->Int{return m_clusterList.count}
     public func getCluster(index: Int)->dCluster{
         if index >= 0 && index < getClusterCount() { return m_clusterList[index]}

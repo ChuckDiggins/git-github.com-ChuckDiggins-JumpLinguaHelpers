@@ -14,6 +14,7 @@ public struct PhraseIndexMapping {
     var frenchIndex : Int
     var englishIndex : Int
     
+    public init(){}
     public mutating func setMapIndex(language: LanguageType, index: Int){
         switch language {
         case .Spanish: spanishIndex = index

@@ -23,6 +23,9 @@ public struct MappingPair {
 }
 
 public struct ContextFreeMapping {
+    
+    public init(){}
+    
     //let cfs = ContextFreeSymbol.AMB
   
     func getMapping(languageFrom: LanguageType, languageTo: LanguageType, phraseType: ContextFreeSymbol)->Mapping{

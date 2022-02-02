@@ -17,7 +17,7 @@
 import Foundation
 
 public class dSentence : dClause {
-
+    public init(){}
 
     var subClauseList = Array<dClause>()
 

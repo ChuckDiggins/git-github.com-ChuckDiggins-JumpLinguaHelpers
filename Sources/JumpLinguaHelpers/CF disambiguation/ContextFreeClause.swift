@@ -8,6 +8,9 @@
 import Foundation
 
 public struct CFClauseA {
+    
+    public init(){}
+    
     var clauseType : ContextFreeSymbol
     var phraseList = Array<ContextFreeSymbol>()
     

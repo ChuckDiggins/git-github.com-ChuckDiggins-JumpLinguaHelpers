@@ -10,6 +10,10 @@ import Foundation
 public struct dBundleManager{
     var m_bundleList = [dBundle]()
     
+    public init(){
+        
+    }
+    
     public mutating func appendBundle(bundle: dBundle){
         m_bundleList.append(bundle)
     }

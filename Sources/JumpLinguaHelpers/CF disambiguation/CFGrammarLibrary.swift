@@ -8,6 +8,7 @@
 import Foundation
 
 public struct CFGrammarLibrary {
+    public init(){}
     var nounPhraseGrammar = ContextFreeGrammar()
     var verbPhraseGrammar = ContextFreeGrammar()
     var prepositionalPhraseGrammar = ContextFreeGrammar()
@@ -16,7 +17,7 @@ public struct CFGrammarLibrary {
 
 public struct GnosticGrammarLibrary {
     let language : LanguageType
-    init(language: LanguageType )
+    public init(language: LanguageType )
     {
         self.language = language
     }

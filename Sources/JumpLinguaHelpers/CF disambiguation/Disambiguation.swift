@@ -21,7 +21,7 @@ public enum ContractionType{
 public struct Disambiguation {
     
     var m_wsp : WordStringParser!
-    
+    public init(){}
     public mutating func setWordStringParser(wsp: WordStringParser){
         m_wsp = wsp
     }
