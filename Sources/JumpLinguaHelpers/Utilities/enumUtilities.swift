@@ -23,7 +23,21 @@ public func getClusterTypeFromString(str: String)->ContextFreeSymbol{
     default: return .AMB
     }
 }
-                
+      
+public func getEquivalentWordType(clusterType: ContextFreeSymbol)->WordType{
+    switch clusterType{
+    case .AMB: return .ambiguous
+    case .Adj: return .adjective
+    case .Adv: return .adverb
+    case .Art: return .article
+    case .Det: return .determiner
+    case .C:  return .conjunction
+    case .N: return .noun
+    case .P: return .preposition
+    case .V: return .verb
+    default: return .unknown
+    }
+}
 public func getWordTypeFromString(str: String)->WordType{
     switch str{
     case "determiner": return .determiner
