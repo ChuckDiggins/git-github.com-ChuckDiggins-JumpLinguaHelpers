@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 protocol Semantic {
     var description : String { get }
@@ -17,21 +16,21 @@ protocol Semantic {
     func getWordIndex(word: Word)->Int?
 }
 
-class SemanticsAdjective : Semantic {
+public class SemanticsAdjective : Semantic {
     var description: String = ""
     var wordType: ContextFreeSymbol
     var wordList =  [Word]()
-    init(desc: String, wordType : ContextFreeSymbol, wordList : [Word] ){
+    public init(desc: String, wordType : ContextFreeSymbol, wordList : [Word] ){
         description = desc
         self.wordType = wordType
         self.wordList = wordList
     }
     
-    func addWord(word: Word) {
+    public func addWord(word: Word) {
         if getWordIndex(word: word) != nil { wordList.append(word) }
     }
     
-    func getWordIndex(word: Word) -> Int? {
+    public func getWordIndex(word: Word) -> Int? {
         for (index, w) in wordList.enumerated() {
             if w == word {return index}
         }

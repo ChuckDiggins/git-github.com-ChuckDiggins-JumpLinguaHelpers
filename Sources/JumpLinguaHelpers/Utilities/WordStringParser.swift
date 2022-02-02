@@ -19,7 +19,14 @@ public class WordStringParser {
     private var englishVerbModel : EnglishVerbModelConjugation
     var wordCollectionManager = dWordCollectionManager()
     
-    init(language: LanguageType, span: RomanceVerbModelConjugation, french: RomanceVerbModelConjugation, english : EnglishVerbModelConjugation){
+    public init(){
+        m_language = LanguageType.Agnostic
+        spanVerbModel = RomanceVerbModelConjugation()
+        frenchVerbModel = RomanceVerbModelConjugation()
+        englishVerbModel = EnglishVerbModelConjugation()
+    }
+    
+    public init(language: LanguageType, span: RomanceVerbModelConjugation, french: RomanceVerbModelConjugation, english : EnglishVerbModelConjugation){
         m_language = language
         spanVerbModel = span
         frenchVerbModel = french

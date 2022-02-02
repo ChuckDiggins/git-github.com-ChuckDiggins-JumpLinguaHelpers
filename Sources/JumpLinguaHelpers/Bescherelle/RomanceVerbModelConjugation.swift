@@ -13,7 +13,7 @@ public enum VerbModelMode{
 
 public class VerbModelConjugation {
     var currentLanguage : LanguageType
-    init(currentLanguage : LanguageType){
+    public init(currentLanguage : LanguageType){
         self.currentLanguage = currentLanguage
     }
 }

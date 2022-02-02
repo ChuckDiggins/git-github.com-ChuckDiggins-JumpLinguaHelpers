@@ -17,7 +17,9 @@
 import Foundation
 
 public class dSentence : dClause {
-    public init(){}
+    public override init(){
+        super.init(word: Word(), clusterType: .UNK)
+    }
 
     var subClauseList = Array<dClause>()
 

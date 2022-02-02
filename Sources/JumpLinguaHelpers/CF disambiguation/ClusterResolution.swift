@@ -11,7 +11,10 @@ public struct ClusterResolution {
     let m_language : LanguageType
     let m_wsp : WordStringParser
     
-    public init(){}
+    public init(){
+        self.m_language = .Agnostic
+        m_wsp = WordStringParser()
+    }
     
     public func resolveObjectAndReflexivePronouns (sentenceData: Array<SentenceData>)->Array<SentenceData>{
         let sentenceCopy = sentenceData

@@ -8,7 +8,7 @@
 import Foundation
 
 public struct dBundleManager{
-    var m_bundleList = [dBundle]()
+    public var m_bundleList = [dBundle]()
     
     public init(){
         

@@ -8,7 +8,10 @@
 import Foundation
 
 public struct dPhraseManager{
-    private var m_clusterList = Array<dCluster>()
+    
+    public init(){}
+    
+    public var m_clusterList = Array<dCluster>()
 
     public mutating func appendCluster(cluster: dCluster){
         m_clusterList.append(cluster)
