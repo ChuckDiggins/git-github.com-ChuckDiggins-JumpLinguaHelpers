@@ -8,13 +8,13 @@
 import Foundation
 
 public struct JSONBundle : Codable, CustomStringConvertible {
-    var idNum: Int
+    public var idNum: Int
 //    var language : String
-    var teacher : String
-    var bundleName : String
-    var tenseList = [String]()
-    var collectionList = [JSONCollectionStruct]()
-    var phraseList = [JSONNamedLoadedPhrase]()
+    public var teacher : String
+    public var bundleName : String
+    public var tenseList = [String]()
+    public var collectionList = [JSONCollectionStruct]()
+    public var phraseList = [JSONNamedLoadedPhrase]()
     
     public var description: String {
         return "\(self.bundleName) : tenseList =\(tenseList.count), phraseList = \(phraseList.count)"
