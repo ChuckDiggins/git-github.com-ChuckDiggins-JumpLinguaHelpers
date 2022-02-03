@@ -67,7 +67,7 @@ struct BSpanishVerbExtras {
                 verb.m_replacementVerbInfinitive = parseStruct.to
             }
             
-            //if replacing, add it to the list
+            //if replacing irregular, add it to the list
             
             if ( parseStruct.pattern == .REPLACE){
                 verb.m_isIrregular = true
@@ -80,9 +80,10 @@ struct BSpanishVerbExtras {
             }
             
             
-            //if replacing, add it to the list
+            //if replacing stem, add it to the list
             
             if ( parseStruct.pattern == .STEMSINGLE){
+                verb.m_stemChanging = true
                 var stemSingleForm = StemSingleForm()
                 stemSingleForm.person = parseStruct.personList[0]
                 stemSingleForm.tense = parseStruct.tense

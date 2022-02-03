@@ -9,19 +9,19 @@ import Foundation
 
 public class BRomanceVerb: BVerb {
     public var m_verbStem = ""
-    public var m_stemChanging = false
-    public var m_stemFrom = ""
-    public var m_stemTo = ""
+//    public var m_stemChanging = false
+//    public var m_stemFrom = ""
+//    public var m_stemTo = ""
     //----------------------------------
     public var bVerbModel = RomanceVerbModel()
-    public var m_orthoPresent = false
-    public var m_orthoPresentFrom = ""
-    public var m_orthoPresentTo = ""
-    
-    public var m_orthoPreterite = false
-    public var m_orthoPreteriteFrom = ""
-    public var m_orthoPreteriteTo = ""
-    
+//    public var m_orthoPresent = false
+//    public var m_orthoPresentFrom = ""
+//    public var m_orthoPresentTo = ""
+//    
+//    public var m_orthoPreterite = false
+//    public var m_orthoPreteriteFrom = ""
+//    public var m_orthoPreteriteTo = ""
+//    
     public var m_baseVerbInfinitive = ""
     public var m_replacementVerbInfinitive = ""   //for replacing infinitive in Future and Conditional tenses
                                                 // poder -> podr
@@ -44,7 +44,7 @@ public class BRomanceVerb: BVerb {
     public override init(){
         super.init(verbPhrase: "", languageType: .Agnostic)
     }
-
+    
     public func isOrthoPresent(tense: Tense, person: Person)->Bool{
         if ( (tense == .present && person == .S1 ) || tense == .presentSubjunctive) && m_orthoPresent { return true }
         return false

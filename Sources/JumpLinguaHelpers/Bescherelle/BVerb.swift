@@ -51,6 +51,18 @@ public class BVerb : Word, Identifiable {
     public var languageType : LanguageType
     public var m_isPassive = false
 //    var m_isBackward = false
+
+    //if not a romance verb, these will just return false and empty
+    public var m_stemChanging = false
+    public var m_stemFrom = ""
+    public var m_stemTo = ""
+    public var m_orthoPresent = false
+    public var m_orthoPresentFrom = ""
+    public var m_orthoPresentTo = ""
+    public var m_orthoPreterite = false
+    public var m_orthoPreteriteFrom = ""
+    public var m_orthoPreteriteTo = ""
+    
     public var m_isIrregular = false
     public var m_residualPhrase = ""
     public var m_isReflexive = false           //not used for English
