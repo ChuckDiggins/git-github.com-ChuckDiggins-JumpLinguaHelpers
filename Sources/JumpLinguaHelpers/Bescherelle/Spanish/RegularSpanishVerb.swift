@@ -117,7 +117,7 @@ public struct RegularSpanishVerb {
         ss = morphStep.verbForm
         morphStep.comment = "Replace with spell change ->" + orthoTo
         morphStruct.append(morphStep : morphStep)
-        
+        morphStruct.isOrtho = true
         return morphStruct
     }
     
@@ -176,6 +176,7 @@ public struct RegularSpanishVerb {
         morphStep.verbForm = ss + endingString
         morphStep.comment = "add the conjugate ending ->" + endingString
         morphStruct.append(morphStep : morphStep)
+        morphStruct.isOrtho = true
         
         return morphStruct   
     }
@@ -205,7 +206,7 @@ public struct RegularSpanishVerb {
         morphStep.part2 = to
         morphStep.comment = "replace with this ending ->" + to
         morphStruct.append(morphStep : morphStep)
-        
+        morphStruct.isStem = true
         return morphStruct
     }
     

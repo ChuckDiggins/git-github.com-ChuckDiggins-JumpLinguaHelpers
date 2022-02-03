@@ -15,6 +15,9 @@ public struct MorphStruct  {
     public var morphStepArray = [MorphStep]()
     public var isOrtho = false
     public var isStem = false
+    public var isPretStem = false
+    public var isPretStem2 = false
+    public var isPretStem3 = false 
     public var isIrreg = false
     public var isValid = false
     public var conjugationComplete = false

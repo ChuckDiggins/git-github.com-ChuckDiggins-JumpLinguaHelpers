@@ -39,6 +39,7 @@ public struct StemChangingConjugation {
         morph.part3 = partAfter
         morph.verbForm = workingVerbForm
         workingMorphStruct.append(morphStep: morph)
+        workingMorphStruct.isStem = true
         
         return workingMorphStruct
     }
@@ -89,7 +90,7 @@ public struct StemChangingConjugation {
         morph.verbForm = workingVerbForm
         morph.comment = "grab the ending ->" + verbEnding.getEnding()
         workingMorphStruct.append(morphStep: morph)
-        
+        workingMorphStruct.isStem = true
         return workingMorphStruct
     }
     
@@ -107,7 +108,7 @@ public struct StemChangingConjugation {
         morphStep.part2 = endingString
         morphStep.comment = "Append this special preterite ending ->" + endingString
         workingMorphStruct.append(morphStep : morphStep)
-        
+        workingMorphStruct.isPretStem = true
         return workingMorphStruct
     }
     
@@ -139,6 +140,7 @@ public struct StemChangingConjugation {
         morphStep.comment = "Replace with this pretStem2 ending->\(pretStem2)"
         morphStep.verbForm = ss + pretStem2
         workingMorphStruct.append(morphStep : morphStep)
+        workingMorphStruct.isPretStem2 = true
         return workingMorphStruct
     }
     
@@ -164,6 +166,7 @@ public struct StemChangingConjugation {
         morphStep.comment = "Replace with this pretStem3 ending->\(person.getPretStem3Ending())"
         morphStep.verbForm = ss + person.getPretStem3Ending()
         workingMorphStruct.append(morphStep : morphStep)
+        workingMorphStruct.isPretStem3 = true
         return workingMorphStruct
     }
     

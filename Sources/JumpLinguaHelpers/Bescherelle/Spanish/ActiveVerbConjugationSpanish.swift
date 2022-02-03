@@ -167,6 +167,7 @@ public class ActiveVerbConjugationSpanish {
                                                                    specialVerbModel : verb.m_specialModel,
                                                                    tense : tense, person : person)
             print("tense \(tense), person \(person) -- \(workingMorphStruct.finalVerbForm())")
+            workingMorphStruct.isIrreg = true
             if workingMorphStruct.isComplete() {return workingMorphStruct}
         }
         
