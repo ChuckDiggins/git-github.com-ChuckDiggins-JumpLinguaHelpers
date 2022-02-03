@@ -114,22 +114,6 @@ public class RomanceAdjective : Adjective {
 }
 
 
-//mostly spanish  -- these are the last letters to determine how to create a plural form
-
-public enum SpanishAdjectiveEndingType : String{
-    case O = "o"
-    case L = "l"
-    case Z = "z"
-    case AN = "án"
-    case ON = "on"
-    case IN = "ín"
-    case OR = "or"
-    case ES = "és"
-    case ETE = "ete"
-    case OTE = "ote"
-    case Vowel = ""
-    case Unknown = "UNK"
-}
 
 public enum FrenchAdjectiveEndingType : String{
     case e = "e"
@@ -358,6 +342,23 @@ public class FrenchDemonstrativeAdjective : RomanceAdjective {
 }
 
 
+//mostly spanish  -- these are the last letters to determine how to create a plural form
+
+public enum SpanishAdjectiveEndingType : String{
+    case O = "o"
+    case L = "l"
+    case Z = "z"
+    case S = "s"
+    case AN = "án"
+    case ON = "on"
+    case IN = "ín"
+    case OR = "or"
+    case ES = "és"
+    case ETE = "ete"
+    case OTE = "ote"
+    case Vowel = ""
+    case Unknown = "UNK"
+}
 
 
 public class SpanishAdjective : RomanceAdjective {
@@ -384,6 +385,7 @@ public class SpanishAdjective : RomanceAdjective {
         //else if ending == IsVowel(ending) { endingType = AdjectiveEndingType.Vowel}
         else if ending == SpanishAdjectiveEndingType.Z.rawValue { endingType = SpanishAdjectiveEndingType.Z }
         else if ending == SpanishAdjectiveEndingType.L.rawValue { endingType = SpanishAdjectiveEndingType.L }
+        else if ending == SpanishAdjectiveEndingType.S.rawValue { endingType = SpanishAdjectiveEndingType.S }
 
         //look for 2-letter suffix
         
@@ -419,7 +421,7 @@ public class SpanishAdjective : RomanceAdjective {
             stem.removeLast()
             femWord = stem + "a"
             femPlural = stem + "as"
-        case .L:   //azul
+        case .L, .S:   //azul, gris
             mascPlural = word + "es"
             femWord = word
             femPlural = word + "es"
