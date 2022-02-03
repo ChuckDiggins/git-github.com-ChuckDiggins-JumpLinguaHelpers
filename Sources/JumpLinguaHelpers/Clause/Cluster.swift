@@ -85,7 +85,7 @@ public class dCluster : Hashable {
     }
 
     public func replaceClusterWordWithRandomAssociatedWord(){
-        let index = Int.random(in: 0..<m_associatedWordList.count)
+//        let index = Int.random(in: 0..<m_associatedWordList.count)
         m_clusterWord = getRandomAssociatedWord()
         let number = Int.random(in: 1 ..< 3)
         if ( number == 1 ) {
@@ -95,6 +95,10 @@ public class dCluster : Hashable {
         else {
             m_sentenceData.number = .plural
             m_sentenceData.person = .P3
+        }
+        if m_clusterType == .N {
+            let noun = m_clusterWord as! Noun
+            m_sentenceData.gender = noun.spanishGender
         }
     }
     
