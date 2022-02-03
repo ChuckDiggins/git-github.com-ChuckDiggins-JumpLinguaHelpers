@@ -81,28 +81,46 @@ public class dPhrase : dCluster {
     
     public func createNewRandomPhrase(){
         var index = 0
-        var newCluster = dCluster()
-        var newClusterWord = Word()
-        var replaceClusterWord = false
         for cluster in getClusterList(){
-            replaceClusterWord = false
             if cluster.getAssociatedWordListCount()>0 {
                 cluster.replaceClusterWordWithRandomAssociatedWord()
-                newClusterWord = cluster.m_clusterWord
-                replaceClusterWord = true
-//                print("createNewPhrase: type \(cluster.getClusterType().rawValue): newWord \(newClusterWord.spanish)" )
             }
-            //let single = cluster as! dSingle
-            newCluster = m_randomWord.getAgnosticRandomWordAsSingle(wordType: cluster.getClusterType(), isSubject:false)
-            if replaceClusterWord {
-                newCluster.m_clusterWord = newClusterWord
-                newCluster.putAssociatedWordList(wordList: cluster.getAssociatedWordList())
+            // otherwise, create a new random cluster and replace it
+            else {
+                var newCluster = m_randomWord.getAgnosticRandomWordAsSingle(wordType: cluster.getClusterType(), isSubject:false)
+                replaceCluster(index: index, cluster: newCluster)
             }
-            replaceCluster(index: index, cluster: newCluster)
-                //print("createNewRandomPhrase: index\(index), wordString = \(cluster.getStringAtLanguage(language: .Spanish))")
             index += 1
         }
     }
+    
+//    public func createNewRandomPhrase(){
+//        var index = 0
+////        var replaceClusterWord = false
+//        for cluster in getClusterList(){
+////            replaceClusterWord = false
+//            //if this cluster has associated words,
+//            // then just replace the cluster word with a random associated word
+//            if cluster.getAssociatedWordListCount()>0 {
+//                cluster.replaceClusterWordWithRandomAssociatedWord()
+////                let newClusterWord = cluster.m_clusterWord
+////                replaceClusterWord = true
+////                print("createNewPhrase: type \(cluster.getClusterType().rawValue): newWord \(newClusterWord.spanish)" )
+//            }
+//            // otherwise, create a new random cluster and replace it
+//            else {
+//                //let single = cluster as! dSingle
+//                var newCluster = m_randomWord.getAgnosticRandomWordAsSingle(wordType: cluster.getClusterType(), isSubject:false)
+////                if replaceClusterWord {
+////                    newCluster.m_clusterWord = newClusterWord
+////                    newCluster.putAssociatedWordList(wordList: cluster.getAssociatedWordList())
+////                }
+//                replaceCluster(index: index, cluster: newCluster)
+//                //print("createNewRandomPhrase: index\(index), wordString = \(cluster.getStringAtLanguage(language: .Spanish))")
+//                index += 1
+//            }
+//        }
+//    }
     
     public func getReconstructedPhraseString(language: LanguageType)->String {
         var ss = ""
