@@ -79,9 +79,23 @@ public class dCluster : Hashable {
         m_clusterName = name
     }
     
+    public func getRandomAssociatedWord()->Word{
+        let i = Int.random(in: 0 ..< m_associatedWordList.count)
+        return m_associatedWordList[i]
+    }
+
     public func replaceClusterWordWithRandomAssociatedWord(){
         let index = Int.random(in: 0..<m_associatedWordList.count)
-        m_clusterWord = m_associatedWordList[index]
+        m_clusterWord = getRandomAssociatedWord()
+        let number = Int.random(in: 1 ..< 3)
+        if ( number == 1 ) {
+            m_sentenceData.number = .singular
+            m_sentenceData.person = .S3
+        }
+        else {
+            m_sentenceData.number = .plural
+            m_sentenceData.person = .P3
+        }
     }
     
     //associated words for this cluster
@@ -100,11 +114,7 @@ public class dCluster : Hashable {
         return m_associatedWordList.count
     }
     
-    public func getRandomAssociatedWord()->Word{
-        let i = Int.random(in: 0 ..< m_associatedWordList.count)
-        return m_associatedWordList[i]
-    }
-
+    
     public func putClusterWord(word: Word){m_clusterWord = word}
     public func getClusterWord()->Word{return m_clusterWord}
     
