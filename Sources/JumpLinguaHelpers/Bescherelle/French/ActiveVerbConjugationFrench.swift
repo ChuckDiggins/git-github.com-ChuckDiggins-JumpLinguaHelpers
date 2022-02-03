@@ -245,7 +245,7 @@ public class ActiveVerbConjugationFrench {
             workingMorphStruct = IrregularVerbsFrench().getIrregularFormSpecial(inputMorphStruct : workingMorphStruct, verb : verb, preposition : "",
                                                                                 specialVerbModel : verb.m_specialModel,
                                                                                 tense : tense, person : person)
-            print("tense \(tense), person \(person) -- \(workingMorphStruct.finalVerbForm())")
+            //print("tense \(tense), person \(person) -- \(workingMorphStruct.finalVerbForm())")
             if workingMorphStruct.isComplete() {return workingMorphStruct}
         }
         

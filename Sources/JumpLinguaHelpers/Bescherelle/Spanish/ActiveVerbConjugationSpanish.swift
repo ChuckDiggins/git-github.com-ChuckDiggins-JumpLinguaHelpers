@@ -104,8 +104,6 @@ public class ActiveVerbConjugationSpanish {
         }
         return workingMorphStruct
     }
-         
-    
 
     public func conjugateThisImperativeForm(verb : BSpanishVerb, person : Person, conjugateEntirePhrase : Bool ) -> MorphStruct {
         switch(person){
@@ -166,7 +164,7 @@ public class ActiveVerbConjugationSpanish {
             workingMorphStruct = IrregularVerbsSpanish().getIrregularFormSpecial(inputMorphStruct : workingMorphStruct, verb : verb, preposition : "",
                                                                    specialVerbModel : verb.m_specialModel,
                                                                    tense : tense, person : person)
-            print("tense \(tense), person \(person) -- \(workingMorphStruct.finalVerbForm())")
+            //print("tense \(tense), person \(person) -- \(workingMorphStruct.finalVerbForm())")
             workingMorphStruct.isIrreg = true
             if workingMorphStruct.isComplete() {return workingMorphStruct}
         }
