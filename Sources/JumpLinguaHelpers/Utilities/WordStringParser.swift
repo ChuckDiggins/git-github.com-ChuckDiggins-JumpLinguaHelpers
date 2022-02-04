@@ -17,7 +17,6 @@ public class WordStringParser {
     public  var spanVerbModel : RomanceVerbModelConjugation
     public  var frenchVerbModel : RomanceVerbModelConjugation
     public  var englishVerbModel : EnglishVerbModelConjugation
-    public var wordCollectionManagerA = dWordCollectionManager()
     
     public init(){
         m_language = LanguageType.Agnostic
