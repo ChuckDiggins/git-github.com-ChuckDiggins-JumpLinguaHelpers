@@ -421,7 +421,7 @@ public class SpanishAdjective : RomanceAdjective {
             stem.removeLast()
             femWord = stem + "a"
             femPlural = stem + "as"
-        case .L, .S:   //azul, gris
+        case .L, .S:   //azul, grisW
             mascPlural = word + "es"
             femWord = word
             femPlural = word + "es"
