@@ -21,8 +21,7 @@ public struct JSONDictionaryManager {
     public var jsonPronounManager = JsonPronounManager()
     public let bUseJsonStarterFiles = true
     public var verbModelManager = VerbModelManager()
-    public var jsonWordCollection = JSONWordCollection()
-    public var jsonWordCollectionManager = JSONCollectionManager()
+    
     
     public init(){}
     
@@ -43,7 +42,7 @@ public struct JSONDictionaryManager {
             jsonConjunctionManager.encodeInternalWords(total: 2000)
             jsonDeterminerManager.encodeInternalWords(total: 2000)
             jsonPronounManager.encodeInternalWords(total: 2000)
-            jsonWordCollectionManager.encodeWordCollections(total: 2000)
+
         }
         jsonVerbManager.decodeVerbs()
         createDictionaryFromJsonWords(wordType: .verb)
