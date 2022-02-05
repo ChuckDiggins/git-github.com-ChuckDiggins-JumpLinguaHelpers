@@ -94,54 +94,6 @@ public struct JSONDictionaryManager {
         return m_wsp.findWordInDictionary(word: word)
     }
     
-//    public mutating func createWordCollectionsFromJsonWordCollectionManager(){
-//
-//        for i in 0 ..< jsonWordCollectionManager.getCollectionCount() {
-//            var wordList = [Word]()
-//            let jsonCollectionStruct = jsonWordCollectionManager.getJSONCollectionAt(index: i)
-//            for jsonWord in jsonCollectionStruct.wordList {
-//                let word = jsonWord.getWord()
-//                let existingWord = m_wsp.findWordInDictionary(word: word)
-//                if !existingWord.word.isEmpty {
-////                    print("Matched:  jsonWord \(jsonWord.wordType): \(jsonWord.spanish) - \(jsonWord.french) - \(jsonWord.english)")
-//                    wordList.append(existingWord)
-//                } else {
-////                    print("Not matched: jsonWord \(jsonWord.wordType): \(jsonWord.spanish) - \(jsonWord.french) - \(jsonWord.english)")
-//                }
-//            }
-//            let jlingWordCollection = dWordCollection(idNum: jsonCollectionStruct.idNum,
-//                                                          collectionName: jsonCollectionStruct.collectionName,
-//                                                          wordList: wordList)
-////            print("createWordCollectionsFromJsonWordCollectionManager:  appending collection \(jlingWordCollection.collectionName), word count = \(wordList.count)")
-//            m_wsp.wordCollectionManager.append(collection: jlingWordCollection)
-//        }
-//
-////        print("createWordCollectionsFromJsonWordCollectionManager: jsonCollectionCount\(jsonWordCollectionManager.getCollectionCount())")
-////        print("createWordCollectionsFromJsonWordCollectionManager: wordCollectionManager collection count =\(wcm.getCount())")
-//    }
-      
-    //use json-constructed word to find the existing word in the dictionaries
-    
-//    public mutating func createWordGroupFromJsonWordCollection(){
-//        for i in 0 ..< jsonWordCollection.getWordCount() {
-//            let jsonWord = jsonWordCollection.getWordAt(index: i)
-//            let existingWord = m_wsp.findWordInDictionary(word: jsonWord)
-//            if !existingWord.word.isEmpty {
-////                print("Matched:  jsonWord \(jsonWord.wordType): \(jsonWord.spanish) - \(jsonWord.french) - \(jsonWord.english)")
-//                m_wsp.addWordToWorkingDictionary(wd: existingWord)
-//            } else {
-////                print("Not matched: jsonWord \(jsonWord.wordType): \(jsonWord.spanish) - \(jsonWord.french) - \(jsonWord.english)")
-//                }
-//        }
-//        print("Working noun count = \(m_wsp.getWorkingListOfType(wordType: .noun).count)")
-//        print("Working verb count = \(m_wsp.getWorkingListOfType(wordType: .verb).count)")
-//        print("Working adverb count = \(m_wsp.getWorkingListOfType(wordType: .adverb).count)")
-//        print("Working adjective count = \(m_wsp.getWorkingListOfType(wordType: .adjective).count)")
-//        print("Working preposition count = \(m_wsp.getWorkingListOfType(wordType: .preposition).count)")
-//        print("createWordGroupFromJsonWordCollection: working word count =\(m_wsp.getWorkingList().count)")
-//    }
-      
-    
     
     public mutating func createDictionaryFromJsonWords(wordType: WordType){
         switch wordType{

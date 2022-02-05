@@ -33,5 +33,9 @@ public struct JSONWord : Codable, CustomStringConvertible {
         return word
     }
     
+    public func getJsonWord(word: Word)->JSONWord{
+        return JSONWord(spanish: word.spanish, english: word.english, french: word.french, wordType: word.getWordTypeString())
+    }
+    
     
 }
