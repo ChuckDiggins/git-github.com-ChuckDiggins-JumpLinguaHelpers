@@ -94,8 +94,10 @@ public class BFrenchVerb : BRomanceVerb {
         }
     }
     
+    
+    
     public override func createGerund()->String {
-        let word = m_verbStem
+        let word = m_verbStem 
         switch m_verbEnding {
         case .AR: return word + "ando"
         case .ER, .IR, .accentIR: return word + "iendo"
