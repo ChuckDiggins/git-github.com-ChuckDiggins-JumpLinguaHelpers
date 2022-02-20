@@ -118,12 +118,13 @@ public class BSpanishVerb : BRomanceVerb {
         }
     }
     
+/*
     public override func hasStemSingleForm (tense: Tense, person: Person)->(String, String){
         return hasStemSingleForm(tense: tense, person: person)
     }
     
     public override func isOrthoPresent(tense: Tense, person: Person)->Bool{
-        return isOrthoPresent(tense: tense, person: person)
+        return isOrthoPresent(tense: tense, person: person)  //
     }
 
     
@@ -146,7 +147,7 @@ public class BSpanishVerb : BRomanceVerb {
     public override func isReflexive()->Bool{
         return isReflexive()
     }
-
+*/
     
     public func computeP3PreteriteForm(){
         if ( p3PreteriteVerbWord.count == 0 ){
