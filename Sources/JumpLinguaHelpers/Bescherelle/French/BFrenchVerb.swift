@@ -107,36 +107,6 @@ public class BFrenchVerb : BRomanceVerb {
         }
     }
     
-    /*
-    public override func hasStemSingleForm (tense: Tense, person: Person)->(String, String){
-        return hasStemSingleForm(tense: tense, person: person)
-    }
-    
-    public override func isOrthoPresent(tense: Tense, person: Person)->Bool{
-        return isOrthoPresent(tense: tense, person: person)
-    }
-
-    
-    public override func isOrthoPreterite(tense: Tense, person: Person)->Bool{
-        return isOrthoPreterite(tense: tense, person: person)
-    }
-    
-    public override func isSpecial()->Bool{
-        return isSpecial()
-    }
-
-    public override func isOrthographicPresent()->Bool{
-        return isOrthographicPresent()
-    }
-    
-    public override func isOrthographicPreterite()->Bool{
-        return isOrthographicPreterite()
-    }
-    
-    public override func isReflexive()->Bool{
-        return isReflexive()
-    }
-*/
     
     public override func getConjugateForm(tense : Tense, person : Person)->String {
         _ = getConjugatedMorphStruct( tense : tense, person : person , conjugateEntirePhrase : false)
