@@ -42,7 +42,7 @@ public struct JSONDictionaryManager {
             jsonConjunctionManager.encodeInternalWords(total: 2000)
             jsonDeterminerManager.encodeInternalWords(total: 2000)
             jsonPronounManager.encodeInternalWords(total: 2000)
-
+            
         }
         jsonVerbManager.decodeVerbs()
         createDictionaryFromJsonWords(wordType: .verb)
@@ -68,26 +68,10 @@ public struct JSONDictionaryManager {
         jsonPronounManager.decodeWords()
         createDictionaryFromJsonWords(wordType: .pronoun)
         
-       
+        
     }
     
-//    mutating func loadJsonWordCollections()->dWordCollectionManager{
-////        jsonWordCollection.decodeWords()
-////        createWordGroupFromJsonWordCollection()
-////        if bUseJsonStarterFiles {
-////            jsonWordCollection.encodeInternalWords(total: 2000)
-////        }
-//
-//        //encodes the already existing word collections
-//        if bUseJsonStarterFiles {
-//            jsonWordCollectionManager.encodeWordCollections(total: 2000)
-//        }
-//
-//        //decodes and parses existing json word collections
-//        let wordCollections = jsonWordCollectionManager.getWordCollections()
-//        print("jsonWordCollectionManager.getWordCollections returned \(wordCollections.count)")
-//        return createWordCollectionsFromJsonWordCollectionManager()
-//    }
+    
     
     public func getExistingWord(jsonWord: JSONWord)->Word{
         let word = jsonWord.getWord()
@@ -142,21 +126,21 @@ public struct JSONDictionaryManager {
         }
     }
     
-//    mutating func createAndAppendAgnosticWordFromJsonWord(jn: JSONWord){
-//        var wordType = WordType.ambiguous
-//        switch jn.wordType {
-//        case "noun": wordType = WordType.noun
-//        case "verb": wordType = WordType.verb
-//        case "adjective": wordType = WordType.adjective
-//        case "adverb": wordType = WordType.adverb
-//        case "preposition": wordType = WordType.preposition
-//        case "conjunction": wordType = WordType.conjunction
-//        default: break
-//        }
-//        let word = Word(word: jn.english, spanish: jn.spanish, french: jn.french, english: jn.english, wordType: wordType)
-//        m_wsp.addNounToDictionary(noun: noun)
-//    }
-
+    //    mutating func createAndAppendAgnosticWordFromJsonWord(jn: JSONWord){
+    //        var wordType = WordType.ambiguous
+    //        switch jn.wordType {
+    //        case "noun": wordType = WordType.noun
+    //        case "verb": wordType = WordType.verb
+    //        case "adjective": wordType = WordType.adjective
+    //        case "adverb": wordType = WordType.adverb
+    //        case "preposition": wordType = WordType.preposition
+    //        case "conjunction": wordType = WordType.conjunction
+    //        default: break
+    //        }
+    //        let word = Word(word: jn.english, spanish: jn.spanish, french: jn.french, english: jn.english, wordType: wordType)
+    //        m_wsp.addNounToDictionary(noun: noun)
+    //    }
+    
     public mutating func createAndAppendNounFromJsonNoun(jn: JsonNoun){
         let noun = Noun(jsonNoun: jn, language: .Agnostic)
         m_wsp.addNounToDictionary(noun: noun)
@@ -175,7 +159,7 @@ public struct JSONDictionaryManager {
     public mutating func createAndAppendPrepositionFromJsonPreposition(jn: JsonPreposition){
         let p = Preposition(json: jn, language: .Agnostic)
         m_wsp.addPrepositionToDictionary(wd: p)
-
+        
     }
     
     public mutating func createAndAppendPronounFromJsonPronoun(jn: JsonPronoun){
@@ -227,15 +211,15 @@ public struct JSONDictionaryManager {
         
         //determine if this is a legitimate verb in all three languages
         
-       let spanishVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .Spanish, verbPhrase: jv.spanish)
-       let frenchVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .French, verbPhrase: jv.french)
-       let englishVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .English, verbPhrase: jv.english)
-       if ( spanishVerbStuff.isValid && frenchVerbStuff.isValid && englishVerbStuff.isValid){
+        let spanishVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .Spanish, verbPhrase: jv.spanish)
+        let frenchVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .French, verbPhrase: jv.french)
+        let englishVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .English, verbPhrase: jv.english)
+        if ( spanishVerbStuff.isValid && frenchVerbStuff.isValid && englishVerbStuff.isValid){
             let verb = Verb(jsonVerb: jv, language: .Agnostic)
             m_wsp.addVerbToDictionary(verb: verb)
-       }
+        }
     }
-
+    
     
     public func appendAgnosticWord(wordType: WordType, spanishWord : String, frenchWord : String, englishWord: String){
         
