@@ -26,7 +26,7 @@ public struct JSONVerbPronounDictionaryManager {
         if bUseJsonStarterFiles {
             //jsonVerbManager.encodeVerbs()  //this should wipe out existing jsonVerbs
             //        jsonVerbManager.encodeInternalVerbs(collectionType: .CarpenterChapter3, total: 2000)
-            jsonVerbManager.encodeInternalVerbs(collectionType: .All, total: 2000)
+            jsonVerbManager.encodeInternalVerbs(collectionType: .Simple, total: 2000)
             
             jsonPronounManager.encodeInternalWords(total: 2000)
         }
