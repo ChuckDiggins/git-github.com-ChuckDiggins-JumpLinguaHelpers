@@ -22,9 +22,11 @@ public enum SpecialSpanishVerbModel {
 }
 
 public struct IrregularVerbsSpanish {
+    public init(){}
     public func getIrregularFormSpecial(inputMorphStruct : MorphStruct, verb : BSpanishVerb, preposition : String,
                                  specialVerbModel : SpecialSpanishVerbModel,
                                  tense : Tense, person : Person)->MorphStruct{
+        
         
         let morphStruct = inputMorphStruct
         
@@ -210,14 +212,16 @@ public struct IrregularVerbsSpanish {
         switch (tense){
         case .present:
             switch person{
-            case .S1:  ss = "sé"
+            case .S1:
+                ss = "sé"
+                morph.isFinalStep = true
+                morph.comment = "Replace with " + morph.verbForm
+                morph.verbForm = ss + preposition
+                morphStruct.append(morphStep: morph)
+                return morphStruct
             default:
                return morphStruct
             }
-            morph.isFinalStep = true
-            morph.comment = "Replace with " + morph.verbForm
-            morph.verbForm = ss + preposition
-            morphStruct.append(morphStep: morph)
             
         case  .preterite:
             morph.verbForm = "sup_"

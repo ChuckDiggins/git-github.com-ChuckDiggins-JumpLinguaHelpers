@@ -14,6 +14,8 @@ public enum SpecialFrenchVerbModel {
 }
 
 public struct IrregularVerbsFrench {
+    public init(){}
+    
     public func getIrregularFormSpecial(inputMorphStruct : MorphStruct, verb : BFrenchVerb, preposition : String,
                                  specialVerbModel : SpecialFrenchVerbModel,
                                  tense : Tense, person : Person)->MorphStruct{
