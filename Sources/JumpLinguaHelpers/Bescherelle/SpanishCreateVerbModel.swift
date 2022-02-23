@@ -1039,7 +1039,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEINFINITIVE,
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
-                           from: "querer", to: "qerr")
+                           from: "querer", to: "querr")
     thisVerb.appendSuffix(suffix: "querer")
     verbModels.append(thisVerb)
 
@@ -1189,22 +1189,22 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     
     idNum = 71
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "saber")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
                            tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1,
-                           from: "ab", to: "ep")  //this will change all the present subjunctive
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.PRETSTEM,
-                           tense: ExceptionTense.PRETERITE,
-                           person: ExceptionPerson.S1toP3All,
-                           from: "ab", to: "up")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEINFINITIVE,
-                           tense: ExceptionTense.CONDITIONAL,
-                           person: ExceptionPerson.S2,
-                           from: "saber", to: "sabr")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
-                           tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1,
-                           from: "saber", to: "sé")  //this will change all the present subjunctive
+                           person: ExceptionPerson.S1S2S3P3,
+                           from: "saber", to: "saber")
+//    thisVerb.appendException(exceptionPattern: ExceptionPattern.PRETSTEM,
+//                           tense: ExceptionTense.PRETERITE,
+//                           person: ExceptionPerson.S1toP3All,
+//                           from: "ab", to: "up")
+//    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEINFINITIVE,
+//                           tense: ExceptionTense.CONDITIONAL,
+//                           person: ExceptionPerson.S2,
+//                           from: "saber", to: "sabr")
+//    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+//                           tense: ExceptionTense.PRESENT,
+//                           person: ExceptionPerson.S1,
+//                           from: "saber", to: "sé")  //this will change all the present subjunctive
     thisVerb.appendSuffix(suffix: "saber")
     verbModels.append(thisVerb)
     
