@@ -145,9 +145,7 @@ public struct JsonAdverbManager {
         clearWords()
         var wordList = [JsonAdverb]()
         switch collectionType {
-        case .All:
-            wordList = myMultiLingualAdverbList
-        case .Simple:
+        case .Master, .Simple, .Irregular:
             wordList = myMultiLingualAdverbList
         }
         for v in wordList{

@@ -68,9 +68,7 @@ public struct JsonPrepositionManager {
         clearWords()
         var wordList = [JsonPreposition]()
         switch collectionType {
-        case .All:
-            wordList = jsonPrepositionList
-        case .Simple:
+        case .Master, .Simple, .Irregular:
             wordList = jsonPrepositionList
         }
         

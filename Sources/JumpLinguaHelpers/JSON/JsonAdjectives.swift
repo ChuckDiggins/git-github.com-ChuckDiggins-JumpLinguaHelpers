@@ -124,9 +124,7 @@ public struct JsonAdjectiveManager {
         clearWords()
         var wordList = [JsonAdjective]()
         switch collectionType {
-        case .All:
-            wordList = myMultiLingualAdjList
-        case .Simple:
+        case .Master, .Simple, .Irregular:
             wordList = myMultiLingualAdjList
         }
         for v in wordList{

@@ -8,8 +8,8 @@
 import Foundation
 
 public enum JsonCollectionTypes : String {
-    case All
-    //case CarpenterChapter3
+    case Irregular
+    case Master
     case Simple
 }
 //fdfd

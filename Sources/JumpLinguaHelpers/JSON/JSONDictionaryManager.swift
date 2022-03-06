@@ -32,13 +32,13 @@ public struct JSONDictionaryManager {
     public mutating func loadJsonWords(){
         if bUseJsonStarterFiles {
             //jsonNounManager.encodeWords()  //this should wipe out existing jsonVerbs
-            jsonNounManager.encodeInternalWords(collectionType: .All, total: 2000)
+            jsonNounManager.encodeInternalWords(collectionType: .Master, total: 2000)
             
             //jsonVerbManager.encodeVerbs()  //this should wipe out existing jsonVerbs
-            jsonVerbManager.encodeInternalVerbs(collectionType: .All, total: 2000)
-            jsonAdjectiveManager.encodeInternalWords(collectionType: .All, total: 2000)
-            jsonPrepositionManager.encodeInternalWords(collectionType: .All, total: 2000)
-            jsonAdverbManager.encodeInternalWords(collectionType: .All, total: 2000)
+            jsonVerbManager.encodeInternalVerbs(collectionType: .Master, total: 2000)
+            jsonAdjectiveManager.encodeInternalWords(collectionType: .Master, total: 2000)
+            jsonPrepositionManager.encodeInternalWords(collectionType: .Master, total: 2000)
+            jsonAdverbManager.encodeInternalWords(collectionType: .Master, total: 2000)
             jsonConjunctionManager.encodeInternalWords(total: 2000)
             jsonDeterminerManager.encodeInternalWords(total: 2000)
             jsonPronounManager.encodeInternalWords(total: 2000)

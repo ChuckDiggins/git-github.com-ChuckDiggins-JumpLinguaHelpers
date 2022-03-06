@@ -176,7 +176,7 @@ public struct JsonNounManager {
         clearWords()
         var nounList = [JsonNoun]()
         switch collectionType {
-        case .All:
+        case .Master, .Irregular:
             nounList = myMultiLingualWordList
         case .Simple:
             nounList = simpleWordList
