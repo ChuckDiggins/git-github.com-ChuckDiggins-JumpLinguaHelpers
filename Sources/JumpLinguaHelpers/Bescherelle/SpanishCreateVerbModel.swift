@@ -1402,7 +1402,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
-                           from: "ien", to: "eng")  //this will change all the present subjunctive
+                           from: "en", to: "eng")  //this will change all the present subjunctive
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
                            tense: ExceptionTense.PRESENTSUBJ,
                            person: ExceptionPerson.P1,
