@@ -62,6 +62,7 @@ public class BVerb : Word, Identifiable {
     public var m_orthoPreterite = false
     public var m_orthoPreteriteFrom = ""
     public var m_orthoPreteriteTo = ""
+    public var m_isSpecial = false
     
     public var m_isIrregular = false
     public var m_residualPhrase = ""

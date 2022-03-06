@@ -23,7 +23,7 @@ struct BSpanishVerbExtras {
         for parseStruct in verb.m_verbModelParseList {
             
             if ( parseStruct.pattern == .SPECIAL){
-                verb.m_isIrregular = true
+                verb.m_isSpecial = true
                 switch parseStruct.from {
                 case "haber" : verb.m_specialModel = SpecialSpanishVerbModel.HABER
                 case "estar" : verb.m_specialModel = SpecialSpanishVerbModel.ESTAR  //using the model, so far

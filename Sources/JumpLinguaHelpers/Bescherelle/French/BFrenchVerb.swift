@@ -182,7 +182,7 @@ public class BFrenchVerb : BRomanceVerb {
             }
             
             if ( parseStruct.pattern == .SPECIAL){
-                m_isIrregular = true
+                m_isSpecial = true
                 switch parseStruct.from {
                 case "avoir" : m_specialModel = SpecialFrenchVerbModel.AVOIR
                 case "être" : m_specialModel = SpecialFrenchVerbModel.ETRE  //using the model, so far

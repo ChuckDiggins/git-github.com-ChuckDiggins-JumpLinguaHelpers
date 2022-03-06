@@ -135,7 +135,7 @@ public class BRomanceVerb: BVerb {
     }
     
     public func isSpecial()->Bool{
-        return false
+        return m_isSpecial
     }
 
     public func isOrthographicPresent()->Bool{
