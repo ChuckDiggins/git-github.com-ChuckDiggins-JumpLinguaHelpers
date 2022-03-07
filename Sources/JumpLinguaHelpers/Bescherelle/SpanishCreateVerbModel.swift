@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public func createSpanishVerbModels()->[RomanceVerbModel]{
     
@@ -56,6 +57,23 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "haber")
     verbModels.append(thisVerb)
     
+    idNum = 46
+    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "ir")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1S2S3P3,
+                           from: "ir", to: "ir")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.STANDALONE,
+                           tense: ExceptionTense.PRESENT,  //not used
+                           person: ExceptionPerson.S3,   //not used
+                           from: "ido", to: "yendo")  //not used
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEENDING,
+                           tense: ExceptionTense.GERUND,
+                           person: ExceptionPerson.S1S2S3P3,
+                           from: "ir", to: "yendo")  //from is past participle, to is gerund
+    thisVerb.appendSuffix(suffix: "ir")
+    verbModels.append(thisVerb)
+
     idNum = 4
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "tener")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
@@ -427,10 +445,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "o", to: "ue")
-
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
-                           tense: ExceptionTense.PRESENTSUBJ,
-                           person: ExceptionPerson.S1toP3All,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1,
                            from: "c", to: "z")
     thisVerb.appendSuffix(suffix: "cocer")
     thisVerb.appendSuffix(suffix: "socer")
@@ -675,23 +692,15 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "e", to: "ye")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.PRETSTEM2,
-                           tense: ExceptionTense.PRETERITE,
-                           person: ExceptionPerson.S2,
-                           from: "e", to: "i")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "gu", to: "g")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEMSINGLE,
-                           tense: ExceptionTense.PRESENTSUBJ,
-                           person: ExceptionPerson.P1,
-                           from: "e", to: "ye")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEMSINGLE,
-                           tense: ExceptionTense.PRESENTSUBJ,
-                           person: ExceptionPerson.P2,
-                           from: "e", to: "ye")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.PRETSTEM2,
+                           tense: ExceptionTense.PRETERITE,
+                           person: ExceptionPerson.S2,
+                           from: "e", to: "i")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S2,
                            from: "e", to: "i")
@@ -1105,7 +1114,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.P1,
-                           from: "xx", to: "ímos")
+                           from: "imos", to: "ímos")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S3,
@@ -1497,25 +1506,6 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "er")
     verbModels.append(thisVerb)
     
-   
-    idNum = 46
-    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "ir")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
-                           tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1S2S3P3,
-                           from: "ir", to: "ir")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.STANDALONE,
-                           tense: ExceptionTense.PRESENT,  //not used
-                           person: ExceptionPerson.S3,   //not used
-                           from: "ido", to: "yendo")  //not used
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEENDING,
-                           tense: ExceptionTense.GERUND,
-                           person: ExceptionPerson.S1S2S3P3,
-                           from: "ir", to: "yendo")  //from is past participle, to is gerund
-    thisVerb.appendSuffix(suffix: "ir")
-    verbModels.append(thisVerb)
-    
-    verbModels.append(thisVerb)
     return verbModels
 }
 

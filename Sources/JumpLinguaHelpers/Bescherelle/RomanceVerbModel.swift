@@ -108,8 +108,8 @@ public struct Exception : Codable{
 
 public struct RomanceVerbModel : Identifiable {
     public let id : Int
-    let modelVerb : String
-    var exceptionList = [Exception]()
+    public let modelVerb : String
+    public var exceptionList = [Exception]()
     var includeWord = ""
     var includeSuffixList = [String]()
     var excludeSuffixList = [String]()
