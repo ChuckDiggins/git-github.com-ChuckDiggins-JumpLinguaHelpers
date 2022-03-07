@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 public struct dBundle{
 //    var idNum: Int

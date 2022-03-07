@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
+
 
 public func createSpanishVerbModels()->[RomanceVerbModel]{
     

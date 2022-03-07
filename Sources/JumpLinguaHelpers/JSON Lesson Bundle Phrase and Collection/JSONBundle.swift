@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 public struct JSONBundle : Codable, CustomStringConvertible {
     var idNum: Int

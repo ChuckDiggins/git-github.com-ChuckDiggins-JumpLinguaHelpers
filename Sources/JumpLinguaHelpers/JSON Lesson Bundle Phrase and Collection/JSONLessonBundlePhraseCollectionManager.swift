@@ -6,29 +6,28 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
-struct LessonBundlePhraseCollectionManager{
+public struct LessonBundlePhraseCollectionManager{
     
-    var jsonDictionaryManager : JSONDictionaryManager
-    private var randomWordLists : RandomWordLists
+    public var jsonDictionaryManager : JSONDictionaryManager
+    public var randomWordLists : RandomWordLists
     
-    var jsonWordCollectionManager = JSONCollectionManager()
-    var jsonPhraseManager = JsonPhraseManager()
-    var jsonBundleManager = JSONBundleManager()
-    var wordCollectionManager = dWordCollectionManager()
-    var phraseManager = dPhraseManager()
-    var bundleManager = dBundleManager()
+    public var jsonWordCollectionManager = JSONCollectionManager()
+    public var jsonPhraseManager = JsonPhraseManager()
+    public var jsonBundleManager = JSONBundleManager()
+    public var wordCollectionManager = dWordCollectionManager()
+    public var phraseManager = dPhraseManager()
+    public var bundleManager = dBundleManager()
 
     public let bUseJsonStarterFiles = true
     
-    init(jsonDictionaryManager: JSONDictionaryManager, randomWordLists: RandomWordLists){
+    public init(jsonDictionaryManager: JSONDictionaryManager, randomWordLists: RandomWordLists){
         self.jsonDictionaryManager = jsonDictionaryManager
         self.randomWordLists = randomWordLists
     }
 
     
-    mutating func loadJsonStuff(){
+    public mutating func loadJsonStuff(){
         //load word collections
         loadJsonWordCollections()
         //load phrases and clauses
@@ -38,20 +37,20 @@ struct LessonBundlePhraseCollectionManager{
         //load lessons
         
     }
-    mutating func loadJsonPhrasesAndClauses(){
+    public mutating func loadJsonPhrasesAndClauses(){
         if bUseJsonStarterFiles {
                jsonPhraseManager.encodeInternalPhrases(total: 2000)
            createPhrasesFromJsonPhrases()
            print("phraseManager phrase count = \(phraseManager.getClusterCount())")
        }
     }
-    mutating func loadJsonBundles(){
+    public mutating func loadJsonBundles(){
         jsonBundleManager.encodeBundles(total: 2000)
         createBundlesFromJsonBundles()
         print("bundleManager bundle count = \(bundleManager.getBundleCount())")
     }
     
-    mutating func createBundlesFromJsonBundles(){
+    public mutating func createBundlesFromJsonBundles(){
         for jsonBundle in jsonBundleManager.myBundleList {
             let bundleName = jsonBundle.bundleName
             let idNum = jsonBundle.idNum
@@ -80,7 +79,7 @@ struct LessonBundlePhraseCollectionManager{
         }
     }
     
-       mutating func createPhraseFromJsonPhrase(jsonPhrase: JSONNamedLoadedPhrase)->dCluster{
+    public mutating func createPhraseFromJsonPhrase(jsonPhrase: JSONNamedLoadedPhrase)->dCluster{
        let clusterType = getClusterTypeFromString(str: jsonPhrase.phraseType)
            let np = dPhrase(randomWord: randomWordLists, phraseName: jsonPhrase.phraseName, phraseType: clusterType)
            //rebuild all of the member clusters from the jsonPhrase cluster list
@@ -96,7 +95,7 @@ struct LessonBundlePhraseCollectionManager{
            return np
        }
    
-       mutating func createPhrasesFromJsonPhrases(){
+    public mutating func createPhrasesFromJsonPhrases(){
            var np = dPhrase()
    
            for jsonPhrase in jsonPhraseManager.myList {
@@ -123,7 +122,7 @@ struct LessonBundlePhraseCollectionManager{
            }
        }
 
-    mutating func loadJsonWordCollections(){
+    public mutating func loadJsonWordCollections(){
         //        jsonWordCollection.decodeWords()
         //        createWordGroupFromJsonWordCollection()
         //        if bUseJsonStarterFiles {
@@ -137,7 +136,7 @@ struct LessonBundlePhraseCollectionManager{
         createWordCollectionManagerFromJsonWordCollectionManager()
     }
     
-    mutating func createWordCollectionManagerFromJsonWordCollectionManager(){
+    public mutating func createWordCollectionManagerFromJsonWordCollectionManager(){
         for jWordCollection in jsonWordCollectionManager.myCollectionList{
             var wordCollection = dWordCollection(idNum: jWordCollection.idNum, collectionName: jWordCollection.collectionName)
             for jws in jWordCollection.wordList {

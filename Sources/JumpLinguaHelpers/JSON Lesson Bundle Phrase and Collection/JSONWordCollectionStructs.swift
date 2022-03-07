@@ -1,5 +1,4 @@
 
-import JumpLinguaHelpers
 var carpenterWordCollection = JSONCollectionStruct(idNum: 0, collectionName: "Carpenter1", wordList: CarpenterWordList)
 var chuckVerbCollection1 = JSONCollectionStruct(idNum: 1, collectionName: "Chuck verbs 1", wordList: ChuckVerbList)
 var TenCommonVerbCollection = JSONCollectionStruct(idNum: 2, collectionName: "10 Common verbs", wordList: TenCommonVerbs)

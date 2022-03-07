@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 public struct dBundleManager{
     var m_bundleList = [dBundle]()
