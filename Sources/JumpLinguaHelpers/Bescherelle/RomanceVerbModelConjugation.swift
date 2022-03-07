@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public enum VerbModelMode{
     case algorithm, json, both
@@ -23,7 +24,7 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         super.init(currentLanguage: .Spanish)
     }
     
-    private var m_jsonVerbModelManager = JsonVerbModelManager()
+    public var m_jsonVerbModelManager = JsonVerbModelManager()
     var verbModels = [RomanceVerbModel]()
     
     

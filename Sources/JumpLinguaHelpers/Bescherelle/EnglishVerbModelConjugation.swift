@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public class EnglishVerbModelConjugation : VerbModelConjugation{
     
@@ -32,7 +33,7 @@ public class EnglishVerbModelConjugation : VerbModelConjugation{
     public  func test(){
         loadVerbModels()
         let vm = getVerbModel(verbWord: "bleed")
-        dumpModel(index: vm.id, vm: vm)
+//        dumpModel(index: vm.id, vm: vm)
     }
     
     
@@ -55,7 +56,7 @@ public class EnglishVerbModelConjugation : VerbModelConjugation{
         print("Start of model dump\n\n")
         for vm in verbModels {
             if ( vmIndex < 1000 ){
-                dumpModel(index: vmIndex, vm: vm)
+//                dumpModel(index: vmIndex, vm: vm)
             }
             else {
                 break
@@ -66,7 +67,7 @@ public class EnglishVerbModelConjugation : VerbModelConjugation{
         
     }
     
-    public func dumpModel(index: Int, vm : EnglishVerbModel){
-        print ("vm id = \(vm.id), forms = \(vm.infinitive) : \(vm.preterite) : \(vm.pastPart)")
-    }
+//    public func dumpModel(index: Int, vm : EnglishVerbModel){
+//        print ("vm id = \(vm.id), forms = \(vm.infinitive) : \(vm.preterite) : \(vm.pastPart)")
+//    }
 }

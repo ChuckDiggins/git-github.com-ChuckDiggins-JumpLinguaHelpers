@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import JumpLinguaHelpers
 
 public struct JsonVerbModel: Codable, CustomStringConvertible {
     var idNum: Int
-    var modelVerbString: String
-    var modelExceptionList : [Exception]
+    public var modelVerbString: String
+    public var modelExceptionList : [Exception]
     var includeSuffixList = [String]()
     var excludeSuffixList = [String]()
     var standAlone = false
