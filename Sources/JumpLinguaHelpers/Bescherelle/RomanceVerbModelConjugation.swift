@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 public enum VerbModelMode{
     case algorithm, json, both

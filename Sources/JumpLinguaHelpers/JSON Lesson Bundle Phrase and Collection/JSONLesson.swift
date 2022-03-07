@@ -2,12 +2,15 @@
 //  JSONLesson.swift
 //  ContextFree
 //
-//  Created by Charles Diggins on 7/21/21.
+//  Created by Charles Diggins on 2/20/22.
 //
 
 import Foundation
+import JumpLinguaHelpers
 
-public struct JsonLesson: Codable, CustomStringConvertible {
+import UIKit
+
+public class JsonLesson: Codable, CustomStringConvertible {
     var language: String //agnostic means any language, otherwise it is language-specific
     var lessonName : String
     public var description: String {
@@ -26,9 +29,8 @@ var myLessonList: [JsonLesson] = [
 ]
 
 //create json from
-public struct JsonLessonManager {
+public class JsonLessonManager {
     var myLessonList = [JsonLesson]()
-    public init(){}
     
     public func printWords(){
         print(myLessonList)
@@ -38,7 +40,7 @@ public struct JsonLessonManager {
         print(jv)
     }
     
-    mutating public func encodeInternalWords(total: Int){
+    public func encodeInternalWords(total: Int){
         clearWords()
         for v in myLessonList{
             myLessonList.append(v)
@@ -52,7 +54,7 @@ public struct JsonLessonManager {
         return myLessonList.last!
     }
     
-    mutating public func encodeWords(){
+    public func encodeWords(){
         //encode to JSON
         let encoder = JSONEncoder()
         if let encodedPreps = try? encoder.encode( myLessonList){
@@ -61,7 +63,7 @@ public struct JsonLessonManager {
         }
     }
     
-    mutating  public func decodeWords(){
+    public func decodeWords(){
         let decoder = JSONDecoder()
         if let data = try? Data.init(contentsOf: getURL()){
             if let decodedWords = try? decoder.decode([JsonLesson].self, from: data){
@@ -70,7 +72,7 @@ public struct JsonLessonManager {
         }
     }
     
-    mutating public func appendLesson(jl: JsonLesson){
+    public func appendLesson(jl: JsonLesson){
         var appendThis = true
         for i in 0..<myLessonList.count {
             let v = myLessonList[i]
@@ -85,7 +87,7 @@ public struct JsonLessonManager {
         encodeWords()
     }
     
-    mutating public func clearWords(){
+    public func clearWords(){
         myLessonList.removeAll()
     }
     
@@ -104,7 +106,6 @@ public struct JsonLessonManager {
     }
     
 }
-
 
 
 

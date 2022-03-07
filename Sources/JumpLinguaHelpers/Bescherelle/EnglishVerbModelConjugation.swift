@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
 public class EnglishVerbModelConjugation : VerbModelConjugation{
     
