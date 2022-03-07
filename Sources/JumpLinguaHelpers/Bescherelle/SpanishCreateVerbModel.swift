@@ -441,14 +441,14 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     
     idNum = 22
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "cocer")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
-                           tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1S2S3P3,
-                           from: "o", to: "ue")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "c", to: "z")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1S2S3P3,
+                           from: "o", to: "ue")
     thisVerb.appendSuffix(suffix: "cocer")
     thisVerb.appendSuffix(suffix: "socer")
     thisVerb.appendSuffix(suffix: "torcer")
@@ -688,14 +688,14 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     
     idNum = 40
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "erguir")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
-                           tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1S2S3P3,
-                           from: "e", to: "ye")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "gu", to: "g")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1S2S3P3,
+                           from: "e", to: "ye")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.PRETSTEM2,
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S2,
@@ -1090,11 +1090,10 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     
     idNum = 67
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "reír")
-    /*thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "reír", to: "reír")
- */
     thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
