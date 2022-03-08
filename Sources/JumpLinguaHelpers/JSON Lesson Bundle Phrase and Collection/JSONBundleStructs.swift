@@ -48,6 +48,6 @@ var capituloTres = JSONBundle(idNum: 1, teacher: "Michelle Carpenter", bundleNam
 
 var chuckBundle1 = JSONBundle(idNum: 1, teacher: "Chuck Diggins", bundleName: "My bundle 1",
                            tenseList : ["Present", "Imperfect"],
-                           collectionList : [carpenterWordCollection, threeSimpleVerbsCollection],
+                           collectionList : [carpenterWordCollection, fiveSimpleVerbsCollection],
                            phraseList : [ chuckNamedUnloaded1, chuckNamedUnloaded2  ]
 )
