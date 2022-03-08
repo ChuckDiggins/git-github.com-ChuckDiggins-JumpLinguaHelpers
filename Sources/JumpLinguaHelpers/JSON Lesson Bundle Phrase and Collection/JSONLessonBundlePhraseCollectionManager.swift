@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
+
+
 
 public struct LessonBundlePhraseCollectionManager{
     
@@ -20,6 +23,9 @@ public struct LessonBundlePhraseCollectionManager{
     public var bundleManager = dBundleManager()
 
     public let bUseJsonStarterFiles = true
+    public var bLoadPhrases = true
+    public var bLoadCollections = true
+    public var bLoadBundles = true
     
     public init(jsonDictionaryManager: JSONDictionaryManager, randomWordLists: RandomWordLists){
         self.jsonDictionaryManager = jsonDictionaryManager
@@ -27,16 +33,16 @@ public struct LessonBundlePhraseCollectionManager{
     }
 
     
-    public mutating func loadJsonStuff(){
+    public mutating func loadJsonStuff(loadBundles: Bool = true, loadPhrases: Bool = true, loadCollections: Bool = true){
         //load word collections
-        loadJsonWordCollections()
+        if loadCollections { loadJsonWordCollections()}
         //load phrases and clauses
-        loadJsonPhrasesAndClauses()
+        if loadPhrases { loadJsonPhrasesAndClauses()}
         //load bundles
-        loadJsonBundles()
+        if loadBundles { loadJsonBundles() }
         //load lessons
-        
     }
+    
     public mutating func loadJsonPhrasesAndClauses(){
         if bUseJsonStarterFiles {
                jsonPhraseManager.encodeInternalPhrases(total: 2000)
