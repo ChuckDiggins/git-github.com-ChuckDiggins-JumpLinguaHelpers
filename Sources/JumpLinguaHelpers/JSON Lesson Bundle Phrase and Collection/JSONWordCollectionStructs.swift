@@ -1,18 +1,23 @@
+import JumpLinguaHelpers
 
 var carpenterWordCollection = JSONCollectionStruct(idNum: 0, collectionName: "Carpenter1", wordList: CarpenterWordList)
 var chuckVerbCollection1 = JSONCollectionStruct(idNum: 1, collectionName: "Chuck verbs 1", wordList: ChuckVerbList)
 var TenCommonVerbCollection = JSONCollectionStruct(idNum: 2, collectionName: "10 Common verbs", wordList: TenCommonVerbs)
-var threeSimpleVerbsCollection = JSONCollectionStruct(idNum: 3, collectionName: "3 simple verbs",
+
+var fiveSimpleVerbsCollection = JSONCollectionStruct(idNum: 3, collectionName: "3 simple verbs",
                                                 wordList: [
                                                     JSONWord(spanish: "comer", english: "eat", french: "manger", wordType: "verb"),
                                                     JSONWord(spanish: "hablar", english: "talk", french: "boire", wordType : "verb"),
                                                     JSONWord(spanish: "vivir", english: "live", french: "habiter", wordType : "verb"),
                                                 ])
+var problemVerbCollection = JSONCollectionStruct(idNum: 4, collectionName: "Some problem verbs", wordList: problemVerbList)
 
-var ThreeSimpleVerbs: [JSONWord] = [
+var FiveSimpleVerbs: [JSONWord] = [
     JSONWord(spanish: "comer", english: "eat", french: "manger", wordType: "verb"),
     JSONWord(spanish: "hablar", english: "talk", french: "boire", wordType : "verb"),
     JSONWord(spanish: "vivir", english: "live", french: "habiter", wordType : "verb"),
+    JSONWord(spanish: "comprar", english: "buy",    french: "acheter", wordType: "verb"),
+    JSONWord(spanish: "beber", english: "drink", french: "boire",wordType: "verb"),
 ]
 
 var TenCommonVerbs: [JSONWord] = [
@@ -102,6 +107,14 @@ var ChuckVerbList: [JSONWord] = [
     JSONWord(spanish: "reír", english: "laugh",    french: "rire", wordType: "verb"),
     JSONWord(spanish: "reñir", english: "quarrel",    french: "disputer", wordType: "verb"),
     JSONWord(spanish: "retraer", english: "bring back",    french: "rapporter", wordType: "verb"),
+]
+
+var problemVerbList: [JSONWord] = [
+    JSONWord(spanish: "seguir", english: "carry on",    french: "poursuivre",  wordType: "verb"),
+    JSONWord(spanish: "salir", english: "leave",    french: "sortir",   wordType: "verb"),
+    JSONWord(spanish: "poner", english: "put",    french: "mettre",   wordType: "verb"),
+    JSONWord(spanish: "reír", english: "laugh",    french: "rire", wordType: "verb"),
+    JSONWord(spanish: "erguir", english: "erect",    french: "ériger", wordType: "verb"),
 ]
 
 //  JSONWordCollectionStructs.swift

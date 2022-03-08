@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 //public struct JSONWord : Codable, CustomStringConvertible {
 //    var spanish: String
@@ -25,9 +26,9 @@ import Foundation
 //}
 
 public struct JSONCollectionStruct : Codable, CustomStringConvertible {
-    var idNum: Int
-    var collectionName : String
-    var wordList = [JSONWord]()
+    public var idNum: Int
+    public var collectionName : String
+    public var wordList = [JSONWord]()
     public var description: String {
         return "\(self.collectionName) : wordCount =\(wordList.count)"
     }

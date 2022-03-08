@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import JumpLinguaHelpers
 
 public class JSONCollectionManager: Codable {
      
@@ -31,7 +31,7 @@ public class JSONCollectionManager: Codable {
     
     public func encodeWordCollections(total: Int){
         clearWords()
-        let storedCollectionList = [threeSimpleVerbsCollection, carpenterWordCollection, chuckVerbCollection1, TenCommonVerbCollection]
+        let storedCollectionList = [fiveSimpleVerbsCollection, carpenterWordCollection, chuckVerbCollection1, TenCommonVerbCollection, problemVerbCollection]
         
         for collection in storedCollectionList{
             myCollectionList.append(collection)
