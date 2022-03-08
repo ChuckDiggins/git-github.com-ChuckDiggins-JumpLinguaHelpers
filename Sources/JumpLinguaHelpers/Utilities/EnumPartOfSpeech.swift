@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public enum  LanguageType : String {
     case English, Spanish, French, Italian, Portuguese, Agnostic
@@ -23,7 +24,7 @@ public enum  VerbEnding : String
 {
     case AR, ER, IR, accentIR, umlautIR, OIR, RE, none
     
-    func getEnding()->String {
+    public func getEnding()->String {
         switch self{
         case .AR:
             return "ar"
