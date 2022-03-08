@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public struct dWordCollectionManager{
     private var collectionList = Array<dWordCollection>()

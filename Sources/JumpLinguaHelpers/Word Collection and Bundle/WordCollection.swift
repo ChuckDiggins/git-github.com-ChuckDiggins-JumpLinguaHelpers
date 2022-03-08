@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
-public struct dWordCollection : Equatable {
-    let idNum : Int
-    let collectionName : String
-    var wordList = [Word]()
+public struct dWordCollection : Equatable, Hashable {
+    public let idNum : Int
+    public let collectionName : String
+    public var wordList = [Word]()
     public static func == (lhs: dWordCollection, rhs: dWordCollection) -> Bool {
         return
             lhs.collectionName == rhs.collectionName
