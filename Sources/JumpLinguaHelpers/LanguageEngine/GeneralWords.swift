@@ -6,20 +6,21 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public struct GeneralWords {
     
-    var adjectiveList = Array<Word>()
-    var adverbList = Array<Word>()
-    var conjunctionList = Array<Word>()
-    var determinerList = Array<Word>()
-    var nounList = Array<Word>()
-    var prepositionList = Array<Word>()
-    var verbList = Array<Word>()
-    var pronounList = Array<Word>()
-    var ambiguousList = Array<Word>()
+    public var adjectiveList = Array<Word>()
+    public var adverbList = Array<Word>()
+    public var conjunctionList = Array<Word>()
+    public var determinerList = Array<Word>()
+    public var nounList = Array<Word>()
+    public var prepositionList = Array<Word>()
+    public var verbList = Array<Word>()
+    public var pronounList = Array<Word>()
+    public var ambiguousList = Array<Word>()
     
-    var workingList = Array<Word>()
+    public var workingList = Array<Word>()
     
     
 }

@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import JumpLinguaHelpers
 
 public struct JsonVerb: Codable, CustomStringConvertible {
-    var english: String
-    var french: String
-    var spanish: String
+    public var english: String
+    public var french: String
+    public var spanish: String
     var transitivity: VerbTransitivity
     var verbType: String  //"RTA"
     

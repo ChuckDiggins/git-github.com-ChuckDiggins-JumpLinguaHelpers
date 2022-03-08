@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public class Word : Hashable, Equatable {
     public var word : String

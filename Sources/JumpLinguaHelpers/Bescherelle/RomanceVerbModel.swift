@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public enum ExceptionPattern : String {
     case IMPERSONAL1  //verbs with limited conjugation - rain, it is necessary, etc

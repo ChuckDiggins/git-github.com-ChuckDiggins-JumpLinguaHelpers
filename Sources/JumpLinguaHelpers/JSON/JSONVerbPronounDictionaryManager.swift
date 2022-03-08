@@ -6,19 +6,20 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public struct JSONVerbPronounDictionaryManager {
     
     public init(){}
     
-    public var m_wsp : ViperWordStringParser!
+    public var m_wsp : WordStringParser!
     
     public var jsonVerbManager = JsonVerbManager()
     public var jsonPronounManager = JsonPronounManager()
     public let bUseJsonStarterFiles = true
     public var verbModelManager = VerbModelManager()
     
-    public mutating func setWordStringParser(wsp: ViperWordStringParser){
+    public mutating func setWordStringParser(wsp: WordStringParser){
         m_wsp = wsp
     }
     
@@ -86,14 +87,12 @@ public struct JSONVerbPronounDictionaryManager {
         let frenchVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .French, verbPhrase: jv.french)
         let englishVerbStuff = verbModelManager.analyzeAndCreateBVerb_SPIFE(language: .English, verbPhrase: jv.english)
         if ( spanishVerbStuff.isValid && frenchVerbStuff.isValid && englishVerbStuff.isValid){
-            let verb = Verb(jsonVerb: jv, language: .Agnostic)
-            m_wsp.addVerbToDictionary(verb: verb)
+            m_wsp.addVerbToDictionary(verb: Verb(jsonVerb: jv, language: .Agnostic))
         }
     }
     
     public mutating func appendVerbFromJsonVerb(jv: JsonVerb){
-        let verb = Verb(jsonVerb: jv, language: .Agnostic)
-        m_wsp.addVerbToDictionary(verb: verb)
+        m_wsp.addVerbToDictionary(verb: Verb(jsonVerb: jv, language: .Agnostic))
     }
     
     
