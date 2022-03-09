@@ -860,12 +860,23 @@ public struct IrregularVerbsSpanish {
             }
         case .preterite:
             switch person{
+            case .S2:
+                morph.verbForm = "reíste"  + preposition
+                morph.comment = "Replace with irregular form " + "ríes" + preposition
+                morphStruct.append(morphStep: morph)
             case .S3:
                 morph.isFinalStep = true
                 morph.verbForm = "rió"  + preposition
                 morph.comment = "Replace with irregular form " + "rió" + preposition
                 morphStruct.append(morphStep: morph)
-
+            case .P1:
+                morph.verbForm = "reímos"  + preposition
+                morph.comment = "Replace with irregular form " + "reímos" + preposition
+                morphStruct.append(morphStep: morph)
+            case .P2:
+                morph.verbForm = "reísteis"  + preposition
+                morph.comment = "Replace with irregular form " + "reísteis" + preposition
+                morphStruct.append(morphStep: morph)
             case .P3:
                 morph.isFinalStep = true
                 morph.verbForm = "rieron"  + preposition

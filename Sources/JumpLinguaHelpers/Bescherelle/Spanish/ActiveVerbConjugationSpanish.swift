@@ -201,13 +201,13 @@ public class ActiveVerbConjugationSpanish {
         //stem changing - but don't go yet, check for ortho present
         if verb.isStemChanging() {
             if (tense == .present || tense == .presentSubjunctive) && verb.isPersonStem(person: person) {
+                //do the stem change first
+                workingMorphStruct = StemChangingConjugation().createStemConjugatedForm(inputMorphStruct : workingMorphStruct, verb: verb, tense: tense, person : person, stemFrom: verb.m_stemFrom, stemTo : verb.m_stemTo)
+                //then if there is any ortho, do it here
                 if verb.isOrthoPresent(tense: tense, person: person){
                     let from = verb.m_orthoPresentFrom
                     let to = verb.m_orthoPresentTo
                     workingMorphStruct = RegularSpanishVerb().createStemOrthoForm(verbEnding : verb.m_verbEnding, inputMorphStruct : workingMorphStruct, verbWord : verbWord, preposition : preposition, tense : tense, person : person, orthoFrom: from, orthoTo: to)
-                }
-                else{
-                    workingMorphStruct = StemChangingConjugation().createStemConjugatedForm(inputMorphStruct : workingMorphStruct, verb: verb, tense: tense, person : person, stemFrom: verb.m_stemFrom, stemTo : verb.m_stemTo)
                 }
                 workingMorphStruct = RegularSpanishVerb().attachRegularVerbEnding(morphStruct: workingMorphStruct, tense: tense, person: person, verbEnding: verb.m_verbEnding)
                 verbConjugated = true
