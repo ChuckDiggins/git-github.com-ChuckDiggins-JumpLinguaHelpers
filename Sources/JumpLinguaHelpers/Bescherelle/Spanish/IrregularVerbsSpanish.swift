@@ -926,6 +926,18 @@ public struct IrregularVerbsSpanish {
         case .presentSubjunctive :
             morph.isFinalStep = true
             switch person{
+            case .S1:
+                morph.verbForm = "ría"  + preposition
+                morph.comment = "Replace with irregular form " +  "ría" + preposition
+                morphStruct.append(morphStep: morph)
+            case .S2:
+                morph.verbForm = "rías"  + preposition
+                morph.comment = "Replace with irregular form " + "rías" + preposition
+                morphStruct.append(morphStep: morph)
+            case .S3:
+                morph.verbForm = "ría"  + preposition
+                morph.comment = "Replace with irregular form " + "ría" + preposition
+                morphStruct.append(morphStep: morph)
             case .P1:
                 morph.verbForm = "riamos"  + preposition
                 morph.comment = "Replace with irregular form " + "riamos" + preposition
@@ -933,6 +945,10 @@ public struct IrregularVerbsSpanish {
             case .P2:
                 morph.verbForm = "riáis"  + preposition
                 morph.comment = "Replace with irregular form " + "riáis" + preposition
+                morphStruct.append(morphStep: morph)
+            case .P3:
+                morph.verbForm = "rían"  + preposition
+                morph.comment = "Replace with irregular form " + "rían" + preposition
                 morphStruct.append(morphStep: morph)
             default:
                 break        
