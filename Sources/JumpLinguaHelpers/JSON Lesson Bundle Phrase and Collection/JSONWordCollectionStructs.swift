@@ -10,7 +10,7 @@ var fiveSimpleVerbsCollection = JSONCollectionStruct(idNum: 3, collectionName: "
                                                     JSONWord(spanish: "hablar", english: "talk", french: "boire", wordType : "verb"),
                                                     JSONWord(spanish: "vivir", english: "live", french: "habiter", wordType : "verb"),
                                                 ])
-var problemVerbCollection = JSONCollectionStruct(idNum: 4, collectionName: "Some problem verbs", wordList: problemVerbList)
+var problemVerbCollection = JSONCollectionStruct(idNum: 4, collectionName: "Some problem verbs", wordList: ProblemVerbList)
 
 var FiveSimpleVerbs: [JSONWord] = [
     JSONWord(spanish: "comer", english: "eat", french: "manger", wordType: "verb"),
@@ -109,18 +109,11 @@ var ChuckVerbList: [JSONWord] = [
     JSONWord(spanish: "retraer", english: "bring back",    french: "rapporter", wordType: "verb"),
 ]
 
-var problemVerbList: [JSONWord] = [
+var ProblemVerbList: [JSONWord] = [
+    JSONWord(spanish: "averiguar", english: "find out", french: "trouver", wordType: "verb"),
     JSONWord(spanish: "seguir", english: "carry on",    french: "poursuivre",  wordType: "verb"),
     JSONWord(spanish: "salir", english: "leave",    french: "sortir",   wordType: "verb"),
     JSONWord(spanish: "poner", english: "put",    french: "mettre",   wordType: "verb"),
     JSONWord(spanish: "reír", english: "laugh",    french: "rire", wordType: "verb"),
     JSONWord(spanish: "erguir", english: "erect",    french: "ériger", wordType: "verb"),
 ]
-
-//  JSONWordCollectionStructs.swift
-//  ContextFree
-//
-//  Created by Charles Diggins on 2/20/22.
-//
-
-import Foundation
