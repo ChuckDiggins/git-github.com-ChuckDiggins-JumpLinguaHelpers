@@ -83,8 +83,6 @@ public struct RegularSpanishVerb {
         }
        
         var ss = inputMorphStruct.finalVerbForm()
-
-        ss = VerbUtilities().remove2LetterVerbEnding(word: ss)
         
         /*
         morphStep.index = ss.count-1
@@ -103,10 +101,10 @@ public struct RegularSpanishVerb {
             ss.removeLast()
         }
         morphStep = MorphStep()
-        morphStep.verbForm = ss + orthoFrom + verbEnding.getEnding()
+        morphStep.verbForm = ss + orthoFrom
         morphStep.part1 = ss
         morphStep.part2 = orthoFrom
-        morphStep.part3 = verbEnding.getEnding()
+        morphStep.part3 = ""
         morphStep.comment = "Grab this ->" + orthoFrom
         morphStruct.append(morphStep : morphStep)
         
