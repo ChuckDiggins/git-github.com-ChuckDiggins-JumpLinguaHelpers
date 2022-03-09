@@ -1096,6 +1096,10 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "reír", to: "reír")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1S2S3P3,
+                           from: "reir", to: "reir")
 //    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
 //                           tense: ExceptionTense.PRESENT,
 //                           person: ExceptionPerson.S1S2S3P3,
@@ -1128,14 +1132,14 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
 //                           tense: ExceptionTense.CONDITIONAL,
 //                           person: ExceptionPerson.P3,
 //                           from: "reír", to: "reir")
-//    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEENDING,
-//                           tense: ExceptionTense.GERUND,
-//                           person: ExceptionPerson.S2,
-//                           from: "eír", to: "iendo")
-//    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEENDING,
-//                           tense: ExceptionTense.PASTPART,
-//                           person: ExceptionPerson.S2,
-//                           from: "eír", to: "ído")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEENDING,
+                           tense: ExceptionTense.GERUND,
+                           person: ExceptionPerson.S2,
+                           from: "eír", to: "iendo")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEENDING,
+                           tense: ExceptionTense.PASTPART,
+                           person: ExceptionPerson.S2,
+                           from: "eír", to: "ído")
     thisVerb.appendSuffix(suffix: "reír")
     thisVerb.appendSuffix(suffix: "sonreir")
     thisVerb.appendSuffix(suffix: "leír")

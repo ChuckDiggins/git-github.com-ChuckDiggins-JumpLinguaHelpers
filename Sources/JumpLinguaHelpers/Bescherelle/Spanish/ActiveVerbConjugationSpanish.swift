@@ -7,6 +7,7 @@
 
 //Chuck Nov 25
 import Foundation
+import JumpLinguaHelpers
 
 public class ActiveVerbConjugationSpanish {
     var perfectVerb = [[String]]()  //Spanish ... haber
@@ -184,12 +185,14 @@ public class ActiveVerbConjugationSpanish {
         //can we intercept the stem-changing infinitive here?
         let result = verb.hasStemSingleForm(tense: tense, person: person)
         if ( result.0 != "" ){
+            //do the stem change first
+            workingMorphStruct = StemChangingConjugation().createStemConjugatedForm(inputMorphStruct : workingMorphStruct, verb: verb, tense: tense, person : person, stemFrom: result.0, stemTo : result.1)
+            //then if there is any ortho, do it here
             if verb.isOrthoPresent(tense: tense, person: person){
                 let from = verb.m_orthoPresentFrom
                 let to = verb.m_orthoPresentTo
                 workingMorphStruct = RegularSpanishVerb().createStemOrthoForm(verbEnding : verb.m_verbEnding, inputMorphStruct : workingMorphStruct, verbWord : verbWord, preposition : preposition, tense : tense, person : person, orthoFrom: from, orthoTo: to)
             }
-            workingMorphStruct = StemChangingConjugation().createStemConjugatedForm(inputMorphStruct : workingMorphStruct, verb: verb, tense: tense, person : person, stemFrom: result.0, stemTo : result.1)
             workingMorphStruct = RegularSpanishVerb().attachRegularVerbEnding(morphStruct: workingMorphStruct, tense: tense, person: person, verbEnding: verb.m_verbEnding)
             verbConjugated = true
             return workingMorphStruct
