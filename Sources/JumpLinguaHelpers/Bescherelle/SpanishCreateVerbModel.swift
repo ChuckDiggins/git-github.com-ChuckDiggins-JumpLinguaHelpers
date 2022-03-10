@@ -1265,7 +1265,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S3,
-                           from: "satisfacer", to: "satisfizo")  //this will chthis will change all the present subjunctive
+                           from: "acer", to: "izo")  //this will chthis will change all the present subjunctive
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEINFINITIVE,
                            tense: ExceptionTense.CONDITIONAL,
                            person: ExceptionPerson.S2,
@@ -1395,6 +1395,10 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
+                           from: "c", to: "qu")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
+                           tense: ExceptionTense.PRESENTSUBJ,
+                           person: ExceptionPerson.S1toP3All,
                            from: "c", to: "qu")  //this will change all the present subjunctive
     thisVerb.appendSuffix(suffix: "ocar")
     thisVerb.appendSuffix(suffix: "orcar")

@@ -37,7 +37,7 @@ public struct CriticalVerbForms  {
     }
     
     public mutating func appendCriticalForm(person: Person, tense: Tense, comment: String){
-        criticalVerbForms.append( CriticalStruct( person: person, tense: tense, verbForm: "PlaceHolder",
+        criticalVerbForms.append( CriticalStruct( person: person, tense: tense, verbForm: "...",
                                              comment: comment  ))
     }
     public func getCriticalStruct(index: Int)->(CriticalStruct){

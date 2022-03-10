@@ -188,9 +188,14 @@ public class ActiveVerbConjugationSpanish {
             //do the stem change first
             workingMorphStruct = StemChangingConjugation().createStemConjugatedForm(inputMorphStruct : workingMorphStruct, verb: verb, tense: tense, person : person, stemFrom: result.0, stemTo : result.1)
             //then if there is any ortho, do it here
-            if verb.isOrthoPresent(tense: tense, person: person){
+            if verb.isOrthoPresent(tense: tense, person: person) {
                 let from = verb.m_orthoPresentFrom
                 let to = verb.m_orthoPresentTo
+                workingMorphStruct = RegularSpanishVerb().createStemOrthoForm(verbEnding : verb.m_verbEnding, inputMorphStruct : workingMorphStruct, verbWord : verbWord, preposition : preposition, tense : tense, person : person, orthoFrom: from, orthoTo: to)
+            }
+            if verb.isOrthoPresentSubjunctive(tense: tense, person: person){
+                let from = verb.m_orthoPresentSubjunctiveFrom
+                let to = verb.m_orthoPresentSubjunctiveTo
                 workingMorphStruct = RegularSpanishVerb().createStemOrthoForm(verbEnding : verb.m_verbEnding, inputMorphStruct : workingMorphStruct, verbWord : verbWord, preposition : preposition, tense : tense, person : person, orthoFrom: from, orthoTo: to)
             }
             workingMorphStruct = RegularSpanishVerb().attachRegularVerbEnding(morphStruct: workingMorphStruct, tense: tense, person: person, verbEnding: verb.m_verbEnding)
@@ -209,9 +214,13 @@ public class ActiveVerbConjugationSpanish {
                     let to = verb.m_orthoPresentTo
                     workingMorphStruct = RegularSpanishVerb().createStemOrthoForm(verbEnding : verb.m_verbEnding, inputMorphStruct : workingMorphStruct, verbWord : verbWord, preposition : preposition, tense : tense, person : person, orthoFrom: from, orthoTo: to)
                 }
+                if verb.isOrthoPresentSubjunctive(tense: tense, person: person){
+                    let from = verb.m_orthoPresentSubjunctiveFrom
+                    let to = verb.m_orthoPresentSubjunctiveTo
+                    workingMorphStruct = RegularSpanishVerb().createStemOrthoForm(verbEnding : verb.m_verbEnding, inputMorphStruct : workingMorphStruct, verbWord : verbWord, preposition : preposition, tense : tense, person : person, orthoFrom: from, orthoTo: to)
+                }
                 workingMorphStruct = RegularSpanishVerb().attachRegularVerbEnding(morphStruct: workingMorphStruct, tense: tense, person: person, verbEnding: verb.m_verbEnding)
                 verbConjugated = true
-                
                 
                 return workingMorphStruct
             }

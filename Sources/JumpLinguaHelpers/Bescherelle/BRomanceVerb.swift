@@ -50,7 +50,12 @@ public class BRomanceVerb: BVerb {
         return false
     }
 
-    
+    public func isOrthoPresentSubjunctive(tense: Tense, person: Person)->Bool{
+        if tense == .presentSubjunctive && m_orthoPresent { return true }
+        return false
+    }
+
+
     public func isOrthoPreterite(tense: Tense, person: Person)->Bool{
         if ( (tense == .preterite && person == .S1 ) || tense == .presentSubjunctive) && m_orthoPreterite { return true }
         return false

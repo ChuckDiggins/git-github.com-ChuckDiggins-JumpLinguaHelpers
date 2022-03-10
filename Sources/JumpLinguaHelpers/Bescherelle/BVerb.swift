@@ -59,6 +59,9 @@ public class BVerb : Word, Identifiable {
     public var m_orthoPresent = false
     public var m_orthoPresentFrom = ""
     public var m_orthoPresentTo = ""
+    public var m_orthoPresentSubjunctive = false
+    public var m_orthoPresentSubjunctiveFrom = ""
+    public var m_orthoPresentSubjunctiveTo = ""
     public var m_orthoPreterite = false
     public var m_orthoPreteriteFrom = ""
     public var m_orthoPreteriteTo = ""

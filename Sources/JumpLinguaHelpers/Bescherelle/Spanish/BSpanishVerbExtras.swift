@@ -110,6 +110,11 @@ struct BSpanishVerbExtras {
                     verb.m_orthoPresentFrom = parseStruct.from
                     verb.m_orthoPresentTo = parseStruct.to
                 }
+                if ( parseStruct.tense == .presentSubjunctive ){
+                    verb.m_orthoPresentSubjunctive = true
+                    verb.m_orthoPresentSubjunctiveFrom = parseStruct.from
+                    verb.m_orthoPresentSubjunctiveTo = parseStruct.to
+                }
                 if ( parseStruct.tense == .preterite ){
                     verb.m_orthoPreterite = true
                     verb.m_orthoPreteriteFrom = parseStruct.from
