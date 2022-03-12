@@ -240,6 +240,8 @@ public enum  Person:  Int, CaseIterable
         switch gender {
         case .masculine: return getMaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
         case .feminine: return getFemaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        default:
+            return getMaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
         }
     }
     
