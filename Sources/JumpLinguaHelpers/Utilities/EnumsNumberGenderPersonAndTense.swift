@@ -236,16 +236,20 @@ public enum  Person:  Int, CaseIterable
            }
        }
    
-    public func getMaleString(language: LanguageType, verbStartsWithVowel: Bool)->String {
+    public func getMaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
             switch language {
             case .Spanish:
                 switch self {
                 case .S1: return "yo"
                 case .S2: return "tú"
-                case .S3: return "él"
+                case .S3:
+                    if (useUsted){ return "usted"}
+                    else { return "él" }
                 case .P1: return "nosotros"
                 case .P2: return "vosotros"
-                case .P3: return "ellos"
+                case .P3:
+                    if (useUsted){ return "ustedes"}
+                    else { return "ellos" }
                 }
             case .French:
                 switch self {
@@ -270,6 +274,46 @@ public enum  Person:  Int, CaseIterable
             default:  return ""
             }
         }
+    
+    public func getFemaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+            switch language {
+            case .Spanish:
+                switch self {
+                case .S1: return "yo"
+                case .S2: return "tú"
+                case .S3:
+                    if (useUsted){ return "usted"}
+                    else { return "ella" }
+                case .P1: return "nosotras"
+                case .P2: return "vosotras"
+                case .P3:
+                    if (useUsted){ return "ustedes"}
+                    else { return "ellas" }
+                }
+            case .French:
+                switch self {
+                case .S1:
+                    if (verbStartsWithVowel){ return "j'"}
+                    else { return "je" }
+                case .S2: return "tu"
+                case .S3: return "elle"
+                case .P1: return "nous"
+                case .P2: return "vous"
+                case .P3: return "elles"
+                }
+            case .English:
+                switch self {
+                case .S1: return "I"
+                case .S2: return "you"
+                case .S3: return "she"
+                case .P1: return "we"
+                case .P2: return "you"
+                case .P3: return "they"
+                }
+            default:  return ""
+            }
+        }
+
 
 }
 

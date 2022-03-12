@@ -1265,7 +1265,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S3,
-                           from: "acer", to: "izo")  //this will chthis will change all the present subjunctive
+                           from: "ac", to: "zo")  //this will chthis will change all the present subjunctive
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEINFINITIVE,
                            tense: ExceptionTense.CONDITIONAL,
                            person: ExceptionPerson.S2,
