@@ -236,7 +236,14 @@ public enum  Person:  Int, CaseIterable
            }
        }
    
-    public func getMaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+    public func getSubjectString(language: LanguageType, gender: Gender, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+        switch gender {
+        case .masculine: return getMaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        case .feminine: return getFemaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        }
+    }
+    
+    private func getMaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
             switch language {
             case .Spanish:
                 switch self {
@@ -275,7 +282,7 @@ public enum  Person:  Int, CaseIterable
             }
         }
     
-    public func getFemaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+    private func getFemaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
             switch language {
             case .Spanish:
                 switch self {
