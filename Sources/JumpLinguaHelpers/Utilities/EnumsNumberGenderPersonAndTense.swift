@@ -243,12 +243,12 @@ public enum  Person:  Int, CaseIterable
                 case .S1: return "yo"
                 case .S2: return "tú"
                 case .S3:
-                    if (useUsted){ return "usted"}
+                    if (useUstedForm){ return "usted"}
                     else { return "él" }
                 case .P1: return "nosotros"
                 case .P2: return "vosotros"
                 case .P3:
-                    if (useUsted){ return "ustedes"}
+                    if (useUstedForm){ return "ustedes"}
                     else { return "ellos" }
                 }
             case .French:
@@ -282,12 +282,12 @@ public enum  Person:  Int, CaseIterable
                 case .S1: return "yo"
                 case .S2: return "tú"
                 case .S3:
-                    if (useUsted){ return "usted"}
+                    if (useUstedForm){ return "usted"}
                     else { return "ella" }
                 case .P1: return "nosotras"
                 case .P2: return "vosotras"
                 case .P3:
-                    if (useUsted){ return "ustedes"}
+                    if (useUstedForm){ return "ustedes"}
                     else { return "ellas" }
                 }
             case .French:
