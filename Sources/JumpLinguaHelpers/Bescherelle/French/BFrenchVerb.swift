@@ -113,6 +113,10 @@ public class BFrenchVerb : BRomanceVerb {
         return morphStructManager.getFinalVerbForm(person: person)
     }
     
+    public func getMorphStruct(tense: Tense, person: Person)-> MorphStruct {
+        return morphStructManager.get(person: person)
+    }
+      
     //these patterns are not mutually exclusive
     
     public override func getConjugatedMorphStruct( tense : Tense, person : Person , conjugateEntirePhrase : Bool, isPassive: Bool = false)->MorphStruct {
