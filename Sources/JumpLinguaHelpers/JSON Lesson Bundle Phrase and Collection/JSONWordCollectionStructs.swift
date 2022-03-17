@@ -12,13 +12,26 @@ var fiveSimpleVerbsCollection = JSONCollectionStruct(idNum: 3, collectionName: "
                                                 ])
 var problemVerbCollection = JSONCollectionStruct(idNum: 4, collectionName: "Some problem verbs", wordList: ProblemVerbList)
 
+var verbPhraseCollection = JSONCollectionStruct(idNum: 5, collectionName: "SomeVerbPhrases", wordList: VerbPhraseList1)
+
+
+var VerbPhraseList1: [JSONWord] = [
+    JSONWord(spanish: "quedarse sin", english: "be out of",    french: "être hors de", wordType: "verb"),
+    JSONWord(spanish: "regresar", english: "be back",    french: "être de retour", wordType: "verb"),
+    JSONWord(spanish: "poner en orden", english: "blow out",    french: "souffler", wordType: "verb"),
+    JSONWord(spanish: "preocuparse por", english: "care about",    french: "se soucier de", wordType: "verb"),
+    JSONWord(spanish: "estar de acuerdo", english: "agree with",    french: "être d'accord avec", wordType: "verb"),
+    JSONWord(spanish: "cuidar de", english: "care for",    french: "s'occuper de", wordType: "verb"),
+    JSONWord(spanish: "registrarse en", english: "check in",    french: "se présenter à l'enregistrement", wordType: "verb"),
+]
+
 var FiveSimpleVerbs: [JSONWord] = [
     JSONWord(spanish: "comer", english: "eat", french: "manger", wordType: "verb"),
     JSONWord(spanish: "hablar", english: "talk", french: "boire", wordType : "verb"),
     JSONWord(spanish: "vivir", english: "live", french: "habiter", wordType : "verb"),
     JSONWord(spanish: "comprar", english: "buy",    french: "acheter", wordType: "verb"),
     JSONWord(spanish: "beber", english: "drink", french: "boire",wordType: "verb"),
-]
+    ]
 
 var TenCommonVerbs: [JSONWord] = [
     JSONWord(spanish: "buscar", english: "look for",    french: "chercher", wordType: "verb"),

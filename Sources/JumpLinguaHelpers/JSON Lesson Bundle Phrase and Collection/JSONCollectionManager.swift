@@ -31,7 +31,7 @@ public class JSONCollectionManager: Codable {
     
     public func encodeWordCollections(total: Int){
         clearWords()
-        let storedCollectionList = [fiveSimpleVerbsCollection, carpenterWordCollection, chuckVerbCollection1, TenCommonVerbCollection, problemVerbCollection]
+        let storedCollectionList = [fiveSimpleVerbsCollection, carpenterWordCollection, chuckVerbCollection1, TenCommonVerbCollection, problemVerbCollection, verbPhraseCollection]
         
         for collection in storedCollectionList{
             myCollectionList.append(collection)
