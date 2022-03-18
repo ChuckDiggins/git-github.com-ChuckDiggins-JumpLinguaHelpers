@@ -220,6 +220,14 @@ public class BRomanceVerb: BVerb {
         return "Besch #\(bVerbModel.id) (\(bVerbModel.modelVerb))"
     }
 
+    public func getBescherelleID()->Int {
+        return bVerbModel.id
+    }
+
+    public func getBescherelleModelVerb()->String {
+        return bVerbModel.modelVerb
+    }
+
     public func createPastParticiple()->String {
         return ""
     }
