@@ -354,7 +354,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "uchar")
     thisVerb.appendSuffix(suffix: "umar")
     thisVerb.appendSuffix(suffix: "usar")  //13.2.4
-    thisVerb.appendSuffix(suffix: "upar")
+    thisVerb.appendSuffix(suffix: "aupar")
     thisVerb.appendSuffix(suffix: "unar")
     print("aullar has consistent verb ending \(thisVerb.getConsistentVerbEnding())")
     verbModels.append(thisVerb)
@@ -444,6 +444,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            person: ExceptionPerson.S1,
                            from: "z", to: "c")
     thisVerb.appendSuffix(suffix: "zar")
+    thisVerb.appendExcludeSuffix(suffix: "mozar")
     thisVerb.appendExcludeSuffix(suffix: "onzar")
     thisVerb.appendExcludeSuffix(suffix: "orzar")
     thisVerb.appendExcludeSuffix(suffix: "pezar")  //empezar, tropezar
