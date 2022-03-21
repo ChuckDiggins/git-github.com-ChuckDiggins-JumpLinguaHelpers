@@ -254,7 +254,6 @@ var simpleVerbList: [JsonVerb] = [
     JsonVerb(spanish: "fulgir", english: "glow",    french: "lueur", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "fungir", english: "serve",    french: "servir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "forzar", english: "force",    french: "obliger", transitivity: .transitive, verbType : "N"),
-    JsonVerb(spanish: "bruñir", english: "polish", french: "polir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "gañir", english: "yelp", french: "japper",transitivity: .transitive, verbType : "B"),
     JsonVerb(spanish: "generalizar", english: "generalize",    french: "généraliser", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "gustar", english: "be pleasing to", french: "aimer",transitivity: .transitive, verbType : "B"),
