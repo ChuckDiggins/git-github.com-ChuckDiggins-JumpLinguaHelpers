@@ -233,6 +233,7 @@ public struct RegularFrenchVerb {
         case .OIR_ENDING1: endingString = getOIRConjugation1(tense: tense, person: person)
         case .OIR_ENDING2: endingString = getOIRConjugation2(tense: tense, person: person)
         case .OIR_ENDING3: endingString = getOIRConjugation3(tense: tense, person: person)
+        case .OIR_ENDING4: endingString = getOIRConjugation4(tense: tense, person: person)
         case .CHOIR_ENDING: endingString = getCHOIRConjugation(tense: tense, person: person)
         case .overrideER: endingString = getVerbEndingString(verbEnding: .ER, tense: tense, person: person)
         }
@@ -847,6 +848,21 @@ public struct RegularFrenchVerb {
         }
     }
     
+    public func getOIRConjugation4(tense: Tense, person : Person)-> String {
+        switch(tense){
+        case .present:
+            switch person{
+            case .S1: return "x"
+            case .S2: return "x"
+            case .S3: return "t"
+            case .P1: return "ons"
+            case .P2: return "ez"
+            case .P3: return "ent"
+            }
+        default: return ""
+        }
+    }
+
     public func getCHOIRConjugation(tense: Tense, person : Person)-> String {
         switch(tense){
         case .present:

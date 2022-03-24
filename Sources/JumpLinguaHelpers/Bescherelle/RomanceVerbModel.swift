@@ -32,6 +32,7 @@ public enum ExceptionPattern : String {
     case OIR_ENDING1 //alternate IR ending - tenir
     case OIR_ENDING2 //alternate IR ending - tenir
     case OIR_ENDING3 //alternate IR ending - vouloir
+    case OIR_ENDING4 //alternate IR ending - vouloir
     case CHOIR_ENDING //alternate IR ending - déchoir, choir
     case OVERRIDE_ER //alternate IR ending - tenir
     case RE_ENDING //alternate RE ending - joindre present tense
@@ -256,6 +257,7 @@ public struct RomanceVerbModel : Identifiable {
             case "OIR_ENDING1": parsedStruct.pattern = .OIR_ENDING1
             case "OIR_ENDING2": parsedStruct.pattern = .OIR_ENDING2
             case "OIR_ENDING3": parsedStruct.pattern = .OIR_ENDING3
+            case "OIR_ENDING4": parsedStruct.pattern = .OIR_ENDING4
             case "CHOIR_ENDING": parsedStruct.pattern = .CHOIR_ENDING
             case "OVERRIDE_ER": parsedStruct.pattern = .OVERRIDE_ER
             case "RE_ENDING": parsedStruct.pattern = .RE_ENDING

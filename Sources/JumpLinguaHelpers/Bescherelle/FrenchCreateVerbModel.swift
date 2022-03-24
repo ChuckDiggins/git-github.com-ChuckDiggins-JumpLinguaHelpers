@@ -865,6 +865,18 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            person: ExceptionPerson.S1toP3All,
                            from: "o", to: "")
  */
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                             tense: ExceptionTense.PRESENT,
+                             person: ExceptionPerson.S1toP3All,  //not used
+                             from: "v", to: "vo")  //not used
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                             tense: ExceptionTense.PRESENTSUBJ,
+                             person: ExceptionPerson.S1toP3All,  //not used
+                             from: "v", to: "vo")  //not used
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                             tense: ExceptionTense.IMPERFECT,
+                             person: ExceptionPerson.S1toP3All,  //not used
+                             from: "v", to: "vo")  //not used
     thisVerb.appendException(exceptionPattern: ExceptionPattern.OIR_ENDING1,
                              tense: ExceptionTense.PRETERITE,
                              person: ExceptionPerson.S1toP3All,  //not used
@@ -973,11 +985,6 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                              tense: ExceptionTense.PRETERITE,
                              person: ExceptionPerson.S1toP3All,  //not used
                              from: "voir", to: "voir")  //not used
-    
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.DROPLETTERS,    //only working for a single person
-                           tense: ExceptionTense.IMPERFECT,
-                           person: ExceptionPerson.S1toP3All,
-                           from: "o", to: "")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.IR_ENDING1,
                              tense: ExceptionTense.IMPERFECT,
                            person: ExceptionPerson.S1toP3All,  //not used
@@ -1016,7 +1023,10 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENTSUBJ,
                            person: ExceptionPerson.S1toP3All,
                            from: "ouv", to: "u")
-    
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.IR_ENDING,
+                           tense: ExceptionTense.PRESENTSUBJ,
+                           person: ExceptionPerson.S1toP3All,
+                           from: "ouv", to: "u")
      thisVerb.appendException(exceptionPattern: ExceptionPattern.DROPLETTERS,    //only working for a single person
                             tense: ExceptionTense.PRETERITE,
                             person: ExceptionPerson.S1toP3All,
@@ -1220,7 +1230,7 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3,
                            from: "l", to: "u")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.IR_ENDING1,
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.OIR_ENDING4,
                              tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1toP3All,  //not used
                            from: "voir", to: "voir")  //not used
@@ -1426,7 +1436,7 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "surseoir")
     verbModels.append(thisVerb)
 
-
+   
     idNum = 115  //116, 117
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "choir")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.CHOIR_ENDING,
@@ -1454,6 +1464,15 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
 
     idNum = 101
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "voir")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1toP3All,
+                           from: "v", to: "vo")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
+                           tense: ExceptionTense.PRESENTSUBJ,
+                           person: ExceptionPerson.S1toP3All,
+                           from: "v", to: "vo")
+    
     thisVerb.appendException(exceptionPattern: ExceptionPattern.IR_ENDING2,
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S1toP3All,  //not used

@@ -19,6 +19,7 @@ public enum EndingType {
     case OIR_ENDING1
     case OIR_ENDING2
     case OIR_ENDING3
+    case OIR_ENDING4
     case CHOIR_ENDING
     case overrideER
     case none
@@ -253,6 +254,7 @@ public class BFrenchVerb : BRomanceVerb {
             case .OIR_ENDING1: m_modelVerbEndingList.append(ModelVerbEnding(tense: parseStruct.tense, type: .OIR_ENDING1))
             case .OIR_ENDING2: m_modelVerbEndingList.append(ModelVerbEnding(tense: parseStruct.tense, type: .OIR_ENDING2))
             case .OIR_ENDING3: m_modelVerbEndingList.append(ModelVerbEnding(tense: parseStruct.tense, type: .OIR_ENDING3))
+            case .OIR_ENDING4: m_modelVerbEndingList.append(ModelVerbEnding(tense: parseStruct.tense, type: .OIR_ENDING4))
             case .CHOIR_ENDING:
                 m_modelVerbEndingList.append(ModelVerbEnding(tense: parseStruct.tense, type: .CHOIR_ENDING))
             case .OVERRIDE_ER: m_modelVerbEndingList.append(ModelVerbEnding(tense: parseStruct.tense, type: .overrideER))

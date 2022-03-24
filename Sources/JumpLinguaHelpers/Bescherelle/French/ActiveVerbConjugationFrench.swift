@@ -212,6 +212,10 @@ public class ActiveVerbConjugationFrench {
                 if  se.tense == tense { modelEndingType = .OIR_ENDING3}
                 else if se.tense == .gerund  { modelEndingType = .OIR_ENDING3 }
             }
+            if se.type == .OIR_ENDING4 {
+                if  se.tense == tense { modelEndingType = .OIR_ENDING4}
+                else if se.tense == .gerund  { modelEndingType = .OIR_ENDING4 }
+            }
             if se.type == .CHOIR_ENDING {
                 if  se.tense == tense { modelEndingType = .CHOIR_ENDING}
                 else if se.tense == .gerund  { modelEndingType = .CHOIR_ENDING }
