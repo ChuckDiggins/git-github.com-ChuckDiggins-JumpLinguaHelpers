@@ -140,7 +140,7 @@ var simpleVerbList: [JsonVerb] = [
     JsonVerb(spanish: "abrir", english: "open",        french: "ouvrir",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "acabar", english: "begin",      french: "commencer", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "aclarar", english: "clear up",    french: "rappeler", transitivity: .ambitransitive, verbType : "NAC"),
-    JsonVerb(spanish: "acoger", english: "embrace",    french: "embrasse", transitivity: .transitive, verbType : "N"),
+    JsonVerb(spanish: "acoger", english: "embrace",    french: "embrasser", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "acordarse", english: "remember",    french: "se souvenir", transitivity: .ambitransitive, verbType : "NAC"),
     JsonVerb(spanish: "actuar", english: "act",      french: "agir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "aceptar", english: "accept",    french: "accepter", transitivity: .transitive, verbType : "N"),

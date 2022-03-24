@@ -376,7 +376,7 @@ public struct VerbUtilities {
     
     public func isCharacter(input: Character)->Bool {
         if (input >= "a" && input <= "z") || (input >= "A" && input <= "Z")
-            || input == "á" || input == "é" || input == "í" || input == "ó" || input == "ú"
+            || input == "á" || input == "à" || input == "é" || input == "í" || input == "ó" || input == "ú"
             || input == "ü" || input == "ñ"
             || input == "ç" || input == "è"  || input == "ê" || input == "î"
             || input == "'" {
@@ -387,7 +387,7 @@ public struct VerbUtilities {
     
     public func isCharacterIncludingPunctuation(input: Character)->Bool {
         if (input >= "a" && input <= "z") || (input >= "A" && input <= "Z")
-            || input == "á" || input == "é" || input == "í" || input == "ó" || input == "ú"
+            || input == "á" || input == "à" || input == "é" || input == "í" || input == "ó" || input == "ú"
             || input == "ü" || input == "ñ"
             || input == "ç" || input == "è"  || input == "ê" || input == "î"
         { return true }
