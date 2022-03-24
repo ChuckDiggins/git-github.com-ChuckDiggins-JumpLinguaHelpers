@@ -558,8 +558,8 @@ public struct RegularFrenchVerb {
             case .S2: return "ais"
             case .S3: return "ait"
             case .P1: return "ions"
-            case .P2: return "ez"
-            case .P3: return "ont"
+            case .P2: return "iez"
+            case .P3: return "aient"
             }
         case .presentSubjunctive:
             switch person{
@@ -631,8 +631,8 @@ public struct RegularFrenchVerb {
             case .S2: return "ais"
             case .S3: return "ait"
             case .P1: return "ions"
-            case .P2: return "ez"
-            case .P3: return "ont"
+            case .P2: return "iez"
+            case .P3: return "aient"
             }
         case .presentSubjunctive:
             switch person{
@@ -701,8 +701,8 @@ public struct RegularFrenchVerb {
             case .S2: return "ais"
             case .S3: return "ait"
             case .P1: return "ions"
-            case .P2: return "ez"
-            case .P3: return "ont"
+            case .P2: return "iez"
+            case .P3: return "aient"
             }
         case .presentSubjunctive:
             switch person{
@@ -774,8 +774,8 @@ public struct RegularFrenchVerb {
             case .S2: return "ais"
             case .S3: return "ait"
             case .P1: return "ions"
-            case .P2: return "ez"
-            case .P3: return "ont"
+            case .P2: return "iez"
+            case .P3: return "aient"
             }
         case .presentSubjunctive:
             switch person{
@@ -915,9 +915,9 @@ public struct RegularFrenchVerb {
             case .S1: return "oie"
             case .S2: return "oies"
             case .S3: return "oie"
-            case .P1: return "oyons"
+            case .P1: return "oyions"
             case .P2: return "oyiez"
-            case .P3: return "oyent"
+            case .P3: return "oient"
             }
         case .imperfectSubjunctiveRA, .imperfectSubjunctiveSE:
             switch person{
