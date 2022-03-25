@@ -142,6 +142,11 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            person: ExceptionPerson.S1toP3All,
                            from: "jeter", to: "jetter")
     thisVerb.appendSuffix(suffix: "jeter")
+    thisVerb.appendSuffix(suffix: "ueter")
+    thisVerb.appendSuffix(suffix: "meter")
+    thisVerb.appendSuffix(suffix: "peter")
+    thisVerb.appendSuffix(suffix: "leter")
+    thisVerb.appendSuffix(suffix: "veter")
     verbModels.append(thisVerb)
     
     idNum = 71
