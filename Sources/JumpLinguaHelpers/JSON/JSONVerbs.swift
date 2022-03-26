@@ -215,7 +215,7 @@ var simpleVerbList: [JsonVerb] = [
     JsonVerb(spanish: "dejar", english: "leave",    french: "partir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "delinquir", english: "commit a crime", french: "offenser",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "demostrar", english: "show",    french: "afficher", transitivity: .ambitransitive, verbType : "NAC"),
-    JsonVerb(spanish: "desahijar", english: "uproor",    french: "déraciner", transitivity: .transitive, verbType : "N"),
+    JsonVerb(spanish: "desahijar", english: "uproot",    french: "déraciner", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "desairar", english: "snub",    french: "snober", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "descender", english: "descend", french: "descendre",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "descreer", english: "disbelieve",    french: "ne-pas-croire", transitivity: .transitive, verbType : "N"),

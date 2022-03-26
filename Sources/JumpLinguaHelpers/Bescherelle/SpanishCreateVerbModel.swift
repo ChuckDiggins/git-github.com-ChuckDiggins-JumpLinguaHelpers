@@ -812,6 +812,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            from: "u", to: "uy")
     thisVerb.appendSuffix(suffix: "uir")
     thisVerb.appendSuffix(suffix: "üir")
+    thisVerb.appendExcludeSuffix(suffix: "guir")
     thisVerb.appendExcludeSuffix(suffix: "seguir")
     verbModels.append(thisVerb)
     
