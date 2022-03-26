@@ -369,6 +369,11 @@ public enum  Tense : String, CustomStringConvertible, CaseIterable
     
     public var description:  String {return rawValue}
     
+    public func isSubjunctive() -> Bool {
+        if Tense.subjunctiveAll.contains(self) || Tense.perfectSubjunctiveAll.contains(self) {return true}
+        return false
+    }
+    
     public func getSpanishString()->String {
         switch self {
         case .present: return "presente de indicativo"
