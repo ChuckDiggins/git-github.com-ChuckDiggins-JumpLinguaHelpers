@@ -1310,6 +1310,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S3P3,
                            from: "e", to: "i")
+    thisVerb.appendSuffix(suffix: "guir")
     thisVerb.appendSuffix(suffix: "seguir")
     verbModels.append(thisVerb)
     
