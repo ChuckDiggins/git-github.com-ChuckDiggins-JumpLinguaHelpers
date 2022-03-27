@@ -1310,8 +1310,16 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S3P3,
                            from: "e", to: "i")
+    thisVerb.appendSuffix(suffix: "eguir")
+    verbModels.append(thisVerb)
+    
+    idNum = 751
+    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "xxxguir")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1,
+                           from: "gu", to: "g")  //this will change all the present subjunct
     thisVerb.appendSuffix(suffix: "guir")
-    thisVerb.appendSuffix(suffix: "seguir")
     verbModels.append(thisVerb)
     
     idNum = 76

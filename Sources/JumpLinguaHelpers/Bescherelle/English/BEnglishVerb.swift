@@ -20,7 +20,9 @@ public class BEnglishVerb : BVerb {
     public var endsInLL = false
     public var endsInConsonant = true
     public var endsInDKNRT = false
+    public var endsInBGMPW = false
     public var endsInConsonantY = false
+    public var endsInVowelY = false
     public var endsInN = false
     public var m_baseString = ""
     public var m_separable = Separable.both
@@ -28,7 +30,10 @@ public class BEnglishVerb : BVerb {
     public init(verbPhrase: String, separable: Separable){
         m_separable = separable
         super.init(verbPhrase: verbPhrase, languageType: .English)
-        createRegularDefaultForms()  //these will be overridden later if there is a model for this verb
+        prepareStemNew()
+        createPresentS3Forms()  //these will be overridden later if there is a model for this verb
+        createPreteriteForms()
+        createGerundAndPastParticipleForms()
     }
     
     public func getBescherelleInfo()->String {
@@ -74,6 +79,7 @@ public class BEnglishVerb : BVerb {
                 m_preteriteStem.removeLast()
             }
             else {
+                endsInVowelY = true
                 endsInConsonantY = false
             }
         }
@@ -81,67 +87,102 @@ public class BEnglishVerb : BVerb {
         
         else
         {
-            if m_suffix3.count > 2 {
-                //strip off the final consonant
-                m_suffix3.removeLast()
-                //if previous 2 letters are both vowels, then do not double the final consonant ( need-needed, peep-peeped )
-                prev1 = util.getLastNCharactersInString(inputString: m_suffix3, copyCount: 1)
-                m_suffix3.removeLast()
-                prev2 = util.getLastNCharactersInString(inputString: m_suffix3, copyCount: 1)
-            }
-            //if only one vowel preceding the consonant, then final consonant will double for past and gerund (admit - admitted, flap - flapped)
-            
-            //if only a single vowel, then double up the final consonant ( permit -> permitt )
-            if util.isVowel(letter: prev1){
-                m_preteriteStem += m_suffix1
-                if ( m_verbWord == "open" ){ m_preteriteStem.removeLast() }  //exception for "open"
-            }
-            //if both previous letters are vowels, then forget the double consonant
-            if util.isVowel(letter: prev1) && util.isVowel(letter: prev2){
+        if m_suffix3.count > 2 {
+            //strip off the final consonant
+            m_suffix3.removeLast()
+            //if previous 2 letters are both vowels, then do not double the final consonant ( need-needed, peep-peeped )
+            prev1 = util.getLastNCharactersInString(inputString: m_suffix3, copyCount: 1)
+            m_suffix3.removeLast()
+            prev2 = util.getLastNCharactersInString(inputString: m_suffix3, copyCount: 1)
+        }
+        //if only one vowel preceding the consonant, then final consonant will double for past and gerund (admit - admitted, flap - flapped)
+        
+        //if only a single vowel, then double up the final consonant ( permit -> permitt )
+        if util.isVowel(letter: prev1){
+            m_preteriteStem += m_suffix1
+            if ( m_verbWord == "open" ){ m_preteriteStem.removeLast() }  //exception for "open"
+        }
+        //if both previous letters are vowels, then forget the double consonant
+        if util.isVowel(letter: prev1) && util.isVowel(letter: prev2){
+            m_preteriteStem.removeLast()
+        }
+        if m_suffix1 == "d" || m_suffix1 == "k" || m_suffix1 == "n" || m_suffix1 == "r" || m_suffix1 == "t" {
+            endsInDKNRT = true   //mar = marred, marring
+            if ( m_suffix2 == "er"){
                 m_preteriteStem.removeLast()
-            }
-            if m_suffix1 == "d" || m_suffix1 == "k" || m_suffix1 == "n" || m_suffix1 == "r" || m_suffix1 == "t" {
-                endsInDKNRT = true   //mar = marred, marring
-                if ( m_suffix2 == "er"){
-                    m_preteriteStem.removeLast()
-                }  //considered. considers.
-            }
+            }  //considered. considers.
+        }
+        if m_suffix1 == "b" || m_suffix1 == "g" || m_suffix1 == "m" || m_suffix1 == "p" || m_suffix1 == "w" {
+            endsInBGMPW = true   //snub = snubs, yelp = yelps
+        }
         }
     }
     
-    public func createRegularDefaultForms(){
-        prepareStemNew()
+    public func createPresentS3Forms(){
         
-        m_preteriteForm = m_preteriteStem + "d"
         m_presentS3Form = m_presentS3Stem + "s"
-        
-        m_gerund = m_verbWord + "ing"
+
         if endsInConsonantY {
             m_presentS3Form = m_presentS3Stem + "ies"
-            m_preteriteForm = m_preteriteStem + "ied"
         }
         else if endsInE {
-            m_gerund = m_preteriteStem + "ing"
             m_presentS3Form = m_presentS3Stem + "es"
-            m_preteriteForm = m_preteriteStem + "ed"
         }
         
         if endsInConsonant {
-            m_gerund = m_preteriteStem + "ing"
             m_presentS3Form = m_presentS3Stem + "es"
-            m_preteriteForm = m_preteriteStem + "ed"
         }
         if endsInDKNRT || endsInLL {
-            m_gerund = m_preteriteStem + "ing"
             m_presentS3Form = m_presentS3Stem + "s"
-            m_preteriteForm = m_preteriteStem + "ed"
         }
-        
-        m_pastParticiple = m_preteriteForm
+        if endsInBGMPW {
+            m_presentS3Form = m_presentS3Stem + "s"
+        }
         //exception
         if m_verbWord == "have" {
             m_presentS3Form = "has"
         }
+    }
+    
+    public func createPreteriteForms(){
+        m_preteriteForm = m_preteriteStem + "d"
+        if endsInConsonantY {
+            m_preteriteForm = m_preteriteStem + "ied"
+        }
+        else if endsInE {
+            m_preteriteForm = m_preteriteStem + "ed"
+        }
+        
+        if endsInConsonant {
+            m_preteriteForm = m_preteriteStem + "ed"
+        }
+        if endsInDKNRT || endsInLL {
+            m_preteriteForm = m_preteriteStem + "ed"
+        }
+        if endsInBGMPW {
+            m_preteriteForm = m_preteriteStem + "ed"
+        }
+        if endsInVowelY {
+            m_preteriteForm = m_preteriteStem + "ed"
+        }
+        
+        m_pastParticiple = m_preteriteForm
+    }
+    
+    public func createGerundAndPastParticipleForms(){
+        m_gerund = m_verbWord + "ing"
+        if endsInE {
+            m_gerund = m_preteriteStem + "ing"
+        }
+        
+        else if endsInConsonant {
+            m_gerund = m_preteriteStem + "ing"
+        }
+        else if endsInDKNRT || endsInLL {
+            m_gerund = m_preteriteStem + "ing"
+        }
+        
+        m_pastParticiple = m_preteriteForm
     }
     
     public func createGerund(){
@@ -150,10 +191,11 @@ public class BEnglishVerb : BVerb {
     
     public func setModel(verbModel: EnglishVerbModel){
         self.verbModel = verbModel
-       
-        
+      
         if verbModel.id == 0 {
-             createRegularDefaultForms()
+            createPresentS3Forms()  //these will be overridden later if there is a model for this verb
+            createPreteriteForms()
+            createGerundAndPastParticipleForms()
         }
         
         if verbModel.id == 1 {
@@ -164,6 +206,7 @@ public class BEnglishVerb : BVerb {
         if verbModel.id > 1 {
             m_pastParticiple = verbModel.pastPart
             m_preteriteForm = verbModel.preterite
+            m_presentS3Form = verbModel.presS3
             m_gerund = verbModel.gerund
             m_verbWord = verbModel.infinitive
             prepareStemNew()
