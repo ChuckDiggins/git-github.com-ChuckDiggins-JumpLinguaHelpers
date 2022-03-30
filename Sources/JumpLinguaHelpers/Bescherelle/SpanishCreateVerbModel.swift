@@ -656,6 +656,10 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            person: ExceptionPerson.S1S2S3P3,
                            from: "e", to: "ie")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
+                           tense: ExceptionTense.PRESENTSUBJ,
+                           person: ExceptionPerson.S1toP3All,
+                           from: "z", to: "c")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "z", to: "c")
@@ -833,6 +837,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            person: ExceptionPerson.S1,
                            from: "jugar", to: "jugar")
     thisVerb.appendSuffix(suffix: "jugar")
+    thisVerb.appendSuffix(suffix: "ugar")
     verbModels.append(thisVerb)
     
 
@@ -877,6 +882,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendExcludeSuffix(suffix: "ongar")
     thisVerb.appendExcludeSuffix(suffix: "olgar")
     thisVerb.appendExcludeSuffix(suffix: "regar")
+    thisVerb.appendExcludeSuffix(suffix: "jugar")
     thisVerb.appendSuffix(suffix: "gar")
     verbModels.append(thisVerb)
     

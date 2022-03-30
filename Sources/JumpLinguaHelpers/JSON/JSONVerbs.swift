@@ -149,10 +149,9 @@ var simpleVerbList: [JsonVerb] = [
     JsonVerb(spanish: "adquirir", english: "acquire",    french: "acquérir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "admitir", english: "admit",    french: "admettre", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "afeitarse", english: "shave",    french: "se raser", transitivity: .ambitransitive, verbType : "NAC"),
-    JsonVerb(spanish: "affluir", english: "afflict",    french: "affliger", transitivity: .ambitransitive, verbType : "NAC"),
+    JsonVerb(spanish: "afluir", english: "afflict",    french: "affliger", transitivity: .ambitransitive, verbType : "NAC"),
     JsonVerb(spanish: "agacharse", english: "bend over",    french: "se pencher", transitivity: .ambitransitive, verbType : "NAC"),
     JsonVerb(spanish: "ahincar", english: "perservere",    french: "conduire dans", transitivity: .transitive, verbType : "N"),
-    
     JsonVerb(spanish: "ahuchar", english: "hoard", french: "amasser", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "ahumar", english: "smoke", french: "fumer", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "airar", english: "anger",    french: "mettre en colère", transitivity: .transitive, verbType : "N"),

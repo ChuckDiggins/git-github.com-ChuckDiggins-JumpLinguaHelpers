@@ -74,7 +74,6 @@ public struct RegularSpanishVerb {
     
     
     public func createStemOrthoForm(verbEnding: VerbEnding, inputMorphStruct : MorphStruct, verbWord : String, preposition : String, tense: Tense, person : Person, orthoFrom : String, orthoTo : String)-> MorphStruct {
-        let  verbEnding = VerbUtilities().determineVerbEnding(verbWord : verbWord)
         var morphStruct = inputMorphStruct
         var morphStep = MorphStep()
         
