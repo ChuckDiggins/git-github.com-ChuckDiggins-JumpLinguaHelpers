@@ -832,10 +832,6 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "g", to: "gu")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.STANDALONE,
-                           tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1,
-                           from: "jugar", to: "jugar")
     thisVerb.appendSuffix(suffix: "jugar")
     thisVerb.appendSuffix(suffix: "ugar")
     verbModels.append(thisVerb)
