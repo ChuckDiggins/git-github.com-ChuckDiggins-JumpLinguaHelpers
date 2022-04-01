@@ -46,6 +46,9 @@ var TenCommonVerbs: [JSONWord] = [
     JSONWord(spanish: "tener", english: "have", french: "avoir", wordType: "verb"),
 ]
 
+var CarpenterWordList2: [JSONWord] = [
+    ]
+
 var CarpenterWordList: [JSONWord] = [
     JSONWord(spanish: "siempre", english: "always", french: "toujours", wordType: "adverb"),
     JSONWord(spanish: "nunca", english: "never", french: "jamais", wordType: "adverb"),
