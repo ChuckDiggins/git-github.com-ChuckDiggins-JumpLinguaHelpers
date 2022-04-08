@@ -228,7 +228,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "e", to: "ie")
-
+    thisVerb.appendSuffix(suffix: "ensar")
     //thisVerb.appendSuffix(suffix: "ebar")
     //thisVerb.appendSuffix(suffix: "ecar")
     thisVerb.appendSuffix(suffix: "edar")  //depredar
@@ -242,7 +242,6 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "entar")
     thisVerb.appendSuffix(suffix: "erbar")
     thisVerb.appendSuffix(suffix: "ernar")
-    thisVerb.appendSuffix(suffix: "ensar")
     thisVerb.appendSuffix(suffix: "erdar")
     thisVerb.appendSuffix(suffix: "ednar")
     thisVerb.appendSuffix(suffix: "berrar")
