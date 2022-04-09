@@ -204,12 +204,14 @@ public class BFrenchVerb : BRomanceVerb {
             }
             
             if ( parseStruct.pattern == .STEM && parseStruct.tense == .present){
+                m_stemChanging = true
                 m_presentStemChanging = true
                 m_presentStemFrom = parseStruct.from
                 m_presentStemTo = parseStruct.to
             }
             
             if ( parseStruct.pattern == .STEM && parseStruct.tense == .presentSubjunctive){
+                m_stemChanging = true
                 m_presentSubjStemChanging = true
                 m_presentSubjStemFrom = parseStruct.from
                 m_presentSubjStemTo = parseStruct.to
@@ -264,6 +266,7 @@ public class BFrenchVerb : BRomanceVerb {
             //if replacing, add it to the list
             
             if ( parseStruct.pattern == .STEMSINGLE){
+                m_stemChanging = true
                 var stemSingleForm = StemSingleForm()
                 stemSingleForm.person = parseStruct.personList[0]
                 stemSingleForm.tense = parseStruct.tense
