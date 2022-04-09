@@ -484,8 +484,8 @@ public struct IrregularVerbsSpanish {
             case .S2:  ending =  "eras"
             case .S3:  ending = "era"
             case .P1:  ending =  "éramos"
-            case .P2:  ending = "asteis"
-            case .P3:  ending =  "an"
+            case .P2:  ending = "erais"
+            case .P3:  ending =  "eran"
             }
             morph.verbForm = morph.verbForm + ending + preposition
             morph.comment = "Add the ending -> " + ending
@@ -504,8 +504,8 @@ public struct IrregularVerbsSpanish {
             case .S2:  ending = "eses"
             case .S3:  ending =  "ese"
             case .P1:  ending = "ésemos"
-            case .P2:  ending = "esteis"
-            case .P3:  ending = "en"
+            case .P2:  ending = "eseis"
+            case .P3:  ending = "esen"
             }
             morph.verbForm = morph.verbForm + ending + preposition
             morph.comment = "Add the ending -> " + ending
@@ -604,8 +604,8 @@ public struct IrregularVerbsSpanish {
             case .S2:  ending =  "eras"
             case .S3:  ending = "era"
             case .P1:  ending =  "éramos"
-            case .P2:  ending = "asteis"
-            case .P3:  ending =  "an"
+            case .P2:  ending = "erais"
+            case .P3:  ending =  "eran"
             }
             morph.verbForm = morph.verbForm + ending + preposition
             morph.comment = "Add the ending -> " + ending
@@ -624,8 +624,8 @@ public struct IrregularVerbsSpanish {
             case .S2:  ending = "eses"
             case .S3:  ending =  "ese"
             case .P1:  ending = "ésemos"
-            case .P2:  ending = "esteis"
-            case .P3:  ending = "en"
+            case .P2:  ending = "eseis"
+            case .P3:  ending = "esen"
             }
             morph.verbForm = morph.verbForm + ending + preposition
             morph.comment = "Add the ending -> " + ending + preposition
