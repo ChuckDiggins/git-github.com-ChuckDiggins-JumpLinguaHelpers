@@ -12,7 +12,7 @@ public func getJsonWord(word: Word)->JSONWord{
 }
 
 public func getJsonWordCollectionStructFromWordCollection(wordCollection: dWordCollection)->JSONCollectionStruct{
-    var jwc = JSONCollectionStruct(idNum: wordCollection.idNum, collectionName: wordCollection.collectionName)
+    var jwc = JSONCollectionStruct(collectionName: wordCollection.collectionName)
     for word in wordCollection.wordList{
         jwc.appendJsonWord(jw: getJsonWord(word: word))
     }

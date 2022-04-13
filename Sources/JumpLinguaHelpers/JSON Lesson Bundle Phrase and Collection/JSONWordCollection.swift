@@ -26,21 +26,21 @@ import JumpLinguaHelpers
 //}
 
 public struct JSONCollectionStruct : Codable, CustomStringConvertible {
-    public var idNum: Int
+//    public var idNum: Int
     public var collectionName : String
     public var wordList = [JSONWord]()
     public var description: String {
         return "\(self.collectionName) : wordCount =\(wordList.count)"
     }
     
-    public init(idNum: Int, collectionName: String, wordList : [JSONWord]){
-        self.idNum = idNum
+    public init(collectionName: String, wordList : [JSONWord]){
+//        self.idNum = idNum
         self.collectionName = collectionName
         self.wordList = wordList
     }
     
-    public init(idNum: Int, collectionName: String){
-        self.idNum = idNum
+    public init(collectionName: String){
+//        self.idNum = idNum
         self.collectionName = collectionName
     }
     
@@ -49,7 +49,7 @@ public struct JSONCollectionStruct : Codable, CustomStringConvertible {
     }
     
     public func printThyself(){
-        print("\(idNum) - \(collectionName)")
+        print("\(collectionName)")
         var i = 0
         for word in wordList {
             print("Word \(i)- \(word.spanish), \(word.english), \(word.french)")
@@ -64,7 +64,7 @@ public struct JSONCollectionStruct : Codable, CustomStringConvertible {
             let word = Word(word: jsonWord.spanish, spanish: jsonWord.spanish, french: jsonWord.french, english: jsonWord.english, wordType: wordType)
             newWordList.append(word)
         }
-        return dWordCollection(idNum: idNum, collectionName: collectionName, wordList: newWordList)
+        return dWordCollection(collectionName: collectionName, wordList: newWordList)
     }
 }
 

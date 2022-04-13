@@ -9,7 +9,7 @@ import Foundation
 import JumpLinguaHelpers
 
 public struct dWordCollection : Equatable, Hashable {
-    public let idNum : Int
+    let id: String = UUID().uuidString
     public let collectionName : String
     public var wordList = [Word]()
     public static func == (lhs: dWordCollection, rhs: dWordCollection) -> Bool {
@@ -18,18 +18,15 @@ public struct dWordCollection : Equatable, Hashable {
     }
     
     public init(){
-        self.idNum = 0
         self.collectionName = "no name"
     }
     
-    public init(idNum: Int, collectionName: String, wordList: [Word]){
-        self.idNum = idNum
+    public init(collectionName: String, wordList: [Word]){
         self.collectionName = collectionName
         self.wordList = wordList
     }
     
-    public init(idNum: Int, collectionName: String){
-        self.idNum = idNum
+    public init(collectionName: String){
         self.collectionName = collectionName
     }
     

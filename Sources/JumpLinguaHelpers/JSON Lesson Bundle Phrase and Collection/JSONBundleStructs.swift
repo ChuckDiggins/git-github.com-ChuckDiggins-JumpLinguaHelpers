@@ -40,13 +40,13 @@ var chuckNamedUnloaded2 = JSONNamedLoadedPhrase(language: "Agnostic", phraseType
                                                              JSONNamedLoadedPhrase.Cluster(wordType: "Adj",isSubject: false)
                                                 ])
 
-var capituloTres = JSONBundle(idNum: 1, teacher: "Michelle Carpenter", bundleName: "Capitulo3",
+var capituloTres = JSONBundle(teacher: "Michelle Carpenter", bundleName: "Capitulo3",
                            tenseList : ["Present", "Imperfect"],
                            collectionList : [carpenterWordCollection],
                            phraseList : [ breakfastNounSingle, breakfastVerbSingle  ]
 )
 
-var chuckBundle1 = JSONBundle(idNum: 1, teacher: "Chuck Diggins", bundleName: "My bundle 1",
+var chuckBundle1 = JSONBundle(teacher: "Chuck Diggins", bundleName: "My bundle 1",
                            tenseList : ["Present", "Imperfect"],
                            collectionList : [carpenterWordCollection, fiveSimpleVerbsCollection],
                            phraseList : [ chuckNamedUnloaded1, chuckNamedUnloaded2  ]

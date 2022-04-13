@@ -59,7 +59,7 @@ public struct LessonBundlePhraseCollectionManager{
     public mutating func createBundlesFromJsonBundles(){
         for jsonBundle in jsonBundleManager.myBundleList {
             let bundleName = jsonBundle.bundleName
-            let idNum = jsonBundle.idNum
+//            let idNum = jsonBundle.idNum
             let teacher = jsonBundle.teacher
             var tenseList = [Tense]()
             for str in jsonBundle.tenseList{
@@ -80,7 +80,7 @@ public struct LessonBundlePhraseCollectionManager{
                 let collection = wordCollectionManager.getCollectionByName(collectionName: name)
                 wordCollectionList.append(collection)
             }
-            let bundle = dBundle(idNum: idNum, teacher: teacher, bundleName: bundleName, tenseList: tenseList, collectionList: wordCollectionList, phraseList: phraseList)
+            let bundle = dBundle(teacher: teacher, bundleName: bundleName, tenseList: tenseList, collectionList: wordCollectionList, phraseList: phraseList)
             bundleManager.appendBundle(bundle: bundle)
         }
     }
@@ -144,7 +144,7 @@ public struct LessonBundlePhraseCollectionManager{
     
     public mutating func createWordCollectionManagerFromJsonWordCollectionManager(){
         for jWordCollection in jsonWordCollectionManager.myCollectionList{
-            var wordCollection = dWordCollection(idNum: jWordCollection.idNum, collectionName: jWordCollection.collectionName)
+            var wordCollection = dWordCollection(collectionName: jWordCollection.collectionName)
             for jws in jWordCollection.wordList {
                 wordCollection.appendWord(word: jws.getWord())
             }

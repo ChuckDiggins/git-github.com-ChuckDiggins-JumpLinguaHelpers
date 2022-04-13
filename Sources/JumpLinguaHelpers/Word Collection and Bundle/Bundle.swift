@@ -15,7 +15,7 @@ public struct dBundle{
 //    var tenseList = [String]()
 //    var collectionList = [JSONCollectionStruct]()
 //    var phraseList = [JSONNamedLoadedPhrase]()
-    public var idNum: Int
+    let id: String = UUID().uuidString
     public var teacher: String
     public var bundleName: String
     public var tenseList = [Tense]()
@@ -23,13 +23,11 @@ public struct dBundle{
     public var phraseList = [dCluster]()
 
     public init(){
-        self.idNum = 0
         self.teacher = "no teacher"
         self.bundleName = "no name"
     }
 
-    public init(idNum: Int, teacher: String, bundleName: String, tenseList : [Tense], collectionList: [dWordCollection], phraseList: [dCluster]){
-        self.idNum = idNum
+    public init( teacher: String, bundleName: String, tenseList : [Tense], collectionList: [dWordCollection], phraseList: [dCluster]){
         self.teacher = teacher
         self.bundleName = bundleName
         self.tenseList = tenseList

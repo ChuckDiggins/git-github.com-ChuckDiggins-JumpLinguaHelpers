@@ -1,18 +1,18 @@
 import JumpLinguaHelpers
 
-var carpenterWordCollection = JSONCollectionStruct(idNum: 0, collectionName: "Carpenter1", wordList: CarpenterWordList)
-var chuckVerbCollection1 = JSONCollectionStruct(idNum: 1, collectionName: "Chuck verbs 1", wordList: ChuckVerbList)
-var TenCommonVerbCollection = JSONCollectionStruct(idNum: 2, collectionName: "10 Common verbs", wordList: TenCommonVerbs)
+var carpenterWordCollection = JSONCollectionStruct(collectionName: "Carpenter1", wordList: CarpenterWordList)
+var chuckVerbCollection1 = JSONCollectionStruct(collectionName: "Chuck verbs 1", wordList: ChuckVerbList)
+var TenCommonVerbCollection = JSONCollectionStruct(collectionName: "10 Common verbs", wordList: TenCommonVerbs)
 
-var fiveSimpleVerbsCollection = JSONCollectionStruct(idNum: 3, collectionName: "3 simple verbs",
+var fiveSimpleVerbsCollection = JSONCollectionStruct(collectionName: "3 simple verbs",
                                                 wordList: [
                                                     JSONWord(spanish: "comer", english: "eat", french: "manger", wordType: "verb"),
                                                     JSONWord(spanish: "hablar", english: "talk", french: "boire", wordType : "verb"),
                                                     JSONWord(spanish: "vivir", english: "live", french: "habiter", wordType : "verb"),
                                                 ])
-var problemVerbCollection = JSONCollectionStruct(idNum: 4, collectionName: "Some problem verbs", wordList: ProblemVerbList)
+var problemVerbCollection = JSONCollectionStruct(collectionName: "Some problem verbs", wordList: ProblemVerbList)
 
-var verbPhraseCollection = JSONCollectionStruct(idNum: 5, collectionName: "SomeVerbPhrases", wordList: VerbPhraseList1)
+var verbPhraseCollection = JSONCollectionStruct(collectionName: "SomeVerbPhrases", wordList: VerbPhraseList1)
 
 
 var VerbPhraseList1: [JSONWord] = [

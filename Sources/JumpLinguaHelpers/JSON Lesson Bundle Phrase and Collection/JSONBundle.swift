@@ -8,7 +8,7 @@
 import Foundation
 
 public struct JSONBundle : Codable, CustomStringConvertible {
-    var idNum: Int
+    let id: String = UUID().uuidString
 //    var language : String
     var teacher : String
     var bundleName : String
@@ -20,8 +20,7 @@ public struct JSONBundle : Codable, CustomStringConvertible {
         return "\(self.bundleName) : tenseList =\(tenseList.count), phraseList = \(phraseList.count)"
     }
     
-    public init(idNum: Int, teacher: String, bundleName: String,  tenseList : [String], collectionList : [JSONCollectionStruct], phraseList : [JSONNamedLoadedPhrase] ){
-        self.idNum = idNum
+    public init(teacher: String, bundleName: String,  tenseList : [String], collectionList : [JSONCollectionStruct], phraseList : [JSONNamedLoadedPhrase] ){
 //        self.language = language
         self.teacher = teacher
         self.bundleName = bundleName
@@ -31,10 +30,10 @@ public struct JSONBundle : Codable, CustomStringConvertible {
     }
     
     public func printThyself(){
-        print("\(idNum) - \(bundleName)")
+        print("\(bundleName)")
         var i = 0
         for collection in collectionList {
-            print("Collection \(i)- \(collection.idNum), \(collection.collectionName)")
+            print("Collection \(i)- \(collection.collectionName)")
             i += 1
         }
     }
@@ -46,6 +45,6 @@ public struct JSONBundle : Codable, CustomStringConvertible {
             let word = Word(word: jsonWord.spanish, spanish: jsonWord.spanish, french: jsonWord.french, english: jsonWord.english, wordType: wordType)
             wordList.append(word)
         }
-        return dWordCollection(idNum: jsonCollection.idNum, collectionName: jsonCollection.collectionName, wordList: wordList)
+        return dWordCollection(collectionName: jsonCollection.collectionName, wordList: wordList)
     }
 }
