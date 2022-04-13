@@ -406,7 +406,7 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "tañer", english: "strum", french: "sonner", transitivity: .transitive, verbType : "M"),
     JsonVerb(spanish: "teleguiar", english: "teleguide", french: "téléguider"),
     JsonVerb(spanish: "temblar", english: "tremble",    french: "secouer", transitivity: .transitive, verbType : "N"),
-    JsonVerb(spanish: "temer", english: "fear", french: "peur"),
+    JsonVerb(spanish: "temer", english: "fear", french: "avoir peur"),
     JsonVerb(spanish: "tender", english: "tend", french: "tendre",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "tener", english: "have", french: "avoir", transitivity: .transitive, verbType : "M"),
     JsonVerb(spanish: "tener que", english: "have to", french: "tenir à ce que", transitivity: .transitive, verbType : "M"),
