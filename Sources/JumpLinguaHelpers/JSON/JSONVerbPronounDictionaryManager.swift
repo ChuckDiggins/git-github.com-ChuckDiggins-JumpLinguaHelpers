@@ -16,8 +16,12 @@ public struct JSONVerbPronounDictionaryManager {
     
     public var jsonVerbManager = JsonVerbManager()
     public var jsonPronounManager = JsonPronounManager()
-    public let bUseJsonStarterFiles = true
+    public var bUseJsonStarterFiles = false
     public var verbModelManager = VerbModelManager()
+    
+    public mutating func useJsonStarterFiles(useThem: Bool){
+        bUseJsonStarterFiles = useThem
+    }
     
     public mutating func setWordStringParser(wsp: WordStringParser){
         m_wsp = wsp
