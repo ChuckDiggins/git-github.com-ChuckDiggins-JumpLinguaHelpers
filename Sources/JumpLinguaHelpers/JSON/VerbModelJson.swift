@@ -35,6 +35,10 @@ public struct JsonVerbModel: Codable, CustomStringConvertible {
         self.modelExceptionList = [Exception]()
         self.includeSuffixList = rvm.includeSuffixList
         self.excludeSuffixList  = rvm.excludeSuffixList
+        for sp in rvm.specialPatternList{
+            let specialPattern = SpecialPattern(tenseStr: sp.tenseStr, patternStr: sp.patternStr)
+            specialPatternList.append(specialPattern)
+        }
         for exception in rvm.exceptionList {
             let modelException = Exception(exceptionPattern: exception.exceptionPattern, tense: exception.tense, exceptionPerson: exception.person ?? "", from: exception.from ?? "", to: exception.to ?? "")
             modelExceptionList.append(modelException)
