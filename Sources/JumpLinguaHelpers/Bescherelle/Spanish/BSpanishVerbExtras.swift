@@ -16,8 +16,6 @@ struct BSpanishVerbExtras {
         verb.morphStructManager.restoreToInitialState()
     }
 
-    
-    
     func readModelParseStuff(verb: BSpanishVerb){
         
         for parseStruct in verb.m_verbModelParseList {

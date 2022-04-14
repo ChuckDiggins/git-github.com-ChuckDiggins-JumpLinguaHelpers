@@ -7,7 +7,7 @@
 
 import Foundation
 
-import UIKit
+//import UIKit
 
 public class JsonLesson: Codable, CustomStringConvertible {
     var language: String //agnostic means any language, otherwise it is language-specific

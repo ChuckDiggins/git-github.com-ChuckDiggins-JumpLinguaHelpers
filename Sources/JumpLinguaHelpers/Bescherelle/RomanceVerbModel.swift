@@ -82,6 +82,54 @@ public enum ExceptionVerbEnding : String {
     
 }
 
+public enum SpecialPatternType : String {
+    //Spanish
+    case e2i = "e to i"
+    case e2ie = "e to ie"
+   
+    case e2y = "e to y"  //creer  preterite ... also e to í
+    case e2ye = "e to ye"  //erguir
+    case i2í = "i to í"  //prohibir / enraizar /guiar
+//    case i2y = "i to y"  //influir
+    case o2u = "o to u"
+    case o2ue = "o to ue"
+    case o2hue = "o to hue"
+    case u2ue = "u to ue"
+    case u2ú = "u to ú"  //reunir
+    case u2uy = "u to uy"  //influir  
+    case c2zc = "z to zc"
+    case c2c = "z to c"  //enraizar
+    
+    //Spanish and French
+    case e2íe = "e to íe"  //reír
+    
+    //French
+    case ev2o = "ev to o"  //devoir
+    case é2è = "é to è"
+    case e2è = "e to è"
+    case é2ie = "é to ie"   //acquérir
+    case o2e = "o to e"  //mourir
+    case l2ll = "l to ll"
+    case t2tt = "t to tt"
+    case y2i = "y to i"
+    
+    case none = "none"
+}
+
+public struct SpecialPattern{
+    public let tense: Tense
+    public let spt : SpecialPatternType
+    
+    init(){
+        tense = .infinitive
+        spt = .none
+    }
+    
+    init(tense: Tense, spt: SpecialPatternType){
+        self.tense = tense
+        self.spt = spt
+    }
+}
 
 public struct ParsedExceptionStruct {
     var tense = Tense.present
@@ -112,6 +160,7 @@ public struct RomanceVerbModel : Identifiable {
     public let id : Int
     public let modelVerb : String
     public var exceptionList = [Exception]()
+    public var sptList = [SpecialPattern]()
     var includeWord = ""
     var includeSuffixList = [String]()
     var excludeSuffixList = [String]()
@@ -137,6 +186,10 @@ public struct RomanceVerbModel : Identifiable {
         self.includeWord = includeWord
         self.includeSuffixList = includeSuffixList
         self.excludeSuffixList = excludeSuffixList
+    }
+    
+    mutating func appendSpecialPattern(spt: SpecialPattern){
+        sptList.append(spt)
     }
     
      mutating func appendException(exceptionPattern: ExceptionPattern, tense : ExceptionTense, person : ExceptionPerson, from : String, to : String ) {
@@ -199,6 +252,13 @@ public struct RomanceVerbModel : Identifiable {
         return consistentVerbEnding.rawValue
     }
     
+    public func getSpecialPattern(tense: Tense)->SpecialPattern{
+        for spt in sptList {
+            if spt.tense == tense { return spt}
+        }
+        return SpecialPattern()
+    }
+    
     public func isModelFor(verbWord: String)->Bool {
         
         if verbWord == includeWord {
@@ -224,6 +284,13 @@ public struct RomanceVerbModel : Identifiable {
         return false
     }
     
+    public mutating func loadSpecialPatterns()->[SpecialPattern]{
+        var specialPatternList = [SpecialPattern]()
+        for spt in specialPatternList {
+            specialPatternList.append(spt)
+        }
+        return specialPatternList
+    }
     
     public mutating func parseVerbModel()->[ParsedExceptionStruct] {
         var parsedStructList = [ParsedExceptionStruct]()

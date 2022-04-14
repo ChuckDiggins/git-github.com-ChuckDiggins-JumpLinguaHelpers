@@ -50,7 +50,7 @@ public class BFrenchVerb : BRomanceVerb {
     
     public var m_modelVerbEndingList = [ModelVerbEnding]()
     
-    public var m_verbModelParseList = [ParsedExceptionStruct]()
+//    public var m_verbModelParseList = [ParsedExceptionStruct]()
     
     public init(verbPhrase: String){
         super.init(verbPhrase: verbPhrase, language: .French)
@@ -69,6 +69,7 @@ public class BFrenchVerb : BRomanceVerb {
 
         //do some other stuff while we are at it
         m_verbStem = getVerbStem(verbWord : m_verbWord , verbEnding: m_verbEnding)
+        m_specialPatternList = bVerbModel.loadSpecialPatterns()
         m_verbModelParseList = bVerbModel.parseVerbModel()
         readModelParseStuff()
         m_pastParticiple = createPastParticiple()

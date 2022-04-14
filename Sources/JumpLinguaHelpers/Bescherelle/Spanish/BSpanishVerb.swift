@@ -42,7 +42,7 @@ public class BSpanishVerb : BRomanceVerb {
     //
     //*********************************************
     
-    public var m_verbModelParseList = [ParsedExceptionStruct]()
+//    public var m_verbModelParseList = [ParsedExceptionStruct]()
     public var m_defaultPresentSubjunctiveParsedExceptionStruct = ParsedExceptionStruct()
     public var m_defaultImperfectSubjunctiveParsedExceptionStruct = ParsedExceptionStruct()
     public var m_defaultParsedExceptionStruct = ParsedExceptionStruct()
@@ -74,6 +74,7 @@ public class BSpanishVerb : BRomanceVerb {
        
         //extract verb model stuff
         
+        m_specialPatternList = bVerbModel.loadSpecialPatterns()
         m_verbModelParseList = bVerbModel.parseVerbModel()
        
         BSpanishVerbExtras().readModelParseStuff(verb: self)
