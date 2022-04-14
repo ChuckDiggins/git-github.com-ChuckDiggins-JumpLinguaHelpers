@@ -103,9 +103,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "eser", to: "èser")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .e2è))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2è)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2è)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .e2è)
     thisVerb.appendSuffix(suffix: "eser")
     verbModels.append(thisVerb)
     
@@ -123,9 +123,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "éder", to: "èder")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .é2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .é2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .é2è))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .é2è)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .é2è)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .é2è)
     thisVerb.appendSuffix(suffix: "éder")
     
     verbModels.append(thisVerb)
@@ -146,9 +146,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "jeter", to: "jetter")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .t2tt))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .t2tt))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .t2tt))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .t2tt)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .t2tt)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .t2tt)
     thisVerb.appendSuffix(suffix: "jeter")
     thisVerb.appendSuffix(suffix: "reter")
     thisVerb.appendSuffix(suffix: "ueter")
@@ -173,9 +173,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "eter", to: "èter")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .e2è))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2è)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2è)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .e2è)
     thisVerb.appendSuffix(suffix: "eter")
     verbModels.append(thisVerb)
     
@@ -195,9 +195,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "appeler", to: "appeller")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .l2ll))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .l2ll))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .t2tt))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .l2ll)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .l2ll)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .t2tt)
     thisVerb.appendSuffix(suffix: "peler")
     thisVerb.appendSuffix(suffix: "peller")
     verbModels.append(thisVerb)
@@ -216,9 +216,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "modeler", to: "modèler")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .e2è))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2è)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2è)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .e2è)
     thisVerb.appendSuffix(suffix: "eler")
     verbModels.append(thisVerb)
 
@@ -238,9 +238,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENTSUBJ,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "é", to: "è")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .é2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .é2è))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .é2è))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .é2è)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .é2è)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .é2è)
     thisVerb.appendSuffix(suffix: "éger")
     verbModels.append(thisVerb)
     
@@ -270,9 +270,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "oyer", to: "oier")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .y2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .y2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .y2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .y2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .y2i)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .y2i)
     thisVerb.appendSuffix(suffix: "oyer")
     thisVerb.appendExcludeSuffix(suffix: "voyer")
     verbModels.append(thisVerb)
@@ -291,9 +291,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "uyer", to: "uier")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .y2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .y2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .y2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .y2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .y2i)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .y2i)
     thisVerb.appendSuffix(suffix: "uyer")
     verbModels.append(thisVerb)
 
@@ -311,8 +311,8 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "oyer", to: "err")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .y2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .y2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .y2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .y2i)
     thisVerb.appendSuffix(suffix: "voyer")
     verbModels.append(thisVerb)
 
@@ -401,9 +401,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PASTPART,
                            person: ExceptionPerson.S1toP3All,
                            from: "ir", to: "u")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "tenir")
     thisVerb.appendSuffix(suffix: "venir")
     verbModels.append(thisVerb)
@@ -450,9 +450,9 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PASTPART,  //not used
                            person: ExceptionPerson.S3,   //not used
                            from: "érir", to: "is")  //not used
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .future, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .future, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "uérir")
     verbModels.append(thisVerb)
     
@@ -738,8 +738,8 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PASTPART,
                            person: ExceptionPerson.S1toP3All,
                            from: "urir", to: "rt")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2e))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2e))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2e)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2e)
     thisVerb.appendSuffix(suffix: "mourir")
     verbModels.append(thisVerb)
     
@@ -1048,8 +1048,8 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PASTPART,
                            person: ExceptionPerson.S1toP3All,
                            from: "evoir", to: "û")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .ev2o))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .ev2o))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .ev2o)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .ev2o)
     thisVerb.appendSuffix(suffix: "devoir")
     verbModels.append(thisVerb)
     
@@ -1534,26 +1534,7 @@ public func createFrenchVerbModels()->[RomanceVerbModel]{
                              tense: ExceptionTense.GERUND,
                              person: ExceptionPerson.S1toP3All,  //not used
                              from: "voir", to: "voir")  //not used
-    /*
-     thisVerb.appendException(exceptionPattern: ExceptionPattern.RE_ENDING1,
-                             tense: ExceptionTense.PRETERITE,
-                             person: ExceptionPerson.S1toP3All,  //not used
-                             from: "voir", to: "voir")  //not used
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.RE_ENDING1,
-                             tense: ExceptionTense.PRESENTSUBJ,
-                             person: ExceptionPerson.S1toP3All,  //not used
-                             from: "voir", to: "voir")  //not used
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.RE_ENDING1,
-                             tense: ExceptionTense.IMPERFECTSUBJRA,
-                             person: ExceptionPerson.S1toP3All,  //not used
-                             from: "voir", to: "voir")  //not used
-    
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.IR_ENDING1,
-                           tense: ExceptionTense.FUTURE,
-                           person: ExceptionPerson.S1toP3All,  //not used
-                           from: "voir", to: "voir")  //not used
- */
-    
+   
  thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEINFINITIVE,
                         tense: ExceptionTense.FUTURE,
                         person: ExceptionPerson.S1toP3All,

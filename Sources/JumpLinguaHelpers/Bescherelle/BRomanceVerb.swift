@@ -37,7 +37,7 @@ public class BRomanceVerb: BVerb {
     public var dropLettersList = [DropLettersForm]()
     public var replaceEndingList = [ReplaceEndingForm]()
     public var m_verbModelParseList = [ParsedExceptionStruct]()
-    public var m_specialPatternList = [SpecialPattern]()
+    public var m_specialPatternList = [SpecialPatternStruct]()
     
     public init(verbPhrase: String, language: LanguageType){
         super.init(verbPhrase: verbPhrase, languageType: language)

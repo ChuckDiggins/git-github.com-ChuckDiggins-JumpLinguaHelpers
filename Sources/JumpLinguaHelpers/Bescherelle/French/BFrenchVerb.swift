@@ -69,7 +69,7 @@ public class BFrenchVerb : BRomanceVerb {
 
         //do some other stuff while we are at it
         m_verbStem = getVerbStem(verbWord : m_verbWord , verbEnding: m_verbEnding)
-        m_specialPatternList = bVerbModel.loadSpecialPatterns()
+        m_specialPatternList = bVerbModel.parseSpecialPatterns()
         m_verbModelParseList = bVerbModel.parseVerbModel()
         readModelParseStuff()
         m_pastParticiple = createPastParticiple()

@@ -108,8 +108,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "tener", to: "tendr")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
                                   
     thisVerb.appendSuffix(suffix: "ener")
     verbModels.append(thisVerb)
@@ -185,8 +185,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,  //not used
                            person: ExceptionPerson.S3,   //not used
                            from: "oler", to: "oler")  //not used
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2hue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2hue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2hue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2hue)
     thisVerb.appendSuffix(suffix: "oler")
     verbModels.append(thisVerb)
     
@@ -233,8 +233,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "e", to: "ie")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "ensar")
     //thisVerb.appendSuffix(suffix: "ebar")
     //thisVerb.appendSuffix(suffix: "ecar")
@@ -279,8 +279,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "u", to: "ú")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .u2ú))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .u2ú))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .u2ú)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .u2ú)
     thisVerb.appendSuffix(suffix: "uar")
     thisVerb.appendExcludeSuffix(suffix: "guar")
     verbModels.append(thisVerb)
@@ -291,8 +291,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "i", to: "ie")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "quirir")
     verbModels.append(thisVerb)
     
@@ -310,8 +310,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "c", to: "qu")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .i2í))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .i2í))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .i2í)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2í)
     thisVerb.appendSuffix(suffix: "hincar")
     verbModels.append(thisVerb)
     
@@ -321,8 +321,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "i", to: "í")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .i2í))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .i2í))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .i2í)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2í)
     thisVerb.appendSuffix(suffix: "airar")
     thisVerb.appendSuffix(suffix: "ainar")
     thisVerb.appendSuffix(suffix: "einar")
@@ -362,8 +362,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "u", to: "ú")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .u2ú))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .u2ú))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .u2ú)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .u2ú)
     thisVerb.appendSuffix(suffix: "ullar")
     thisVerb.appendSuffix(suffix: "aular")
     thisVerb.appendSuffix(suffix: "cuar")
@@ -385,8 +385,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "z", to: "c")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .u2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .u2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .u2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .u2ue)
     thisVerb.appendSuffix(suffix: "gonzar")
     verbModels.append(thisVerb)
     
@@ -481,8 +481,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "c", to: "z")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "cocer")
     thisVerb.appendSuffix(suffix: "socer")
     thisVerb.appendSuffix(suffix: "torcer")
@@ -513,8 +513,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "g", to: "gu")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "olgar")
     thisVerb.appendSuffix(suffix: "rogar")
     thisVerb.appendSuffix(suffix: "ongar")
@@ -526,7 +526,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "c", to: "zc")   //ortho should propogate to all Present subj
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .c2zc))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .c2zc)
     thisVerb.appendSuffix(suffix: "conocer")
     verbModels.append(thisVerb)
     
@@ -555,8 +555,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "e", to: "ie")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "ender")
     thisVerb.appendSuffix(suffix: "erner")
     thisVerb.appendSuffix(suffix: "ender")
@@ -580,8 +580,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "o", to: "hue")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2hue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2hue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2hue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2hue)
     thisVerb.appendSuffix(suffix: "sosar")
     verbModels.append(thisVerb)
   
@@ -606,8 +606,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "e", to: "ie")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "cernir")
     thisVerb.appendSuffix(suffix: "hendir")
     verbModels.append(thisVerb)
@@ -643,9 +643,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S3P3,
                            from: "o", to: "u")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .u2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .u2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .o2u))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .u2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .u2ue)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .o2u)
     thisVerb.appendSuffix(suffix: "morir")
     thisVerb.appendSuffix(suffix: "ormir")
     verbModels.append(thisVerb)
@@ -677,9 +677,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S3P3,
                            from: "egir", to: "igiendo")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "legir")
     thisVerb.appendSuffix(suffix: "regir")
     verbModels.append(thisVerb)
@@ -698,8 +698,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "z", to: "c")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "ezar")
     thisVerb.appendSuffix(suffix: "enzar")
     verbModels.append(thisVerb)
@@ -710,8 +710,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "o", to: "ue")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "obar")
     thisVerb.appendSuffix(suffix: "oblar")
     thisVerb.appendSuffix(suffix: "olar")
@@ -739,8 +739,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "z", to: "c")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .i2í))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .i2í))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .i2í)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2í)
     thisVerb.appendSuffix(suffix: "aizar")
     thisVerb.appendSuffix(suffix: "eizar")
     verbModels.append(thisVerb)
@@ -764,9 +764,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S2,
                            from: "e", to: "i")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ye))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ye))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ye)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ye)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "erguir")
     verbModels.append(thisVerb)
     
@@ -777,8 +777,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "e", to: "ye")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ye))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ye))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ye)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ye)
     thisVerb.appendSuffix(suffix: "errar")
     thisVerb.appendSuffix(suffix: "aberrar")
     verbModels.append(thisVerb)
@@ -793,8 +793,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "z", to: "c")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "orzar")
     verbModels.append(thisVerb)
     
@@ -804,8 +804,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "i", to: "í")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .i2í))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .i2í))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .i2í)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2í)
     thisVerb.appendSuffix(suffix: "uiar")
     thisVerb.appendSuffix(suffix: "liar")
     thisVerb.appendSuffix(suffix: "diar")
@@ -864,9 +864,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S2,
                            from: "u", to: "uy")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .u2uy))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .u2uy))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .u2uy))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .u2uy)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .u2uy)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .u2uy)
     thisVerb.appendSuffix(suffix: "uir")
     thisVerb.appendSuffix(suffix: "üir")
     thisVerb.appendExcludeSuffix(suffix: "guir")
@@ -885,8 +885,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "g", to: "gu")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .u2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .u2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .u2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .u2ue)
     thisVerb.appendSuffix(suffix: "jugar")
     thisVerb.appendSuffix(suffix: "ugar")
     verbModels.append(thisVerb)
@@ -898,7 +898,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "c", to: "zc")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .c2zc))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .c2zc)
     thisVerb.appendSuffix(suffix: "lucir")
     verbModels.append(thisVerb)
     
@@ -919,8 +919,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "o", to: "ue")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "over")
     thisVerb.appendSuffix(suffix: "oler")
     thisVerb.appendSuffix(suffix: "order")
@@ -950,7 +950,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "c", to: "zc")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .c2zc))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .c2zc)
     thisVerb.appendExcludeSuffix(suffix: "ercer")
     thisVerb.appendExcludeSuffix(suffix: "mecer")
     thisVerb.appendExcludeSuffix(suffix: "encer")
@@ -983,9 +983,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S2,
                            from: "e", to: "i")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "edir")
     thisVerb.appendSuffix(suffix: "ebir")
     thisVerb.appendSuffix(suffix: "ervir")
@@ -1003,7 +1003,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1,
                            from: "c", to: "zc")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .c2zc))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .c2zc)
     thisVerb.appendSuffix(suffix: "acer")
     thisVerb.appendExcludeSuffix(suffix: "isfacer") //satisfacer
     thisVerb.appendExcludeSuffix(suffix: "yacer")
@@ -1028,9 +1028,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S3P3,
                            from: "o", to: "u")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .o2u))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .o2u)
     thisVerb.appendSuffix(suffix: "poder")
     thisVerb.appendSuffix(suffix: "repoder")
     verbModels.append(thisVerb)
@@ -1046,9 +1046,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1toP3All,
                            from: "o", to: "u")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2u))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2u))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .o2u))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2u)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2u)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .o2u)
     thisVerb.appendSuffix(suffix: "podrir")
     verbModels.append(thisVerb)
     
@@ -1101,9 +1101,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PASTPART,  //not used
                            person: ExceptionPerson.S3,   //not used
                            from: "ecir", to: "icho")  //not used
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "decir")
     verbModels.append(thisVerb)
     
@@ -1117,7 +1117,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "c", to: "j")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .c2zc))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .c2zc)
     thisVerb.appendSuffix(suffix: "ducir")
     verbModels.append(thisVerb)
    
@@ -1127,8 +1127,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "i", to: "í")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .i2í))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .i2í))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .i2í)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2í)
     thisVerb.appendSuffix(suffix: "hibir")
     verbModels.append(thisVerb)
    
@@ -1146,8 +1146,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "querer", to: "querr")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "querer")
     verbModels.append(thisVerb)
 
@@ -1184,8 +1184,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1toP3All,
                            from: "g", to: "gu")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "regar")
     thisVerb.appendSuffix(suffix: "plegar")
     thisVerb.appendSuffix(suffix: "cegar")
@@ -1208,8 +1208,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PASTPART,
                            person: ExceptionPerson.S2,
                            from: "eír", to: "ído")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "reír")
     thisVerb.appendSuffix(suffix: "sonreir")
     thisVerb.appendSuffix(suffix: "leír")
@@ -1237,9 +1237,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S2,
                            from: "ir", to: "endo")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .preterite, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "eñir")
     verbModels.append(thisVerb)
     
@@ -1250,8 +1250,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "u", to: "ú")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "reunir")
     verbModels.append(thisVerb)
     
@@ -1363,9 +1363,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S3P3,
                            from: "e", to: "i")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "eguir")
     verbModels.append(thisVerb)
     
@@ -1400,9 +1400,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S3P3,
                            from: "e", to: "i")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .e2i))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2i)
     thisVerb.appendSuffix(suffix: "erir")
     thisVerb.appendSuffix(suffix: "ertir")
     thisVerb.appendSuffix(suffix: "entir")
@@ -1417,8 +1417,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "o", to: "ue")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "soler")
     verbModels.append(thisVerb)
     
@@ -1472,8 +1472,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENTSUBJ,
                            person: ExceptionPerson.S1toP3All,
                            from: "c", to: "qu")  //this will change all the present subjunctive
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "ocar")
     thisVerb.appendSuffix(suffix: "orcar")
     thisVerb.appendSuffix(suffix: "olcar")
@@ -1532,7 +1532,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S1,
                            from: "e", to: "i")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .e2ie))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "enir")
     verbModels.append(thisVerb)
     
@@ -1559,8 +1559,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PASTPART,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "olver", to: "uelto")
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .present, spt: .o2ue))
-    thisVerb.appendSpecialPattern(spt: SpecialPattern(tense: .presentSubjunctive, spt: .o2ue))
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .o2ue)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .o2ue)
     thisVerb.appendSuffix(suffix: "olver")
     verbModels.append(thisVerb)
     

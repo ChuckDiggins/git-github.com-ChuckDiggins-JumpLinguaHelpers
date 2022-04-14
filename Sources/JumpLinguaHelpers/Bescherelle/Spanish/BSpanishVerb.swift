@@ -74,7 +74,7 @@ public class BSpanishVerb : BRomanceVerb {
        
         //extract verb model stuff
         
-        m_specialPatternList = bVerbModel.loadSpecialPatterns()
+        m_specialPatternList = bVerbModel.parseSpecialPatterns()
         m_verbModelParseList = bVerbModel.parseVerbModel()
        
         BSpanishVerbExtras().readModelParseStuff(verb: self)

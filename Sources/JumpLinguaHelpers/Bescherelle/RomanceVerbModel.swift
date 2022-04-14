@@ -116,18 +116,34 @@ public enum SpecialPatternType : String {
     case none = "none"
 }
 
-public struct SpecialPattern{
-    public let tense: Tense
-    public let spt : SpecialPatternType
+public struct SpecialPattern : Codable{
+    public var id = 0
+    public var tenseStr: String
+    public var patternStr : String
+    
+    init(){
+        tenseStr = "none"
+        patternStr = "none"
+    }
+    
+    init(tenseStr: String, patternStr: String){
+        self.tenseStr = tenseStr
+        self.patternStr = patternStr
+    }
+}
+
+public struct SpecialPatternStruct {
+    var tense : Tense
+    var pattern : SpecialPatternType
     
     init(){
         tense = .infinitive
-        spt = .none
+        pattern = .none
     }
     
     init(tense: Tense, spt: SpecialPatternType){
         self.tense = tense
-        self.spt = spt
+        self.pattern = spt
     }
 }
 
@@ -160,7 +176,7 @@ public struct RomanceVerbModel : Identifiable {
     public let id : Int
     public let modelVerb : String
     public var exceptionList = [Exception]()
-    public var sptList = [SpecialPattern]()
+    public var specialPatternList = [SpecialPattern]()
     var includeWord = ""
     var includeSuffixList = [String]()
     var excludeSuffixList = [String]()
@@ -179,17 +195,79 @@ public struct RomanceVerbModel : Identifiable {
         self.modelVerb = modelVerb
     }
     
-    public init(id: Int, modelVerb: String, exceptionList: [Exception], includeWord: String, includeSuffixList: [String], excludeSuffixList: [String]){
+    public init(id: Int, modelVerb: String, exceptionList: [Exception], specialPatternList: [SpecialPattern], includeWord: String, includeSuffixList: [String], excludeSuffixList: [String]){
         self.id = id
         self.modelVerb = modelVerb
         self.exceptionList = exceptionList
+        self.specialPatternList = specialPatternList
         self.includeWord = includeWord
         self.includeSuffixList = includeSuffixList
         self.excludeSuffixList = excludeSuffixList
     }
     
-    mutating func appendSpecialPattern(spt: SpecialPattern){
-        sptList.append(spt)
+   
+    mutating func appendSpecialPattern(tense: Tense, pattern: SpecialPatternType){
+        let tenseStr = tense.rawValue
+        let patternStr = pattern.rawValue
+        let specialPattern = SpecialPattern(tenseStr: tenseStr, patternStr: patternStr)
+        specialPatternList.append(specialPattern)
+    }
+    
+    mutating func parseSpecialPatterns()->[SpecialPatternStruct]{
+        var specialPatternStructList = [SpecialPatternStruct]()
+        
+        for spt in specialPatternList {
+            specialPatternStructList.append(parseSpecialPattern(tenseStr: spt.tenseStr, patternStr: spt.patternStr))
+        }
+        
+        return specialPatternStructList
+    }
+    
+    mutating func parseSpecialPattern(tenseStr: String, patternStr: String)->SpecialPatternStruct {
+        var spt = SpecialPatternStruct()
+        
+        switch tenseStr {
+        case "Present" : spt.tense = Tense.present
+        case "Preterite" : spt.tense = .preterite
+        case "Future" : spt.tense = .future
+        case "Pres Subj" : spt.tense = .presentSubjunctive
+        default: spt.tense = .infinitive
+        }
+        
+        switch patternStr {
+        case "e to i" : spt.pattern = .e2i
+        case "e to ie" : spt.pattern = .e2ie
+       
+        case "e to y" : spt.pattern = .e2y //creer  preterite ... also e to í
+        case "e to ye" : spt.pattern = .e2ye //erguir
+        case "i to í" : spt.pattern = .i2í  //prohibir / enraizar /guiar
+    //    case i2y = "i to y"  //influir
+        case "o to u" : spt.pattern = .o2u
+        case "o to ue" : spt.pattern = .o2ue
+        case "o to hue" : spt.pattern = .o2hue
+        case "u to ue" : spt.pattern = .u2ue
+        case "u to ú" : spt.pattern = .u2ú  //reunir
+        case "u to uy"  : spt.pattern = .u2uy //influir
+        case "z to zc" : spt.pattern = .c2zc
+        case "z to c" : spt.pattern = .c2c //enraizar
+        
+        //Spanish and French
+        case "e to íe"  : spt.pattern = .e2íe  //reír
+        
+        //French
+        case "ev to o"  : spt.pattern = .ev2o //devoir
+        case "é to è" : spt.pattern = .é2è
+        case "e to è": spt.pattern = .e2è
+        case "é to ie": spt.pattern = .é2ie //acquérir
+        case "o to e" : spt.pattern = .o2e //mourir
+        case "l to ll" : spt.pattern = .l2ll
+        case "t to tt" : spt.pattern = .t2tt
+        case "y to i" : spt.pattern  = .y2i
+        
+        case "none": spt.pattern = .none
+        default: spt.pattern = .none
+        }
+        return spt
     }
     
      mutating func appendException(exceptionPattern: ExceptionPattern, tense : ExceptionTense, person : ExceptionPerson, from : String, to : String ) {
@@ -250,13 +328,6 @@ public struct RomanceVerbModel : Identifiable {
     
     public func getConsistentVerbEnding()->String {
         return consistentVerbEnding.rawValue
-    }
-    
-    public func getSpecialPattern(tense: Tense)->SpecialPattern{
-        for spt in sptList {
-            if spt.tense == tense { return spt}
-        }
-        return SpecialPattern()
     }
     
     public func isModelFor(verbWord: String)->Bool {

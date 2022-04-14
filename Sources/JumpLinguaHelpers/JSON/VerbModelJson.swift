@@ -11,6 +11,7 @@ import JumpLinguaHelpers
 public struct JsonVerbModel: Codable, CustomStringConvertible {
     var idNum: Int
     public var modelVerbString: String
+    public var specialPatternList: [SpecialPattern]
     public var modelExceptionList : [Exception]
     var includeSuffixList = [String]()
     var excludeSuffixList = [String]()
@@ -20,15 +21,17 @@ public struct JsonVerbModel: Codable, CustomStringConvertible {
         return "\(self.idNum):  \(self.modelVerbString)"
     }
     
-    public init(idNum: Int, modelVerbString: String, modelExceptions: [Exception]){
+    public init(idNum: Int, modelVerbString: String, specialPatterns: [SpecialPattern], modelExceptions: [Exception]){
         self.idNum = idNum
         self.modelVerbString = modelVerbString
+        self.specialPatternList = specialPatterns
         self.modelExceptionList = modelExceptions
     }
     
     public init(rvm : RomanceVerbModel){
         self.idNum = rvm.id
         self.modelVerbString = rvm.modelVerb
+        self.specialPatternList = [SpecialPattern]()
         self.modelExceptionList = [Exception]()
         self.includeSuffixList = rvm.includeSuffixList
         self.excludeSuffixList  = rvm.excludeSuffixList
@@ -41,6 +44,10 @@ public struct JsonVerbModel: Codable, CustomStringConvertible {
     public func printThyself(){
         print("\(idNum) - \(modelVerbString)")
         var i = 0
+        for spt in specialPatternList {
+            print("Special pattern - tense \(spt.tenseStr), pattern \(spt.patternStr)")
+        }
+        
         for me in modelExceptionList {
             print("Exception \(i)- \(me.exceptionPattern)")
             i += 1
@@ -55,7 +62,7 @@ public struct JsonVerbModel: Codable, CustomStringConvertible {
     }
 
     public func convertToRomanceVerbModel()->RomanceVerbModel{
-        var rvm = RomanceVerbModel(id: idNum, modelVerb: modelVerbString, exceptionList: modelExceptionList, includeWord: "", includeSuffixList: includeSuffixList, excludeSuffixList: excludeSuffixList)
+        var rvm = RomanceVerbModel(id: idNum, modelVerb: modelVerbString, exceptionList: modelExceptionList, specialPatternList: specialPatternList, includeWord: "", includeSuffixList: includeSuffixList, excludeSuffixList: excludeSuffixList)
         for except in modelExceptionList {
             if ( except.exceptionPattern == "STANDALONE"){
                 rvm.standAlone = true
