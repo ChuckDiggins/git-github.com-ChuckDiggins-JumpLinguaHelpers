@@ -133,8 +133,8 @@ public struct SpecialPattern : Codable{
 }
 
 public struct SpecialPatternStruct {
-    var tense : Tense
-    var pattern : SpecialPatternType
+    public var tense : Tense
+    public var pattern : SpecialPatternType
     
     init(){
         tense = .infinitive
