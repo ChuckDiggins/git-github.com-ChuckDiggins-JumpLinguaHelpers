@@ -145,6 +145,11 @@ public struct SpecialPatternStruct {
         self.tense = tense
         self.pattern = spt
     }
+    
+    func isSameAs(spt: SpecialPatternStruct)->Bool{
+        if spt.tense == self.tense && spt.pattern == self.pattern { return true}
+        return false
+    }
 }
 
 public struct ParsedExceptionStruct {
