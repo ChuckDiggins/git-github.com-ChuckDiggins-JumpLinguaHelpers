@@ -245,7 +245,6 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "entrecoger", english: "catch",    french: "attraper", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "enraizar", english: "take root",    french: "rooter", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "entapizar", english: "upholster",    french: "tapisser", transitivity: .transitive, verbType : "N"),
-    JsonVerb(spanish: "entender", english: "understand", french: "comprendre",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "entrar", english: "enter", french: "entrer"),
     JsonVerb(spanish: "entrar en", english: "enter into", french: "entrer dans"),
     JsonVerb(spanish: "envolver", english: "wrap up", french: "envelopper"),
