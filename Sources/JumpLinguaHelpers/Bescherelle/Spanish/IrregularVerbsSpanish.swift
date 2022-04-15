@@ -949,9 +949,7 @@ public struct IrregularVerbsSpanish {
             case .P3:
                 morph.verbForm = "rían"  + preposition
                 morph.comment = "Replace with irregular form " + "rían" + preposition
-                morphStruct.append(morphStep: morph)
-            default:
-                break        
+                morphStruct.append(morphStep: morph)      
             }
         case .presentParticiple:
             morph.isFinalStep = true

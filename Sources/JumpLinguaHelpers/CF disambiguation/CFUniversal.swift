@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JumpLinguaHelpers
 
  var m_spanishVerbModelConjugation = RomanceVerbModelConjugation()
  var m_frenchVerbModelConjugation = RomanceVerbModelConjugation()

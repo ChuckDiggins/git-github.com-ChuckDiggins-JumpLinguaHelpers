@@ -8,7 +8,7 @@
 import Foundation
 
 public struct JSONBundle : Codable, CustomStringConvertible {
-    let id: String = UUID().uuidString
+    var id: String = UUID().uuidString
 //    var language : String
     var teacher : String
     var bundleName : String

@@ -86,7 +86,6 @@ public class BFrenchVerb : BRomanceVerb {
         }
         
         let word = m_verbStem
-        let word2 = m_verbStem  //remove this
         
         switch m_verbEnding {
         case .AR: return word + "ado"

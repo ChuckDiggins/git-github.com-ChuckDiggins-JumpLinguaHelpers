@@ -87,7 +87,7 @@ public class dPhrase : dCluster {
             }
             // otherwise, create a new random cluster and replace it
             else {
-                var newCluster = m_randomWord.getAgnosticRandomWordAsSingle(wordType: cluster.getClusterType(), isSubject:false)
+                let newCluster = m_randomWord.getAgnosticRandomWordAsSingle(wordType: cluster.getClusterType(), isSubject:false)
                 replaceCluster(index: index, cluster: newCluster)
             }
             index += 1

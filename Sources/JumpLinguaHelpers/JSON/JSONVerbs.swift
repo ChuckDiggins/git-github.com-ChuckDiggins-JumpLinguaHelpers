@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import JumpLinguaHelpers
 
 public struct JsonVerb: Codable, CustomStringConvertible {
     public var english: String
