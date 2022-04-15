@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public enum  LanguageType : String {
     case English, Spanish, French, Italian, Portuguese, Agnostic

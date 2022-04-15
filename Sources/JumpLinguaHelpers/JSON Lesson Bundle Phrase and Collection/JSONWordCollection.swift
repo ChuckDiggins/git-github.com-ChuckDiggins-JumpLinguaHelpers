@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 //public struct JSONWord : Codable, CustomStringConvertible {
 //    var spanish: String

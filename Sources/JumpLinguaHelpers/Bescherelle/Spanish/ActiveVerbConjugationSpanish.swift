@@ -7,6 +7,7 @@
 
 //Chuck Nov 25
 import Foundation
+import JumpLinguaHelpers
 
 public class ActiveVerbConjugationSpanish {
     var perfectVerb = [[String]]()  //Spanish ... haber

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import JumpLinguaHelpers
 //chuck
 public struct RegularSpanishVerb {
   

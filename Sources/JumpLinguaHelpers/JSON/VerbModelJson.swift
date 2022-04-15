@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import JumpLinguaHelpers
+import JumpLinguaHelpers
 
 public struct JsonVerbModel: Codable, CustomStringConvertible {
     var idNum: Int

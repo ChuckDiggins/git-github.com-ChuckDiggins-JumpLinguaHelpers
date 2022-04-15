@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
 
 public enum SpecialPatternType : String {
     //Spanish

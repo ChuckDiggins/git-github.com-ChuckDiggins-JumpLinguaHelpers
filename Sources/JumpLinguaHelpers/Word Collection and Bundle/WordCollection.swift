@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import JumpLinguaHelpers
 public struct dWordCollection : Equatable, Hashable {
     let id: String = UUID().uuidString
     public let collectionName : String
