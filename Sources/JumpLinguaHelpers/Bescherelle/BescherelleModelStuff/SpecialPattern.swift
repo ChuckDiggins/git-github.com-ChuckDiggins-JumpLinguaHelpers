@@ -116,12 +116,12 @@ public struct SpecialPattern : Codable{
     public var tenseStr: String
     public var patternStr : String
     
-    init(){
+    public init(){
         tenseStr = "none"
         patternStr = "none"
     }
     
-    init(tenseStr: String, patternStr: String){
+    public init(tenseStr: String, patternStr: String){
         self.tenseStr = tenseStr
         self.patternStr = patternStr
     }
@@ -131,17 +131,17 @@ public struct SpecialPatternStruct {
     public var tense : Tense
     public var pattern : SpecialPatternType
     
-    init(){
+    public init(){
         tense = .infinitive
         pattern = .none
     }
     
-    init(tense: Tense, spt: SpecialPatternType){
+    public init(tense: Tense, spt: SpecialPatternType){
         self.tense = tense
         self.pattern = spt
     }
     
-    func isSameAs(spt: SpecialPatternStruct)->Bool{
+    public func isSameAs(spt: SpecialPatternStruct)->Bool{
         if spt.tense == self.tense && spt.pattern == self.pattern { return true}
         return false
     }
