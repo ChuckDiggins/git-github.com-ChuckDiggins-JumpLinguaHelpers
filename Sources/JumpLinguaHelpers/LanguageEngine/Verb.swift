@@ -286,7 +286,7 @@ public class FrenchVerb : RomanceVerb {
     }
     
     public override func conjugateAsRegularVerb(tense: Tense, person: Person)->String{
-        return RegularFrenchVerb().conjugateAsRegularForm(verbStr: french, tense: tense, person: person)
+        return RegularFrenchVerb().conjugateAsRegularForm(verbStr: word, tense: tense, person: person)
     }
     
     public override func getConjugateForm(tense: Tense, person : Person, showResidualPhrase: Bool)->String{
@@ -338,7 +338,7 @@ public class SpanishVerb : RomanceVerb {
     }
 
     public override func conjugateAsRegularVerb(tense: Tense, person: Person)->String{
-        return RegularSpanishVerb().conjugateAsRegularForm(verbStr: spanish, tense: tense, person: person)
+        return RegularSpanishVerb().conjugateAsRegularForm(verbStr: word, tense: tense, person: person)
     }
     
     public override func getConjugateForm(tense: Tense, person : Person, showResidualPhrase: Bool)->String {
