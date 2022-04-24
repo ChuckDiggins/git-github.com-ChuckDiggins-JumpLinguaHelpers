@@ -7,6 +7,7 @@
 
 
 import Foundation
+import JumpLinguaHelpers
 
 public struct RegularFrenchVerb {
     
