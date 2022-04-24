@@ -135,9 +135,9 @@ public struct RegularFrenchVerb {
     
     //ignores the verb model.  This is for conjugating any verb as if it were regular
     
-    public func conjugateAsRegularForm(verb: Verb, tense: Tense, person: Person)->String {
+    public func conjugateAsRegularForm(verbStr: String, tense: Tense, person: Person)->String {
         let vu = VerbUtilities()
-        let result = vu.analyzeFrenchWordPhrase(phraseString: verb.french)
+        let result = vu.analyzeFrenchWordPhrase(phraseString: verbStr)
         let verbEnding = result.1
         var verbStem = result.0
         verbStem.removeLast()

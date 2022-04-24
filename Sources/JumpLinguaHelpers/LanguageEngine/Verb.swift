@@ -241,6 +241,10 @@ public class RomanceVerb : Verb {
 
     public func getConjugateForm(tense: Tense, person : Person, showResidualPhrase: Bool)->String{ return verbForm[person.getIndex()] }
 
+    public func conjugateAsRegularVerb(tense: Tense, person: Person)->String{
+        return "verb"
+    }
+    
     public func isConjugateForm(word: String)->(Bool, Tense, Person){
         for p in 0..<6 {
             let person = Person.allCases[p]
@@ -280,6 +284,11 @@ public class FrenchVerb : RomanceVerb {
             setBVerb(bVerb: bv)
         }
     }
+    
+    public override func conjugateAsRegularVerb(tense: Tense, person: Person)->String{
+        return RegularFrenchVerb().conjugateAsRegularForm(verbStr: french, tense: tense, person: person)
+    }
+    
     public override func getConjugateForm(tense: Tense, person : Person, showResidualPhrase: Bool)->String{
         createBVerb()
         let bFrVerb = bVerb as! BFrenchVerb
@@ -328,6 +337,10 @@ public class SpanishVerb : RomanceVerb {
         }
     }
 
+    public override func conjugateAsRegularVerb(tense: Tense, person: Person)->String{
+        return RegularSpanishVerb().conjugateAsRegularForm(verbStr: spanish, tense: tense, person: person)
+    }
+    
     public override func getConjugateForm(tense: Tense, person : Person, showResidualPhrase: Bool)->String {
         createBVerb()
         let bSpVerb = bVerb as! BSpanishVerb

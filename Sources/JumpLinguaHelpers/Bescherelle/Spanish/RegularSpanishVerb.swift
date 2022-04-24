@@ -236,25 +236,15 @@ public struct RegularSpanishVerb {
     
     //ignores the verb model.  This is for conjugating any verb as if it were regular
     
-    public func conjugateAsRegularForm(verb: Verb, tense: Tense, person: Person)->String {
+    public func conjugateAsRegularForm(verbStr: String, tense: Tense, person: Person)->String {
         let vu = VerbUtilities()
-        let result = vu.analyzeSpanishWordPhrase(testString: verb.spanish)
+        let result = vu.analyzeSpanishWordPhrase(testString: verbStr)
         let verbEnding = result.1
         var verbStem = result.0
         verbStem.removeLast()
         verbStem.removeLast()
         
-        var endingString = ""
-        switch verbEnding {
-        case .AR:
-            endingString = getARConjugation(tense: tense, person: person)
-        case .ER:
-            endingString = getERConjugation(tense: tense, person: person)
-        case .IR, .accentIR, .RE:
-            endingString = getIRConjugation(tense: tense, person: person)
-        default:
-            endingString = "unknown"
-        }
+        var endingString = getVerbEndingString(verbEnding: verbEnding, tense: tense, person: person)
         let verbForm = verbStem + endingString
         return verbForm
     }
