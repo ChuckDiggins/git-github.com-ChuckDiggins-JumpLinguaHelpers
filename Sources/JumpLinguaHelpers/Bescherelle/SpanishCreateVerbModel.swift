@@ -321,14 +321,14 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "hincar")
     verbModels.append(thisVerb)
     
-    idNum = 121
-    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "hilar")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
-                           tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1S2S3P3,
-                           from: "hilar", to: "hilar")
-    thisVerb.appendSuffix(suffix: "hilar")
-    verbModels.append(thisVerb)
+//    idNum = 121
+//    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "hilar")
+//    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
+//                           tense: ExceptionTense.PRESENT,
+//                           person: ExceptionPerson.S1S2S3P3,
+//                           from: "hilar", to: "hilar")
+//    thisVerb.appendSuffix(suffix: "hilar")
+//    verbModels.append(thisVerb)
 
     idNum = 12
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "airar")
@@ -342,7 +342,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "ainar")
     thisVerb.appendSuffix(suffix: "einar")
     thisVerb.appendSuffix(suffix: "hijar")
-    thisVerb.appendSuffix(suffix: "hilar")
+    thisVerb.appendSuffix(suffix: "ahilar")
+    thisVerb.appendSuffix(suffix: "ohilar")
+    thisVerb.appendSuffix(suffix: "rehilar")
     thisVerb.appendSuffix(suffix: "hinar")
     thisVerb.appendSuffix(suffix: "hitar")
     thisVerb.appendSuffix(suffix: "islar")
