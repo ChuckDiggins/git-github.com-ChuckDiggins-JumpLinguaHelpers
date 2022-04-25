@@ -186,10 +186,10 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
     
     public func getVerbModelsThatHavePattern(inputPatternStruct: SpecialPatternStruct)->[RomanceVerbModel]{
         var rmvList = [RomanceVerbModel]()
-        
+        loadVerbModels()
         for vm in verbModels {
             var tempVm = vm
-            var specialPatternList = tempVm.parseSpecialPatterns()
+            let specialPatternList = tempVm.parseSpecialPatterns()
             for pattern in specialPatternList {
                 if pattern.tense == inputPatternStruct.tense && pattern.pattern == inputPatternStruct.pattern {
                     rmvList.append(vm)
@@ -202,10 +202,10 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
     
     public func getVerbModelIDsThatHavePattern(inputPatternStruct: SpecialPatternStruct)->[Int]{
         var idList = [Int]()
-        
+        loadVerbModels()
         for vm in verbModels {
             var tempVm = vm
-            var specialPatternList = tempVm.parseSpecialPatterns()
+            let specialPatternList = tempVm.parseSpecialPatterns()
             for pattern in specialPatternList {
                 if pattern.tense == inputPatternStruct.tense && pattern.pattern == inputPatternStruct.pattern {
                     idList.append(vm.id)
