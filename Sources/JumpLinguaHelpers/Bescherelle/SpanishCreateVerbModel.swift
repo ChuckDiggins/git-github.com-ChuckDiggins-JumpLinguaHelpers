@@ -321,6 +321,15 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "hincar")
     verbModels.append(thisVerb)
     
+    idNum = 121
+    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "hilar")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S1S2S3P3,
+                           from: "hilar", to: "hilar")
+    thisVerb.appendSuffix(suffix: "hilar")
+    verbModels.append(thisVerb)
+
     idNum = 12
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "airar")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,

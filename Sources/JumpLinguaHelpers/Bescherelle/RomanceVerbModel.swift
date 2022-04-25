@@ -42,7 +42,7 @@ public enum SpecialPatternType : String {
     case c2g = "c to g"  //hacer - hago, satisfacer
     case c2qu = "c to qu"  //hincar, sacar, trocar
     case c2z = "c to z"  //convencir, mecer, zurcir
-    case c2zc = "c to zc" //lucir
+    case c2zc = "c to zc" //lucir, conocer
     case c2zg = "c to zg"  //yacer
     case ec2ig = "ec to ig" //predecir, decir
     case gu2g = "gu to g"  //distinguir, erguir, xxxguir, seguir
@@ -63,31 +63,31 @@ public enum SpecialPatternType : String {
     
     case none = "none"
     
-    static var stemChangingESpanish =  [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye]
-    static var stemChangingOSpanish =  [SpecialPatternType.o2u, .o2ue, .o2hue]
-    static var stemChangingUSpanish =  [SpecialPatternType.u2ue, .u2ú, .u2uy]
+    public static var stemChangingESpanish =  [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye]
+    public static var stemChangingOSpanish =  [SpecialPatternType.o2u, .o2ue, .o2hue]
+    public static var stemChangingUSpanish =  [SpecialPatternType.u2ue, .u2ú, .u2uy]
     
     
-    static var stemChangingAllSpanish =
+    public static var stemChangingAllSpanish =
     [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
 
-    static var stemChangingPresentSpanish =
+    public static var stemChangingPresentSpanish =
     [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
     
-    static var stemChangingCommonSpanish =
+    public static var stemChangingCommonSpanish =
     [SpecialPatternType.e2i, .e2ie, .o2ue]
     
-    static var stemChangingPreteriteSpanish =
+    public static var stemChangingPreteriteSpanish =
     [SpecialPatternType.e2i, .o2u, .u2uy]
     
-    static var stemChangingFrenchAll =
+    public static var stemChangingFrenchAll =
     [SpecialPatternType.e2íe, .ev2o, .é2è, .e2è, .é2ie, .o2e, .l2ll, .t2tt, .y2i]
     
-    static var orthoChangingSpanish =
+    public static var orthoChangingSpanish =
     [SpecialPatternType.a2aig, .cab2quep, .c2g, .c2qu, .c2zg, .c2z, .c2zc, .ec2ig, .gu2g, .g2gu, .g2j,
      .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
     
-    static var irregPreteriteSpanish =
+    public static var irregPreteriteSpanish =
     [SpecialPatternType.i_pret, .j_pret, .u_pret, .uv_pret]
     
     public func isOrthoChangingSpanish() -> Bool {
