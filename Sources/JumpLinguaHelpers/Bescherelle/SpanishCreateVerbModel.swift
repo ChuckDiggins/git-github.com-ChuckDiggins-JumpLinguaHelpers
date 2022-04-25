@@ -835,6 +835,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2í)
     thisVerb.appendSuffix(suffix: "uiar")
     thisVerb.appendSuffix(suffix: "liar")
+    thisVerb.appendSuffix(suffix: "chiar")
+    thisVerb.appendSuffix(suffix: "piar")
     thisVerb.appendSuffix(suffix: "diar")
     thisVerb.appendSuffix(suffix: "stiar")
     thisVerb.appendSuffix(suffix: "spiar")
@@ -845,7 +847,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "siar")
     thisVerb.appendSuffix(suffix: "ociar")
     thisVerb.appendSuffix(suffix: "squiar")  //esquiar, but not acequiar
-
+    thisVerb.appendExcludeSuffix(suffix: "mpiar")
     verbModels.append(thisVerb)
     
     idNum = 44
@@ -1025,6 +1027,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "emir")
     thisVerb.appendSuffix(suffix: "endir")
     thisVerb.appendSuffix(suffix: "etir")
+    thisVerb.appendSuffix(suffix: "chir")
     verbModels.append(thisVerb)
     
     

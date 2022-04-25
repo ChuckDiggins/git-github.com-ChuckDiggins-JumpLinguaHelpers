@@ -179,4 +179,41 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
             }
         }
     }
+    
+    public func getVerbModels()->[RomanceVerbModel]{
+        return verbModels
+    }
+    
+    public func getVerbModelsThatHavePattern(inputPatternStruct: SpecialPatternStruct)->[RomanceVerbModel]{
+        var rmvList = [RomanceVerbModel]()
+        
+        for vm in verbModels {
+            var tempVm = vm
+            var specialPatternList = tempVm.parseSpecialPatterns()
+            for pattern in specialPatternList {
+                if pattern.tense == inputPatternStruct.tense && pattern.pattern == inputPatternStruct.pattern {
+                    rmvList.append(vm)
+                }
+            }
+            
+        }
+        return rmvList
+    }
+    
+    public func getVerbModelIDsThatHavePattern(inputPatternStruct: SpecialPatternStruct)->[Int]{
+        var idList = [Int]()
+        
+        for vm in verbModels {
+            var tempVm = vm
+            var specialPatternList = tempVm.parseSpecialPatterns()
+            for pattern in specialPatternList {
+                if pattern.tense == inputPatternStruct.tense && pattern.pattern == inputPatternStruct.pattern {
+                    idList.append(vm.id)
+                }
+            }
+            
+        }
+        return idList
+    }
+    
 }

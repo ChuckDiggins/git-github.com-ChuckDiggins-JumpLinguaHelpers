@@ -63,6 +63,11 @@ public enum SpecialPatternType : String {
     
     case none = "none"
     
+    static var stemChangingESpanish =  [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye]
+    static var stemChangingOSpanish =  [SpecialPatternType.o2u, .o2ue, .o2hue]
+    static var stemChangingUSpanish =  [SpecialPatternType.u2ue, .u2ú, .u2uy]
+    
+    
     static var stemChangingAllSpanish =
     [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
 
@@ -299,6 +304,11 @@ public struct RomanceVerbModel : Identifiable {
         
         return specialPatternStructList
     }
+    
+//    public func getSpecialPatternStruct(tenseStr: String, patternStr: String)->SpecialPatternStruct {
+//        var spt = parseSpecialPattern(tenseStr: tenseStr, patternStr: patternStr)
+//        return spt
+//    }
     
     mutating public func parseSpecialPattern(tenseStr: String, patternStr: String)->SpecialPatternStruct {
         var spt = SpecialPatternStruct()
