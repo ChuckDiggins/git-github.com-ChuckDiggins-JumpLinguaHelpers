@@ -119,6 +119,34 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         }
     }
 
+    public func getVerbModelAtModelId(targetID: Int)->RomanceVerbModel{
+        loadVerbModels()
+        let nullVerbModel = RomanceVerbModel(id: -1, modelVerb: "")
+        let vmCount = verbModels.count
+        for i in 0 ..< vmCount {
+            let vm = verbModels[i]
+            if vm.id == targetID {
+                //print("VerbWord \(verbWord) has verb model \(vm.id) - model verb \(vm.modelVerb)")
+                return vm
+            }
+        }
+
+        return nullVerbModel
+    }
+    public func getVerbModelAtModelVerb(targetVerb: String)->RomanceVerbModel{
+        loadVerbModels()
+        let nullVerbModel = RomanceVerbModel(id: -1, modelVerb: "")
+        let vmCount = verbModels.count
+        for i in 0 ..< vmCount {
+            let vm = verbModels[i]
+            if vm.modelVerb == targetVerb {
+                //print("VerbWord \(verbWord) has verb model \(vm.id) - model verb \(vm.modelVerb)")
+                return vm
+            }
+        }
+
+        return nullVerbModel
+    }
     public func getVerbModel(verbWord: String)->RomanceVerbModel{
         loadVerbModels()
         let nullVerbModel = RomanceVerbModel(id: -1, modelVerb: "")

@@ -440,6 +440,7 @@ public struct RomanceVerbModel : Identifiable {
         return consistentVerbEnding.rawValue
     }
     
+    
     public func isModelFor(verbWord: String)->Bool {
         
         if verbWord == includeWord {
