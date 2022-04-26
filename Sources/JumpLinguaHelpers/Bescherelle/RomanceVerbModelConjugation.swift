@@ -184,6 +184,25 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         return verbModels
     }
     
+    public func getVerbModelsWithVerbEnding(verbEnding: VerbEnding)->[RomanceVerbModel]{
+        let vu = VerbUtilities()
+        var rmvList = [RomanceVerbModel]()
+        loadVerbModels()
+        for vm in verbModels {
+            switch currentLanguage {
+            case .Spanish:
+                let result = vu.analyzeSpanishWordPhrase(testString: vm.modelVerb)
+                if result.verbEnding == verbEnding {rmvList.append(vm)}
+            case .French:
+                let result = vu.analyzeFrenchWordPhrase(phraseString: vm.modelVerb)
+                if result.verbEnding == verbEnding {rmvList.append(vm)}
+            default:
+                break
+            }
+        }
+        return rmvList
+    }
+    
     public func getVerbModelsThatHavePattern(inputPatternStruct: SpecialPatternStruct)->[RomanceVerbModel]{
         var rmvList = [RomanceVerbModel]()
         loadVerbModels()

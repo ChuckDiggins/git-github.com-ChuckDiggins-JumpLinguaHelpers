@@ -245,6 +245,10 @@ public class RomanceVerb : Verb {
         return "verb"
     }
     
+    public func conjugateAsRegularVerbWithThisVerbEnding(verbEnding: VerbEnding, tense: Tense, person: Person)->String{
+        return "verb"
+    }
+    
     public func isConjugateForm(word: String)->(Bool, Tense, Person){
         for p in 0..<6 {
             let person = Person.allCases[p]
