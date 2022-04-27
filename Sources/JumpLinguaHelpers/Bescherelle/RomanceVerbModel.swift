@@ -14,6 +14,7 @@ public enum SpecialPatternType : String {
     case e2ie = "e to ie" //tener, venir
     case e2y = "e to y"  //creer  preterite ... also e to í
     case e2ye = "e to ye"  //erguir
+    case i2ie = "i to ie"  //adquirir
     case i2í = "i to í"  //prohibir / enraizar /guiar
     case o2u = "o to u" //podrir
     case o2ue = "o to ue"  //encontrar, dormir
@@ -64,15 +65,16 @@ public enum SpecialPatternType : String {
     case none = "none"
     
     public static var stemChangingESpanish =  [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye]
+    public static var stemChangingISpanish =  [SpecialPatternType.i2ie, .i2í]
     public static var stemChangingOSpanish =  [SpecialPatternType.o2u, .o2ue, .o2hue]
     public static var stemChangingUSpanish =  [SpecialPatternType.u2ue, .u2ú, .u2uy]
     
     
     public static var stemChangingAllSpanish =
-    [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
+    [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2ie, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
 
     public static var stemChangingPresentSpanish =
-    [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
+    [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
     
     public static var stemChangingCommonSpanish =
     [SpecialPatternType.e2i, .e2ie, .o2ue]

@@ -330,7 +330,7 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "oler", english: "smell",    french: "sentir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "olvidar", english: "forget",    french: "oublier", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "organizar", english: "organize",    french: "organiser", transitivity: .transitive, verbType : "N"),
-    JsonVerb(spanish: "pacer", english: "graze", french: "brouter),
+    JsonVerb(spanish: "pacer", english: "graze", french: "brouter"),
     JsonVerb(spanish: "pagar", english: "pay",    french: "payer", transitivity: .ambitransitive, verbType : "NAC"),
     JsonVerb(spanish: "parar", english: "stop",    french: "arrêter", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "paralizar", english: "paralyze",    french: "paralyser", transitivity: .transitive, verbType : "N"),
