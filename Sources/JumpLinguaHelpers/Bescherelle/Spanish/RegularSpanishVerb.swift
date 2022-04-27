@@ -240,8 +240,11 @@ public struct RegularSpanishVerb {
         let vu = VerbUtilities()
         let result = vu.analyzeSpanishWordPhrase(testString: verbStr)
         var verbStem = result.0
-        verbStem.removeLast()
-        verbStem.removeLast()
+        //don't remove the verb ending for future and conditional
+        if tense != .future && tense != .conditional {
+            verbStem.removeLast()
+            verbStem.removeLast()
+        }
         let endingString = getVerbEndingString(verbEnding: verbEnding, tense: tense, person: person)
         let verbForm = verbStem + endingString
         return verbForm
@@ -252,8 +255,11 @@ public struct RegularSpanishVerb {
         let result = vu.analyzeSpanishWordPhrase(testString: verbStr)
         let verbEnding = result.1
         var verbStem = result.0
-        verbStem.removeLast()
-        verbStem.removeLast()        
+        //don't remove the verb ending for future and conditional
+        if tense != .future && tense != .conditional {
+            verbStem.removeLast()
+            verbStem.removeLast()
+        }
         let endingString = getVerbEndingString(verbEnding: verbEnding, tense: tense, person: person)
         let verbForm = verbStem + endingString
         return verbForm

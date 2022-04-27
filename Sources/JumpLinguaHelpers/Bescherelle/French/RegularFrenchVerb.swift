@@ -138,11 +138,14 @@ public struct RegularFrenchVerb {
     public func conjugateAsRegularFormWithThisVerbEnding(verbEnding: VerbEnding, verbStr: String, tense: Tense, person: Person)->String {
         let vu = VerbUtilities()
         let result = vu.analyzeFrenchWordPhrase(phraseString: verbStr)
-        let originalVerbEnding = result.1
         var verbStem = result.0
-        verbStem.removeLast()
-        verbStem.removeLast()
-        if originalVerbEnding.rawValue.count == 3 { verbStem.removeLast() }
+        let originalVerbEnding = result.1
+        //don't remove the verb ending for future and conditional
+        if tense != .future && tense != .conditional {
+            verbStem.removeLast()
+            verbStem.removeLast()
+            if originalVerbEnding.rawValue.count == 3 { verbStem.removeLast() }
+        }
         let endingString = getVerbEndingString(verbEnding: verbEnding, tense: tense, person: person)
         let verbForm = verbStem + endingString
         return verbForm
@@ -151,11 +154,14 @@ public struct RegularFrenchVerb {
     public func conjugateAsRegularForm(verbStr: String, tense: Tense, person: Person)->String {
         let vu = VerbUtilities()
         let result = vu.analyzeFrenchWordPhrase(phraseString: verbStr)
-        let verbEnding = result.1
         var verbStem = result.0
-        verbStem.removeLast()
-        verbStem.removeLast()
-        if verbEnding.rawValue.count == 3 { verbStem.removeLast() }
+        let verbEnding = result.1
+        //don't remove the verb ending for future and conditional
+        if tense != .future && tense != .conditional {     
+            verbStem.removeLast()
+            verbStem.removeLast()
+            if verbEnding.rawValue.count == 3 { verbStem.removeLast() }
+        }
         let endingString = getVerbEndingString(verbEnding: verbEnding, tense: tense, person: person)
         let verbForm = verbStem + endingString
         return verbForm
