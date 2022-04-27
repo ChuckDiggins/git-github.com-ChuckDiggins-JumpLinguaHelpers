@@ -296,8 +296,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "i", to: "ie")
-    thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
-    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .i2ie)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2ie)
     thisVerb.appendSuffix(suffix: "quirir")
     verbModels.append(thisVerb)
     
@@ -549,15 +549,6 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "ongar")
     verbModels.append(thisVerb)
     
-    idNum = 25
-    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "conocer")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
-                           tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1,
-                           from: "c", to: "zc")   //ortho should propogate to all Present subj
-    thisVerb.appendSpecialPattern(tense: .present, pattern: .c2zc)
-    thisVerb.appendSuffix(suffix: "conocer")
-    verbModels.append(thisVerb)
     
     idNum = 26
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "creer")
@@ -989,6 +980,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "gar")
     verbModels.append(thisVerb)
     
+    //combines paracer and conocer
+    
     idNum = 54
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "parecer")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
@@ -1004,7 +997,18 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendExcludeSuffix(suffix: "yacer")
     thisVerb.appendSuffix(suffix: "ecer")
     thisVerb.appendSuffix(suffix: "acer")
+    thisVerb.appendSuffix(suffix: "ocer")
     verbModels.append(thisVerb)
+    
+//    idNum = 25
+//    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "conocer")
+//    thisVerb.appendException(exceptionPattern: ExceptionPattern.ORTHO,
+//                           tense: ExceptionTense.PRESENT,
+//                           person: ExceptionPerson.S1,
+//                           from: "c", to: "zc")   //ortho should propogate to all Present subj
+//    thisVerb.appendSpecialPattern(tense: .present, pattern: .c2zc)
+//    thisVerb.appendSuffix(suffix: "conocer")
+//    verbModels.append(thisVerb)
     
     idNum = 55
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "pedir")
