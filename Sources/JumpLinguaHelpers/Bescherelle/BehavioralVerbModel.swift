@@ -8,7 +8,7 @@
 import Foundation
 import JumpLinguaHelpers
 
-enum BehaviorType : String {
+public enum BehaviorType : String {
 case weather = "weather"
 case likeGustar = "likeGustar"
 case thirdPersonOnly = "thirdPersonOnly"
@@ -16,8 +16,8 @@ case thirdPersonOnly = "thirdPersonOnly"
     
 }
 
-struct BehavioralVerbModel {
-    func isWeather(language: LanguageType, verb: Verb)->Bool{
+public struct BehavioralVerbModel {
+    public func isWeather(language: LanguageType, verb: Verb)->Bool{
         switch language{
         case .Spanish:
             switch verb.spanish{
@@ -41,7 +41,7 @@ struct BehavioralVerbModel {
         }
     }
     
-    func isLikeGustar(language: LanguageType, verb: Verb)->Bool{
+    public func isLikeGustar(language: LanguageType, verb: Verb)->Bool{
         switch language{
         case .Spanish:
             switch verb.spanish{
@@ -68,7 +68,7 @@ struct BehavioralVerbModel {
         }
     }
     
-    func isThirdPersonOnly(language: LanguageType, verb: Verb)->Bool{
+    public func isThirdPersonOnly(language: LanguageType, verb: Verb)->Bool{
         switch language{
         case .Spanish:
             switch verb.spanish{
@@ -100,7 +100,7 @@ struct BehavioralVerbModel {
 //    quedar en + infinitive (to arrange to do )
 //    seguir + gerund (to keep on doing, to continue to do)
     
-    func isAuxiliary(language: LanguageType, verb: Verb)->(Bool, Tense){
+    public func isAuxiliary(language: LanguageType, verb: Verb)->(Bool, Tense){
         switch language{
         case .Spanish:
             switch verb.spanish{
