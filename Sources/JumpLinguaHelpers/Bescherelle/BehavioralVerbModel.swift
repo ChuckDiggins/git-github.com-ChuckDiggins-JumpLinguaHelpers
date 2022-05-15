@@ -17,6 +17,9 @@ case thirdPersonOnly = "thirdPersonOnly"
 }
 
 public struct BehavioralVerbModel {
+    public init(){
+    }
+    
     public func isWeather(language: LanguageType, verb: Verb)->Bool{
         switch language{
         case .Spanish:
