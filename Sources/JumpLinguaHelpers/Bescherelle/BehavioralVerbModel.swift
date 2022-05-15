@@ -20,6 +20,25 @@ public struct BehavioralVerbModel {
     public init(){
     }
     
+    public func getVerbsLikeWeather(language: LanguageType)->[Verb]{
+        var verbList = [Verb]()
+        switch language{
+        case .Spanish:
+            verbList.append(Verb(spanish: "amanacer", french: "", english: ""))
+            verbList.append(Verb(spanish: "anochecer", french: "", english: ""))
+            verbList.append(Verb(spanish: "atardecer", french: "", english: ""))
+            verbList.append(Verb(spanish: "helar", french: "", english: ""))
+            verbList.append(Verb(spanish: "granizar", french: "", english: ""))
+            verbList.append(Verb(spanish: "llover", french: "", english: ""))
+            verbList.append(Verb(spanish: "nevar", french: "", english: ""))
+            verbList.append(Verb(spanish: "relampaguear", french: "", english: ""))
+            verbList.append(Verb(spanish: "tronar", french: "", english: ""))
+            return verbList
+        case .French: return verbList
+        default: return verbList
+        }
+    }
+    
     public func isWeather(language: LanguageType, verb: Verb)->Bool{
         switch language{
         case .Spanish:
@@ -44,6 +63,27 @@ public struct BehavioralVerbModel {
         }
     }
     
+    public func getVerbsLikeGustar(language: LanguageType)->[Verb]{
+        var verbList = [Verb]()
+        switch language{
+        case .Spanish:
+            verbList.append(Verb(spanish: "gustar", french: "", english: ""))
+            verbList.append(Verb(spanish: "aburrir", french: "", english: ""))
+            verbList.append(Verb(spanish: "doler", french: "", english: ""))
+            verbList.append(Verb(spanish: "encantar", french: "", english: ""))
+            verbList.append(Verb(spanish: "faltar", french: "", english: ""))
+            verbList.append(Verb(spanish: "fascinar", french: "", english: ""))
+            verbList.append(Verb(spanish: "importar", french: "", english: ""))
+            verbList.append(Verb(spanish: "molestar", french: "", english: ""))
+            verbList.append(Verb(spanish: "parecer", french: "", english: ""))
+            verbList.append(Verb(spanish: "quedar", french: "", english: ""))
+            verbList.append(Verb(spanish: "sorprender", french: "", english: ""))
+            verbList.append(Verb(spanish: "volver loco", french: "", english: ""))
+            return verbList
+        case .French: return verbList
+        default: return verbList
+        }
+    }
     public func isLikeGustar(language: LanguageType, verb: Verb)->Bool{
         switch language{
         case .Spanish:
@@ -68,6 +108,24 @@ public struct BehavioralVerbModel {
             default: return false
             }
         default: return false
+        }
+    }
+    
+    public func getVerbsLikeThirdPersonOnly(language: LanguageType)->[Verb]{
+        var verbList = [Verb]()
+        switch language{
+        case .Spanish:
+            verbList.append(Verb(spanish: "acaecer", french: "", english: ""))
+            verbList.append(Verb(spanish: "acontecer", french: "", english: ""))
+            verbList.append(Verb(spanish: "atañer", french: "", english: ""))
+            verbList.append(Verb(spanish: "aterirse", french: "", english: ""))
+            verbList.append(Verb(spanish: "despavorir", french: "", english: ""))
+            verbList.append(Verb(spanish: "desolar", french: "", english: ""))
+            verbList.append(Verb(spanish: "empedernir", french: "", english: ""))
+            verbList.append(Verb(spanish: "suceder", french: "", english: ""))
+            return verbList
+        case .French: return verbList
+        default: return verbList
         }
     }
     
@@ -103,6 +161,29 @@ public struct BehavioralVerbModel {
 //    quedar en + infinitive (to arrange to do )
 //    seguir + gerund (to keep on doing, to continue to do)
     
+    public func getAuxiliaryVerbs(language: LanguageType)->[Verb]{
+        var verbList = [Verb]()
+        switch language{
+        case .Spanish:
+            verbList.append(Verb(spanish: "deber", french: "", english: ""))
+            verbList.append(Verb(spanish: "estar", french: "", english: ""))
+            verbList.append(Verb(spanish: "poder", french: "", english: ""))
+            verbList.append(Verb(spanish: "querer", french: "", english: ""))
+            verbList.append(Verb(spanish: "acabar de", french: "", english: ""))
+            verbList.append(Verb(spanish: "andar", french: "", english: ""))
+            verbList.append(Verb(spanish: "alcanzar", french: "", english: ""))
+            verbList.append(Verb(spanish: "echar a", french: "", english: ""))
+            verbList.append(Verb(spanish: "haber de", french: "", english: ""))
+            verbList.append(Verb(spanish: "haber", french: "", english: ""))
+            verbList.append(Verb(spanish: "parar de", french: "", english: ""))
+            verbList.append(Verb(spanish: "resultar", french: "", english: ""))
+            verbList.append(Verb(spanish: "quedar en", french: "", english: ""))
+            verbList.append(Verb(spanish: "seguir", french: "", english: ""))
+            return verbList
+        case .French: return verbList
+        default: return verbList
+        }
+    }
     public func isAuxiliary(language: LanguageType, verb: Verb)->(Bool, Tense){
         switch language{
         case .Spanish:
@@ -117,7 +198,6 @@ public struct BehavioralVerbModel {
             case "echar a": return (true, .infinitive)
             case "haber de": return (true, .infinitive)
             case "haber": return (true, .pastParticiple)
-            case "parar de": return (true, .infinitive)
             case "parar de": return (true, .infinitive)
             case "resultar": return (true, .infinitive)
             case "quedar en": return (true, .infinitive)
