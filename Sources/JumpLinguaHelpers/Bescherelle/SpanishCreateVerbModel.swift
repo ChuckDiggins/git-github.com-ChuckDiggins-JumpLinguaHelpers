@@ -1665,6 +1665,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "abrir")
     verbModels.append(thisVerb)
     
+    idNum = 87
     idNum = 788
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "vivir")
     thisVerb.appendSuffix(suffix: "ir")

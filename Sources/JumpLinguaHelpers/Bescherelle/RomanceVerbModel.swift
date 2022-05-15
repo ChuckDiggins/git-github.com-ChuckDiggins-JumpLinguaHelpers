@@ -373,7 +373,6 @@ public struct RomanceVerbModel : Identifiable {
         case "uv pret"   : spt.pattern = .uv_pret //andar, estar, tener
         case "u pret"   : spt.pattern = .u_pret //caber, haber, poder, poner, saber
         case "j pret"   : spt.pattern = .j_pret //conducir, decir, traducir, traer
-        
             
         case "none": spt.pattern = .none
         default: spt.pattern = .none

@@ -144,7 +144,6 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
                 return vm
             }
         }
-
         return nullVerbModel
     }
     public func getVerbModel(verbWord: String)->RomanceVerbModel{
