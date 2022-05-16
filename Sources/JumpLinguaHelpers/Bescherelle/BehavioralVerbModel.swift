@@ -9,17 +9,24 @@ import Foundation
 import JumpLinguaHelpers
 
 public enum BehaviorType : String {
-case weather = "weather"
-case likeGustar = "likeGustar"
-case thirdPersonOnly = "thirdPersonOnly"
+    case weather = "weather"
+    case likeGustar = "likeGustar"
+    case thirdPersonOnly = "thirdPersonOnly"
     case auxiliary = "Auxiliary"
-    
 }
 
 public struct BehavioralVerbModel {
     public init(){
     }
     
+    public func getVerbs(language: LanguageType, bt: BehaviorType)->[Verb]{
+        switch bt{
+        case .weather: return getVerbsLikeWeather(language: language)
+        case .likeGustar: return getVerbsLikeGustar(language: language)
+        case .thirdPersonOnly: return getVerbsLikeThirdPersonOnly(language: language)
+        case .auxiliary: return getVerbsLikeWeather(language: language)
+        }
+    }
     public func getVerbsLikeWeather(language: LanguageType)->[Verb]{
         var verbList = [Verb]()
         switch language{
