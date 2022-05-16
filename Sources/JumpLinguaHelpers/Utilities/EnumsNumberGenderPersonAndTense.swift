@@ -235,17 +235,138 @@ public enum  Person:  Int, CaseIterable
            default:  return ""
            }
        }
+    
+    private func getIndirectObjectPronounString(language: LanguageType, verbStartsWithVowel: Bool = false)->String {
+        switch language {
+        case .Spanish:
+            switch self {
+            case .S1: return "me"
+            case .S2: return "te"
+            case .S3:  return "le"
+            case .P1: return "nos"
+            case .P2: return "os"
+            case .P3: return "les"
+            }
+        case .French:
+            switch self {
+            case .S1:
+                if (verbStartsWithVowel){ return "m'"}
+                else { return "me" }
+            case .S2:
+                if (verbStartsWithVowel){ return "t'"}
+                else { return "te" }
+            case .S3: return "lui"
+            case .P1: return "nous"
+            case .P2: return "vous"
+            case .P3: return "leur"
+            }
+        case .English:
+            switch self {
+            case .S1: return "me"
+            case .S2: return "you"
+            case .S3: return "him"
+            case .P1: return "we"
+            case .P2: return "you"
+            case .P3: return "them"
+            }
+        default:  return ""
+        }
+    }
    
-    public func getSubjectString(language: LanguageType, gender: Gender, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+    public func getPrepositionalPronounString(language: LanguageType, gender: Gender, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
         switch gender {
-        case .masculine: return getMaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
-        case .feminine: return getFemaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        case .masculine: return getMalePrepositionalPronounString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        case .feminine: return getFemalePrepositionalPronounString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
         default:
-            return getMaleString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+            return getMalePrepositionalPronounString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
         }
     }
     
-    private func getMaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+    private func getMalePrepositionalPronounString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+        switch language {
+        case .Spanish:
+            switch self {
+            case .S1: return "mí"
+            case .S2: return "ti"
+            case .S3:
+                if (useUstedForm){ return "usted"}
+                else { return "él" }
+            case .P1: return "nosotros"
+            case .P2: return "vosotros"
+            case .P3:
+                if (useUstedForm){ return "ustedes"}
+                else { return "ellos" }
+            }
+        case .French:
+            switch self {
+            case .S1:return "moi"
+            case .S2: return "toi"
+            case .S3: return "lui"
+            case .P1: return "nous"
+            case .P2: return "vous"
+            case .P3: return "eux"
+            }
+        case .English:
+            switch self {
+            case .S1: return "me"
+            case .S2: return "you"
+            case .S3: return "him"
+            case .P1: return "we"
+            case .P2: return "you"
+            case .P3: return "them"
+            }
+        default:  return ""
+        }
+    }
+    
+    private func getFemalePrepositionalPronounString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+        switch language {
+        case .Spanish:
+            switch self {
+            case .S1: return "mí"
+            case .S2: return "ti"
+            case .S3:
+                if (useUstedForm){ return "usted"}
+                else { return "ella" }
+            case .P1: return "nosotras"
+            case .P2: return "vosotras"
+            case .P3:
+                if (useUstedForm){ return "ustedes"}
+                else { return "ellas" }
+            }
+        case .French:
+            switch self {
+            case .S1:return "moi"
+            case .S2: return "toi"
+            case .S3: return "elle"
+            case .P1: return "nous"
+            case .P2: return "vous"
+            case .P3: return "eux"
+            }
+        case .English:
+            switch self {
+            case .S1: return "me"
+            case .S2: return "you"
+            case .S3: return "him"
+            case .P1: return "we"
+            case .P2: return "you"
+            case .P3: return "them"
+            }
+        default:  return ""
+        }
+    }
+    
+    
+    public func getSubjectString(language: LanguageType, gender: Gender, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+        switch gender {
+        case .masculine: return getMaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        case .feminine: return getFemaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        default:
+            return getMaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: useUstedForm)
+        }
+    }
+    
+    private func getMaleSubjectString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
             switch language {
             case .Spanish:
                 switch self {
@@ -284,7 +405,7 @@ public enum  Person:  Int, CaseIterable
             }
         }
     
-    private func getFemaleString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
+    private func getFemaleSubjectString(language: LanguageType, verbStartsWithVowel: Bool = false, useUstedForm: Bool = false)->String {
             switch language {
             case .Spanish:
                 switch self {
