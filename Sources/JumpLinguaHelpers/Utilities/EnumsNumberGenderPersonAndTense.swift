@@ -236,7 +236,7 @@ public enum  Person:  Int, CaseIterable
            }
        }
     
-    private func getIndirectObjectPronounString(language: LanguageType, verbStartsWithVowel: Bool = false)->String {
+    public func getIndirectObjectPronounString(language: LanguageType, verbStartsWithVowel: Bool = false)->String {
         switch language {
         case .Spanish:
             switch self {
@@ -269,7 +269,7 @@ public enum  Person:  Int, CaseIterable
             case .P2: return "you"
             case .P3: return "them"
             }
-        default:  return ""
+        default:  return "?"
         }
     }
    
