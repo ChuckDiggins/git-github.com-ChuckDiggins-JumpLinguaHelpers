@@ -24,7 +24,7 @@ public struct BehavioralVerbModel {
         case .weather: return getVerbsLikeWeather(language: language)
         case .likeGustar: return getVerbsLikeGustar(language: language)
         case .thirdPersonOnly: return getVerbsLikeThirdPersonOnly(language: language)
-        case .auxiliary: return getVerbsLikeWeather(language: language)
+        case .auxiliary: return getAuxiliaryVerbs(language: language)
         }
     }
     public func getVerbsLikeWeather(language: LanguageType)->[Verb]{
