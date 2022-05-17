@@ -320,7 +320,7 @@ public struct BehavioralVerbModel {
             case "venir": return "auxiliary verb 'venir':  Takes a gerund. Means 'have been doing something' when used like this.  \"vengo estudiando\" means \"I have been studying\"."
                 
             case "dejar hecho": return "auxiliary phrase 'dejar hecho':  Takes a gerund. Means 'be done' when used like this.  \"dejar hecho estudiando\" means \"I usually study\"."
-            case "llevar puesto": return "auxiliary phrase 'llevar puesto':  Takes a gerund. Means 'usually do something' when used like this.  \"llevo puesto estudiando\" means \"I have been studying"."
+            case "llevar puesto": return "auxiliary phrase 'llevar puesto':  Takes a gerund. Means 'usually do something' when used like this.  \"llevo puesto estudiando\" means \"I have been studying\"."
             case "sentirse": return "auxiliary verb 'sentirse':  Takes a past participle. Means 'to feel' when used like this.  \"me siento agotado\" means \"I feel exhausted\"."
             case "verse":return "auxiliary verb 'verse':  Takes a gerund. Means 'to see oneself' when used like this.  \"me veo estudiando\" means \"I see myself studying\"."
             default: return ""
