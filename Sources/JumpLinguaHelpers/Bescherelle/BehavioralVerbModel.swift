@@ -285,57 +285,57 @@ public struct BehavioralVerbModel {
         }
     }
     
-    public func getAuxiliaryComment(language: LanguageType, verb: Verb)->String{
+    public func getAuxiliaryComment(language: LanguageType, verb: Verb)->(String, String){
         switch language{
         case .Spanish:
             switch verb.spanish{
-            case "acabar de": return "auxiliary phrase 'acabar de':  Takes an infinitive. Means 'to just'.  \"acabo de estudiar\" means \"I just studied\"."
-            case "andar": return "auxiliary verb 'andar':  Takes an gerund. Means 'is' when used like this.  \"ando estudiando\" means \"I am studying\".  Similar use as \"estar\"."
-            case "deber": return "auxiliary verb 'deber':  Takes an infinitive. Means 'should'.  \"debo estudiar\" means \"I should study\"."
-            case "estar": return "auxiliary verb 'estar':  Takes a present participle and is referred to as progressive tense. Means 'is'.  \"estoy estudiando\" means \"I am studying\"."
-            case "poder": return "auxiliary verb 'poder':  Takes an infinitive. Means 'can'.  \"puedo estudiar\" means \"I can study\"."
-            case "querer": return "auxiliary verb 'querer':  Takes an infinitive. Means 'want to'.  \"quiero estudiar\" means \"I want to study\"."
-            case "alcanzar": return "auxiliary verb 'alcanzar':  Takes an infinitive. Means 'to manage to' when used like this.  \"alcanzo estudiar\" means \"I manage to study\"."
-            case "echar a": return "auxiliary phrase 'echar de':  Takes an infinitive. Means 'to miss' when used like this.  \"echo de estudiar\" means \"I miss studying\"."
-            case "haber de": return "auxiliary phrase 'haber de':  Takes an infinitive. Means 'to have to do' when used like this.  \"he de estudiar\" means \"I have to study\"."
-            case "haber": return "auxiliary verb 'haber':  Takes a past participle. Means 'to have' when used like this and is referred to as perfect tense.  \"he estudiado\" means \"I have studied\"."
-            case "parar de": return "auxiliary phrase 'parar de':  Takes an infinitive. Means 'to stop doing' when used like this.  \"paro de estudiar\" means \"I stop studying\"."
-            case "resultar": return "auxiliary verb 'resultar':  Takes an infinitive. Means 'to end up doing' when used like this.  \"resulto estudiar\" means \"I end up studying\"."
-            case "quedar en": return "auxiliary phrase 'quedar en':  Takes an infinitive. Means 'to arrange to' when used like this.  \"quedo en estudiar\" means \"I stay to study\"."
-            case "seguir": return "auxiliary verb 'seguir':  Takes an gerund. Means 'to continue to' when used like this.  \"sigo estudiando\" means \"I am still studying\"."
+            case "acabar de": return ("auxiliary phrase 'acabar de':  Takes an infinitive. Means 'to just'.", "\"acabo de estudiar\" means \"I just studied\".")
+            case "andar": return ("auxiliary verb 'andar':  Takes an gerund. Means 'is' when used like this.", "\"ando estudiando\" means \"I am studying\".  Similar use as \"estar\".")
+            case "deber": return ("auxiliary verb 'deber':  Takes an infinitive. Means 'should'.", "\"debo estudiar\" means \"I should study\".")
+            case "estar": return ("auxiliary verb 'estar':  Takes a present participle and is referred to as progressive tense. Means 'is'."," \"estoy estudiando\" means \"I am studying\".")
+            case "poder": return ("auxiliary verb 'poder':  Takes an infinitive. Means 'can'.", "\"puedo estudiar\" means \"I can study\".")
+            case "querer": return ("auxiliary verb 'querer':  Takes an infinitive. Means 'want to'", " \"quiero estudiar\" means \"I want to study\".")
+            case "alcanzar": return ("auxiliary verb 'alcanzar':  Takes an infinitive. Means 'to manage to' when used like this.", "\"alcanzo estudiar\" means \"I manage to study\".")
+            case "echar a": return ("auxiliary phrase 'echar de':  Takes an infinitive. Means 'to miss' when used like this.", "\"echo de estudiar\" means \"I miss studying\".")
+            case "haber de": return ("auxiliary phrase 'haber de':  Takes an infinitive. Means 'to have to do' when used like this.", " \"he de estudiar\" means \"I have to study\".")
+            case "haber": return ("auxiliary verb 'haber':  Takes a past participle. Means 'to have' when used like this and is referred to as perfect tense.", " \"he estudiado\" means \"I have studied\".")
+            case "parar de": return ("auxiliary phrase 'parar de':  Takes an infinitive. Means 'to stop doing' when used like this.", " \"paro de estudiar\" means \"I stop studying\".")
+            case "resultar": return ("auxiliary verb 'resultar':  Takes an infinitive. Means 'to end up doing' when used like this.", "\"resulto estudiar\" means \"I end up studying\".")
+            case "quedar en": return ("auxiliary phrase 'quedar en':  Takes an infinitive. Means 'to arrange to' when used like this.", "\"quedo en estudiar\" means \"I stay to study\".")
+            case "seguir": return ("auxiliary verb 'seguir':  Takes an gerund. Means 'to continue to' when used like this.", "\"sigo estudiando\" means \"I am still studying\".")
            
-            case "comenzar a": return "auxiliary phrase 'comenzar a':  Takes an infinitive. Means 'to begin' when used like this.  \"comenzo estudiar\" means \"I am beginning to study\"."
-            case "dejar de": return "auxiliary phrase 'dejar de':  Takes an infinitive. Means 'to stop' when used like this.  \"dejo de estudiar\" means \"I stop studying\"."
-            case "estar por": return "auxiliary phrase 'estar por':  Takes an infinitive. Means 'to be about to' when used like this.  \"estoy por estudiar\" means \"I am about to start studying\"."
-            case "ir a": return "auxiliary phrase 'ir a':  Takes an infinitive. Means 'going to' when used like this.  \"voy a estudiar\" means \"I am going to study\"."
-            case "ponerse a": return "auxiliary phrase 'ponerse a':  Takes an infinitive. Means 'to start' when used like this.  \"me pongo a estudiar\" means \"I am starting to study\"."
-            case "romper a": return "auxiliary phrase 'romper a':  Takes an infinitive. Means 'suddenly start' when used like this.  \"rompo a estudiar\" means \"I break to study\"."
-            case "soler": return "auxiliary verb 'soler':  Takes an infinitive. Means 'usually do something' when used like this.  \"suelo estudiar\" means \"I usually study\"."
-            case "venir a": return "auxiliary phrase 'venir a':  Takes an infinitive. Means 'come to' when used like this.  \"vengo a estudiar\" means \"I come to study\"."
-            case "tener que": return "auxiliary phrase 'tener que':  Takes an infinitive. Means 'have to do something' when used like this.  \"tengo que estudiar\" means \"I have to study\"."
-            case "volver a": return "auxiliary phrase 'volver a':  Takes an infinitive. Means 'do something again' when used like this.  \"vuelvo a estudiar\" means \"I return to study\"."
+            case "comenzar a": return ("auxiliary phrase 'comenzar a':  Takes an infinitive. Means 'to begin' when used like this.", "\"comenzo estudiar\" means \"I am beginning to study\".")
+            case "dejar de": return ("auxiliary phrase 'dejar de':  Takes an infinitive. Means 'to stop' when used like this.", "\"dejo de estudiar\" means \"I stop studying\".")
+            case "estar por": return ("auxiliary phrase 'estar por':  Takes an infinitive. Means 'to be about to' when used like this.", "\"estoy por estudiar\" means \"I am about to start studying\".")
+            case "ir a": return ("auxiliary phrase 'ir a':  Takes an infinitive. Means 'going to' when used like this.", "\"voy a estudiar\" means \"I am going to study\".")
+            case "ponerse a": return ("auxiliary phrase 'ponerse a':  Takes an infinitive. Means 'to start' when used like this.", "\"me pongo a estudiar\" means \"I am starting to study\".")
+            case "romper a": return ("auxiliary phrase 'romper a':  Takes an infinitive. Means 'suddenly start' when used like this.", "\"rompo a estudiar\" means \"I break to study\".")
+            case "soler": return ("auxiliary verb 'soler':  Takes an infinitive. Means 'usually do something' when used like this. ", "\"suelo estudiar\" means \"I usually study\".")
+            case "venir a": return ("auxiliary phrase 'venir a':  Takes an infinitive. Means 'come to' when used like this.", "\"vengo a estudiar\" means \"I come to study\".")
+            case "tener que": return ("auxiliary phrase 'tener que':  Takes an infinitive. Means 'have to do something' when used like this.", "\"tengo que estudiar\" means \"I have to study\".")
+            case "volver a": return ("auxiliary phrase 'volver a':  Takes an infinitive. Means 'do something again' when used like this.", "\"vuelvo a estudiar\" means \"I return to study\".")
                 
-            case "ir": return "auxiliary verb 'ir':  Takes a gerund. Means 'do something' when used like this.  \"voy estudiando\" means \"I am studying\"."
-            case "llevar": return "auxiliary verb 'llevar':  Takes a gerund. Means 'have been something' when used like this.  \"llevo estudiando\" means \"I have been studying\"."
-            case "venir": return "auxiliary verb 'venir':  Takes a gerund. Means 'have been doing something' when used like this.  \"vengo estudiando\" means \"I have been studying\"."
+            case "ir": return ("auxiliary verb 'ir':  Takes a gerund. Means 'do something' when used like this.", "\"voy estudiando\" means \"I am studying\".")
+            case "llevar": return ("auxiliary verb 'llevar':  Takes a gerund. Means 'have been something' when used like this.", "\"llevo estudiando\" means \"I have been studying\".")
+            case "venir": return ("auxiliary verb 'venir':  Takes a gerund. Means 'have been doing something' when used like this.", " \"vengo estudiando\" means \"I have been studying\".")
                 
-            case "dejar hecho": return "auxiliary phrase 'dejar hecho':  Takes a gerund. Means 'be done' when used like this.  \"dejar hecho estudiando\" means \"I usually study\"."
-            case "llevar puesto": return "auxiliary phrase 'llevar puesto':  Takes a gerund. Means 'usually do something' when used like this.  \"llevo puesto estudiando\" means \"I have been studying\"."
-            case "sentirse": return "auxiliary verb 'sentirse':  Takes a past participle. Means 'to feel' when used like this.  \"me siento agotado\" means \"I feel exhausted\"."
-            case "verse":return "auxiliary verb 'verse':  Takes a gerund. Means 'to see oneself' when used like this.  \"me veo estudiando\" means \"I see myself studying\"."
-            default: return ""
+            case "dejar hecho": return ("auxiliary phrase 'dejar hecho':  Takes a gerund. Means 'be done' when used like this.", "\"dejar hecho estudiando\" means \"I usually study\".")
+            case "llevar puesto": return ("auxiliary phrase 'llevar puesto':  Takes a gerund. Means 'usually do something' when used like this.", "\"llevo puesto estudiando\" means \"I have been studying\".")
+            case "sentirse": return ("auxiliary verb 'sentirse':  Takes a past participle. Means 'to feel' when used like this.", "\"me siento agotado\" means \"I feel exhausted\".")
+            case "verse":return ("auxiliary verb 'verse':  Takes a gerund. Means 'to see oneself' when used like this.", "\"me veo estudiando\" means \"I see myself studying\".")
+            default: return ("", "")
             }
         case .French:
             switch verb.french{
-            case "être": return "to be completed later"
+            case "être": return ("", "")
 
                 
-            case "avoir": return "to be completed later"
+            case "avoir": return ("", "")
                 
-            default: return "to be completed later"
+            default: return ("", "")
                 
             }
-        default: return "to be completed later"
+        default: return ("", "")
             
         }
     }
