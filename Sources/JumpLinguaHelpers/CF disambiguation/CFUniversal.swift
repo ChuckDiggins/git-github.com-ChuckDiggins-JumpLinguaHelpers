@@ -8,7 +8,7 @@
 import Foundation
 import JumpLinguaHelpers
 
- var m_spanishVerbModelConjugation = RomanceVerbModelConjugation()
- var m_frenchVerbModelConjugation = RomanceVerbModelConjugation()
+var m_spanishVerbModelConjugation = RomanceVerbModelConjugation(language: .Spanish)
+ var m_frenchVerbModelConjugation = RomanceVerbModelConjugation(language: .French)
  var m_englishVerbModelConjugation = EnglishVerbModelConjugation()
 

@@ -20,8 +20,8 @@ public class WordStringParser {
     
     public init(){
         m_language = LanguageType.Agnostic
-        spanVerbModel = RomanceVerbModelConjugation()
-        frenchVerbModel = RomanceVerbModelConjugation()
+        spanVerbModel = RomanceVerbModelConjugation(language: .Spanish)
+        frenchVerbModel = RomanceVerbModelConjugation(language: .French)
         englishVerbModel = EnglishVerbModelConjugation()
     }
     

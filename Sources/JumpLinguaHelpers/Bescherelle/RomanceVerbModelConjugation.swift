@@ -19,8 +19,8 @@ public class VerbModelConjugation {
 }
 
 public class RomanceVerbModelConjugation : VerbModelConjugation {
-    public init(){
-        super.init(currentLanguage: .Spanish)
+    public init(language: LanguageType){
+        super.init(currentLanguage: language)
     }
     
     public var m_jsonVerbModelManager = JsonVerbModelManager()

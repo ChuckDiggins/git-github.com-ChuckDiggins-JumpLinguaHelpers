@@ -290,7 +290,7 @@ public struct BehavioralVerbModel {
         case .Spanish:
             switch verb.spanish{
             case "acabar de": return ("auxiliary phrase 'acabar de':  Takes an infinitive. Means 'to just'.", "\"acabo de estudiar\" means \"I just studied\".")
-            case "andar": return ("auxiliary verb 'andar':  Takes an gerund. Means 'is' when used like this.", "\"ando estudiando\" means \"I am studying\".  Similar use as \"estar\".")
+            case "andar": return ("auxiliary verb 'andar':  Takes a gerund. Means 'is' when used like this.", "\"ando estudiando\" means \"I am studying\".  Similar use as \"estar\".")
             case "deber": return ("auxiliary verb 'deber':  Takes an infinitive. Means 'should'.", "\"debo estudiar\" means \"I should study\".")
             case "estar": return ("auxiliary verb 'estar':  Takes a present participle and is referred to as progressive tense. Means 'is'."," \"estoy estudiando\" means \"I am studying\".")
             case "poder": return ("auxiliary verb 'poder':  Takes an infinitive. Means 'can'.", "\"puedo estudiar\" means \"I can study\".")
@@ -302,7 +302,7 @@ public struct BehavioralVerbModel {
             case "parar de": return ("auxiliary phrase 'parar de':  Takes an infinitive. Means 'to stop doing' when used like this.", " \"paro de estudiar\" means \"I stop studying\".")
             case "resultar": return ("auxiliary verb 'resultar':  Takes an infinitive. Means 'to end up doing' when used like this.", "\"resulto estudiar\" means \"I end up studying\".")
             case "quedar en": return ("auxiliary phrase 'quedar en':  Takes an infinitive. Means 'to arrange to' when used like this.", "\"quedo en estudiar\" means \"I stay to study\".")
-            case "seguir": return ("auxiliary verb 'seguir':  Takes an gerund. Means 'to continue to' when used like this.", "\"sigo estudiando\" means \"I am still studying\".")
+            case "seguir": return ("auxiliary verb 'seguir':  Takes a gerund. Means 'to continue to' when used like this.", "\"sigo estudiando\" means \"I am still studying\".")
            
             case "comenzar a": return ("auxiliary phrase 'comenzar a':  Takes an infinitive. Means 'to begin' when used like this.", "\"comenzo estudiar\" means \"I am beginning to study\".")
             case "dejar de": return ("auxiliary phrase 'dejar de':  Takes an infinitive. Means 'to stop' when used like this.", "\"dejo de estudiar\" means \"I stop studying\".")
