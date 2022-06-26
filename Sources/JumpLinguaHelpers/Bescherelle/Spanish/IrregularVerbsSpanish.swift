@@ -532,7 +532,7 @@ public struct IrregularVerbsSpanish {
             switch person{
             case .S1:  verbForm = "voy"
             case .S2:  verbForm = "vas"
-            case .S3:  verbForm = "van"
+            case .S3:  verbForm = "va"
             case .P1:  verbForm = "vamos"
             case .P2:  verbForm = "vas"
             case .P3: verbForm = "van"

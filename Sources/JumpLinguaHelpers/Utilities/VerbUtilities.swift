@@ -192,6 +192,7 @@ public struct VerbUtilities {
         return ( outputWord)
     }
     
+//   
     public mutating func replaceSubrangeAndGetBeforeAndAfterStrings(inputString : String, fromString : String, toString : String)-> (String, String, String) {
         var startIndex = findIndexOfLastOccurenceOfTargetStringInInputString(inputString: inputString, targetString: fromString)
         if startIndex < 0 {startIndex = inputString.count - 1}  //if not found, then start at the end of the input string
