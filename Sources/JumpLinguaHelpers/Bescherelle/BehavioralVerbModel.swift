@@ -10,9 +10,12 @@ import JumpLinguaHelpers
 
 public enum BehaviorType : String {
     case weather = "weather"
-    case likeGustar = "likeGustar"
-    case thirdPersonOnly = "thirdPersonOnly"
-    case auxiliary = "Auxiliary"
+    case likeGustar = "like Gustar"
+    case thirdPersonOnly = "third Person only"
+    case auxiliary = "auxiliary"
+    case reflexive = "reflexive"
+    case participles = "participles"
+    case idioms = "idioms"
 }
 
 public struct BehavioralVerbModel {
@@ -25,6 +28,7 @@ public struct BehavioralVerbModel {
         case .likeGustar: return getVerbsLikeGustar(language: language)
         case .thirdPersonOnly: return getVerbsLikeThirdPersonOnly(language: language)
         case .auxiliary: return getAuxiliaryVerbs(language: language)
+        default: return [Verb]()
         }
     }
     public func getVerbsLikeWeather(language: LanguageType)->[Verb]{
@@ -173,40 +177,40 @@ public struct BehavioralVerbModel {
         var verbList = [Verb]()
         switch language{
         case .Spanish:
-            verbList.append(Verb(spanish: "acabar de", french: "", english: ""))
+            verbList.append(Verb(spanish: "acabar de", french: "finir de", english: ""))
             verbList.append(Verb(spanish: "alcanzar", french: "", english: ""))
             verbList.append(Verb(spanish: "andar", french: "", english: ""))
-            verbList.append(Verb(spanish: "deber", french: "", english: ""))
-            verbList.append(Verb(spanish: "echar a", french: "", english: ""))
-            verbList.append(Verb(spanish: "estar", french: "", english: ""))
-            verbList.append(Verb(spanish: "haber de", french: "", english: ""))
-            verbList.append(Verb(spanish: "haber", french: "", english: ""))
-            verbList.append(Verb(spanish: "parar de", french: "", english: ""))
-            verbList.append(Verb(spanish: "poder", french: "", english: ""))
-            verbList.append(Verb(spanish: "quedar en", french: "", english: ""))
-            verbList.append(Verb(spanish: "querer", french: "", english: ""))
-            verbList.append(Verb(spanish: "resultar", french: "", english: ""))
-            verbList.append(Verb(spanish: "seguir", french: "", english: ""))
+            verbList.append(Verb(spanish: "deber", french: "devoir", english: ""))
+            verbList.append(Verb(spanish: "echar a", french: "jeter à", english: ""))
+            verbList.append(Verb(spanish: "estar", french: "être", english: ""))
+            verbList.append(Verb(spanish: "haber de", french: "devoir", english: ""))
+            verbList.append(Verb(spanish: "haber", french: "avoir", english: ""))
+            verbList.append(Verb(spanish: "parar de", french: "arrêter", english: ""))
+            verbList.append(Verb(spanish: "poder", french: "pouvoir", english: ""))
+            verbList.append(Verb(spanish: "quedar en", french: "rester dans", english: ""))
+            verbList.append(Verb(spanish: "querer", french: "vouloir", english: ""))
+            verbList.append(Verb(spanish: "resultar", french: "résulter", english: ""))
+            verbList.append(Verb(spanish: "seguir", french: "continuer", english: ""))
             
-            verbList.append(Verb(spanish: "comenzar a", french: "", english: ""))
-            verbList.append(Verb(spanish: "dejar de", french: "", english: ""))
-            verbList.append(Verb(spanish: "estar por", french: "", english: ""))
-            verbList.append(Verb(spanish: "ir a", french: "", english: ""))
-            verbList.append(Verb(spanish: "ponerse a", french: "", english: ""))
-            verbList.append(Verb(spanish: "romper a", french: "", english: ""))
-            verbList.append(Verb(spanish: "soler", french: "", english: ""))
-            verbList.append(Verb(spanish: "tener que", french: "", english: ""))
-            verbList.append(Verb(spanish: "venir a", french: "", english: ""))
-            verbList.append(Verb(spanish: "volver a", french: "", english: ""))
+            verbList.append(Verb(spanish: "comenzar a", french: "commencer à", english: ""))
+            verbList.append(Verb(spanish: "dejar de", french: "laisser de", english: ""))
+            verbList.append(Verb(spanish: "estar por", french: "être par", english: ""))
+            verbList.append(Verb(spanish: "ir a", french: "aller à", english: ""))
+            verbList.append(Verb(spanish: "ponerse a", french: "accéder à", english: ""))
+            verbList.append(Verb(spanish: "romper a", french: "casser à", english: ""))
+            verbList.append(Verb(spanish: "soler", french: "faire habituellement", english: ""))
+            verbList.append(Verb(spanish: "tener que", french: "devoir", english: ""))
+            verbList.append(Verb(spanish: "venir a", french: "venir à", english: ""))
+            verbList.append(Verb(spanish: "volver a", french: "retourner à", english: ""))
             
-            verbList.append(Verb(spanish: "ir", french: "", english: ""))
-            verbList.append(Verb(spanish: "llevar", french: "", english: ""))
-            verbList.append(Verb(spanish: "venir", french: "", english: ""))
+            verbList.append(Verb(spanish: "ir", french: "aller", english: ""))
+            verbList.append(Verb(spanish: "llevar", french: "apporter", english: ""))
+            verbList.append(Verb(spanish: "venir", french: "venir", english: ""))
             
-            verbList.append(Verb(spanish: "dejar hecho", french: "", english: ""))
-            verbList.append(Verb(spanish: "llevar puesto", french: "", english: ""))
-            verbList.append(Verb(spanish: "sentirse", french: "", english: ""))
-            verbList.append(Verb(spanish: "verse", french: "", english: ""))
+            verbList.append(Verb(spanish: "dejar hecho", french: "laissere résonner", english: ""))
+            verbList.append(Verb(spanish: "llevar puesto", french: "porter", english: ""))
+            verbList.append(Verb(spanish: "sentirse", french: "se sentir", english: ""))
+            verbList.append(Verb(spanish: "verse", french: "se voir", english: ""))
             return verbList
         case .French: return verbList
         default: return verbList

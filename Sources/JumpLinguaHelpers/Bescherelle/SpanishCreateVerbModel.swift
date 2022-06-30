@@ -243,11 +243,11 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "ensar")
     //thisVerb.appendSuffix(suffix: "ebar")
     //thisVerb.appendSuffix(suffix: "ecar")
-    thisVerb.appendSuffix(suffix: "edar")  //depredar
+    //thisVerb.appendSuffix(suffix: "edar")  //depredar
     //thisVerb.appendSuffix(suffix: "efar")
-    thisVerb.appendSuffix(suffix: "elar")
-    thisVerb.appendSuffix(suffix: "esar")  //last vowel in stem is e - special rule??
-    thisVerb.appendSuffix(suffix: "etar")
+    //thisVerb.appendSuffix(suffix: "elar")
+    //thisVerb.appendSuffix(suffix: "esar")  //last vowel in stem is e - special rule??
+    //thisVerb.appendSuffix(suffix: "etar")
     thisVerb.appendSuffix(suffix: "ebrar")
     thisVerb.appendSuffix(suffix: "eldar")
     thisVerb.appendSuffix(suffix: "endar")
