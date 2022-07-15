@@ -24,6 +24,14 @@ public enum Gender : String
     static var all = [masculine, feminine, either]
 }
 
+public enum SubjectPronounType : String {
+    case maleFormal = "male formal"
+    case femaleFormal = "female formal"
+    case maleInformal = "male informal"
+    case femaleInformal = "female informal"
+    case all = "all forms"
+}
+
 public enum  Person:  Int, CaseIterable
 {
     case S1 = 0
@@ -353,6 +361,17 @@ public enum  Person:  Int, CaseIterable
             case .P3: return "them"
             }
         default:  return ""
+        }
+    }
+    
+    public func getSubjectString(language: LanguageType, subjectPronounType: SubjectPronounType, verbStartsWithVowel: Bool = false)->String {
+        switch subjectPronounType {
+        case .maleFormal: return getMaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: true)
+        case .maleInformal: return getMaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: false)
+        case .femaleFormal: return getFemaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: true)
+        case .femaleInformal: return getFemaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: false)
+        default:
+            return getMaleSubjectString(language: language, verbStartsWithVowel: verbStartsWithVowel, useUstedForm: false)
         }
     }
     
