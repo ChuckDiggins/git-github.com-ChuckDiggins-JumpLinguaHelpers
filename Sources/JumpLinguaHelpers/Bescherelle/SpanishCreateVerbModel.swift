@@ -762,6 +762,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "ostar")
     thisVerb.appendSuffix(suffix: "ostrar")
     thisVerb.appendSuffix(suffix: "ovar")
+    thisVerb.appendExcludeSuffix(suffix: "rolar")
     
     //thisVerb.appendSuffix(suffix: "ozar")  ??
     verbModels.append(thisVerb)
