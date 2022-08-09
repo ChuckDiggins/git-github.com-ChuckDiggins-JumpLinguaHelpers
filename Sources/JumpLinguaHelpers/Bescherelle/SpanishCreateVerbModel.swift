@@ -590,10 +590,10 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
     thisVerb.appendSuffix(suffix: "ender")
     thisVerb.appendSuffix(suffix: "erner")
-    thisVerb.appendSuffix(suffix: "ender")
     thisVerb.appendSuffix(suffix: "eder")
     thisVerb.appendSuffix(suffix: "erder")
     thisVerb.appendSuffix(suffix: "erter")
+    thisVerb.appendExcludeSuffix(suffix: "render")
     thisVerb.appendExcludeSuffix(suffix: "vender")
     verbModels.append(thisVerb)
   
