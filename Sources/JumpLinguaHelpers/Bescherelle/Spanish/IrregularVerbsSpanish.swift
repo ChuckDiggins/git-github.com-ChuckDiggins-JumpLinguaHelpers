@@ -976,72 +976,46 @@ public struct IrregularVerbsSpanish {
         
         switch (tense){
         case .present:
-            morph.comment = "Remove 3-letter ending sonr___ "
-            morph.verbForm = "sonr__"
-            morphStruct.append(morphStep: morph)
-            var ending = ""
-            morph = MorphStep()
-            morph.verbForm = "sonr"
             morph.isFinalStep = true
             switch person{
-            case .S1:  ending = "ío"
-            case .S2:  ending = "íes"
-            case .S3:  ending = "íe"
-            case .P1:  ending = "eímos"
-            case .P2:  ending = "eís"
-            case .P3:  ending = "íen"
+            case .S1:  morph.verbForm = "sonrío"
+            case .S2:  morph.verbForm = "sonríes"
+            case .S3:  morph.verbForm = "sonríe"
+            case .P1:  morph.verbForm = "sonreímos"
+            case .P2:  morph.verbForm = "sonreís"
+            case .P3:  morph.verbForm = "sonríen"
             }
-            morph.verbForm = morph.verbForm + ending
-            morph.verbForm += preposition
-            morph.comment = "Add the ending -> " + ending
+            morph.comment = "Replace with irregular form  -> " + morph.verbForm
             morphStruct.append(morphStep: morph)
         case .presentSubjunctive:
-            morph.comment = "Remove 3-letter ending sonr___ "
-            morph.verbForm = "sonr__"
-            morphStruct.append(morphStep: morph)
-            var ending = ""
-            morph = MorphStep()
-            morph.verbForm = "sonr"
             morph.isFinalStep = true
             switch person{
-            case .P1:  ending = "iamos"
-                morph.verbForm = morph.verbForm + ending
-                morph.verbForm += preposition
-                morph.comment = "Add the ending -> " + ending
-                morphStruct.append(morphStep: morph)
-            case .P2:  ending = "iáis"
-                morph.verbForm = morph.verbForm + ending
-                morph.verbForm += preposition
-                morph.comment = "Add the ending -> " + ending
-                morphStruct.append(morphStep: morph)
-            default:
-                break
+            case .S1:  morph.verbForm = "sonría"
+            case .S2:  morph.verbForm = "sonrías"
+            case .S3:  morph.verbForm = "sonría"
+            case .P1:  morph.verbForm = "sonriamos"
+            case .P2:  morph.verbForm = "sonriaís"
+            case .P3:  morph.verbForm = "sonrían"
             }
+            morph.comment = "Replace with irregular form  -> " + morph.verbForm
+            morphStruct.append(morphStep: morph)
             
         case .preterite:
-            morph.comment = "Remove 3-letter ending sonr___ "
-            morph.verbForm = "sonr__"
-            morphStruct.append(morphStep: morph)
-            var ending = ""
-            morph = MorphStep()
-            morph.verbForm = "sonr"
             morph.isFinalStep = true
             switch person{
-            case .S1:  ending = "eí"
-            case .S2:  ending = "eíste"
-            case .S3:  ending = "ió"
-            case .P1:  ending = "eímos"
-            case .P2:  ending = "eístes"
-            case .P3:  ending = "ieron"
+            case .S1:  morph.verbForm = "sonreí"
+            case .S2:  morph.verbForm = "sonreíste"
+            case .S3:  morph.verbForm = "sonrió"
+            case .P1:  morph.verbForm = "sonreímos"
+            case .P2:  morph.verbForm = "sonreísteis"
+            case .P3:  morph.verbForm = "sonrieron"
             }
-            morph.verbForm = morph.verbForm + ending
-            morph.verbForm += preposition
-            morph.comment = "Add the ending " + ending
+            morph.comment = "Replace with irregular form  -> " + morph.verbForm
             morphStruct.append(morphStep: morph)
         case .presentParticiple:
             morph.isFinalStep = true
             morph.verbForm = "riendo"  + preposition
-            morph.comment = "Replace with irregular form " +  "soriendo" + preposition
+            morph.comment = "Replace with irregular form " +  "sonriendo" + preposition
             morphStruct.append(morphStep: morph)
         case .pastParticiple:
             morph.isFinalStep = true
