@@ -865,8 +865,9 @@ public struct IrregularVerbsSpanish {
         case .preterite:
             switch person{
             case .S2:
+                morph.isFinalStep = true
                 morph.verbForm = prefix + "reíste"  + preposition
-                morph.comment = "Replace with irregular form " + prefix + "ríes" + preposition
+                morph.comment = "Replace with irregular form " + prefix + "reíste" + preposition
                 morphStruct.append(morphStep: morph)
             case .S3:
                 morph.isFinalStep = true
@@ -874,10 +875,12 @@ public struct IrregularVerbsSpanish {
                 morph.comment = "Replace with irregular form " + prefix + "rió" + preposition
                 morphStruct.append(morphStep: morph)
             case .P1:
+                morph.isFinalStep = true
                 morph.verbForm = prefix + "reímos"  + preposition
                 morph.comment = "Replace with irregular form " + prefix + "reímos" + preposition
                 morphStruct.append(morphStep: morph)
             case .P2:
+                morph.isFinalStep = true
                 morph.verbForm = prefix + "reísteis"  + preposition
                 morph.comment = "Replace with irregular form " + prefix + "reísteis" + preposition
                 morphStruct.append(morphStep: morph)
@@ -891,6 +894,7 @@ public struct IrregularVerbsSpanish {
             }
         case .conditional :
             morph.comment = "Replace '\(prefix)reír' with unaccented '\(prefix)reir' "
+            morph.verbForm = prefix + "reir"
             morphStruct.append(morphStep: morph)
             var ending = ""
             morph = MorphStep()
@@ -910,6 +914,7 @@ public struct IrregularVerbsSpanish {
             morphStruct.append(morphStep: morph)
         case .future:
             morph.comment = "Replace '\(prefix)reír' with unaccented '\(prefix)reir' "
+            morph.verbForm = prefix + "reir"
             morphStruct.append(morphStep: morph)
             var ending = ""
             morph = MorphStep()
