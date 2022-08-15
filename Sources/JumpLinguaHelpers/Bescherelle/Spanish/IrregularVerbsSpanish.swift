@@ -46,8 +46,8 @@ public struct IrregularVerbsSpanish {
           return getFormSaber(inputMorphStruct : morphStruct, preposition : preposition, tense : tense, person : person)
         case .SER:
             return getFormSer(inputMorphStruct : morphStruct, preposition : preposition,  tense : tense, person : person)
-        case .SONREIR:
-            return getFormSonreir(inputMorphStruct : morphStruct, preposition : preposition, tense : tense, person : person)
+        case .SONREIR:  //temp - hopefully handled by Reir
+            return getFormReir(inputMorphStruct : morphStruct, preposition : preposition, tense : tense, person : person)
         case .VER:
             return getFormVer(inputMorphStruct : morphStruct, preposition : preposition,  tense : tense, person : person)
         case .none:
@@ -826,6 +826,10 @@ public struct IrregularVerbsSpanish {
      */
     public func getFormReir (inputMorphStruct : MorphStruct, preposition : String,  tense: Tense, person: Person ) -> MorphStruct {
         var morphStruct = inputMorphStruct
+        let ms = inputMorphStruct.getMorphStep(index: 0)  //should be the infinitive
+        var infinitive = ms.verbForm
+        var prefix = infinitive.dropLast(4)
+        
         var morph : MorphStep
         morph = MorphStep()
         morph.isIrregular = true
@@ -834,63 +838,63 @@ public struct IrregularVerbsSpanish {
             morph.isFinalStep = true
             switch person{
             case .S1:
-                morph.verbForm = "río"  + preposition
-                morph.comment = "Replace with irregular form " +  "río" + preposition
+                morph.verbForm = prefix + "río"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "río" + preposition
                 morphStruct.append(morphStep: morph)
             case .S2:
-                morph.verbForm = "ríes"  + preposition
-                morph.comment = "Replace with irregular form " + "ríes" + preposition
+                morph.verbForm = prefix + "ríes"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "ríes" + preposition
                 morphStruct.append(morphStep: morph)
             case .S3:
-                morph.verbForm = "ríe"  + preposition
-                morph.comment = "Replace with irregular form " + "ríe" + preposition
+                morph.verbForm = prefix + "ríe"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "ríe" + preposition
                 morphStruct.append(morphStep: morph)
             case .P1:
-                morph.verbForm = "reímos"  + preposition
-                morph.comment = "Replace with irregular form " + "reímos" + preposition
+                morph.verbForm = prefix + "reímos"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "reímos" + preposition
                 morphStruct.append(morphStep: morph)
             case .P2:
-                morph.verbForm = "reís"  + preposition
-                morph.comment = "Replace with irregular form " + "reís" + preposition
+                morph.verbForm = prefix + "reís"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "reís" + preposition
                 morphStruct.append(morphStep: morph)
             case .P3:
-                morph.verbForm = "ríen"  + preposition
-                morph.comment = "Replace with irregular form " + "ríen" + preposition
+                morph.verbForm = prefix + "ríen"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "ríen" + preposition
                 morphStruct.append(morphStep: morph)
             }
         case .preterite:
             switch person{
             case .S2:
-                morph.verbForm = "reíste"  + preposition
-                morph.comment = "Replace with irregular form " + "ríes" + preposition
+                morph.verbForm = prefix + "reíste"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "ríes" + preposition
                 morphStruct.append(morphStep: morph)
             case .S3:
                 morph.isFinalStep = true
-                morph.verbForm = "rió"  + preposition
-                morph.comment = "Replace with irregular form " + "rió" + preposition
+                morph.verbForm = prefix + "rió"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "rió" + preposition
                 morphStruct.append(morphStep: morph)
             case .P1:
-                morph.verbForm = "reímos"  + preposition
-                morph.comment = "Replace with irregular form " + "reímos" + preposition
+                morph.verbForm = prefix + "reímos"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "reímos" + preposition
                 morphStruct.append(morphStep: morph)
             case .P2:
-                morph.verbForm = "reísteis"  + preposition
-                morph.comment = "Replace with irregular form " + "reísteis" + preposition
+                morph.verbForm = prefix + "reísteis"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "reísteis" + preposition
                 morphStruct.append(morphStep: morph)
             case .P3:
                 morph.isFinalStep = true
-                morph.verbForm = "rieron"  + preposition
-                morph.comment = "Replace with irregular form " + "rieron" + preposition
+                morph.verbForm = prefix + "rieron"  + preposition
+                morph.comment = "Replace with irregular form " + prefix + "rieron" + preposition
                 morphStruct.append(morphStep: morph)
             default:
                 break
             }
         case .conditional :
-            morph.comment = "Replace 'reír' with unaccented 'reir' "
+            morph.comment = "Replace '\(prefix)reír' with unaccented '\(prefix)reir' "
             morphStruct.append(morphStep: morph)
             var ending = ""
             morph = MorphStep()
-            morph.verbForm = "reir"
+            morph.verbForm = prefix + "reir"
             morph.isFinalStep = true
             switch person{
             case .S1:  ending = "ía"
@@ -905,11 +909,11 @@ public struct IrregularVerbsSpanish {
             morph.comment = "Add ending -> " + ending
             morphStruct.append(morphStep: morph)
         case .future:
-            morph.comment = "Replace 'reír' with unaccented 'reir' "
+            morph.comment = "Replace '\(prefix)reír' with unaccented '\(prefix)reir' "
             morphStruct.append(morphStep: morph)
             var ending = ""
             morph = MorphStep()
-            morph.verbForm = "reir"
+            morph.verbForm = "\(prefix)reir"
             morph.isFinalStep = true
             switch person{
             case .S1:  ending = "é"
@@ -927,39 +931,39 @@ public struct IrregularVerbsSpanish {
             morph.isFinalStep = true
             switch person{
             case .S1:
-                morph.verbForm = "ría"  + preposition
-                morph.comment = "Replace with irregular form " +  "ría" + preposition
+                morph.verbForm = "\(prefix)ría"  + preposition
+                morph.comment = "Replace with irregular form " +  "\(prefix)ría" + preposition
                 morphStruct.append(morphStep: morph)
             case .S2:
-                morph.verbForm = "rías"  + preposition
-                morph.comment = "Replace with irregular form " + "rías" + preposition
+                morph.verbForm = "\(prefix)rías"  + preposition
+                morph.comment = "Replace with irregular form " + "\(prefix)rías" + preposition
                 morphStruct.append(morphStep: morph)
             case .S3:
-                morph.verbForm = "ría"  + preposition
-                morph.comment = "Replace with irregular form " + "ría" + preposition
+                morph.verbForm = "\(prefix)ría"  + preposition
+                morph.comment = "Replace with irregular form " + "\(prefix)ría" + preposition
                 morphStruct.append(morphStep: morph)
             case .P1:
-                morph.verbForm = "riamos"  + preposition
-                morph.comment = "Replace with irregular form " + "riamos" + preposition
+                morph.verbForm = "\(prefix)riamos"  + preposition
+                morph.comment = "Replace with irregular form " + "\(prefix)riamos" + preposition
                 morphStruct.append(morphStep: morph)
             case .P2:
-                morph.verbForm = "riáis"  + preposition
-                morph.comment = "Replace with irregular form " + "riáis" + preposition
+                morph.verbForm = "\(prefix)riáis"  + preposition
+                morph.comment = "Replace with irregular form " + "\(prefix)riáis" + preposition
                 morphStruct.append(morphStep: morph)
             case .P3:
-                morph.verbForm = "rían"  + preposition
-                morph.comment = "Replace with irregular form " + "rían" + preposition
+                morph.verbForm = "\(prefix)rían"  + preposition
+                morph.comment = "Replace with irregular form " + "\(prefix)rían" + preposition
                 morphStruct.append(morphStep: morph)      
             }
         case .presentParticiple:
             morph.isFinalStep = true
-            morph.verbForm = "riendo"  + preposition
-            morph.comment = "Replace with irregular form " + "riendo" + preposition
+            morph.verbForm = "\(prefix)riendo"  + preposition
+            morph.comment = "Replace with irregular form " + "\(prefix)riendo" + preposition
             morphStruct.append(morphStep: morph)
         case .pastParticiple:
             morph.isFinalStep = true
-            morph.verbForm = "reido"  + preposition
-            morph.comment = "Replace with irregular form " + "reido" + preposition
+            morph.verbForm = "\(prefix)reído"  + preposition
+            morph.comment = "Replace with irregular form " + "\(prefix)reído" + preposition
             morphStruct.append(morphStep: morph)
         default:
             break
