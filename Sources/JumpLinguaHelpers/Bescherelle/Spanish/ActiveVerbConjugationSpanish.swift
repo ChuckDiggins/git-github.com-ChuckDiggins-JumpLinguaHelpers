@@ -83,29 +83,47 @@ public class ActiveVerbConjugationSpanish {
         } else {
             morphStep.comment = "Start with the infinitive:" + " " + verb.getPhrase()
         }
+        morphStep.part1 = verb.getPhrase()
+        morphStep.part2 = ""
+        morphStep.part3 = ""
         workingMorphStruct.append(morphStep : morphStep)
         
         if  verb.isReflexive() {
             pronounString = Pronoun().getReflexive(language: .Spanish, person: person, startsWithVowelSound: false) + " "
             
+            //grab the reflexive pronoun
+            morphStep.verbForm = verb.m_verbWord
+            morphStep.part1 = verb.m_verbWord
+            morphStep.part2 = "se"
+            morphStep.comment = "grab the reflexive pronoun -> se"
+            workingMorphStruct.append(morphStep : morphStep)
+            
             //if S3 or P3, then pronoun 'se' does not have to change
             
+            //convert to correct person and move in front of verb
             if  person != .S3 && person != .P3 {
                 var morphStep = MorphStep()
-                morphStep.comment = "Convert reflexive pronoun 'se' to correct person '\(pronounString)'"
-                morphStep.verbForm = verb.m_verbWord + pronounString + "  " + preposition
+                morphStep.part1 = ""
+                morphStep.part2 = pronounString
+                morphStep.part3 = verb.m_verbWord + " " + preposition
+                morphStep.verbForm = pronounString + " " + verb.m_verbWord + " " + preposition
+                morphStep.comment = "convert to \(pronounString) and move in front of the verb"
+                workingMorphStruct.append(morphStep : morphStep)
+            } else {
+                var morphStep = MorphStep()
+                morphStep.part1 = ""
+                morphStep.part2 = pronounString
+                morphStep.part3 = verb.m_verbWord + " " + preposition
+                morphStep.verbForm = pronounString + " " + verb.m_verbWord + " " + preposition
+                morphStep.comment = "move \(pronounString) in front of the verb"
                 workingMorphStruct.append(morphStep : morphStep)
             }
-            
-            morphStep = MorphStep()
-            morphStep.comment = "Move the pronoun '" + pronounString + "' to front of verb"
-            morphStep.verbForm = pronounString + " " + verb.m_verbWord
-            workingMorphStruct.append(morphStep : morphStep)
         }
     }
     else {
-        morphStep.comment = "Start with verb infinitive " + " " + verb.m_verbWord
+        morphStep.comment = "Start with verb infinitive " + verb.m_verbWord
         morphStep.verbForm = verb.m_verbWord
+        morphStep.part1 = verb.m_verbWord
         workingMorphStruct.append(morphStep : morphStep)
     }
     return workingMorphStruct
@@ -335,12 +353,14 @@ public class ActiveVerbConjugationSpanish {
         
         //preposition = " " + verb.m_residualPhrase
         
-        var ss = pronounString + participle
+        var ss = pronounString + " " + participle
         
         if tense.isProgressive(){morph.comment = "replace with present participle " + participle}
         else { morph.comment = "replace with past participle " + participle }
-        
-        morph.verbForm = ss + preposition
+        morph.part1 = pronounString
+        morph.part2 = participle
+        morph.part3 = preposition
+        morph.verbForm = ss + " " + preposition
         workingMorphStruct.append(morphStep: morph)
         
         morph = MorphStep()
@@ -348,9 +368,11 @@ public class ActiveVerbConjugationSpanish {
         
         if tense.isProgressive() {   morph.comment = "Insert correct form of verb estar ..." + auxiliaryVerb }
             else {  morph.comment = "Insert correct form of verb haber ..." + auxiliaryVerb }
-            
-        ss = pronounString + auxiliaryVerb + " " + participle
-        morph.verbForm = ss + preposition
+        morph.part1 = pronounString
+        morph.part2 = auxiliaryVerb
+        morph.part3 = participle + " " + preposition
+        ss = pronounString + " " + auxiliaryVerb + " " + participle + " " + preposition
+        morph.verbForm = ss
         workingMorphStruct.append(morphStep: morph)
 
         return workingMorphStruct
