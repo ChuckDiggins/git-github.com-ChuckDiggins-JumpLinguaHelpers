@@ -358,8 +358,8 @@ public class ActiveVerbConjugationSpanish {
         if tense.isProgressive(){morph.comment = "replace with present participle " + participle}
         else { morph.comment = "replace with past participle " + participle }
         morph.part1 = pronounString
-        morph.part2 = participle
-        morph.part3 = preposition
+        morph.part2 = " " + participle
+        morph.part3 = " " + preposition
         morph.verbForm = ss + " " + preposition
         workingMorphStruct.append(morphStep: morph)
         
@@ -371,7 +371,7 @@ public class ActiveVerbConjugationSpanish {
         morph.part1 = pronounString
         morph.part2 = " " + auxiliaryVerb
         morph.part3 = " " + participle + " " + preposition
-        ss = pronounString + auxiliaryVerb + " " + participle + " " + preposition
+        ss = pronounString + " " + auxiliaryVerb + " " + participle + " " + preposition
         morph.verbForm = ss
         workingMorphStruct.append(morphStep: morph)
 
