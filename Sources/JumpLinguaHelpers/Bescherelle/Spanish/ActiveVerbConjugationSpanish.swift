@@ -58,52 +58,57 @@ public class ActiveVerbConjugationSpanish {
     
     public  func createInitialMorphSteps(verb: BSpanishVerb, person : Person, conjugateEntirePhrase: Bool)->MorphStruct
     {
-        var workingMorphStruct = verb.getMorphStruct(person: person)
-        let preposition = verb.m_residualPhrase
-        var pronounString = ""
-        var morphStep = MorphStep()
+    var workingMorphStruct = verb.getMorphStruct(person: person)
+    let preposition = verb.m_residualPhrase
+    var pronounString = ""
+    var morphStep = MorphStep()
+    var hasPhrase = false
+    
+    workingMorphStruct.clear()
+    if conjugateEntirePhrase {
+        workingMorphStruct.clear()
         
-        if conjugateEntirePhrase {
+        
+        morphStep.verbForm = verb.m_verbWord
+        if verb.isReflexive() {
+            morphStep.verbForm += "se"
+            hasPhrase = true
+        }
+        if verb.hasPreposition() {
+            morphStep.verbForm += " " + preposition
+            hasPhrase = true
+        }
+        if hasPhrase {
             morphStep.comment = "Start with the verb phrase:" + " " + verb.getPhrase()
-            morphStep.verbForm = verb.m_verbWord
-            if verb.isReflexive() {
-                morphStep.verbForm += "se"
-            }
-            if verb.hasPreposition() {
-                morphStep.verbForm += " " + preposition
-            }
+        } else {
+            morphStep.comment = "Start with the infinitive:" + " " + verb.getPhrase()
+        }
+        workingMorphStruct.append(morphStep : morphStep)
+        
+        if  verb.isReflexive() {
+            pronounString = Pronoun().getReflexive(language: .Spanish, person: person, startsWithVowelSound: false) + " "
             
-            workingMorphStruct.append(morphStep : morphStep)
+            //if S3 or P3, then pronoun 'se' does not have to change
             
-            if  verb.isReflexive() {
-                pronounString = Pronoun().getReflexive(language: .Spanish, person: person, startsWithVowelSound: false) + " "
-
-                //if S3 or P3, then pronoun 'se' does not have to change
-                
-                if  person != .S3 && person != .P3 {
-                    var morphStep = MorphStep()
-                    morphStep.comment = "Convert reflexive pronoun 'se' to correct person '\(pronounString)'"
-                    morphStep.verbForm = verb.m_verbWord + pronounString + "  " + preposition
-                    workingMorphStruct.append(morphStep : morphStep)
-                }
-                
-                morphStep = MorphStep()
-                morphStep.comment = "Move the pronoun '" + pronounString + "' to front of verb"
-                morphStep.verbForm = pronounString + " " + verb.m_verbWord
+            if  person != .S3 && person != .P3 {
+                var morphStep = MorphStep()
+                morphStep.comment = "Convert reflexive pronoun 'se' to correct person '\(pronounString)'"
+                morphStep.verbForm = verb.m_verbWord + pronounString + "  " + preposition
                 workingMorphStruct.append(morphStep : morphStep)
             }
-            else {
-                morphStep.comment = "Start with verb infinitive " + " " + verb.m_verbWord
-                morphStep.verbForm = verb.m_verbWord
-                workingMorphStruct.append(morphStep : morphStep)
-            }
-        }
-        else {
-            morphStep.comment = "Start with verb infinitive " + " " + verb.m_verbWord
-            morphStep.verbForm = verb.m_verbWord
+            
+            morphStep = MorphStep()
+            morphStep.comment = "Move the pronoun '" + pronounString + "' to front of verb"
+            morphStep.verbForm = pronounString + " " + verb.m_verbWord
             workingMorphStruct.append(morphStep : morphStep)
         }
-        return workingMorphStruct
+    }
+    else {
+        morphStep.comment = "Start with verb infinitive " + " " + verb.m_verbWord
+        morphStep.verbForm = verb.m_verbWord
+        workingMorphStruct.append(morphStep : morphStep)
+    }
+    return workingMorphStruct
     }
 
     public func conjugateThisImperativeForm(verb : BSpanishVerb, person : Person, conjugateEntirePhrase : Bool ) -> MorphStruct {
@@ -319,10 +324,11 @@ public class ActiveVerbConjugationSpanish {
         }
 
         var pronounString = ""
+        //when verb is reflexive and/or has a verb phrase sitting after the verb
         var workingMorphStruct = createInitialMorphSteps(verb: verb, person: person, conjugateEntirePhrase: conjugateEntirePhrase)
         var morph = MorphStep()
-        
 
+        //????
         if verb.isReflexive() {
             pronounString = Pronoun().getReflexive(language: .Spanish, person: person, startsWithVowelSound: false) + " "
         }
