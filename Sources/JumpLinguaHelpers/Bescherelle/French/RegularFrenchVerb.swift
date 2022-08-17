@@ -92,7 +92,7 @@ public struct RegularFrenchVerb {
         morphStep.isIrregular = true
         morphStep.verbForm = verbForm
         morphStep.part2 = verbForm
-        morphStep.comment = "grab this part of the word ->" + from
+        morphStep.comment = "Grab this part of the word ->" + from
         morphStruct.append(morphStep : morphStep)
         
         verbForm = String(verbForm.dropLast(from.count))  //drop the from suffix or something as long as it from verbForm
@@ -101,7 +101,7 @@ public struct RegularFrenchVerb {
         morphStep.verbForm = verbForm + to
         morphStep.part1 = verbForm
         morphStep.part2 = to
-        morphStep.comment = "replace with this ending ->" + to
+        morphStep.comment = "Replace with this ending ->" + to
         morphStruct.append(morphStep : morphStep)
         
         return morphStruct
@@ -114,7 +114,7 @@ public struct RegularFrenchVerb {
         var morphStruct = inputMorphStruct
         
         var ss = VerbUtilities().remove2LetterVerbEnding(word: verbWord)
-        let comment = "remove verb ending ->" + verbEnding.rawValue
+        let comment = "Remove verb ending ->" + verbEnding.rawValue
         
         _ = morphStruct.createAndAppendMorphStep(verbForm:ss+"__", isFinalStep: false,comment:comment, preposition:"",
                                                  part1:ss, part2: verbEnding.getEnding(), part3: "" )
@@ -241,7 +241,7 @@ public struct RegularFrenchVerb {
         if ( orthoChanged ){
             var morphStep = MorphStep()
             morphStep.verbForm = verbWord
-            morphStep.comment = "replace letter ->" + orthoFrom + " with " + orthoTo
+            morphStep.comment = "Replace letter ->" + orthoFrom + " with " + orthoTo
             morphStep.part1 = verbWordMinusCharacter
             morphStep.part2 = orthoTo
             morphStep.part3 = ""
@@ -278,7 +278,7 @@ public struct RegularFrenchVerb {
         morphStep.verbForm = ss + endingString
         morphStep.part1 = ss
         morphStep.part2 = endingString
-        morphStep.comment = "replace with the ending -> " + endingString
+        morphStep.comment = "Replace with the ending -> " + endingString
         workingMorphStruct.append(morphStep : morphStep)
         return workingMorphStruct
     }

@@ -107,7 +107,7 @@ public class ActiveVerbConjugationSpanish {
                 morphStep.part2 = pronounString
                 morphStep.part3 = verb.m_verbWord + " " + preposition
                 morphStep.verbForm = pronounString + " " + verb.m_verbWord + " " + preposition
-                morphStep.comment = "convert to \(pronounString) and move in front of the verb"
+                morphStep.comment = "Convert to \(pronounString) and move in front of the verb"
                 workingMorphStruct.append(morphStep : morphStep)
             } else {
                 var morphStep = MorphStep()
@@ -115,7 +115,7 @@ public class ActiveVerbConjugationSpanish {
                 morphStep.part2 = pronounString
                 morphStep.part3 = verb.m_verbWord + " " + preposition
                 morphStep.verbForm = pronounString + " " + verb.m_verbWord + " " + preposition
-                morphStep.comment = "move \(pronounString) in front of the verb"
+                morphStep.comment = "Move \(pronounString) in front of the verb"
                 workingMorphStruct.append(morphStep : morphStep)
             }
         }
@@ -370,7 +370,7 @@ public class ActiveVerbConjugationSpanish {
             else {  morph.comment = "Insert correct form of verb haber ..." + auxiliaryVerb }
         morph.part1 = pronounString
         morph.part2 = auxiliaryVerb
-        morph.part3 = participle + " " + preposition
+        morph.part3 = " " + participle + " " + preposition
         ss = pronounString + " " + auxiliaryVerb + " " + participle + " " + preposition
         morph.verbForm = ss
         workingMorphStruct.append(morphStep: morph)

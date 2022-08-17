@@ -119,7 +119,7 @@ public class BVerb : Word, Identifiable {
             if m_isReflexive { verbForm = verbForm + "se" }
             morphStep.verbForm = verbForm
             morphStep.part1 = verbForm
-            morphStep.comment = "start with the infinitive ->" + morphStep.part1
+            morphStep.comment = "Start with the infinitive ->" + morphStep.part1
             var morphStruct = MorphStruct(person: person)
             morphStruct.append(morphStep : morphStep)
             morphStructManager.setBoth(person: person, ms: morphStruct)

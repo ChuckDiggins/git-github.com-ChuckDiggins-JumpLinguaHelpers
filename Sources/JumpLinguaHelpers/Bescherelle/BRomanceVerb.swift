@@ -287,7 +287,7 @@ public class BRomanceVerb: BVerb {
             morphStep.part1 = ""
             morphStep.part2 = "se "
             morphStep.part3 = m_verbWord
-            morphStep.comment = "grab reflexive pronoun -> se"
+            morphStep.comment = "Grab reflexive pronoun -> se"
             morphStruct.append(morphStep : morphStep)
             
             //if this is a contraction, do not add space  m' or me
@@ -304,7 +304,7 @@ public class BRomanceVerb: BVerb {
             if startsWithVowelSound && contractThis {
                 morphStep.comment = "\(m_verbWord) starts with vowel sound: convert 'se' to \(morphStep.part2) "}
             else {
-                morphStep.comment = "convert to \(morphStep.part2)"
+                morphStep.comment = "Convert to \(morphStep.part2)"
             }
             morphStruct.append(morphStep : morphStep)
             morphStructManager.setBoth(person: person, ms: morphStruct)
@@ -323,7 +323,7 @@ public class BRomanceVerb: BVerb {
             morphStep.verbForm = m_verbWord
             morphStep.part1 = m_verbWord
             morphStep.part2 = "se"
-            morphStep.comment = "grab the reflexive pronoun -> se"
+            morphStep.comment = "Grab the reflexive pronoun -> se"
             morphStruct.append(morphStep : morphStep)
 
             let startsWithVowelSound = VerbUtilities().startsWithVowelSound(characterArray: m_verbWord)
@@ -332,7 +332,7 @@ public class BRomanceVerb: BVerb {
             morphStep.part2 = vrp.getReflexive(language: languageType, person: person, startsWithVowelSound: startsWithVowelSound) + " "
             morphStep.part3 = m_verbWord
             morphStep.verbForm = morphStep.part1 + morphStep.part2 + morphStep.part3
-            morphStep.comment = "convert to \(morphStep.part2) and move in front of the verb"
+            morphStep.comment = "Convert to \(morphStep.part2) and move in front of the verb"
             morphStruct.append(morphStep : morphStep)
             morphStructManager.setBoth(person: person, ms: morphStruct)
         }

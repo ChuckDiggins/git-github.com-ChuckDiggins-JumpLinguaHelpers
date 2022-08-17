@@ -27,7 +27,7 @@ public struct RegularSpanishVerb {
             ss = VerbUtilities().remove2LetterVerbEnding(word: verbWord)
             morphStep.part1 = ss
             morphStep.part2 = verbEnding.rawValue
-            morphStep.comment = "remove verb ending" + verbEnding.rawValue
+            morphStep.comment = "Remove verb ending" + verbEnding.rawValue
             morphStep.verbForm = ss + "__"
             morphStruct.append(morphStep : morphStep)
         }
@@ -172,7 +172,7 @@ public struct RegularSpanishVerb {
         morphStep.part1 = ss
         morphStep.part2 = endingString
         morphStep.verbForm = ss + endingString
-        morphStep.comment = "add the conjugate ending ->" + endingString
+        morphStep.comment = "Add the conjugate ending ->" + endingString
         morphStruct.append(morphStep : morphStep)
         morphStruct.isOrtho = true
         
@@ -193,7 +193,7 @@ public struct RegularSpanishVerb {
         morphStep.verbForm = verbForm
         morphStep.part1 = verbForm
         morphStep.part2 = from
-        morphStep.comment = "grab this part of the word ->" + from
+        morphStep.comment = "Grab this part of the word ->" + from
         morphStruct.append(morphStep : morphStep)
         
 //        verbForm = String(verbForm.dropLast(from.count))
@@ -202,7 +202,7 @@ public struct RegularSpanishVerb {
         morphStep.verbForm = verbForm + to
         morphStep.part1 = verbForm
         morphStep.part2 = to
-        morphStep.comment = "replace with this ending ->" + to
+        morphStep.comment = "Replace with this ending ->" + to
         morphStruct.append(morphStep : morphStep)
         morphStruct.isStem = true
         return morphStruct
@@ -215,7 +215,7 @@ public struct RegularSpanishVerb {
         var morphStruct = inputMorphStruct
         
         var ss = VerbUtilities().remove2LetterVerbEnding(word: verbWord)
-        let comment = "remove verb ending->" + verbEnding.rawValue
+        let comment = "Remove verb ending->" + verbEnding.rawValue
         
         _ = morphStruct.createAndAppendMorphStep(verbForm:ss+"__", isFinalStep: false,comment:comment, preposition:"",
                                                  part1:ss, part2: verbEnding.getEnding(), part3: "" )
@@ -228,7 +228,7 @@ public struct RegularSpanishVerb {
         ss.append(to)
         morphStep.isFinalStep = true
         morphStep.verbForm = ss
-        morphStep.comment = "append ending -> " + to
+        morphStep.comment = "Append ending -> " + to
         morphStruct.append(morphStep : morphStep)
 
         return morphStruct
@@ -340,7 +340,7 @@ public struct RegularSpanishVerb {
             ss = VerbUtilities().remove2LetterVerbEnding(word: verbWord)
             morphStep = MorphStep()
             morphStep.verbForm = ss
-            morphStep.comment = "grab the ending ->" + verbEnding.getEnding()
+            morphStep.comment = "Grab the ending ->" + verbEnding.getEnding()
             morphStep.part1 = ss
             morphStep.part2 = verbEnding.getEnding()
             morphStep.part3 = ""
@@ -373,7 +373,7 @@ public struct RegularSpanishVerb {
         morphStep.verbForm = ss + endingString
         morphStep.part1 = ss
         morphStep.part2 = endingString
-        morphStep.comment = "replace with the ending -> " + endingString
+        morphStep.comment = "Replace with the ending -> " + endingString
         workingMorphStruct.append(morphStep : morphStep)
         
         return workingMorphStruct
