@@ -95,7 +95,7 @@ public class ActiveVerbConjugationSpanish {
             morphStep.verbForm = verb.m_verbWord
             morphStep.part1 = verb.m_verbWord
             morphStep.part2 = "se"
-            morphStep.comment = "grab the reflexive pronoun -> se"
+            morphStep.comment = "Grab the reflexive pronoun -> se"
             workingMorphStruct.append(morphStep : morphStep)
             
             //if S3 or P3, then pronoun 'se' does not have to change
@@ -355,8 +355,8 @@ public class ActiveVerbConjugationSpanish {
         
         var ss = pronounString + " " + participle
         
-        if tense.isProgressive(){morph.comment = "replace with present participle " + participle}
-        else { morph.comment = "replace with past participle " + participle }
+        if tense.isProgressive(){morph.comment = "Replace with present participle " + participle}
+        else { morph.comment = "Replace with past participle " + participle }
         morph.part1 = pronounString
         morph.part2 = " " + participle
         morph.part3 = " " + preposition

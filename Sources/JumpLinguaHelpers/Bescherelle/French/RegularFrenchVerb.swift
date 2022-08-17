@@ -185,7 +185,7 @@ public struct RegularFrenchVerb {
         {
             morphStep = MorphStep()
             morphStep.verbForm = ss
-            morphStep.comment = "remove the ending ->" + verbEnding.getEnding()
+            morphStep.comment = "Remove the ending ->" + verbEnding.getEnding()
             morphStep.part1 = ss
             morphStep.part2 = verbEnding.getEnding()
             morphStep.part3 = ""

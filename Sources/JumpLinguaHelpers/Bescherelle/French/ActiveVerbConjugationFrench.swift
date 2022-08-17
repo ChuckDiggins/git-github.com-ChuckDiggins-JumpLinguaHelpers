@@ -161,7 +161,7 @@ public class ActiveVerbConjugationFrench {
         if verb.m_isImpersonal1{
             if person == .S1 || person == .S2 || person == .P1 || person == .P2 {
                 var morph = MorphStep()
-                morph.comment =  "do not show this person"
+                morph.comment =  "Do not show this person"
                 morph.part1 = ""
                 morph.part2 = ""
                 morph.part3 = ""
@@ -175,7 +175,7 @@ public class ActiveVerbConjugationFrench {
         if verb.m_isImpersonal2{
             if person == .S1 || person == .S2 || person == .P1 || person == .P2 || person == .P3  {
             var morph = MorphStep()
-            morph.comment = "do not show this person"
+            morph.comment = "Do not show this person"
             morph.part1 = ""
             morph.part2 = ""
             morph.part3 = ""
@@ -372,8 +372,8 @@ public class ActiveVerbConjugationFrench {
         //preposition = " " + verb.m_residualPhrase
         var ss = pronounString + participle
 
-        if tense.isProgressive(){morph.comment = "replace with present participle " + participle}
-        else { morph.comment = "replace with past participle " + participle }
+        if tense.isProgressive(){morph.comment = "Replace with present participle " + participle}
+        else { morph.comment = "Replace with past participle " + participle }
         
         morph.verbForm = ss + preposition
         workingMorphStruct.append(morphStep: morph)

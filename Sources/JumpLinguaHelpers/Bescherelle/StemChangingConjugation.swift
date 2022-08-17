@@ -33,7 +33,7 @@ public struct StemChangingConjugation {
         
         var morph : MorphStep
         morph = MorphStep()
-        morph.comment = "remove -> " + stemFrom
+        morph.comment = "Remove -> " + stemFrom
         morph.part1 = partBefore
         morph.part2 = stemFrom
         morph.part3 = partAfter
@@ -67,7 +67,7 @@ public struct StemChangingConjugation {
         
         var morph : MorphStep
         morph = MorphStep()
-        morph.comment = "grab the existing stem -> " + stemFrom
+        morph.comment = "Grab the existing stem -> " + stemFrom
         morph.part1 = partBefore
         morph.part2 = stemFrom
         morph.part3 = partAfter + verbEnding.getEnding()
@@ -79,7 +79,7 @@ public struct StemChangingConjugation {
         morph.part1 = partBefore
         morph.part2 = stemTo
         morph.part3 = partAfter + verbEnding.getEnding()
-        morph.comment = "change the stem -> " + stemTo
+        morph.comment = "Change the stem -> " + stemTo
         morph.verbForm = workingVerbForm + verbEnding.getEnding()
         workingMorphStruct.append(morphStep: morph)
         
@@ -88,7 +88,7 @@ public struct StemChangingConjugation {
         morph.part2 = verbEnding.getEnding()
         morph.part3 = ""
         morph.verbForm = workingVerbForm
-        morph.comment = "grab the ending ->" + verbEnding.getEnding()
+        morph.comment = "Grab the ending ->" + verbEnding.getEnding()
         workingMorphStruct.append(morphStep: morph)
         workingMorphStruct.isStem = true
         return workingMorphStruct

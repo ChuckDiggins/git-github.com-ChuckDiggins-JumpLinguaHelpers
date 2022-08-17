@@ -143,7 +143,7 @@ public struct IrregularVerbsFrench {
             morphStruct.append(morphStep: morph)
         case .presentParticiple:
             morph.verbForm = "ayant"  + preposition
-            morph.comment = "use form 'ayant'"
+            morph.comment = "Use form 'ayant'"
             morphStruct.append(morphStep: morph)
         case .pastParticiple:
             morph.verbForm = "eu"  + preposition
@@ -280,7 +280,7 @@ public struct IrregularVerbsFrench {
             morphStruct.append(morphStep: morph)
         case .presentParticiple:
             morph.verbForm = "étant"  + preposition
-            morph.comment = "use form 'étant'"
+            morph.comment = "Use form 'étant'"
             morph.isFinalStep = true
             morphStruct.append(morphStep: morph)
         case .pastParticiple:
