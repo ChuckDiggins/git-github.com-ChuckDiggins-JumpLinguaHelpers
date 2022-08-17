@@ -348,7 +348,7 @@ public class ActiveVerbConjugationSpanish {
 
         //????
         if verb.isReflexive() {
-            pronounString = Pronoun().getReflexive(language: .Spanish, person: person, startsWithVowelSound: false) + " "
+            pronounString = Pronoun().getReflexive(language: .Spanish, person: person, startsWithVowelSound: false)
         }
         
         //preposition = " " + verb.m_residualPhrase
@@ -369,9 +369,9 @@ public class ActiveVerbConjugationSpanish {
         if tense.isProgressive() {   morph.comment = "Insert correct form of verb estar ..." + auxiliaryVerb }
             else {  morph.comment = "Insert correct form of verb haber ..." + auxiliaryVerb }
         morph.part1 = pronounString
-        morph.part2 = auxiliaryVerb
+        morph.part2 = " " + auxiliaryVerb
         morph.part3 = " " + participle + " " + preposition
-        ss = pronounString + " " + auxiliaryVerb + " " + participle + " " + preposition
+        ss = pronounString + auxiliaryVerb + " " + participle + " " + preposition
         morph.verbForm = ss
         workingMorphStruct.append(morphStep: morph)
 
