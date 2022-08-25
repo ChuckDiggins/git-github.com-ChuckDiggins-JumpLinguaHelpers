@@ -262,6 +262,7 @@ public struct RomanceVerbModel : Identifiable {
     public let modelVerb : String
     public var exceptionList = [Exception]()
     public var specialPatternList = [SpecialPattern]()
+    var modelStem = ""
     var includeWord = ""
     var includeSuffixList = [String]()
     var excludeSuffixList = [String]()
@@ -288,6 +289,14 @@ public struct RomanceVerbModel : Identifiable {
         self.includeWord = includeWord
         self.includeSuffixList = includeSuffixList
         self.excludeSuffixList = excludeSuffixList
+    }
+    
+    mutating public func setModelStem(modelStem : String){
+        self.modelStem = modelStem
+    }
+    
+    public func getModelStem()->String{
+        modelStem
     }
     
     mutating public func appendSpecialPattern(tense: Tense, pattern: SpecialPatternType){

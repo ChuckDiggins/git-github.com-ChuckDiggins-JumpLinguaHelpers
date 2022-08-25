@@ -852,7 +852,6 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "liar")
     thisVerb.appendSuffix(suffix: "chiar")
     thisVerb.appendSuffix(suffix: "piar")
-    thisVerb.appendSuffix(suffix: "diar")
     thisVerb.appendSuffix(suffix: "stiar")
     thisVerb.appendSuffix(suffix: "spiar")
     thisVerb.appendSuffix(suffix: "ipiar")
@@ -863,6 +862,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "ociar")
     thisVerb.appendSuffix(suffix: "squiar")  //esquiar, but not acequiar
     thisVerb.appendExcludeSuffix(suffix: "mpiar")
+    thisVerb.appendExcludeSuffix(suffix: "diar")
     verbModels.append(thisVerb)
     
     idNum = 44

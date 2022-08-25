@@ -282,7 +282,7 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "encantar", english: "enchant", french: "adorer"),
     JsonVerb(spanish: "encender", english: "turn on", french: "allumer",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "encoger", english: "shrink",    french: "rétrécir", transitivity: .transitive, verbType : "N"),
-    JsonVerb(spanish: "encontrar", english: "find",    french: "trouver", transitivity: .transitive, verbType : "N"),
+    JsonVerb(spanish: "encontrar", english: "find",    french: "trouver"),
     JsonVerb(spanish: "engullir", english: "gobble", french: "engloutir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "enlucir", english: "plaster", french: "plâtrer"),
     JsonVerb(spanish: "enrocar", english: "castle", french: "roquer"),
