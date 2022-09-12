@@ -77,13 +77,23 @@ public enum SpecialPatternType : String {
     [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
     
     public static var stemChangingCommonSpanish =
-    [SpecialPatternType.e2i, .e2ie, .o2ue]
+    [SpecialPatternType.e2i, .e2ie, .o2ue, .i2ie]
+    
+    public static var stemChangingUncommonSpanish =
+    [SpecialPatternType.e2íe, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
     
     public static var stemChangingPreteriteSpanish =
     [SpecialPatternType.e2i, .o2u, .u2uy]
     
     public static var stemChangingFrenchAll =
     [SpecialPatternType.e2íe, .ev2o, .é2è, .e2è, .é2ie, .o2e, .l2ll, .t2tt, .y2i]
+    
+    public static var orthoChangingCommonSpanish =
+    [SpecialPatternType.a2aig, .c2zc, .c2z, .g2j, .gu2g,]
+    
+    public static var orthoChangingUncommonSpanish =
+    [SpecialPatternType.cab2quep, .c2g, .c2qu, .c2zg, .ec2ig, .g2gu,
+     .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
     
     public static var orthoChangingSpanish =
     [SpecialPatternType.a2aig, .cab2quep, .c2g, .c2qu, .c2zg, .c2z, .c2zc, .ec2ig, .gu2g, .g2gu, .g2j,
