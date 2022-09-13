@@ -77,10 +77,10 @@ public enum SpecialPatternType : String {
     [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
     
     public static var stemChangingCommonSpanish =
-    [SpecialPatternType.e2i, .e2ie, .o2ue, .i2ie]
+    [SpecialPatternType.i2í, .e2ie, .o2ue, .i2ie, .u2uy, .u2ú,]
     
     public static var stemChangingUncommonSpanish =
-    [SpecialPatternType.e2íe, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
+    [SpecialPatternType.e2íe, .e2y, .e2ye, .i2ie, .o2u, .o2hue, .u2ue,]
     
     public static var stemChangingPreteriteSpanish =
     [SpecialPatternType.e2i, .o2u, .u2uy]
