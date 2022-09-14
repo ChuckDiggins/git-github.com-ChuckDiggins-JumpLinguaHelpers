@@ -105,7 +105,6 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "aborrecer", english: "abhor",    french: "détester"),
     
     JsonVerb(spanish: "abolir", english: "abolish",    french: "abolir"),
-    
     JsonVerb(spanish: "abrir", english: "open",        french: "ouvrir"),
     JsonVerb(spanish: "abrazar", english: "hug",    french: "embrasser"),
     JsonVerb(spanish: "absolver", english: "absolve",    french: "absoudre"),
@@ -606,6 +605,7 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "tostar", english: "toast",    french: "porter un toast"),
     JsonVerb(spanish: "trabajar", english: "work",    french: "travailler", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "traducir", english: "translate",    french: "traduire"),
+    JsonVerb(spanish: "traer", english: "bring",    french: "apporter"),
     JsonVerb(spanish: "transcender", english: "transcend", french: "transcender",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "trasoír", english: "overhear", french: "entendre"),
     JsonVerb(spanish: "tropezar", english: "stumble",    french: "trébucher", transitivity: .transitive, verbType : "N"),

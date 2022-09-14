@@ -360,7 +360,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            person: ExceptionPerson.S1toP3All,
                            from: "d", to: "duv")
     thisVerb.appendSpecialPattern(tense: .preterite, pattern: .uv_pret)
-    thisVerb.appendWord(word: "andar")
+    thisVerb.appendSuffix(suffix: "andar")
     thisVerb.appendSuffix(suffix: "desandar")
     //print("andar has consistent verb ending \(thisVerb.getConsistentVerbEnding())")
     verbModels.append(thisVerb)
