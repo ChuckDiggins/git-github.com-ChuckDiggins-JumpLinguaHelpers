@@ -58,41 +58,4 @@ public struct VerbModelManager{
         return brv
     }
     
-    /*
-    func unConjugate(verbForm : String)->( BSpanishVerb, Tense, Person)  {
-        var conjugateForm = ""
-        //var verb = BSpanishVerb()
-        
-        var count = 0
-        for v in m_masterVerbList {
-            let verb = v as! BSpanishVerb
-            for tense in Tense.indicativeAll {
-                for person in Person.all {
-                    conjugateForm = verb.getConjugatedMorphStruct(tense: tense, person: person, conjugateEntirePhrase : false ).finalVerbForm()
-                    conjugateForm = Utilities().removeLeadingOrFollowingBlanks(characterArray: conjugateForm)
-                    if conjugateForm == verbForm {
-                        print("\(count) verb forms were searched")
-                        return (verb, tense, person)
-                    }
-                    count += 1
-                }
-            }
-            
-            for tense in Tense.subjunctiveAll {
-                for person in Person.all {
-                    conjugateForm = verb.getConjugatedMorphStruct(tense: tense, person: person, conjugateEntirePhrase : false ).finalVerbForm()
-                    conjugateForm = Utilities().removeLeadingOrFollowingBlanks(characterArray: conjugateForm)
-                    if conjugateForm == verbForm {
-                        print("\(count) verb forms were searched")
-                        return (verb, tense, person)
-                    }
-                    count += 1
-                }
-            }
-        }
-        print("\(count) verb forms were searched")
-        return (BSpanishVerb(), .present, .S1)
-    }
- */
-    
 }

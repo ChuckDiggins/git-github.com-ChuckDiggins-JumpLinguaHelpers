@@ -8,6 +8,7 @@
 import UIKit
 import JumpLinguaHelpers
 
+
 public struct JsonVerbModel: Codable, CustomStringConvertible {
     var idNum: Int
     public var modelVerbString: String

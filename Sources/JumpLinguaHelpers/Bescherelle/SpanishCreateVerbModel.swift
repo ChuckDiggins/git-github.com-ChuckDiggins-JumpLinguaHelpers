@@ -157,15 +157,15 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     
     
     idNum = 51
-    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "oir")
+    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "oír")
     thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
                            tense: ExceptionTense.PRESENT,
                            person: ExceptionPerson.S1S2S3P3,
                            from: "oir", to: "oir")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.STANDALONE,
-                           tense: ExceptionTense.PRESENT,  //not used
-                           person: ExceptionPerson.S3,   //not used
-                           from: "oído", to: "oyendo")  //not used
+//    thisVerb.appendException(exceptionPattern: ExceptionPattern.STANDALONE,
+//                           tense: ExceptionTense.PRESENT,  //not used
+//                           person: ExceptionPerson.S3,   //not used
+//                           from: "oído", to: "oyendo")  //not used
     thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEENDING,
                            tense: ExceptionTense.GERUND,
                            person: ExceptionPerson.S1S2S3P3,
@@ -298,7 +298,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            from: "i", to: "ie")
     thisVerb.appendSpecialPattern(tense: .present, pattern: .i2ie)
     thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .i2ie)
-    thisVerb.appendSuffix(suffix: "quirir")
+    thisVerb.appendSuffix(suffix: "uirir")
     verbModels.append(thisVerb)
     
     idNum = 11
@@ -386,11 +386,11 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "ullar")
     thisVerb.appendSuffix(suffix: "aular")
     thisVerb.appendSuffix(suffix: "cuar")
-    thisVerb.appendSuffix(suffix: "uchar")
-    thisVerb.appendSuffix(suffix: "umar")
-    thisVerb.appendSuffix(suffix: "usar")  //13.2.4
+    thisVerb.appendSuffix(suffix: "huchar")
+    thisVerb.appendSuffix(suffix: "humar")
+    thisVerb.appendSuffix(suffix: "husar")  //13.2.4
     thisVerb.appendSuffix(suffix: "aupar")
-    thisVerb.appendSuffix(suffix: "unar")
+    thisVerb.appendSuffix(suffix: "aunar")
     print("aullar has consistent verb ending \(thisVerb.getConsistentVerbEnding())")
     verbModels.append(thisVerb)
     
@@ -434,6 +434,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "ñir")
     thisVerb.appendSuffix(suffix: "llir")
     thisVerb.appendExcludeSuffix(suffix: "eñir")
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .ñ_pret)
     verbModels.append(thisVerb)
     
     
@@ -936,6 +937,7 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSpecialPattern(tense: .preterite, pattern: .g2gu)
     thisVerb.appendSuffix(suffix: "jugar")
     thisVerb.appendSuffix(suffix: "ugar")
+    thisVerb.appendExcludeSuffix(suffix: "conjugar")
     verbModels.append(thisVerb)
     
 
@@ -991,6 +993,8 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendExcludeSuffix(suffix: "segar")
     thisVerb.appendExcludeSuffix(suffix: "cegar")
     thisVerb.appendSuffix(suffix: "gar")
+    thisVerb.appendWord(word: "conjugar")
+    
     verbModels.append(thisVerb)
     
     idNum = 54
@@ -1669,19 +1673,22 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     
     idNum = 87
     idNum = 788
-    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "vivir")
+    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "regularIR")
     thisVerb.appendSuffix(suffix: "ir")
+    thisVerb.appendWord(word: "regularIR")
     //thisVerb.appendSuffix(suffix: "vivir")
     verbModels.append(thisVerb)
     
     idNum = 5
-    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "cortar")
+    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "regularAR")
     thisVerb.appendSuffix(suffix: "ar")
+    thisVerb.appendWord(word: "regularAR")
     verbModels.append(thisVerb)
     
     idNum = 6
-    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "deber")
+    thisVerb = RomanceVerbModel(id: idNum, modelVerb: "regularER")
     thisVerb.appendSuffix(suffix: "er")
+    thisVerb.appendWord(word: "regularER")
     verbModels.append(thisVerb)
     
     return verbModels

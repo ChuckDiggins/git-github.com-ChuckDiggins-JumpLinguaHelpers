@@ -22,7 +22,7 @@ public enum PhraseType{
 
 public enum  VerbEnding : String
 {
-    case AR, ER, IR, accentIR, umlautIR, OIR, RE, none
+    case AR, ER, IR, accentIR, umlautIR, OIR, RE, none, ALL
     
     public func getEnding()->String {
         switch self{
@@ -42,9 +42,13 @@ public enum  VerbEnding : String
             return "re"
         case .none:
             return "no ending"
+        case .ALL:
+            return "All"
         }
     }
     
+    public static var spanishMainVerbTypes = [VerbEnding.ALL, .AR, .ER, .IR]
+    public static var frenchMainVerbTypes = [VerbEnding.ALL, .ER, .IR, .OIR, .RE]
     public func getSpanishEndings()->Array<VerbEnding>{
         var verbEndingList = Array<VerbEnding>()
         verbEndingList.append(.AR)

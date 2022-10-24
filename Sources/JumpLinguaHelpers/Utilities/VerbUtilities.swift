@@ -659,7 +659,8 @@ public struct VerbUtilities {
     if  verbWord.hasSuffix("ar"){ return VerbEnding.AR }
     if verbWord.hasSuffix("er") {return VerbEnding.ER  }
     if verbWord.hasSuffix("ir")  { return VerbEnding.IR  }
-    if verbWord.hasSuffix("ír") { return VerbEnding.accentIR } //oír and reír
+//    if verbWord.hasSuffix("ír") { return VerbEnding.accentIR } //oír and reír
+    if verbWord.hasSuffix("ír") { return VerbEnding.IR } //oír and reír
     if verbWord.hasSuffix("re") { return VerbEnding.RE }   //joindre (French)
      return VerbEnding.none
     }

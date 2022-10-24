@@ -8,6 +8,18 @@
 import Foundation
 import JumpLinguaHelpers
 
+public enum VerbModelType : String, CaseIterable {
+    
+    case regular   //ar, er and ir together
+    case critical  //spanish:  ser, estar, ver, oir, etc.
+    case special   //spanish:  tener, gustar, jugar, decir, creer, conocer
+    case important //spanish: encontrar, pedir, dirigir, pedir, influir
+    case sparse    //avergonzar
+    case undefined //
+    
+    public static var mainVerbModelTypes = [VerbModelType.regular, .critical, .special, .important, .sparse]
+}
+
 public enum SpecialPatternType : String {
     //Spanish
     case e2i = "e to i"  //pedir
@@ -61,6 +73,8 @@ public enum SpecialPatternType : String {
     case uv_pret = "uv pret" //andar, estar, tener
     case u_pret = "u pret" //caber, haber, poder, poner, saber
     case j_pret = "j pret" //conducir, decir, traducir, traer
+    case ñ_pret = "ñi to ñ pret" //bruñir - drop the i after ñ
+    
     
     case none = "none"
     
@@ -100,7 +114,7 @@ public enum SpecialPatternType : String {
      .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
     
     public static var irregPreteriteSpanish =
-    [SpecialPatternType.i_pret, .j_pret, .u_pret, .uv_pret]
+    [SpecialPatternType.i_pret, .j_pret, .u_pret, .uv_pret, .ñ_pret]
     
     public func isOrthoChangingSpanish() -> Bool {
         if SpecialPatternType.orthoChangingSpanish.contains(self) {return true}
@@ -267,6 +281,16 @@ public struct Exception : Codable{
     }
 }
 
+extension RomanceVerbModel: Equatable, Hashable{
+    public static func == (lhs: RomanceVerbModel, rhs: RomanceVerbModel)->Bool {
+        return lhs.modelVerb == rhs.modelVerb
+    }
+    
+    public func hash(into hasher: inout Hasher){
+        hasher.combine(modelVerb)
+    }
+}
+
 public struct RomanceVerbModel : Identifiable {
     public let id : Int
     public let modelVerb : String
@@ -392,6 +416,7 @@ public struct RomanceVerbModel : Identifiable {
         case "uv pret"   : spt.pattern = .uv_pret //andar, estar, tener
         case "u pret"   : spt.pattern = .u_pret //caber, haber, poder, poner, saber
         case "j pret"   : spt.pattern = .j_pret //conducir, decir, traducir, traer
+        case "ñi to ñ pret"   : spt.pattern = .ñ_pret //bruñir, bullir
             
         case "none": spt.pattern = .none
         default: spt.pattern = .none

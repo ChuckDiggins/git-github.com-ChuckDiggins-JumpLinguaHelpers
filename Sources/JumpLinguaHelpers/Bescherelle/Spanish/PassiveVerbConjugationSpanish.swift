@@ -18,7 +18,7 @@ public struct PassiveVerbConjugationSpanish {
         //all the same!
         
         switch verb.m_verbEnding {
-        case .AR,.ER,.IR, .accentIR, .umlautIR, .OIR, .RE, .none:
+        case .AR,.ER,.IR, .accentIR, .umlautIR, .OIR, .RE, .none, .ALL:
             morphStruct =  MorphStruct(person : Person.S1)
         }
         

@@ -34,7 +34,7 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
     
     public func loadVerbModels(){
         if verbModels.count == 0 {
-            createVerbModels(mode: .both)
+            createVerbModels(mode: .algorithm)
             //listVerbModels()
         }
     }
@@ -53,7 +53,6 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
             saveVerbModelsToJson()
             createVerbModelsFromJson()
         }
-        
     }
     
     
@@ -176,7 +175,6 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         return nullVerbModel
     }
     
-    
     public func listVerbModels(){
         var vmIndex = 0
         print("Start of model dump\n\n")
@@ -208,7 +206,7 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
     }
     
     public func getVerbModels()->[RomanceVerbModel]{
-        return verbModels
+        verbModels
     }
     
     public func getVerbModelsWithVerbEnding(verbEnding: VerbEnding)->[RomanceVerbModel]{

@@ -95,7 +95,7 @@ var myMultiLingualVerbListB: [JsonVerb] = [
    
     var myMasterVerbList: [JsonVerb] = [
     
-        JsonVerb(spanish: "xxxxxxar", english: "xxxe",    french: "xxxer"),
+//        JsonVerb(spanish: "xxxxxxar", english: "xxxe",    french: "xxxer"),
         
     JsonVerb(spanish: "abandonar", english: "abandon",    french: "partir"),
     JsonVerb(spanish: "abarcar", english: "embrace",    french: "englober"),
@@ -169,7 +169,6 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "agradecer", english: "thank", french: "remercier"),
         JsonVerb(spanish: "agrandar", english: "enlarge",    french: "agrandir"),
         JsonVerb(spanish: "agravar", english: "aggravate",    french: "aggraver"),
-        JsonVerb(spanish: "agregar", english: "aggregate",    french: "ajouter"),
         JsonVerb(spanish: "agrupar", english: "form groups",    french: "grouper"),
     JsonVerb(spanish: "aguar", english: "wait", french: "attendre"),
         JsonVerb(spanish: "aguantar", english: "tolerate",    french: "endurer"),
@@ -247,6 +246,7 @@ var myMultiLingualVerbListB: [JsonVerb] = [
         JsonVerb(spanish: "barrer", english: "sweep",    french: "balayer"),
         JsonVerb(spanish: "bastar", english: "suffice",    french: "être assez"),
     JsonVerb(spanish: "beber", english: "drink", french: "boire",transitivity: .transitive, verbType : "N"),
+        
         JsonVerb(spanish: "beneficiar", english: "benefit",    french: "bénéficier à"),
     JsonVerb(spanish: "bendecir", english: "bless",    french: "bénir"),
         JsonVerb(spanish: "besar", english: "kiss",    french: "embrasser"),
@@ -301,6 +301,7 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "conducir", english: "drive",    french: "conduire", transitivity: .ambitransitive, verbType : "NAC"),
     
     JsonVerb(spanish: "confesar", english: "confess",    french: "avouer"),
+    JsonVerb(spanish: "conjugar", english: "conjugate",    french: "combiner"),
     JsonVerb(spanish: "conseguir", english: "obtain",    french: "avoir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "construir", english: "build",    french: "construire", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "convertir", english: "convert",    french: "convertir", transitivity: .transitive, verbType : "N"),
@@ -326,11 +327,10 @@ var myMultiLingualVerbListB: [JsonVerb] = [
     JsonVerb(spanish: "decidir", english: "decide", french: "décider"),
     JsonVerb(spanish: "defender", english: "defend", french: "défendre",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "defoír", english: "stop", french: "arrêter"),
-    JsonVerb(spanish: "desoír", english: "ignore", french: "ignorer"),
     JsonVerb(spanish: "dejar", english: "leave",    french: "partir", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "delinquir", english: "commit a crime", french: "offenser",transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "derelinquir", english: "relinquish",    french: "abandonner"),
-    JsonVerb(spanish: "derrelinquir", english: "tear up ",    french: "déchirer"),
+    JsonVerb(spanish: "derelinquir", english: "tear up ",    french: "déchirer"),
     JsonVerb(spanish: "demostrar", english: "show",    french: "afficher", transitivity: .ambitransitive, verbType : "NAC"),
     JsonVerb(spanish: "desahijar", english: "uproot",    french: "déraciner", transitivity: .transitive, verbType : "N"),
     JsonVerb(spanish: "desairar", english: "snub",    french: "snober", transitivity: .transitive, verbType : "N"),
