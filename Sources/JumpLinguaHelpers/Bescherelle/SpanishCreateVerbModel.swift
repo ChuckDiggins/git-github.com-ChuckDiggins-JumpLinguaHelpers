@@ -158,10 +158,66 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     
     idNum = 51
     thisVerb = RomanceVerbModel(id: idNum, modelVerb: "oír")
-    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
                            tense: ExceptionTense.PRESENT,
-                           person: ExceptionPerson.S1S2S3P3,
-                           from: "oir", to: "oir")
+                           person: ExceptionPerson.S1,
+                           from: "xxx", to: "oigo")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S2,
+                           from: "xxx", to: "oyes")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.S3,
+                           from: "xxx", to: "oye")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.P1,
+                           from: "xxx", to: "oímos")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRESENT,
+                           person: ExceptionPerson.P3,
+                           from: "xxx", to: "oyen")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRETERITE,
+                           person: ExceptionPerson.S2,
+                           from: "xxx", to: "oíste")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRETERITE,
+                           person: ExceptionPerson.S3,
+                           from: "xxx", to: "oyó")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRETERITE,
+                           person: ExceptionPerson.P1,
+                           from: "xxx", to: "oímos")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRETERITE,
+                           person: ExceptionPerson.P2,
+                           from: "xxx", to: "oísteis")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRETERITE,
+                           person: ExceptionPerson.P3,
+                           from: "xxx", to: "oyeron")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACEINFINITIVE,
+                           tense: ExceptionTense.FUTURE,
+                           person: ExceptionPerson.S1toP3All,
+                           from: "oír", to: "oir")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.STEM,
+                           tense: ExceptionTense.PRESENTSUBJ,
+                           person: ExceptionPerson.S1toP3All,
+                           from: "oír", to: "oig")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRESENTSUBJ,
+                           person: ExceptionPerson.P1,
+                           from: "oír", to: "oigamos")
+    thisVerb.appendException(exceptionPattern: ExceptionPattern.REPLACE,
+                           tense: ExceptionTense.PRESENTSUBJ,
+                           person: ExceptionPerson.P2,
+                           from: "oír", to: "oigáis")
+//    thisVerb.appendException(exceptionPattern: ExceptionPattern.SPECIAL,
+//                           tense: ExceptionTense.PRESENT,
+//                           person: ExceptionPerson.S1S2S3P3,
+//                           from: "oir", to: "oir")
 //    thisVerb.appendException(exceptionPattern: ExceptionPattern.STANDALONE,
 //                           tense: ExceptionTense.PRESENT,  //not used
 //                           person: ExceptionPerson.S3,   //not used
@@ -391,7 +447,6 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "husar")  //13.2.4
     thisVerb.appendSuffix(suffix: "aupar")
     thisVerb.appendSuffix(suffix: "aunar")
-    print("aullar has consistent verb ending \(thisVerb.getConsistentVerbEnding())")
     verbModels.append(thisVerb)
     
     idNum = 16

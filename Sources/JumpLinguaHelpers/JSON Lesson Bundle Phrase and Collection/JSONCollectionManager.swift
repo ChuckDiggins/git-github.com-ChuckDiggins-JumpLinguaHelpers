@@ -37,7 +37,7 @@ public class JSONCollectionManager: Codable {
             myCollectionList.append(collection)
             if myCollectionList.count >= total {break}
             
-            print("encodeWordCollection \(collection.collectionName)")
+//            print("encodeWordCollection \(collection.collectionName)")
         }
         encodeWords()
     }

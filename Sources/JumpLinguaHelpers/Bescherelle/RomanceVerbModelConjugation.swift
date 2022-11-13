@@ -60,11 +60,11 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         switch currentLanguage {
         case .Spanish:
             verbModels = createSpanishVerbModels()
-            print("Spanish verb model count = \(verbModels.count)")
+//            print("Spanish verb model count = \(verbModels.count)")
         case .French:
             verbModels = createFrenchVerbModels()
 //            print(verbModels[3])
-            print("French verb model count = \(verbModels.count)")
+//            print("French verb model count = \(verbModels.count)")
         default:
             break
         }
@@ -77,19 +77,19 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
             let vm = verbModels[i]
             //convert to JsonVerbModel
             let jvm = JsonVerbModel(rvm: vm)
-            if ( vm.id == 46){
+            if ( vm.id == 555){
                 jvm.printThyself()
             }
             //then append and encode
             m_jsonVerbModelManager.appendVerbModel(verbModel: jvm)
         }
-        if true {
-            print("for \(currentLanguage) - json verb model dictionary count = \(m_jsonVerbModelManager.getVerbModelCount()) ... verbModels count = \(verbModels.count)")
-            let finalIndex = verbModels.count-1
-            let jsonFinalModelVerb = m_jsonVerbModelManager.getVerbModelAt(index: finalIndex).modelVerbString
-            let algFinalModelVerb = verbModels[finalIndex].modelVerb
-            print("final verb models.  Json: \(jsonFinalModelVerb) Algorithmic: \(algFinalModelVerb)")
-        }
+//        if false {
+//            print("for \(currentLanguage) - json verb model dictionary count = \(m_jsonVerbModelManager.getVerbModelCount()) ... verbModels count = \(verbModels.count)")
+//            let finalIndex = verbModels.count-1
+//            let jsonFinalModelVerb = m_jsonVerbModelManager.getVerbModelAt(index: finalIndex).modelVerbString
+//            let algFinalModelVerb = verbModels[finalIndex].modelVerb
+//            print("final verb models.  Json: \(jsonFinalModelVerb) Algorithmic: \(algFinalModelVerb)")
+//        }
     }
     
     public func createVerbModelsFromJson(){
@@ -243,6 +243,7 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         }
         return rmvList
     }
+    
     
     public func getVerbModelIDsThatHavePattern(inputPatternStruct: SpecialPatternStruct)->[Int]{
         var idList = [Int]()

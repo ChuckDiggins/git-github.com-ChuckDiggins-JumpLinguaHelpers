@@ -10,17 +10,72 @@ import JumpLinguaHelpers
 
 public enum VerbModelType : String, CaseIterable {
     
-    case regular   //ar, er and ir together
-    case critical  //spanish:  ser, estar, ver, oir, etc.
-    case special   //spanish:  tener, gustar, jugar, decir, creer, conocer
-    case important //spanish: encontrar, pedir, dirigir, pedir, influir
-    case sparse    //avergonzar
+    case Regular   //ar, er and ir together
+    case Critical  //spanish:  ser, estar, ver, oir, etc.
+    case Special   //spanish:  tener, gustar, jugar, decir, creer, conocer
+    case Important //spanish: encontrar, pedir, dirigir, pedir, influir
+    case Sparse    //avergonzar
     case undefined //
     
-    public static var mainVerbModelTypes = [VerbModelType.regular, .critical, .special, .important, .sparse]
+    public static var mainVerbModelTypes = [VerbModelType.Regular, .Critical, .Special, .Important, .Sparse]
+    
 }
 
-public enum SpecialPatternType : String {
+public enum NewVerbModelType : String, CaseIterable {
+    
+    case Regular   //ar, er and ir together
+    case Critical  //spanish:  ser, estar, ver, oir, etc.
+    case Irregular   //spanish:  tener, gustar, jugar, decir, creer, conocer
+    case StemChanging1 //spanish: encontrar, pedir, dirigir, pedir, influir
+    case StemChanging2 //spanish: encontrar, pedir, dirigir, pedir, influir
+    case StemChanging3 //
+    case SpellChanging1    //avergonzar
+    case SpellChanging2    //avergonzar
+    case StemAndSpellChanging    //avergonzar
+    case undefined //
+    
+    
+    public func getTypeName()->String{
+        switch self{
+        case .Regular: return "Regular"
+        case .Critical: return "Very irregular"
+        case .StemChanging1: return "Stem changing 1"
+        case .StemChanging2: return "Stem changing 2"
+        case .StemChanging3: return "Stem changing 3"
+        case .SpellChanging1: return "Spell changing 1"
+        case .SpellChanging2: return "Spell changing 2"
+        case .StemAndSpellChanging: return "Stem and spell changing"
+        case .Irregular: return "Irregular"
+        case .undefined: return "Undefined"
+        }
+    }
+    
+    public func getAbbreviatedTypeName()->String{
+        switch self{
+        case .Regular: return "Reg"
+        case .Critical: return "Crit"
+        case .StemChanging1: return "St1"
+        case .StemChanging2: return "St2"
+        case .StemChanging3: return "St3"
+        case .SpellChanging1: return "Sp1"
+        case .SpellChanging2: return "Sp2"
+        case .StemAndSpellChanging: return "St&Sp"
+        case .Irregular: return "Irg"
+        case .undefined: return "Und"
+        }
+    }
+    
+    
+    
+    public static var allSpanishVerbModelTypes = [NewVerbModelType.Regular, .Critical, .Irregular, .StemChanging1, .StemChanging2, .StemChanging3 , .SpellChanging1, .SpellChanging2, .StemAndSpellChanging]
+    
+    public static var limitedSpanishVerbModelTypeList =
+    [NewVerbModelType.StemChanging1, .StemChanging2, .StemChanging3, .SpellChanging1, .SpellChanging2, .Irregular]
+}
+
+
+public enum SpecialPatternType : String, Equatable {
+    
     //Spanish
     case e2i = "e to i"  //pedir
     case e2ie = "e to ie" //tener, venir
@@ -83,17 +138,19 @@ public enum SpecialPatternType : String {
     public static var stemChangingOSpanish =  [SpecialPatternType.o2u, .o2ue, .o2hue]
     public static var stemChangingUSpanish =  [SpecialPatternType.u2ue, .u2ú, .u2uy]
     
-    
     public static var stemChangingAllSpanish =
     [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2ie, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
 
     public static var stemChangingPresentSpanish =
     [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
     
-    public static var stemChangingCommonSpanish =
+    public static var stemChangingSpanish1 =
     [SpecialPatternType.i2í, .e2ie, .o2ue, .i2ie, .u2uy, .u2ú,]
     
-    public static var stemChangingUncommonSpanish =
+    public static var stemChangingSpanish2 =
+    [SpecialPatternType.i2í, .e2ie, .o2ue, .i2ie, .u2uy, .u2ú,]
+    
+    public static var stemChangingSpanish3 =
     [SpecialPatternType.e2íe, .e2y, .e2ye, .i2ie, .o2u, .o2hue, .u2ue,]
     
     public static var stemChangingPreteriteSpanish =
@@ -102,10 +159,10 @@ public enum SpecialPatternType : String {
     public static var stemChangingFrenchAll =
     [SpecialPatternType.e2íe, .ev2o, .é2è, .e2è, .é2ie, .o2e, .l2ll, .t2tt, .y2i]
     
-    public static var orthoChangingCommonSpanish =
+    public static var spellChangingSpanish1 =
     [SpecialPatternType.a2aig, .c2zc, .c2z, .g2j, .gu2g,]
     
-    public static var orthoChangingUncommonSpanish =
+    public static var spellChangingSpanish2 =
     [SpecialPatternType.cab2quep, .c2g, .c2qu, .c2zg, .ec2ig, .g2gu,
      .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
     
@@ -121,8 +178,42 @@ public enum SpecialPatternType : String {
         return false
     }
     
-    public func isStemChangingCommonSpanish() -> Bool {
-        if SpecialPatternType.stemChangingCommonSpanish.contains(self) {return true}
+    public func isStemChangingSpanish() -> Bool {
+        if SpecialPatternType.stemChangingAllSpanish.contains(self) {return true}
+        return false
+    }
+    
+    public func isIrregularSpanish() -> Bool {
+        if SpecialPatternType.irregPreteriteSpanish.contains(self) {return true}
+        return false
+    }
+    
+    public func isStemChangingFrench() -> Bool {
+        if SpecialPatternType.stemChangingFrenchAll.contains(self) {return true}
+        return false
+    }
+    
+    public func isStemChangingSpanish1() -> Bool {
+        if SpecialPatternType.stemChangingSpanish1.contains(self) {return true}
+        return false
+    }
+    public func isStemChangingSpanish2() -> Bool {
+        if SpecialPatternType.stemChangingSpanish2.contains(self) {return true}
+        return false
+    }
+    
+    public func isStemChangingSpanish3() -> Bool {
+        if SpecialPatternType.stemChangingSpanish3.contains(self) {return true}
+        return false
+    }
+    
+    public func isSpellChangingSpanish1() -> Bool {
+        if SpecialPatternType.spellChangingSpanish1.contains(self) {return true}
+        return false
+    }
+    
+    public func isSpellChangingSpanish2() -> Bool {
+        if SpecialPatternType.spellChangingSpanish2.contains(self) {return true}
         return false
     }
     
@@ -140,6 +231,8 @@ public enum SpecialPatternType : String {
         if SpecialPatternType.irregPreteriteSpanish.contains(self) {return true}
         return false
     }
+    
+    
     
 }
 
