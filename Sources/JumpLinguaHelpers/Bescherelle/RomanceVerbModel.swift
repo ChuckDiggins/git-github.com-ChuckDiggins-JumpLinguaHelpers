@@ -28,23 +28,23 @@ public enum NewVerbModelType : String, CaseIterable {
     case Irregular   //spanish:  tener, gustar, jugar, decir, creer, conocer
     case StemChanging1 //spanish: encontrar, pedir, dirigir, pedir, influir
     case StemChanging2 //spanish: encontrar, pedir, dirigir, pedir, influir
-    case StemChanging3 //
+//        case StemChanging3 //
     case SpellChanging1    //avergonzar
     case SpellChanging2    //avergonzar
-    case StemAndSpellChanging    //avergonzar
+//    case StemAndSpellChanging    //avergonzar
     case undefined //
     
     
     public func getTypeName()->String{
         switch self{
         case .Regular: return "Regular"
-        case .Critical: return "Very irregular"
+        case .Critical: return "Critical"
         case .StemChanging1: return "Stem changing 1"
         case .StemChanging2: return "Stem changing 2"
-        case .StemChanging3: return "Stem changing 3"
+//        case .StemChanging3: return "Stem changing 3"
         case .SpellChanging1: return "Spell changing 1"
         case .SpellChanging2: return "Spell changing 2"
-        case .StemAndSpellChanging: return "Stem and spell changing"
+//        case .StemAndSpellChanging: return "Stem/changing"
         case .Irregular: return "Irregular"
         case .undefined: return "Undefined"
         }
@@ -56,21 +56,25 @@ public enum NewVerbModelType : String, CaseIterable {
         case .Critical: return "Crit"
         case .StemChanging1: return "St1"
         case .StemChanging2: return "St2"
-        case .StemChanging3: return "St3"
+//        case .StemChanging3: return "St3"
         case .SpellChanging1: return "Sp1"
-        case .SpellChanging2: return "Sp2"
-        case .StemAndSpellChanging: return "St&Sp"
-        case .Irregular: return "Irg"
+        case .SpellChanging2: return "Spell group2"
+//        case .StemAndSpellChanging: return "St&Sp"
+        case .Irregular: return "Irregular"
         case .undefined: return "Und"
         }
     }
     
     
     
-    public static var allSpanishVerbModelTypes = [NewVerbModelType.Regular, .Critical, .Irregular, .StemChanging1, .StemChanging2, .StemChanging3 , .SpellChanging1, .SpellChanging2, .StemAndSpellChanging]
+    public static var spanishVerbModelTypes = [NewVerbModelType.Regular, .Critical, .Irregular, .StemChanging1, .StemChanging2, .SpellChanging1, .SpellChanging2]
     
     public static var limitedSpanishVerbModelTypeList =
-    [NewVerbModelType.StemChanging1, .StemChanging2, .StemChanging3, .SpellChanging1, .SpellChanging2, .Irregular]
+    [NewVerbModelType.StemChanging1, .StemChanging2, .SpellChanging1, .SpellChanging2, .Irregular]
+    
+    public static var stemChangingSpanishVerbModelTypeList = [NewVerbModelType.StemChanging1, .StemChanging2]
+    public static var spellChangingSpanishVerbModelTypeList = [NewVerbModelType.SpellChanging1, .SpellChanging2]
+    public static var irregularSpanishVerbModelTypeList = [NewVerbModelType.Irregular]
 }
 
 
@@ -148,10 +152,12 @@ public enum SpecialPatternType : String, Equatable {
     [SpecialPatternType.i2í, .e2ie, .o2ue, .i2ie, .u2uy, .u2ú,]
     
     public static var stemChangingSpanish2 =
-    [SpecialPatternType.i2í, .e2ie, .o2ue, .i2ie, .u2uy, .u2ú,]
+    [SpecialPatternType.e2íe, .e2y, .e2ye, .o2u, .o2hue, .u2ue,]
     
     public static var stemChangingSpanish3 =
-    [SpecialPatternType.e2íe, .e2y, .e2ye, .i2ie, .o2u, .o2hue, .u2ue,]
+    [SpecialPatternType.i2í]
+    
+    
     
     public static var stemChangingPreteriteSpanish =
     [SpecialPatternType.e2i, .o2u, .u2uy]
@@ -462,6 +468,7 @@ public struct RomanceVerbModel : Identifiable {
         switch patternStr {
         case "e to i" : spt.pattern = .e2i
         case "e to ie" : spt.pattern = .e2ie
+        case "i to ie" : spt.pattern = .i2ie
        
         case "e to y" : spt.pattern = .e2y //creer  preterite ... also e to í
         case "e to ye" : spt.pattern = .e2ye //erguir

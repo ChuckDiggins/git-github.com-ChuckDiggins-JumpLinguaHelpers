@@ -109,9 +109,9 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.FUTURE,
                            person: ExceptionPerson.S1toP3All,
                            from: "tener", to: "tendr")
+    thisVerb.appendSpecialPattern(tense: .present, pattern: .n2ng)
     thisVerb.appendSpecialPattern(tense: .present, pattern: .e2ie)
     thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .e2ie)
-    thisVerb.appendSpecialPattern(tense: .present, pattern: .n2ng)
                                   
     thisVerb.appendSuffix(suffix: "ener")
     verbModels.append(thisVerb)
@@ -1410,13 +1410,13 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            tense: ExceptionTense.PRETERITE,
                            person: ExceptionPerson.S1,
                            from: "c", to: "qu")  //this will change all the present subjunctive
-    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .c2qu)
-    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .c2qu)
     thisVerb.appendSuffix(suffix: "car")
     thisVerb.appendExcludeSuffix(suffix: "incar")
     thisVerb.appendExcludeSuffix(suffix: "orcar")
     thisVerb.appendExcludeSuffix(suffix: "olcar")
     thisVerb.appendExcludeSuffix(suffix: "ocar")
+    thisVerb.appendSpecialPattern(tense: .preterite, pattern: .c2qu)
+    thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .c2qu)
     verbModels.append(thisVerb)
     
     idNum = 73
