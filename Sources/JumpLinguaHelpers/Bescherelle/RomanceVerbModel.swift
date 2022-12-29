@@ -8,30 +8,28 @@
 import Foundation
 import JumpLinguaHelpers
 
-public enum VerbModelType : String, CaseIterable {
-    
-    case Regular   //ar, er and ir together
-    case Critical  //spanish:  ser, estar, ver, oir, etc.
-    case Special   //spanish:  tener, gustar, jugar, decir, creer, conocer
-    case Important //spanish: encontrar, pedir, dirigir, pedir, influir
-    case Sparse    //avergonzar
-    case undefined //
-    
-    public static var mainVerbModelTypes = [VerbModelType.Regular, .Critical, .Special, .Important, .Sparse]
-    
-}
+//public enum VerbModelType : String, CaseIterable {
+//    
+//    case Regular   //ar, er and ir together
+//    case Critical  //spanish:  ser, estar, ver, oir, etc.
+//    case Special   //spanish:  tener, gustar, jugar, decir, creer, conocer
+//    case Important //spanish: encontrar, pedir, dirigir, pedir, influir
+//    case Sparse    //avergonzar
+//    case undefined //
+//    
+//    public static var mainVerbModelTypes = [VerbModelType.Regular, .Critical, .Special, .Important, .Sparse]
+//    
+//}
 
 public enum NewVerbModelType : String, CaseIterable {
     
+    
     case Regular   //ar, er and ir together
     case Critical  //spanish:  ser, estar, ver, oir, etc.
+    case StemChanging //spanish: encontrar, pedir, dirigir, pedir, influir
+    case SpellChanging
     case Irregular   //spanish:  tener, gustar, jugar, decir, creer, conocer
-    case StemChanging1 //spanish: encontrar, pedir, dirigir, pedir, influir
-    case StemChanging2 //spanish: encontrar, pedir, dirigir, pedir, influir
-//        case StemChanging3 //
-    case SpellChanging1    //avergonzar
-    case SpellChanging2    //avergonzar
-//    case StemAndSpellChanging    //avergonzar
+    case LikeGustar  //gustar, paracer, etc.  ==
     case undefined //
     
     
@@ -39,13 +37,10 @@ public enum NewVerbModelType : String, CaseIterable {
         switch self{
         case .Regular: return "Regular"
         case .Critical: return "Critical"
-        case .StemChanging1: return "Stem changing 1"
-        case .StemChanging2: return "Stem changing 2"
-//        case .StemChanging3: return "Stem changing 3"
-        case .SpellChanging1: return "Spell changing 1"
-        case .SpellChanging2: return "Spell changing 2"
-//        case .StemAndSpellChanging: return "Stem/changing"
+        case .StemChanging: return "Stem changing"
+        case .SpellChanging: return "Spell changing"
         case .Irregular: return "Irregular"
+        case .LikeGustar: return "Like gustar"
         case .undefined: return "Undefined"
         }
     }
@@ -54,26 +49,25 @@ public enum NewVerbModelType : String, CaseIterable {
         switch self{
         case .Regular: return "Reg"
         case .Critical: return "Crit"
-        case .StemChanging1: return "St1"
-        case .StemChanging2: return "St2"
-//        case .StemChanging3: return "St3"
-        case .SpellChanging1: return "Sp1"
-        case .SpellChanging2: return "Spell group2"
-//        case .StemAndSpellChanging: return "St&Sp"
-        case .Irregular: return "Irregular"
+        case .StemChanging: return "Stem"
+        case .SpellChanging: return "Spell"
+        case .Irregular: return "Irreg"
+        case .LikeGustar: return "~Gustar"
         case .undefined: return "Und"
         }
     }
     
+    public static var allNewVerbModelTypes = NewVerbModelType.allCases
     
     
-    public static var spanishVerbModelTypes = [NewVerbModelType.Regular, .Critical, .Irregular, .StemChanging1, .StemChanging2, .SpellChanging1, .SpellChanging2]
+    
+    public static var spanishVerbModelTypes = [NewVerbModelType.Regular, .Critical, .Irregular, .StemChanging, .SpellChanging]
     
     public static var limitedSpanishVerbModelTypeList =
-    [NewVerbModelType.StemChanging1, .StemChanging2, .SpellChanging1, .SpellChanging2, .Irregular]
+    [NewVerbModelType.StemChanging, .SpellChanging, .Irregular]
     
-    public static var stemChangingSpanishVerbModelTypeList = [NewVerbModelType.StemChanging1, .StemChanging2]
-    public static var spellChangingSpanishVerbModelTypeList = [NewVerbModelType.SpellChanging1, .SpellChanging2]
+    public static var stemChangingSpanishVerbModelTypeList = [NewVerbModelType.StemChanging]
+    public static var spellChangingSpanishVerbModelTypeList = [NewVerbModelType.SpellChanging]
     public static var irregularSpanishVerbModelTypeList = [NewVerbModelType.Irregular]
 }
 
@@ -84,6 +78,7 @@ public enum SpecialPatternType : String, Equatable {
     case e2i = "e to i"  //pedir
     case e2ie = "e to ie" //tener, venir
     case e2y = "e to y"  //creer  preterite ... also e to í
+    case í2y = "í to y"  //oír
     case e2ye = "e to ye"  //erguir
     case i2ie = "i to ie"  //adquirir
     case i2í = "i to í"  //prohibir / enraizar /guiar
@@ -95,7 +90,7 @@ public enum SpecialPatternType : String, Equatable {
     case u2uy = "u to uy"  //influir
     
     //Spanish and French
-    case e2íe = "e to íe"  //reír
+    case e2í = "e to í"  //reír
     
     //French
     case ev2o = "ev to o"  //devoir
@@ -109,6 +104,9 @@ public enum SpecialPatternType : String, Equatable {
     
     //spell/ortho changing
    
+    case a2é = "a to é"  //dar - present subj
+    case a2oy = "a to oy"  //dar
+    case ab2up = "ab to up"  //saber (supe)
     case a2aig = "a to aig"  //caer, raer, traer
     case cab2quep = "cab to quep"  //caber
     case c2g = "c to g"  //hacer - hago, satisfacer
@@ -128,34 +126,29 @@ public enum SpecialPatternType : String, Equatable {
     case s2sg = "s to sg"  //asir
     case z2c = "z to c"  //enraizar, empezar
     
-    case i_pret = "i pret" //hacer, querer, venir
+    //irregular preterite
+    case i_pret = "i pret" //hacer, querer, venir, oír
     case uv_pret = "uv pret" //andar, estar, tener
     case u_pret = "u pret" //caber, haber, poder, poner, saber
     case j_pret = "j pret" //conducir, decir, traducir, traer
     case ñ_pret = "ñi to ñ pret" //bruñir - drop the i after ñ
     
+    //irregular conditional/future
+    case irreg = "irregular"
     
     case none = "none"
     
-    public static var stemChangingESpanish =  [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye]
+    public static var stemChangingESpanish =  [SpecialPatternType.e2i, .e2ie, .e2í, .e2y, .e2ye]
     public static var stemChangingISpanish =  [SpecialPatternType.i2ie, .i2í]
     public static var stemChangingOSpanish =  [SpecialPatternType.o2u, .o2ue, .o2hue]
     public static var stemChangingUSpanish =  [SpecialPatternType.u2ue, .u2ú, .u2uy]
     
     public static var stemChangingAllSpanish =
-    [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2ie, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
+    [SpecialPatternType.e2i, .e2ie, .e2í, .e2y, .e2ye, .i2ie, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
 
     public static var stemChangingPresentSpanish =
-    [SpecialPatternType.e2i, .e2ie, .e2íe, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
+    [SpecialPatternType.e2i, .e2ie, .e2í, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
     
-    public static var stemChangingSpanish1 =
-    [SpecialPatternType.i2í, .e2ie, .o2ue, .i2ie, .u2uy, .u2ú,]
-    
-    public static var stemChangingSpanish2 =
-    [SpecialPatternType.e2íe, .e2y, .e2ye, .o2u, .o2hue, .u2ue,]
-    
-    public static var stemChangingSpanish3 =
-    [SpecialPatternType.i2í]
     
     
     
@@ -163,7 +156,7 @@ public enum SpecialPatternType : String, Equatable {
     [SpecialPatternType.e2i, .o2u, .u2uy]
     
     public static var stemChangingFrenchAll =
-    [SpecialPatternType.e2íe, .ev2o, .é2è, .e2è, .é2ie, .o2e, .l2ll, .t2tt, .y2i]
+    [SpecialPatternType.e2í, .ev2o, .é2è, .e2è, .é2ie, .o2e, .l2ll, .t2tt, .y2i]
     
     public static var spellChangingSpanish1 =
     [SpecialPatternType.a2aig, .c2zc, .c2z, .g2j, .gu2g,]
@@ -173,11 +166,14 @@ public enum SpecialPatternType : String, Equatable {
      .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
     
     public static var orthoChangingSpanish =
-    [SpecialPatternType.a2aig, .cab2quep, .c2g, .c2qu, .c2zg, .c2z, .c2zc, .ec2ig, .gu2g, .g2gu, .g2j,
+    [SpecialPatternType.a2é, .a2oy, .a2aig, .cab2quep, .c2g, .c2qu, .c2zg, .c2z, .c2zc, .ec2ig, .gu2g, .g2gu, .g2j,
      .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
     
     public static var irregPreteriteSpanish =
-    [SpecialPatternType.i_pret, .j_pret, .u_pret, .uv_pret, .ñ_pret]
+    [SpecialPatternType.i_pret, .j_pret, .u_pret, .uv_pret, .ñ_pret, .c2qu, .e2i, .c2z, .o2u, .g2gu, .gu2gü, .u2uy, .z2c, .e2í, ]
+    
+    public static var irregConditionalSpanish =
+    [SpecialPatternType.irreg]
     
     public func isOrthoChangingSpanish() -> Bool {
         if SpecialPatternType.orthoChangingSpanish.contains(self) {return true}
@@ -199,29 +195,25 @@ public enum SpecialPatternType : String, Equatable {
         return false
     }
     
-    public func isStemChangingSpanish1() -> Bool {
-        if SpecialPatternType.stemChangingSpanish1.contains(self) {return true}
-        return false
-    }
-    public func isStemChangingSpanish2() -> Bool {
-        if SpecialPatternType.stemChangingSpanish2.contains(self) {return true}
+    public func isSpellChangingSpanish() -> Bool {
+        if SpecialPatternType.orthoChangingSpanish.contains(self) {return true}
         return false
     }
     
-    public func isStemChangingSpanish3() -> Bool {
-        if SpecialPatternType.stemChangingSpanish3.contains(self) {return true}
-        return false
-    }
-    
-    public func isSpellChangingSpanish1() -> Bool {
-        if SpecialPatternType.spellChangingSpanish1.contains(self) {return true}
-        return false
-    }
-    
-    public func isSpellChangingSpanish2() -> Bool {
-        if SpecialPatternType.spellChangingSpanish2.contains(self) {return true}
-        return false
-    }
+//    public func isStemChangingSpanish3() -> Bool {
+//        if SpecialPatternType.stemChangingSpanish3.contains(self) {return true}
+//        return false
+//    }
+//
+//    public func isSpellChangingSpanish1() -> Bool {
+//        if SpecialPatternType.spellChangingSpanish1.contains(self) {return true}
+//        return false
+//    }
+//
+//    public func isSpellChangingSpanish2() -> Bool {
+//        if SpecialPatternType.spellChangingSpanish2.contains(self) {return true}
+//        return false
+//    }
     
     public func isStemChangingPresentSpanish() -> Bool {
         if SpecialPatternType.stemChangingPresentSpanish.contains(self) {return true}
@@ -462,6 +454,7 @@ public struct RomanceVerbModel : Identifiable {
         case "Preterite" : spt.tense = .preterite
         case "Future" : spt.tense = .future
         case "Pres Subj" : spt.tense = .presentSubjunctive
+        case "Conditional" : spt.tense = .conditional
         default: spt.tense = .infinitive
         }
         
@@ -481,8 +474,10 @@ public struct RomanceVerbModel : Identifiable {
         case "u to ú" : spt.pattern = .u2ú  //reunir
         case "u to uy"  : spt.pattern = .u2uy //influir
         
+        case "í to y"  : spt.pattern = .í2y //oír
+            
         //Spanish and French
-        case "e to íe"  : spt.pattern = .e2íe  //reír
+        case "e to í"  : spt.pattern = .e2í  //reír
         
         //French
         case "ev to o"  : spt.pattern = .ev2o //devoir
@@ -494,6 +489,8 @@ public struct RomanceVerbModel : Identifiable {
         case "t to tt" : spt.pattern = .t2tt
         case "y to i" : spt.pattern  = .y2i
         
+        case "a to é"  : spt.pattern = .a2é  //dar - present subj
+        case "a to oy" : spt.pattern = .a2oy //dar
         case "a to aig"  : spt.pattern = .a2aig //caer, raer, traer
         case "cab to quep"   : spt.pattern = .cab2quep //caber
         case "c to g"  : spt.pattern = .c2g //hacer - hago, satisfacer
@@ -517,6 +514,8 @@ public struct RomanceVerbModel : Identifiable {
         case "u pret"   : spt.pattern = .u_pret //caber, haber, poder, poner, saber
         case "j pret"   : spt.pattern = .j_pret //conducir, decir, traducir, traer
         case "ñi to ñ pret"   : spt.pattern = .ñ_pret //bruñir, bullir
+            
+        case "irreg conditional" : spt.pattern = .irreg
             
         case "none": spt.pattern = .none
         default: spt.pattern = .none

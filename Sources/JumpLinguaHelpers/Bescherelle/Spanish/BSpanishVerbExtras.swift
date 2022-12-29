@@ -24,6 +24,7 @@ struct BSpanishVerbExtras {
                 verb.m_isSpecial = true
                 switch parseStruct.from {
                 case "haber" : verb.m_specialModel = SpecialSpanishVerbModel.HABER
+                case "hacer" : verb.m_specialModel = SpecialSpanishVerbModel.HACER
                 case "estar" : verb.m_specialModel = SpecialSpanishVerbModel.ESTAR  //using the model, so far
                 case "ir" : verb.m_specialModel = SpecialSpanishVerbModel.IR
                 case "oir": verb.m_specialModel = SpecialSpanishVerbModel.OIR

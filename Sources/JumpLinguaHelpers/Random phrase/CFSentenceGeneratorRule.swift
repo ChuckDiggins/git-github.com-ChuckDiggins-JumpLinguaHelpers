@@ -10,22 +10,41 @@ import Foundation
 //handles create templates that will guide
 //  in creating sentences of various complexity of random words
 
-
-public enum RandomPhraseType{
-    case twoArticles
-    case articleNoun
+public enum FeatherPhraseType: String{
     case subjectPronounVerb
-    case simpleNounPhrase
-    case simplePrepositionPhrase
-    case simpleVerbPhrase
-    case simpleVerbAdverbPhrase
-    case complexNounPhrase
-    case simpleClause
-    case simpleEnglishClause
-    case simpleAdjectiveRegular
-    case simpleAdjectivePossessive
-    case simpleAdjectiveInterrogative
-    case simpleAdjectiveDemonstrative
+    case simpleNounPhraseVerb
+    case subjectPronounVerbSimpleNounPhrase
+    case directObjectPhrase  //like gustar  ...  me gustan las cosas
+    case informalFuturePhrase //ir+a+infinitive
+}
+
+public struct RandomFeatherSentence {
+    public var featherPhraseType = FeatherPhraseType.subjectPronounVerb
+    public mutating func setRandomPhraseType(fpt: FeatherPhraseType){
+        featherPhraseType = fpt
+    }
+
+    public  mutating func createRandomFeatherPhrase(phraseType: FeatherPhraseType)->dIndependentAgnosticClause {
+}
+    public enum RandomPhraseType : String{
+        case twoArticles
+        case articleNoun
+        case subjectPronounVerb
+        case simpleNounPhrase
+        case simpleNounPhraseVerb
+        case simplePrepositionPhrase
+        case simpleVerbPhrase
+        case simpleVerbAdverbPhrase
+        case complexNounPhrase
+        case simpleClause
+        case simpleEnglishClause
+        case simpleAdjectiveRegular
+        case simpleAdjectivePossessive
+        case simpleAdjectiveInterrogative
+        case simpleAdjectiveDemonstrative
+        case subjectPronounVerbSimpleNounPhrase  //NP VP NP
+        case directObjectPhrase  //like gustar  ...  me gustan las cosas
+        case informalFuturePhrase //ir+a+infinitive
 }
 
 public struct RandomSentence {

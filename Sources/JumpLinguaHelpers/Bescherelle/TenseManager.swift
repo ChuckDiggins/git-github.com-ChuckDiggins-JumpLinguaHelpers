@@ -11,6 +11,9 @@ public struct TenseManager {
     public var activated = [Bool]()
     public var tenseList = [Tense]()
     public var activatedIndex = 0
+    public var currentTense = Tense.present
+    public var currentTenseIndex = 0
+    public var activeTenseList = [Tense.present, .preterite, .imperfect, .conditional, .future, .imperative, .presentSubjunctive, .imperfectSubjunctiveRA, ]
     
     //var currentTense = Tense.present
     
@@ -21,10 +24,38 @@ public struct TenseManager {
         }
         //turn on all simple indicative tenses and all simple subjunctive tenses
         toggleAllSimpleIndicativeTenses()
-        toggleTense(tense: .presentPerfect)
-        //toggleAllSimpleSubjunctiveTenses()
+//        toggleTense(tense: .presentPerfect)
+        toggleTense(tense: .presentSubjunctive)
+        toggleTense(tense: .imperfectSubjunctiveSE)
+        toggleTense(tense: .imperative)
+//        dumpTenseList()
     }
 
+    public func dumpTenseList(){
+        print("TenseManager.dumpTenseList")
+        for tense in Tense.allCases {
+            print("tense: \(tense.rawValue) ... activated \(isActivated(tense: tense))")
+        }
+    }
+    
+    public func getRandomTense()->Tense{
+        let i = Int.random(in: 0 ..< activeTenseList.count)
+        return activeTenseList[i]
+    }
+    
+    public mutating func getNextTense()->Tense{
+        if currentTenseIndex < activeTenseList.count-1 {
+            currentTenseIndex = currentTenseIndex + 1
+        } else {
+            currentTenseIndex = 0
+        }
+        return activeTenseList[currentTenseIndex]
+    }
+    
+    public func getCurrentTense()->Tense{
+        currentTense
+    }
+    
     public func isActivated(tense: Tense)->Bool{
         return activated[tense.getIndex()]
     }
@@ -33,11 +64,7 @@ public struct TenseManager {
         return tenseList[tenseIndex]
     }
     
-    public func getRandomTense()->Tense{
-        let tenseList = getActiveTenseList()
-        let i = Int.random(in: 0 ..< tenseList.count)
-        return tenseList[i]
-    }
+   
     
     public func getActiveTenseList()->[Tense]{
         var outputTenseList = [Tense]()
@@ -97,6 +124,5 @@ public struct TenseManager {
         }
         return activatedCount
     }
-    
 
 }
