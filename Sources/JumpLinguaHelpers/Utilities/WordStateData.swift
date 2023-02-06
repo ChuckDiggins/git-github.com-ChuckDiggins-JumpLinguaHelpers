@@ -8,9 +8,12 @@
 import Foundation
 
 public class WordStateData : Hashable, Equatable {
-    var title: String = ""
+    public var title: String = ""
     public func hash(into hasher: inout Hasher){
         hasher.combine(title)
+    }
+    
+    public init(){    
     }
     
     public var word = Word()
@@ -52,8 +55,10 @@ public class WordStateData : Hashable, Equatable {
     public var verbPronominality = VerbPronomality.notPronominal
     public var verbPreference = VerbPreference.any
     public var verbTransitivity = VerbTransitivity.transitive
+    public var verbIsReflexive = false
     public var verbType = VerbType.normal
     public var bescherelleInfo = ""
+    public var isSubject = false
     
     public static func == (lhs: WordStateData, rhs: WordStateData) -> Bool {
         return lhs.word.word == rhs.word.word

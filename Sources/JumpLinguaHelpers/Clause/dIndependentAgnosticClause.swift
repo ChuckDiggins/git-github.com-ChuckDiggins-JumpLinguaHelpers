@@ -194,7 +194,7 @@ public class dIndependentAgnosticClause : dClause{
                 str = c.getStringAtLanguage(language: language)
             case .VP:
                 let c = cluster as! dVerbPhrase
-                print("verb cluster tense = \(c.getTense().rawValue), person = \(c.getPerson().rawValue)")
+//                print("verb cluster tense = \(c.getTense().rawValue), person = \(c.getPerson().rawValue)")
                 str = c.getStringAtLanguage(language: language)
             default:
                 str = ""

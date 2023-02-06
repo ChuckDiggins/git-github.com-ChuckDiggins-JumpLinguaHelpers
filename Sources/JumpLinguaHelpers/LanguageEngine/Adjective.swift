@@ -9,9 +9,9 @@ import Foundation
 
 public class Adjective : Word {
 
-    var plural = ""
-    var type : AdjectiveType
-    var preferredPosition = AdjectivePositionType.preceding
+    public var plural = ""
+    public var type : AdjectiveType
+    public var preferredPosition = AdjectivePositionType.preceding
     
     public override init(){
         self.type = AdjectiveType.any

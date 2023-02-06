@@ -8,7 +8,7 @@
 import Foundation
 
 public class Preposition : Word {
-    var type: PrepositionType
+    public var type: PrepositionType
     
     public override init(){
         self.type = .general

@@ -23,6 +23,7 @@ struct BSpanishVerbExtras {
             if ( parseStruct.pattern == .SPECIAL){
                 verb.m_isSpecial = true
                 switch parseStruct.from {
+                case "dar": verb.m_specialModel = SpecialSpanishVerbModel.DAR
                 case "haber" : verb.m_specialModel = SpecialSpanishVerbModel.HABER
                 case "hacer" : verb.m_specialModel = SpecialSpanishVerbModel.HACER
                 case "estar" : verb.m_specialModel = SpecialSpanishVerbModel.ESTAR  //using the model, so far
@@ -32,14 +33,24 @@ struct BSpanishVerbExtras {
                 case "ser": verb.m_specialModel = SpecialSpanishVerbModel.SER
                 case "reir": verb.m_specialModel = SpecialSpanishVerbModel.REIR
                 case "sonreir": verb.m_specialModel = SpecialSpanishVerbModel.SONREIR
+                case "traer": verb.m_specialModel = SpecialSpanishVerbModel.TRAER
                 case "ver": verb.m_specialModel = SpecialSpanishVerbModel.VER
                 default: verb.m_specialModel = SpecialSpanishVerbModel.none
                 }
             }
+            
+            //differentiate between the regular tense and gerund
+            
             if ( parseStruct.pattern == .STEM){
-                verb.m_stemChanging = true
-                verb.m_stemFrom = parseStruct.from
-                verb.m_stemTo = parseStruct.to
+                if parseStruct.tense == .gerund {
+                    verb.m_gerundStemChanging = true
+                    verb.m_gerundStemFrom = parseStruct.from
+                    verb.m_gerundStemTo = parseStruct.to
+                } else {
+                    verb.m_stemChanging = true
+                    verb.m_stemFrom = parseStruct.from
+                    verb.m_stemTo = parseStruct.to
+                }
             }
    
             if ( parseStruct.pattern == .PRETSTEM){

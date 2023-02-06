@@ -21,6 +21,7 @@ public struct MorphStruct  {
     public var isIrreg = false
     public var isValid = false
     public var conjugationComplete = false
+    public var isVerbReflexive = false
     
     public init (person: Person){
         self.person = person
@@ -38,6 +39,23 @@ public struct MorphStruct  {
     
     public func getMorphStepCount()->Int{
         morphStepArray.count
+    }
+    
+    public func isReflexive()->Bool{
+        for morph in morphStepArray {
+            if morph.part2 == "se" {
+                return true
+            }
+        }
+        return false
+    }
+    
+    public func getLastMorphStep()->MorphStep{
+        morphStepArray[getMorphStepCount()-1]
+    }
+    
+    public func getReflexivePronoun()->String{
+        getLastMorphStep().part2
     }
     
     public func isOrthoChanging()->Bool{

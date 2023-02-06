@@ -246,7 +246,7 @@ public struct RandomWordLists  {
                 wsd.number = .plural
                 wsd.person = .P3
             }
-            
+            wsd.isSubject = isSubject
             wsd.word = word
             let noun = word as! Noun
             wsd.gender = noun.spanishGender

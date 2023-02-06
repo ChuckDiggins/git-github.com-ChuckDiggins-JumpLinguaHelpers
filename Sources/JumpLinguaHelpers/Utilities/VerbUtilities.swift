@@ -304,7 +304,7 @@ public struct VerbUtilities {
         
         return wordList
     }
-    
+ 
     //This allows getListOfWordsIncludingPunctuation to see punctuation as words
     public func removeLeadingOrFollowingBlanks(characterArray: String)->String
     {
@@ -487,6 +487,26 @@ public struct VerbUtilities {
     return (verbWord:verbWord, verbEnding:.none, residualPhrase: residualPhrase, isReflexive: false)
     }//func analyzeEnglishWordPhrase
 
+    public func  phraseEndsInVerbEnding(testString: String) -> VerbEnding{
+        let wordList = getListOfWords(characterArray: testString)
+   
+        //if analyzeWordPhrase returns an empty verbWord, the testString does not start with a legitimate Spanish verb
+        if wordList.isEmpty {
+            return VerbEnding.none
+        }
+        
+        let verbWord = wordList.last ?? ""
+        
+        //check to see if the verbWord has a legitimate verb (ar, er, ir, ír or oir (french)) ending
+        
+        let verbEnding = determineVerbEnding(verbWord: verbWord)
+        
+        if ( verbEnding == VerbEnding.none){
+            return  VerbEnding.none
+        }
+        return verbEnding
+        
+    }
     public func  analyzeSpanishWordPhrase(testString: String) -> (verbWord:String, verbEnding: VerbEnding, residualPhrase:String, isReflexive: Bool)
     {
         let wordList = getListOfWords(characterArray: testString)

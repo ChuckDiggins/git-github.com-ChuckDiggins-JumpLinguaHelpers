@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class dCluster : Hashable {
+open class dCluster : Hashable {
     public var m_clusterWord : Word
     public var m_clusterType : ContextFreeSymbol
     public var m_parentClusterType = ContextFreeSymbol.UNK

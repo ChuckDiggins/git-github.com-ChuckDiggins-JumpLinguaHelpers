@@ -83,17 +83,42 @@ public class BSpanishVerb : BRomanceVerb {
         
         setRestrictions()
         
-        m_pastParticiple = createPastParticiple()
-        m_gerund = createGerund()
-        
+//        if m_pastParticiple.isEmpty {
+//            m_pastParticiple = createPastParticiple()
+//        }
+//        if m_gerund.isEmpty {
+//            m_gerund = createGerund()
+//        }
         
     }//SetPatterns
     
     
     public override func createPastParticiple()->String {
+        let vu = VerbUtilities()
+        
+        var verbWord = m_verbWord
+        
+        let exList = bVerbModel.exceptionList
+        for ex in exList {
+            let tenseStr = ex.tense
+            let fromStr = ex.from ?? "no from string"   //contraver - contravisto
+            let toStr = ex.to ?? "no to string"
+            
+            if tenseStr == "PASTPART" {
+                if ex.exceptionPattern == "REPLACE" {  //the verb "ver" -> "visto"
+                    return toStr
+                }
+                if ex.exceptionPattern == "REPLACEENDING" {
+                    verbWord = vu.removeLastLetters(verbWord: verbWord, letterCount: fromStr.count)
+                    verbWord += toStr
+//                    print("createPastParticiple: for verb \(verbWord) from \(fromStr), to \(toStr)")
+                    return verbWord
+                }
+            }
+        }
         let result = hasReplaceEndingForm(tense: .pastParticiple)
         if result.0.count > 0 {
-            var word = m_verbWord
+            var word = m_verbStem
             var removeCount = result.0.count
             if ( word.count < removeCount ) {removeCount = word.count}
             word = VerbUtilities().removeLastLetters(verbWord: word, letterCount: removeCount)
@@ -101,29 +126,106 @@ public class BSpanishVerb : BRomanceVerb {
             return word
         }
         
+       return createDefaultPastParticiple()
+    }
+    
+    public override func createDefaultPastParticiple()->String {
         //if part participle is not in the verb pattern, build the default here
-        let word = m_verbStem
         switch m_verbEnding {
-        case .AR: return word + "ado"
-        case .ER, .IR, .accentIR: return word + "ido"
-        default: return word + "nada"
+        case .AR: return m_verbStem + "ado"
+        case .ER, .IR, .accentIR: return m_verbStem + "ido"
+        default: return m_verbStem + "nada"
         }
     }
     
     public override func createGerund()->String {
-        let word = m_verbStem
+        var vu = VerbUtilities()
+        var word = m_verbStem
+        let exList = bVerbModel.exceptionList
+        
+        for ex in exList {
+            let tenseStr = ex.tense
+            let fromStr = ex.from ?? "no from string"
+            let toStr = ex.to ?? "no to string"
+            
+            if tenseStr == "GERUND" {
+                if ex.exceptionPattern == "REPLACE" {  //the verb "ir" ->yendo
+                    return toStr
+                }
+                if ex.exceptionPattern == "REPLACEENDING" {  //the verb "ir" ->yendo
+                    var verbWord = m_verbWord
+                    verbWord = vu.removeLastLetters(verbWord: verbWord, letterCount: fromStr.count)
+                    verbWord += toStr
+                    print("create gerund: for verb \(verbWord) from \(fromStr), to \(toStr)")
+                    return verbWord
+                }
+
+                var result = vu.replaceSubrangeAndGetBeforeAndAfterStrings(inputString: m_verbStem, fromString: fromStr, toString: "_")
+                let partBefore = result.1
+                let partAfter = result.2
+                word = partBefore + toStr + partAfter
+                if m_verbEnding == .AR { return word + "ando"}
+                let lastLetter = word.suffix(1)
+                if lastLetter == "ñ" { word += "endo" }
+                else { word += "iendo" }
+//                print("createGerund: for verb \(m_verbWord) from \(fromStr), to \(toStr)")
+                return word
+            }
+        }
+       
+        
+        if isStemChanging(){
+            if m_stemFrom == "e" && (m_stemTo == "i" || m_stemTo == "ie"){
+                let result = vu.replaceSubrangeAndGetBeforeAndAfterStrings(inputString: m_verbStem, fromString: m_stemFrom, toString: "_")
+                let partBefore = result.1
+                let partAfter = result.2
+                word = partBefore + m_stemTo + partAfter
+                let lastLetter = word.suffix(1)
+                if lastLetter == "ñ" { word += "endo" }
+                else { word += "iendo" }
+                return word
+            }
+            if m_stemFrom == "o" && m_stemTo == "ue" && m_verbEnding != .AR {
+                let result = vu.replaceSubrangeAndGetBeforeAndAfterStrings(inputString: m_verbStem, fromString: m_stemFrom, toString: "_")
+                let partBefore = result.1
+                let partAfter = result.2
+                word = partBefore + m_stemTo + partAfter
+                let lastLetter = word.suffix(1)
+                if lastLetter == "ñ" { word += "endo" }
+                else { word += "iendo" }
+                return word
+            }
+        }
+        return createDefaultGerund()
+        
+    }
+    
+    public override func createDefaultGerund()->String{
+        var vu = VerbUtilities()
+        var tempWord = m_verbStem
+        
         switch m_verbEnding {
-        case .AR: return word + "ando"
-        case .ER, .IR, .accentIR: return word + "iendo"
-        default: return word + "nada"
+        case .AR: return tempWord + "ando"
+        case .ER, .IR, .accentIR:
+            let lastLetter = tempWord.suffix(1)
+            if vu.isVowel(letter: String(lastLetter)) && lastLetter != "u"{
+                return tempWord + "yendo"
+            }
+            if lastLetter == "ñ" {
+                return tempWord + "endo"
+            }
+            return tempWord + "iendo"
+        default: return tempWord + "xndo"
         }
     }
     
-    
     public func computeP3PreteriteForm(){
         if ( p3PreteriteVerbWord.count == 0 ){
+//            var p1PreteriteVerbWord = ActiveVerbConjugationSpanish().conjugateThisSimpleIndicativeNew(verb : self, tense: .preterite, person: .P1, conjugateEntirePhrase: false).finalVerbForm()
+//            print("p1PreteriteVerbWord: \(p1PreteriteVerbWord)")
             p3PreteriteVerbWord = ActiveVerbConjugationSpanish().conjugateThisSimpleIndicativeNew(verb : self, tense: .preterite, person: .P3, conjugateEntirePhrase: false).finalVerbForm()
             p3PreteriteVerbWord = VerbUtilities().removeLeadingOrFollowingBlanks(characterArray: p3PreteriteVerbWord)
+//            print("p3PreteriteVerbWord: \(p3PreteriteVerbWord)")
         }
     }
     
@@ -205,6 +307,7 @@ public class BSpanishVerb : BRomanceVerb {
     
     public override func getConjugatedMorphStruct( tense : Tense, person : Person , conjugateEntirePhrase : Bool, isPassive : Bool = false) -> MorphStruct {
         
+        let isNegative = false 
         //simple indicative tenses
         let tenseIndex =  tense.getIndex()
         var ms = MorphStruct(person: person)
@@ -221,7 +324,7 @@ public class BSpanishVerb : BRomanceVerb {
         }
         
         else if ( tenseIndex == Tense.imperative.getIndex()){
-            ms = ActiveVerbConjugationSpanish().conjugateThisImperativeForm(verb: self, person: personToUse, conjugateEntirePhrase: conjugateEntirePhrase)
+            ms = ActiveVerbConjugationSpanish().conjugateThisImperativeForm(verb: self, person: personToUse, conjugateEntirePhrase: conjugateEntirePhrase, isNegative: isNegative)
         }
         
         //simple subjunctive tenses

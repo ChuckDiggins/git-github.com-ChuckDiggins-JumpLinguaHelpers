@@ -9,11 +9,11 @@ import Foundation
 
 public class Noun : Word {
 
-    var plural = ""
-    var englishPlural = ""
-    var spanishGender = Gender.masculine
-    var frenchGender = Gender.masculine
-    var nounType: NounType
+    public var plural = ""
+    public var englishPlural = ""
+    public var spanishGender = Gender.masculine
+    public var frenchGender = Gender.masculine
+    public var nounType: NounType
     
     public override init(){
         self.nounType = NounType.any

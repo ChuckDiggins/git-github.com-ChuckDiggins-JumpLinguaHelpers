@@ -75,66 +75,79 @@ public enum NewVerbModelType : String, CaseIterable {
 public enum SpecialPatternType : String, Equatable {
     
     //Spanish
-    case e2i = "e to i"  //pedir
-    case e2ie = "e to ie" //tener, venir
-    case e2y = "e to y"  //creer  preterite ... also e to í
-    case í2y = "í to y"  //oír
-    case e2ye = "e to ye"  //erguir
-    case i2ie = "i to ie"  //adquirir
-    case i2í = "i to í"  //prohibir / enraizar /guiar
-    case o2u = "o to u" //podrir
-    case o2ue = "o to ue"  //encontrar, dormir
-    case o2hue = "o to hue" //desosar
-    case u2ue = "u to ue"  //jugar
-    case u2ú = "u to ú"  //reunir
-    case u2uy = "u to uy"  //influir
+    case e2i = "e->i"  //pedir
+    case e2ie = "e->ie" //tener, venir
+    case e2y = "e->y"  //creer  preterite ... also e to í
+    case í2y = "í->y"  //oír
+    case e2ye = "e->ye"  //erguir
+    case i2ie = "i->ie"  //adquirir
+    case i2í = "i->í"  //prohibir / enraizar /guiar
+    case o2u = "o->u" //podrir
+    case o2ue = "o->ue"  //encontrar, dormir
+    case o2üe = "o->üe"  //avergonzar
+    case o2hue = "o->hue" //desosar
+    case u2ue = "u->ue"  //jugar
+    case u2ú = "u->ú"  //reunir
+    case u2uy = "u->uy"  //influir
     
     //Spanish and French
-    case e2í = "e to í"  //reír
+    case e2í = "e->í"  //reír
     
     //French
-    case ev2o = "ev to o"  //devoir
-    case é2è = "é to è"
-    case e2è = "e to è"
-    case é2ie = "é to ie"   //acquérir
-    case o2e = "o to e"  //mourir
-    case l2ll = "l to ll"
-    case t2tt = "t to tt"
-    case y2i = "y to i"
+    case ev2o = "ev->o"  //devoir
+    case é2è = "é->è"
+    case e2è = "e->è"
+    case é2ie = "é->ie"   //acquérir
+    case o2e = "o->e"  //mourir
+    case l2ll = "l->ll"
+    case t2tt = "t->tt"
+    case y2i = "y->i"
     
     //spell/ortho changing
    
-    case a2é = "a to é"  //dar - present subj
-    case a2oy = "a to oy"  //dar
-    case ab2up = "ab to up"  //saber (supe)
-    case a2aig = "a to aig"  //caer, raer, traer
-    case cab2quep = "cab to quep"  //caber
-    case c2g = "c to g"  //hacer - hago, satisfacer
-    case c2qu = "c to qu"  //hincar, sacar, trocar
-    case c2z = "c to z"  //convencir, mecer, zurcir
-    case c2zc = "c to zc" //lucir, conocer
-    case c2zg = "c to zg"  //yacer
-    case ec2ig = "ec to ig" //predecir, decir
-    case gu2g = "gu to g"  //distinguir, erguir, xxxguir, seguir
-    case g2gu = "g to gu"  //colgar, jugar, regar
-    case g2j = "g to j"  //coger, dirigir, elegir
-    case gu2gü = "gu to gü"  //averiguar
-    case l2lg = "l to lg" //salir, valer
-    case o2oig = "o to oig" //roer
-    case n2ng = "n to ng" //tener, poner, venir
-    case qu2c = "qu to c"  //delinquir
-    case s2sg = "s to sg"  //asir
-    case z2c = "z to c"  //enraizar, empezar
+    case a2é = "a->é"  //dar - present subj
+    case a2oy = "a->oy"  //dar
+    case ab2up = "ab->up"  //saber (supe)
+    case a2aig = "a->aig"  //caer, raer, traer
+    case cab2quep = "cab->quep"  //caber
+    case c2g = "c->g"  //hacer - hago, satisfacer
+    case c2qu = "c->qu"  //hincar, sacar, trocar
+    case c2z = "c->z"  //convencir, mecer, zurcir
+    case c2zc = "c->zc" //lucir, conocer
+    case c2zg = "c->zg"  //yacer
+    case ec2ig = "ec->ig" //predecir, decir
+    case ec2ij = "ec->ij" //predecir, decir
+    case ec = "drop->ec" //predecir, decir
+    case gu2g = "gu->g"  //distinguir, erguir, xxxguir, seguir
+    case g2gu = "g->gu"  //colgar, jugar, regar
+    case g2j = "g->j"  //coger, dirigir, elegir
+    case gu2gü = "gu->gü"  //averiguar
+    case l2lg = "l->lg" //salir, valer
+    case o2oig = "o->oig" //roer
+    case n2ng = "n->ng" //tener, poner, venir
+    case qu2c = "qu->c"  //delinquir
+    case s2sg = "s->sg"  //asir
+    case z2c = "z->c"  //enraizar, empezar
     
     //irregular preterite
-    case i_pret = "i pret" //hacer, querer, venir, oír
-    case uv_pret = "uv pret" //andar, estar, tener
-    case u_pret = "u pret" //caber, haber, poder, poner, saber
-    case j_pret = "j pret" //conducir, decir, traducir, traer
-    case ñ_pret = "ñi to ñ pret" //bruñir - drop the i after ñ
+    case o2oí = "o->oí" //roer
+    case o2oy = "o->oy" //roer
+    case a2í = "a->í"  //raer
+    case a2ay = "a->ay"  //raer
+    case er2is = "er->is" //querer - quise
+    case j = "j"  //traer
+    case a2i = "a->i" //hacer
+    case uv = "uv" //andar, estar, tener
+    case a2u = "a->u" //haber
+    case o2ud = "o->ud" //poder
+    case o2us = "o->us" //poner
+    case c2j = "c->j" //producir, decir
+    case ñi2ñ = "ñi->ñ" //bruñir - drop the i after ñ
+    case lli2ll = "lli->ll" //bullir - drop the i after ll
     
-    //irregular conditional/future
-    case irreg = "irregular"
+    //irregular conditional/future/preterite
+    case irreg = "irreg"
+    case shortInf = "short inf"
     
     case none = "none"
     
@@ -144,13 +157,10 @@ public enum SpecialPatternType : String, Equatable {
     public static var stemChangingUSpanish =  [SpecialPatternType.u2ue, .u2ú, .u2uy]
     
     public static var stemChangingAllSpanish =
-    [SpecialPatternType.e2i, .e2ie, .e2í, .e2y, .e2ye, .i2ie, .i2í, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
+    [SpecialPatternType.e2i, .e2ie, .e2í, .e2y, .e2ye, .i2ie, .i2í, .o2u, .o2ue, .o2üe, .o2hue, .u2ue, .u2ú, .u2uy]
 
     public static var stemChangingPresentSpanish =
-    [SpecialPatternType.e2i, .e2ie, .e2í, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2hue, .u2ue, .u2ú, .u2uy]
-    
-    
-    
+    [SpecialPatternType.e2i, .e2ie, .e2í, .e2y, .e2ye, .i2í, .i2ie, .o2u, .o2ue, .o2üe, .o2hue, .u2ue, .u2ú, .u2uy]
     
     public static var stemChangingPreteriteSpanish =
     [SpecialPatternType.e2i, .o2u, .u2uy]
@@ -166,11 +176,11 @@ public enum SpecialPatternType : String, Equatable {
      .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
     
     public static var orthoChangingSpanish =
-    [SpecialPatternType.a2é, .a2oy, .a2aig, .cab2quep, .c2g, .c2qu, .c2zg, .c2z, .c2zc, .ec2ig, .gu2g, .g2gu, .g2j,
-     .gu2gü, .l2lg, .o2oig, .n2ng, .qu2c, .z2c]
+    [SpecialPatternType.a2é, .a2i, .a2u, .ab2up, .a2í, .a2ay, .a2oy, .a2aig, .cab2quep, .c2g, .c2j, .c2qu, .c2zg, .c2z, .c2zc, .ec2ig, .ec2ij, .ec, .gu2g, .g2gu, .g2j,
+     .gu2gü, .j, .l2lg, .lli2ll, .n2ng, .ñi2ñ, .o2oig, .o2ud, .o2us, .o2oí,.o2oy, .qu2c, .s2sg, .uv, .z2c, .shortInf, .irreg]
     
     public static var irregPreteriteSpanish =
-    [SpecialPatternType.i_pret, .j_pret, .u_pret, .uv_pret, .ñ_pret, .c2qu, .e2i, .c2z, .o2u, .g2gu, .gu2gü, .u2uy, .z2c, .e2í, ]
+    [SpecialPatternType.j, .a2i, .uv, .a2í, .a2ay, .ab2up, .o2ud, .o2us, .c2j, .ñi2ñ, .c2qu, .e2i, .c2z, .o2u, .g2gu, .gu2gü, .u2uy, .z2c, .e2í, ]
     
     public static var irregConditionalSpanish =
     [SpecialPatternType.irreg]
@@ -200,21 +210,6 @@ public enum SpecialPatternType : String, Equatable {
         return false
     }
     
-//    public func isStemChangingSpanish3() -> Bool {
-//        if SpecialPatternType.stemChangingSpanish3.contains(self) {return true}
-//        return false
-//    }
-//
-//    public func isSpellChangingSpanish1() -> Bool {
-//        if SpecialPatternType.spellChangingSpanish1.contains(self) {return true}
-//        return false
-//    }
-//
-//    public func isSpellChangingSpanish2() -> Bool {
-//        if SpecialPatternType.spellChangingSpanish2.contains(self) {return true}
-//        return false
-//    }
-    
     public func isStemChangingPresentSpanish() -> Bool {
         if SpecialPatternType.stemChangingPresentSpanish.contains(self) {return true}
         return false
@@ -230,7 +225,7 @@ public enum SpecialPatternType : String, Equatable {
         return false
     }
     
-    
+
     
 }
 
@@ -313,6 +308,7 @@ public enum ExceptionTense : String{
     case PRESENTSUBJ
     case FUTURE
     case CONDITIONAL
+    case IMPERATIVE
     case IMPERFECTSUBJRA
     case IMPERFECTSUBJSE
     case PASTPART
@@ -450,73 +446,89 @@ public struct RomanceVerbModel : Identifiable {
         var spt = SpecialPatternStruct()
         
         switch tenseStr {
-        case "Present" : spt.tense = Tense.present
+        case "Present" : spt.tense = .present
         case "Preterite" : spt.tense = .preterite
+        case "Imperfect" : spt.tense = .imperfect
         case "Future" : spt.tense = .future
-        case "Pres Subj" : spt.tense = .presentSubjunctive
         case "Conditional" : spt.tense = .conditional
+        case "Pres Subj" : spt.tense = .presentSubjunctive
+        case "ImpSubj-ra" : spt.tense = .imperfectSubjunctiveRA
+        case "ImpSubj-se" : spt.tense = .imperfectSubjunctiveRA
         default: spt.tense = .infinitive
         }
         
         switch patternStr {
-        case "e to i" : spt.pattern = .e2i
-        case "e to ie" : spt.pattern = .e2ie
-        case "i to ie" : spt.pattern = .i2ie
+        case "a->í" : spt.pattern = .a2í
+        case "a->ay" : spt.pattern = .a2ay
+        case "e->i" : spt.pattern = .e2i
+        case "e->ie" : spt.pattern = .e2ie
+        case "i->ie" : spt.pattern = .i2ie
        
-        case "e to y" : spt.pattern = .e2y //creer  preterite ... also e to í
-        case "e to ye" : spt.pattern = .e2ye //erguir
-        case "i to í" : spt.pattern = .i2í  //prohibir / enraizar /guiar
+        case "e->y" : spt.pattern = .e2y //creer  preterite ... also e to í
+        case "e->ye" : spt.pattern = .e2ye //erguir
+        case "i->í" : spt.pattern = .i2í  //prohibir / enraizar /guiar
     //    case i2y = "i to y"  //influir
-        case "o to u" : spt.pattern = .o2u
-        case "o to ue" : spt.pattern = .o2ue
-        case "o to hue" : spt.pattern = .o2hue
-        case "u to ue" : spt.pattern = .u2ue
-        case "u to ú" : spt.pattern = .u2ú  //reunir
-        case "u to uy"  : spt.pattern = .u2uy //influir
+        case "o->u" : spt.pattern = .o2u
+        case "o->ue" : spt.pattern = .o2ue
+        case "o->üe" : spt.pattern = .o2üe
+        case "o->hue" : spt.pattern = .o2hue
+        case "u->ue" : spt.pattern = .u2ue
+        case "u->ú" : spt.pattern = .u2ú  //reunir
+        case "u->uy"  : spt.pattern = .u2uy //influir
         
-        case "í to y"  : spt.pattern = .í2y //oír
+        case "í->y"  : spt.pattern = .í2y //oír
             
         //Spanish and French
-        case "e to í"  : spt.pattern = .e2í  //reír
+        case "e->í"  : spt.pattern = .e2í  //reír
         
         //French
-        case "ev to o"  : spt.pattern = .ev2o //devoir
-        case "é to è" : spt.pattern = .é2è
-        case "e to è": spt.pattern = .e2è
-        case "é to ie": spt.pattern = .é2ie //acquérir
-        case "o to e" : spt.pattern = .o2e //mourir
-        case "l to ll" : spt.pattern = .l2ll
-        case "t to tt" : spt.pattern = .t2tt
-        case "y to i" : spt.pattern  = .y2i
-        
-        case "a to é"  : spt.pattern = .a2é  //dar - present subj
-        case "a to oy" : spt.pattern = .a2oy //dar
-        case "a to aig"  : spt.pattern = .a2aig //caer, raer, traer
-        case "cab to quep"   : spt.pattern = .cab2quep //caber
-        case "c to g"  : spt.pattern = .c2g //hacer - hago, satisfacer
-        case "c to qu"  : spt.pattern = .c2qu //hincar, sacar, trocar
-        case "c to z"  : spt.pattern = .c2z //convencir, mecer, zurcir
-        case "c to zc"  : spt.pattern = .c2zc //lucir
-        case "c to zg"  : spt.pattern = .c2zg //yacer
-        case "ec to ig"  : spt.pattern = .ec2ig //predecir, decir
-        case "g to gu"   : spt.pattern = .g2gu //colgar, jugar, regar
-        case "gu to g"   : spt.pattern = .gu2g //distinguir, erguir, xxxguir, seguir
-        case "g to j"   : spt.pattern = .g2j //coger, dirigir, elegir
-        case "gu to gü"   : spt.pattern = .gu2gü //averiguar
-        case "l to lg"   : spt.pattern = .l2lg //salir, valer
-        case "o to oig"    : spt.pattern = .o2oig //roer
-        case "n to ng"   : spt.pattern = .n2ng //tener, poner, venir
-        case "qu to c"   : spt.pattern = .qu2c //delinquir
-        case "s to sg"   : spt.pattern = .s2sg //asir
-        case "z to c"   : spt.pattern = .z2c //enraizar, empezar
-        case "i pret"   : spt.pattern = .i_pret //hacer, querer, venir
-        case "uv pret"   : spt.pattern = .uv_pret //andar, estar, tener
-        case "u pret"   : spt.pattern = .u_pret //caber, haber, poder, poner, saber
-        case "j pret"   : spt.pattern = .j_pret //conducir, decir, traducir, traer
-        case "ñi to ñ pret"   : spt.pattern = .ñ_pret //bruñir, bullir
-            
-        case "irreg conditional" : spt.pattern = .irreg
-            
+        case "ev->o"  : spt.pattern = .ev2o //devoir
+        case "é->è" : spt.pattern = .é2è
+        case "e->è": spt.pattern = .e2è
+        case "é->ie": spt.pattern = .é2ie //acquérir
+        case "o->e" : spt.pattern = .o2e //mourir
+        case "l->ll" : spt.pattern = .l2ll
+        case "t->tt" : spt.pattern = .t2tt
+        case "y->i" : spt.pattern  = .y2i
+        case "a->é"  : spt.pattern = .a2é  //dar - present subj
+        case "a->oy" : spt.pattern = .a2oy //dar
+        case "a->aig"  : spt.pattern = .a2aig //caer, raer, traer
+        case "cab->quep"   : spt.pattern = .cab2quep //caber
+        case "c->g"  : spt.pattern = .c2g //hacer - hago, satisfacer
+        case "c->qu"  : spt.pattern = .c2qu //hincar, sacar, trocar
+        case "c->z"  : spt.pattern = .c2z //convencir, mecer, zurcir
+        case "c->zc"  : spt.pattern = .c2zc //lucir
+        case "c->zg"  : spt.pattern = .c2zg //yacer
+        case "ec->ig"  : spt.pattern = .ec2ig //predecir, decir
+        case "ec->ij" : spt.pattern = .ec2ij //predecir, decir
+        case "drop->ec" : spt.pattern = .ec //predecir, decir
+        case "g->gu"   : spt.pattern = .g2gu //colgar, jugar, regar
+        case "g->j"   : spt.pattern = .g2j //colgar, jugar, regar
+        case "gu->g"   : spt.pattern = .gu2g //distinguir, erguir, xxxguir, seguir
+        case "a2í" : spt.pattern = .a2í
+        case "a2ay" : spt.pattern = .a2ay
+        case "o2oí" : spt.pattern = .o2oí  //roer
+        case "o2oy" : spt.pattern = .o2oy  //roer
+        case "j"   : spt.pattern = .j //coger, dirigir, elegir
+        case "gu->gü"   : spt.pattern = .gu2gü //averiguar
+        case "l->lg"   : spt.pattern = .l2lg //salir, valer
+        case "o->oig"    : spt.pattern = .o2oig //roer
+        case "n->ng"   : spt.pattern = .n2ng //tener, poner, venir
+        case "qu->c"   : spt.pattern = .qu2c //delinquir
+        case "s->sg"   : spt.pattern = .s2sg //asir
+        case "z->c"   : spt.pattern = .z2c //enraizar, empezar
+        case "a->i" : spt.pattern = .a2i //hacer
+        case "uv" : spt.pattern = .uv //andar, estar, tener
+        case "a->u" : spt.pattern = .a2u //haber
+        case "ab->up" : spt.pattern = .ab2up //caber, saber
+        case "o->ud" : spt.pattern = .o2ud //poder
+        case "o->us" : spt.pattern = .o2us //poner,
+        case "c->j" : spt.pattern = .c2j //producir, decir
+        case "ñi->ñ"   : spt.pattern = .ñi2ñ //bruñir
+        case "lli->ll"   : spt.pattern = .lli2ll //bullir
+        case "er2is": spt.pattern = .er2is  //querer
+        case "irreg" : spt.pattern = .irreg
+        case "short inf" : spt.pattern = .shortInf
         case "none": spt.pattern = .none
         default: spt.pattern = .none
         }
@@ -704,6 +716,7 @@ public struct RomanceVerbModel : Identifiable {
             
             switch exception.tense {
             case "PRESENT": parsedStruct.tense = .present
+            case "IMPERATIVE": parsedStruct.tense = .imperative
             case "IMPERFECT": parsedStruct.tense = .imperfect
             case "PRETERITE": parsedStruct.tense = .preterite
             case "PRESENTSUBJ": parsedStruct.tense = .presentSubjunctive

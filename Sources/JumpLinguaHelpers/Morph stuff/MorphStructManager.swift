@@ -11,10 +11,12 @@ public struct MorphStructManager {
 
     public var verbPhrase : String
     public var tense : Tense
+    public var isVerbReflexive : Bool
     
-    public init(verbPhrase: String, tense: Tense){
+    public init(verbPhrase: String, tense: Tense, isReflexive: Bool = false){
         self.verbPhrase = verbPhrase
         self.tense = tense
+        self.isVerbReflexive = isReflexive
     }
     
    private var morphStrList : [MorphStruct] = [
@@ -34,6 +36,10 @@ public struct MorphStructManager {
         MorphStruct(person: .P2),
         MorphStruct(person: .P3)
     ]
+    
+    public func isReflexive()->Bool{
+        isVerbReflexive
+    }
     
     public var currentMorphStepIndex = [0,0,0,0,0,0]
     public var isCompleted = [false, false, false, false, false, false]

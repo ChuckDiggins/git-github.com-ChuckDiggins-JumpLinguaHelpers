@@ -129,7 +129,7 @@ public struct JsonAdjectiveManager {
         }
         for v in wordList{
             myWordList.append(v)
-            print("JsonAdjectiveManager: appending adjective \(v.spanish), \(v.french), \(v.english)")
+//            print("JsonAdjectiveManager: appending adjective \(v.spanish), \(v.french), \(v.english)")
             if myWordList.count >= total {break}
         }
         encodeWords()

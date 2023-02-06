@@ -12,7 +12,7 @@ public enum Number : String
 {
     case singular
     case plural
-    static var all = [singular, plural]
+    public static var all = [singular, plural]
 }
 
 public enum Gender : String
@@ -21,7 +21,7 @@ public enum Gender : String
     case feminine = "F"
     case either = "E"
     
-    static var all = [masculine, feminine, either]
+    public static var all = [masculine, feminine, either]
 }
 
 public enum SubjectPronounType : String {
@@ -473,44 +473,54 @@ public enum  Tense : String, CustomStringConvertible, CaseIterable
     case imperfect = "Imperfect"
     case conditional = "Conditional"
     case future = "Future"
-    case presentPerfect = "PresentPerf"
-    case pastPerfect = "past perfect"
-    case preteritePerfect = "preterite perfect"
-    case futurePerfect = "future perfect"
-    case conditionalPerfect = "conditional perfect"
+    case presentPerfect = "Pres Perf"
+    case pastPerfect = "Past Perf"
+    case preteritePerfect = "Pret Perf"
+    case futurePerfect = "Future Perf"
+    case conditionalPerfect = "Cond Perf"
     case presentSubjunctive = "Pres Subj"
     case imperfectSubjunctiveRA = "ImpSubj-ra"
     case imperfectSubjunctiveSE = "ImpSubj-se"
-    case presentPerfectSubjunctive = "present perfect subjunctive"
-    case pastPerfectSubjunctiveRA = "past perfect subjunctive - ra"
-    case pastPerfectSubjunctiveSE = "past perfect subjunctive - se"
-    case imperative = "imperative"
-    case nosotrosCommand = "nosotros command"  //Let's do this!
-    case presentProgressive = "present progressive"
-    case imperfectProgressive = "imperfect progressive"
-    case futureProgressive = "future progressive"
-    case conditionalProgressive = "conditional progressive"
-    case presentParticiple = "present participle"
-    case pastParticiple = "past participle"
-    case infinitive = "infinitive"
-    case gerund = "gerund"
+    case presentPerfectSubjunctive = "Pres Perf Subj"
+    case pastPerfectSubjunctiveRA = "Past Perf Subj-ra"
+    case pastPerfectSubjunctiveSE = "Past Perf Subj-se"
+    case imperative = "Imperative"
+    case nosotrosCommand = "We Command"  //Let's do this!
+    case presentProgressive = "Pres Prog"
+    case imperfectProgressive = "Imperf Prog"
+    case futureProgressive = "Future Prog"
+    case conditionalProgressive = "Cond Prog"
+    case presentParticiple = "Pres Part"
+    case pastParticiple = "Past Part"
+    case infinitive = "Infinitive"
+    case gerund = "Gerund"
     
     static var specialFormsAll =
         [Tense.presentParticiple, .pastParticiple, .infinitive]
     static var indicativeAll =
         [Tense.present, .preterite, .imperfect, .conditional, .future]
-    static var perfectIndicateAll =
+    static var perfectIndicativeAll =
         [Tense.presentPerfect, Tense.pastPerfect, .preteritePerfect, .futurePerfect, .conditionalPerfect]
     static var subjunctiveAll = [Tense.presentSubjunctive, .imperfectSubjunctiveRA,.imperfectSubjunctiveSE ]
     static var perfectSubjunctiveAll =
         [Tense.presentPerfectSubjunctive, .pastPerfectSubjunctiveRA, .pastPerfectSubjunctiveSE]
     static var progressiveAll =
-        [Tense.presentProgressive, .imperfectProgressive]
+    [Tense.presentProgressive, .imperfectProgressive, .futureProgressive, .conditionalProgressive]
     
     public var description:  String {return rawValue}
     
     public func isSubjunctive() -> Bool {
         if Tense.subjunctiveAll.contains(self) || Tense.perfectSubjunctiveAll.contains(self) {return true}
+        return false
+    }
+    
+    public func isPerfectIndicative() -> Bool {
+        if Tense.perfectIndicativeAll.contains(self) {return true}
+        return false
+    }
+    
+    public func isProgressiveIndicative() -> Bool {
+        if Tense.progressiveAll.contains(self) {return true}
         return false
     }
     

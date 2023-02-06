@@ -9,7 +9,7 @@ import Foundation
 
 public class Conjunction : Word {
 
-    var type: ConjunctionType
+    public var type: ConjunctionType
     
     public  init(word: String, type : ConjunctionType){
         self.type = type

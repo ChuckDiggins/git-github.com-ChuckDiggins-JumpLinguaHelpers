@@ -19,6 +19,7 @@ public enum SpecialVerbModel {
     case OIR
     case SER
     case VER
+    case TRAER
     case none
 }
 /*

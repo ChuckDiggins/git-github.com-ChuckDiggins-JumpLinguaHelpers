@@ -33,7 +33,7 @@ public struct StemChangingConjugation {
         
         var morph : MorphStep
         morph = MorphStep()
-        morph.comment = "Remove -> " + stemFrom
+        morph.comment = getMorphComment(.removeStem, stemFrom)
         morph.part1 = partBefore
         morph.part2 = stemFrom
         morph.part3 = partAfter
@@ -58,37 +58,37 @@ public struct StemChangingConjugation {
         
         //should be stripped down to verb stem now
         
-        let result = vu.replaceSubrangeAndGetBeforeAndAfterStrings(inputString: workingVerbForm, fromString: stemFrom, toString: "_")
-        workingVerbForm = result.0
-        let partBefore = result.1
-        let partAfter = result.2
-        
-        //change the stem
-        
-        var morph : MorphStep
-        morph = MorphStep()
-        morph.comment = "Grab the existing stem -> " + stemFrom
-        morph.part1 = partBefore
-        morph.part2 = stemFrom
-        morph.part3 = partAfter + verbEnding.getEnding()
-        morph.verbForm = workingVerbForm + verbEnding.getEnding()
-        workingMorphStruct.append(morphStep: morph)
-        
-        workingVerbForm = vu.replaceSubrange(inputString: workingVerbForm, fromString: "_", toString: stemTo)
-        morph = MorphStep()
-        morph.part1 = partBefore
-        morph.part2 = stemTo
-        morph.part3 = partAfter + verbEnding.getEnding()
-        morph.comment = "Change the stem -> " + stemTo
-        morph.verbForm = workingVerbForm + verbEnding.getEnding()
-        workingMorphStruct.append(morphStep: morph)
-        
-        morph = MorphStep()
+        if stemFrom.count > 0 && stemTo.count > 0 {
+            let result = vu.replaceSubrangeAndGetBeforeAndAfterStrings(inputString: workingVerbForm, fromString: stemFrom, toString: "_")
+            workingVerbForm = result.0
+            let partBefore = result.1
+            let partAfter = result.2
+            
+            //change the stem
+            
+            var  morph = MorphStep()
+            morph.comment = getMorphComment(.grabStem, stemFrom)
+            morph.part1 = partBefore
+            morph.part2 = stemFrom
+            morph.part3 = partAfter + verbEnding.getEnding()
+            morph.verbForm = workingVerbForm + verbEnding.getEnding()
+            workingMorphStruct.append(morphStep: morph)
+            
+            workingVerbForm = vu.replaceSubrange(inputString: workingVerbForm, fromString: "_", toString: stemTo)
+            morph = MorphStep()
+            morph.part1 = partBefore
+            morph.part2 = stemTo
+            morph.part3 = partAfter + verbEnding.getEnding()
+            morph.comment = getMorphComment(.changeStemTo, stemTo)
+            morph.verbForm = workingVerbForm + verbEnding.getEnding()
+            workingMorphStruct.append(morphStep: morph)
+        }
+        var morph = MorphStep()
         morph.part1 = workingVerbForm
         morph.part2 = verbEnding.getEnding()
         morph.part3 = ""
         morph.verbForm = workingVerbForm
-        morph.comment = "Grab the ending -> " + verbEnding.getEnding()
+        morph.comment = getMorphComment(.removeEnding, verbEnding.getEnding())
         workingMorphStruct.append(morphStep: morph)
         workingMorphStruct.isStem = true
         return workingMorphStruct
@@ -106,7 +106,7 @@ public struct StemChangingConjugation {
         morphStep.verbForm = ss + endingString
         morphStep.part1 = ss
         morphStep.part2 = endingString
-        morphStep.comment = "Append this special preterite ending -> " + endingString
+        morphStep.comment = getMorphComment(.appendPreteriteEnding, endingString)
         workingMorphStruct.append(morphStep : morphStep)
         workingMorphStruct.isPretStem = true
         return workingMorphStruct
@@ -137,7 +137,7 @@ public struct StemChangingConjugation {
         morphStep.isFinalStep = true
         morphStep.part1 = ss
         morphStep.part2 = pretStem2
-        morphStep.comment = "Replace with this pretStem2 ending-> \(pretStem2)"
+        morphStep.comment = getMorphComment(.appendPreteriteEnding, pretStem2)
         morphStep.verbForm = ss + pretStem2
         workingMorphStruct.append(morphStep : morphStep)
         workingMorphStruct.isPretStem2 = true
@@ -156,14 +156,14 @@ public struct StemChangingConjugation {
         morphStep.verbForm = ss
         morphStep.part1 = ss
         morphStep.part2 = verbEnding.getEnding()
-        morphStep.comment = "Grab verb ending -> " + verbEnding.rawValue
+        morphStep.comment = getMorphComment(.grabEnding, verbEnding.rawValue)
         workingMorphStruct.append(morphStep : morphStep)
         
         morphStep = MorphStep()
         morphStep.isFinalStep = true
         morphStep.part1 = ss
         morphStep.part2 = person.getPretStem3Ending()
-        morphStep.comment = "Replace with this pretStem3 ending-> \(person.getPretStem3Ending())"
+        morphStep.comment = getMorphComment(.appendPreteriteEnding, person.getPretStem3Ending())
         morphStep.verbForm = ss + person.getPretStem3Ending()
         workingMorphStruct.append(morphStep : morphStep)
         workingMorphStruct.isPretStem3 = true

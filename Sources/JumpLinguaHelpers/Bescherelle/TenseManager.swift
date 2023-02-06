@@ -99,7 +99,7 @@ public struct TenseManager {
     }
     
     public mutating func toggleAllCompoundIndicativeTenses(){
-        for tense in Tense.perfectIndicateAll {
+        for tense in Tense.perfectIndicativeAll {
             activated[tense.getIndex()].toggle()
         }
     }

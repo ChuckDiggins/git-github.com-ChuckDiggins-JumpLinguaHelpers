@@ -151,6 +151,9 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         let vmCount = verbModels.count
         for i in 0 ..< vmCount {
             let vm = verbModels[i]
+//            if vm.modelVerb == "ver" && verbWord == "rever"{
+//                print ("getVerbModel \(vm.modelVerb)")
+//            }
             if vm.isModelFor(verbWord: verbWord){
                 //print("VerbWord \(verbWord) has verb model \(vm.id) - model verb \(vm.modelVerb)")
                 return vm
@@ -166,6 +169,9 @@ public class RomanceVerbModelConjugation : VerbModelConjugation {
         let vmCount = verbModels.count
         for i in 0 ..< vmCount {
             let vm = verbModels[i]
+//            if vm.modelVerb == "ver" && verbWord == "rever"{
+//                print ("getVerbModel \(vm.modelVerb)")
+//            }
             if vm.isModelFor(verbWord: verbWord){
                 //print("VerbWord \(verbWord) has verb model \(vm.id) - model verb \(vm.modelVerb)")
                 return vm

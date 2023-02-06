@@ -238,6 +238,14 @@ public class BRomanceVerb: BVerb {
         return ""
     }
     
+    public func createDefaultPastParticiple()->String {
+        return ""
+    }
+    
+    public func createDefaultGerund()->String {
+        return ""
+    }
+    
     public func getConjugateForm(tense : Tense, person : Person)->String {
         let _ = getConjugatedMorphStruct( tense : tense, person : person , conjugateEntirePhrase : false)
         return morphStructManager.getFinalVerbForm(person: person)

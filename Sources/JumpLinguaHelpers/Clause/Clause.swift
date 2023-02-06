@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import JumpLinguaHelpers
+
 
 //public class dClause : dCluster, ObservableObject {
-public class dClause : dCluster {
-    @Published private(set) var clause = dClause.self
+open class dClause : dCluster {
+//    @Published private(set) var clause = dClause.self
     
     
     public override init(word: Word, clusterType : ContextFreeSymbol){

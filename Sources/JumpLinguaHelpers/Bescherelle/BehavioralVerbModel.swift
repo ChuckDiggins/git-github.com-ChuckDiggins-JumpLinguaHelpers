@@ -50,28 +50,11 @@ public struct BehavioralVerbModel {
         }
     }
     
-    public func isWeather(language: LanguageType, verb: Verb)->Bool{
-        switch language{
-        case .Spanish:
-            switch verb.spanish{
-            case "amanacer": return true
-            case "anochecer": return true
-            case "atardecer": return true
-            case "helar ": return true
-            case "granizar": return true
-            case "llover": return true
-            case "nevar": return true
-            case "relampaguear": return true
-            case "tronar": return true
-            default: return false
-            }
-        case .French:
-            switch verb.french{
-            case "amanacer": return true
-            default: return false
-            }
-        default: return false
+    public func isWeather(language: LanguageType, targetVerb: Verb)->Bool{
+        for verb in getVerbsLikeWeather(language: language){
+            if targetVerb == verb { return true}
         }
+        return false
     }
     
     public func getVerbsLikeGustar(language: LanguageType)->[Verb]{
@@ -95,72 +78,36 @@ public struct BehavioralVerbModel {
         default: return verbList
         }
     }
-    public func isLikeGustar(language: LanguageType, verb: Verb)->Bool{
-        switch language{
-        case .Spanish:
-            switch verb.spanish{
-            case "gustar": return true
-            case "aburrir": return true
-            case "doler": return true
-            case "encantar ": return true
-            case "faltar": return true
-            case "fascinar": return true
-            case "importar": return true
-            case "molestar": return true
-            case "parecer": return true
-            case "quedar": return true
-            case "sorprender": return true
-            case "volver loco": return true
-            default: return false
-            }
-        case .French:
-            switch verb.french{
-            case "importar": return true
-            default: return false
-            }
-        default: return false
+    public func isVerbLikeGustar(language: LanguageType, targetVerb: Verb)->Bool{
+        for verb in getVerbsLikeGustar(language: language){
+            if targetVerb == verb { return true}
         }
+        return false
     }
     
     public func getVerbsLikeThirdPersonOnly(language: LanguageType)->[Verb]{
         var verbList = [Verb]()
         switch language{
         case .Spanish:
-            verbList.append(Verb(spanish: "acaecer", french: "", english: ""))
-            verbList.append(Verb(spanish: "acontecer", french: "", english: ""))
-            verbList.append(Verb(spanish: "atañer", french: "", english: ""))
-            verbList.append(Verb(spanish: "aterirse", french: "", english: ""))
-            verbList.append(Verb(spanish: "despavorir", french: "", english: ""))
-            verbList.append(Verb(spanish: "desolar", french: "", english: ""))
-            verbList.append(Verb(spanish: "empedernir", french: "", english: ""))
-            verbList.append(Verb(spanish: "suceder", french: "", english: ""))
+            verbList.append(Verb(spanish: "acaecer", french: "", english: "take place"))
+            verbList.append(Verb(spanish: "acontecer", french: "", english: "happen"))
+            verbList.append(Verb(spanish: "atañer", french: "", english: "appertain"))
+            verbList.append(Verb(spanish: "aterirse", french: "", english: "get stiff with cold"))
+            verbList.append(Verb(spanish: "despavorir", french: "", english: "terrify"))
+            verbList.append(Verb(spanish: "desolar", french: "", english: "devastate"))
+            verbList.append(Verb(spanish: "empedernir", french: "", english: "harden"))
+            verbList.append(Verb(spanish: "suceder", french: "", english: "happen"))
             return verbList
         case .French: return verbList
         default: return verbList
         }
     }
     
-    public func isThirdPersonOnly(language: LanguageType, verb: Verb)->Bool{
-        switch language{
-        case .Spanish:
-            switch verb.spanish{
-            case "acaecer": return true  //happen
-            case "acontecer": return true  //happen
-            case "atañer": return true  //to have to do with
-            case "aterirse": return true
-            case "despavorir": return true
-            case "desolar ": return true
-            case "empedernir": return true
-            case "suceder": return true
-            default: return false
-            }
-        case .French:
-            switch verb.french{
-            case "importar": return true
-            default: return false
-            }
-        default: return false
+    public func isThirdPersonOnly(language: LanguageType, targetVerb: Verb)->Bool{
+        for verb in getVerbsLikeThirdPersonOnly(language: language){
+            if targetVerb == verb { return true}
         }
+        return false
     }
     
 //    alcanzar + infinitive (to manage to do)
@@ -177,46 +124,63 @@ public struct BehavioralVerbModel {
         var verbList = [Verb]()
         switch language{
         case .Spanish:
-            verbList.append(Verb(spanish: "acabar de", french: "finir de", english: ""))
-            verbList.append(Verb(spanish: "alcanzar", french: "", english: ""))
-            verbList.append(Verb(spanish: "andar", french: "", english: ""))
-            verbList.append(Verb(spanish: "deber", french: "devoir", english: ""))
-            verbList.append(Verb(spanish: "echar a", french: "jeter à", english: ""))
-            verbList.append(Verb(spanish: "estar", french: "être", english: ""))
-            verbList.append(Verb(spanish: "haber de", french: "devoir", english: ""))
-            verbList.append(Verb(spanish: "haber", french: "avoir", english: ""))
-            verbList.append(Verb(spanish: "parar de", french: "arrêter", english: ""))
-            verbList.append(Verb(spanish: "poder", french: "pouvoir", english: ""))
-            verbList.append(Verb(spanish: "quedar en", french: "rester dans", english: ""))
-            verbList.append(Verb(spanish: "querer", french: "vouloir", english: ""))
-            verbList.append(Verb(spanish: "resultar", french: "résulter", english: ""))
-            verbList.append(Verb(spanish: "seguir", french: "continuer", english: ""))
+            verbList.append(Verb(spanish: "acabar de", french: "finir de", english: "just finished"))
+            verbList.append(Verb(spanish: "alcanzar", french: "atteindre", english: "reach"))
+            verbList.append(Verb(spanish: "andar", french: "marcher", english: "walk"))
+            verbList.append(Verb(spanish: "deber", french: "devoir", english: "should"))
+            verbList.append(Verb(spanish: "echar a", french: "jeter à", english: "kick out"))
+            verbList.append(Verb(spanish: "estar", french: "être", english: "be"))
+            verbList.append(Verb(spanish: "haber de", french: "devoir", english: "need to"))
+            verbList.append(Verb(spanish: "haber", french: "avoir", english: "have"))
+            verbList.append(Verb(spanish: "parar de", french: "arrêter", english: "stop"))
+            verbList.append(Verb(spanish: "poder", french: "pouvoir", english: "can"))
+            verbList.append(Verb(spanish: "quedar sin", french: "rester dans", english: "has been without"))
+            verbList.append(Verb(spanish: "quedarse en", french: "rester dans", english: "stay in"))  //I stay in bed
+            verbList.append(Verb(spanish: "querer", french: "vouloir", english: "want to"))
+            verbList.append(Verb(spanish: "resultar", french: "résulter", english: "result"))
+            verbList.append(Verb(spanish: "seguir", french: "continuer", english: "continue"))
             
-            verbList.append(Verb(spanish: "comenzar a", french: "commencer à", english: ""))
-            verbList.append(Verb(spanish: "dejar de", french: "laisser de", english: ""))
-            verbList.append(Verb(spanish: "estar por", french: "être par", english: ""))
-            verbList.append(Verb(spanish: "ir a", french: "aller à", english: ""))
-            verbList.append(Verb(spanish: "ponerse a", french: "accéder à", english: ""))
-            verbList.append(Verb(spanish: "romper a", french: "casser à", english: ""))
-            verbList.append(Verb(spanish: "soler", french: "faire habituellement", english: ""))
-            verbList.append(Verb(spanish: "tener que", french: "devoir", english: ""))
-            verbList.append(Verb(spanish: "venir a", french: "venir à", english: ""))
-            verbList.append(Verb(spanish: "volver a", french: "retourner à", english: ""))
+            verbList.append(Verb(spanish: "comenzar a", french: "commencer à", english: "begin"))
+            verbList.append(Verb(spanish: "dejar de", french: "laisser de", english: "stop"))
+            verbList.append(Verb(spanish: "estar por", french: "être par", english: "be by"))
+            verbList.append(Verb(spanish: "ir a", french: "aller à", english: "go to"))
+            verbList.append(Verb(spanish: "ponerse a", french: "accéder à", english: "get to"))
+            verbList.append(Verb(spanish: "romper a", french: "casser à", english: "break up"))
+            verbList.append(Verb(spanish: "soler", french: "faire habituellement", english: "usually"))
+            verbList.append(Verb(spanish: "tener que", french: "devoir", english: "have to"))
+            verbList.append(Verb(spanish: "venir a", french: "venir à", english: "come to"))
+            verbList.append(Verb(spanish: "volver a", french: "retourner à", english: "do again"))
             
-            verbList.append(Verb(spanish: "ir", french: "aller", english: ""))
-            verbList.append(Verb(spanish: "llevar", french: "apporter", english: ""))
-            verbList.append(Verb(spanish: "venir", french: "venir", english: ""))
+            verbList.append(Verb(spanish: "ir", french: "aller", english: "go"))
+            verbList.append(Verb(spanish: "llevar", french: "apporter", english: "carry on"))
+            verbList.append(Verb(spanish: "venir", french: "venir", english: "come"))
             
-            verbList.append(Verb(spanish: "dejar hecho", french: "laissere résonner", english: ""))
-            verbList.append(Verb(spanish: "llevar puesto", french: "porter", english: ""))
-            verbList.append(Verb(spanish: "sentirse", french: "se sentir", english: ""))
-            verbList.append(Verb(spanish: "verse", french: "se voir", english: ""))
+            verbList.append(Verb(spanish: "dejar hecho", french: "laissere résonner", english: "leave done"))
+            verbList.append(Verb(spanish: "llevar puesto", french: "porter", english: "be wearing"))
+            verbList.append(Verb(spanish: "sentirse", french: "se sentir", english: "feel sorry"))
+            verbList.append(Verb(spanish: "verse", french: "se voir", english: "be"))
             return verbList
         case .French: return verbList
         default: return verbList
         }
     }
     
+    public func isAuxiliaryAtTense(language: LanguageType, verb: Verb, targetTense: Tense)->Bool{
+        let result = isAuxiliary(language: language, verb: verb)
+        if result.0 && result.1 == targetTense {return true}
+        return false
+    }
+    
+    public func getAuxiliaryVerbsAtTense(language: LanguageType, targetTense: Tense)->[Verb]{
+        var verbList = [Verb]()
+        for verb in getAuxiliaryVerbs(language: language){
+            let result = isAuxiliary(language: language, verb: verb)
+            if result.0 {
+                if result.1 == targetTense { verbList.append(verb)}
+            }
+        }
+        return verbList
+    }
     
     public func isAuxiliary(language: LanguageType, verb: Verb)->(Bool, Tense){
         switch language{
@@ -234,7 +198,8 @@ public struct BehavioralVerbModel {
             case "haber": return (true, .pastParticiple)
             case "parar de": return (true, .infinitive)
             case "resultar": return (true, .infinitive)
-            case "quedar en": return (true, .infinitive)
+            case "quedar sin": return (true, .infinitive)
+            case "quedarse en": return (true, .infinitive)
             case "seguir": return (true, .gerund)
                 
             case "comenzar a": return (true, .infinitive)
@@ -300,12 +265,13 @@ public struct BehavioralVerbModel {
             case "poder": return ("auxiliary verb 'poder':  Takes an infinitive. Means 'can'.", "\"puedo estudiar\" means \"I can study\".")
             case "querer": return ("auxiliary verb 'querer':  Takes an infinitive. Means 'want to'", " \"quiero estudiar\" means \"I want to study\".")
             case "alcanzar": return ("auxiliary verb 'alcanzar':  Takes an infinitive. Means 'to manage to' when used like this.", "\"alcanzo estudiar\" means \"I manage to study\".")
-            case "echar a": return ("auxiliary phrase 'echar de':  Takes an infinitive. Means 'to miss' when used like this.", "\"echo de estudiar\" means \"I miss studying\".")
+            case "echar a": return ("auxiliary phrase 'echar a':  Takes an infinitive. Means 'to start' when used like this.", "\"echo a estudiar\" means \"I am starting to study\".")
             case "haber de": return ("auxiliary phrase 'haber de':  Takes an infinitive. Means 'to have to do' when used like this.", " \"he de estudiar\" means \"I have to study\".")
             case "haber": return ("auxiliary verb 'haber':  Takes a past participle. Means 'to have' when used like this and is referred to as perfect tense.", " \"he estudiado\" means \"I have studied\".")
             case "parar de": return ("auxiliary phrase 'parar de':  Takes an infinitive. Means 'to stop doing' when used like this.", " \"paro de estudiar\" means \"I stop studying\".")
             case "resultar": return ("auxiliary verb 'resultar':  Takes an infinitive. Means 'to end up doing' when used like this.", "\"resulto estudiar\" means \"I end up studying\".")
-            case "quedar en": return ("auxiliary phrase 'quedar en':  Takes an infinitive. Means 'to arrange to' when used like this.", "\"quedo en estudiar\" means \"I stay to study\".")
+            case "quedarse en": return ("auxiliary phrase 'quedarse en':  Takes an infinitive. Means 'to arrange to' when used like this.", "\"me quedo en estudiar\" means \"I stay to study\".")
+            case "quedar sin": return ("auxiliary phrase 'quedar sin':  Takes an infinitive. Means 'to have not been' when used like this.", "\"el trabajo quedó sin realizar\" means \"The work was never finished\".")
             case "seguir": return ("auxiliary verb 'seguir':  Takes a gerund. Means 'to continue to' when used like this.", "\"sigo estudiando\" means \"I am still studying\".")
            
             case "comenzar a": return ("auxiliary phrase 'comenzar a':  Takes an infinitive. Means 'to begin' when used like this.", "\"comenzo estudiar\" means \"I am beginning to study\".")

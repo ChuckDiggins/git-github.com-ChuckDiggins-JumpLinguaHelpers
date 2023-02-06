@@ -8,7 +8,7 @@
 import Foundation
 
 public class Pronoun : Word {
-    var type: PronounType
+    public var type: PronounType
     
     public init(word: String, type : PronounType){
         self.type = type
@@ -54,6 +54,26 @@ public class Pronoun : Word {
         if (result.0 == .PREPOSITIONAL){pt.append(result.0)}
         
         return pt
+    }
+    
+    public func getDirectObjectPronoun(language: LanguageType, gender: Gender, person: Person)->String{
+        switch language {
+        case .Spanish: return SpanishPronoun().getDirectObject(gender: gender, person: person)
+        case .French: return FrenchPronoun().getDirectObject(gender: gender, person: person)
+        case .English: return EnglishPronoun().getDirectObject(gender: gender, person: person)
+        default: break
+        }
+        return ""
+    }
+    
+    public func getIndirectObjectPronoun(language: LanguageType, person: Person)->String{
+        switch language {
+        case .Spanish: return SpanishPronoun().getIndirectObject(person: person)
+        case .French: return FrenchPronoun().getIndirectObject(person: person)
+        case .English: return EnglishPronoun().getIndirectObject(gender: .either, person: person)
+        default: break
+        }
+        return ""
     }
     
     public func getReflexive(language: LanguageType, person: Person, startsWithVowelSound: Bool)->String{

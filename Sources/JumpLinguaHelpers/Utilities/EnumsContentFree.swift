@@ -19,7 +19,7 @@ public enum ContextFreeFunction : String, CaseIterable {
 
 public enum ContextFreeSymbol : String, CaseIterable {
     case arrow = "->"
-    case AMB
+    case AMB = "Determiner"
     case UNK = "UNK"
     case punct = "Punct"
     case comma = ","

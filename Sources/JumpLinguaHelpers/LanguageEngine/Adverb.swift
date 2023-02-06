@@ -9,7 +9,7 @@ import Foundation
 
 public class Adverb : Word {
 
-    var type: AdverbType
+    public var type: AdverbType
     
     public init(word: String, type : AdverbType){
         self.type = type

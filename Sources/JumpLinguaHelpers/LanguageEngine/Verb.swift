@@ -173,7 +173,7 @@ public class Verb : Word {
             jv = JsonVerb(spanish: word, english: english, french: french)
         }
         else {
-            jv = JsonVerb(spanish: word, english: english, french: french,   transitivity: transitivity, verbType : convertVerbTypesToCompositeString())
+            jv = JsonVerb(spanish: word, english: english, french: french, transitivity: transitivity, verbType : convertVerbTypesToCompositeString())
         }
         return jv
     }
@@ -342,7 +342,7 @@ public class SpanishVerb : RomanceVerb {
     }
 
     public override func conjugateAsRegularVerb(tense: Tense, person: Person)->String{
-        return RegularSpanishVerb().conjugateAsRegularForm(verbStr: word, tense: tense, person: person)
+        return RegularSpanishVerb().conjugateAsRegularForm(verb: self, tense: tense, person: person)
     }
     
     public override func getConjugateForm(tense: Tense, person : Person, showResidualPhrase: Bool)->String {

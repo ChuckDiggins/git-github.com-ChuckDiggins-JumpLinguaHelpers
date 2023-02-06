@@ -19,7 +19,7 @@ public struct JSONDictionaryManager {
     public var jsonDeterminerManager = JsonDeterminerManager()
     public var jsonPrepositionManager = JsonPrepositionManager()
     public var jsonPronounManager = JsonPronounManager()
-    public let bUseJsonStarterFiles = true
+    public var bUseJsonStarterFiles = true
     public var verbModelManager = VerbModelManager()
     
     
@@ -27,6 +27,10 @@ public struct JSONDictionaryManager {
     
     public mutating func setWordStringParser(wsp: WordStringParser){
         m_wsp = wsp
+    }
+    
+    public mutating func useJsonStarterFiles(useThem: Bool){
+        bUseJsonStarterFiles = useThem
     }
     
     public mutating func loadJsonWords(){
@@ -119,7 +123,8 @@ public struct JSONDictionaryManager {
         case .verb:
             for i in 0 ..< jsonVerbManager.getVerbCount() {
                 let jsonWord = jsonVerbManager.getVerbAt(index: i)
-                createAndAppendVerbFromJsonVerb(jv: jsonWord)
+//                createAndAppendVerbFromJsonVerb(jv: jsonWord)
+                appendVerbFromJsonVerb(jv: jsonWord)
             }
         default:
             break
@@ -228,5 +233,10 @@ public struct JSONDictionaryManager {
     public func analyzeAgnosticWord(wordType: WordType, spanishWord : String, frenchWord : String, englishWord: String)->Bool {
         return true
     }
+    
+    public mutating func appendVerbFromJsonVerb(jv: JsonVerb){
+        m_wsp.addVerbToDictionary(verb: Verb(jsonVerb: jv, language: .Agnostic))
+    }
+    
 }
 

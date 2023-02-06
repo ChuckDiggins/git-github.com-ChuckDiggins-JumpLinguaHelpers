@@ -8,7 +8,7 @@
 import Foundation
 
 public class Determiner : Word {
-    var type: DeterminerType
+    public var type: DeterminerType
     
     public override init(){
         self.type = .definite

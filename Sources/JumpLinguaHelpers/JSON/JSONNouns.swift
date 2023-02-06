@@ -184,7 +184,7 @@ public struct JsonNounManager {
         
         for v in nounList{
             myWordList.append(v)
-            print("JsonVerbManager: appending noun \(v.spanish), \(v.french), \(v.english)")
+//            print("JsonNounManager: appending noun \(v.spanish), \(v.french), \(v.english)")
             if myWordList.count >= total {break}
         }
         encodeWords()
