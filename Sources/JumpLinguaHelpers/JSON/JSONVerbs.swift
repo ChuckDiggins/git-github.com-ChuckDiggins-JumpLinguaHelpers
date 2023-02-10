@@ -336,7 +336,6 @@ var myMasterVerbList: [JsonVerb] = [
     JsonVerb(spanish: "converger", english: "converge",    french: "converger"),
     JsonVerb(spanish: "convertir", english: "convert",    french: "convertir"),
         JsonVerb(spanish: "convocar", english: "convene",    french: "convoquer"),
-    JsonVerb(spanish: "contar", english: "tell",    french: "raconter"),
     JsonVerb(spanish: "corregir", english: "correct",    french: "corriger"),
     JsonVerb(spanish: "correr", english: "run",    french: "courir"),
         JsonVerb(spanish: "cortar", english: "cut",    french: "couper"),
