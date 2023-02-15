@@ -186,6 +186,7 @@ var myMasterVerbList: [JsonVerb] = [
     JsonVerb(spanish: "alcanzar", english: "attain",    french: "attteindre"),
     JsonVerb(spanish: "alegrarse", english: "rejoice",    french: "réjouir"),
     JsonVerb(spanish: "almorzar", english: "eat lunch",    french: "déjeuner"),
+    JsonVerb(spanish: "alocar", english: "allocate",    french: "allouer"),
     JsonVerb(spanish: "alquilar", english: "rent",    french: "louer"),
     JsonVerb(spanish: "alumbrar", english: "illuminate",    french: "lumsère"),
     JsonVerb(spanish: "alzar", english: "pick up",    french: "soulever"),

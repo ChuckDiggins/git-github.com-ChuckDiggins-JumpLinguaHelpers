@@ -1552,10 +1552,10 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
                            person: ExceptionPerson.S1,
                            from: "c", to: "qu")  //this will change all the present subjunctive
     thisVerb.appendSuffix(suffix: "car")
+    thisVerb.appendExcludeSuffix(suffix: "ocar")
     thisVerb.appendExcludeSuffix(suffix: "hincar")
     thisVerb.appendExcludeSuffix(suffix: "orcar")
     thisVerb.appendExcludeSuffix(suffix: "olcar")
-    thisVerb.appendExcludeSuffix(suffix: "trocar")
     thisVerb.appendSpecialPattern(tense: .preterite, pattern: .c2qu)
     thisVerb.appendSpecialPattern(tense: .presentSubjunctive, pattern: .c2qu)
     verbModels.append(thisVerb)
@@ -1783,7 +1783,6 @@ public func createSpanishVerbModels()->[RomanceVerbModel]{
     thisVerb.appendSuffix(suffix: "olcar")
     thisVerb.appendSuffix(suffix: "oscar")
     thisVerb.appendSuffix(suffix: "iscar")
-    thisVerb.appendExcludeSuffix(suffix: "trocar")   //aterir
     thisVerb.appendExcludeSuffix(suffix: "hincar")   //aterir
     verbModels.append(thisVerb)
     
